@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.greetings
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.greetings
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.greetings; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.42.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.xtext.example.greetings.greetings.impl,
+ org.xtext.example.greetings.serializer,
+ org.xtext.example.greetings.greetings.util,
+ org.xtext.example.greetings.validation,
+ org.xtext.example.greetings,
+ org.xtext.example.greetings.services,
+ org.xtext.example.greetings.greetings,
+ org.xtext.example.greetings.scoping,
+ org.xtext.example.greetings.generator,
+ org.xtext.example.greetings.parser.antlr.internal,
+ org.xtext.example.greetings.parser.antlr
+Import-Package: org.apache.log4j

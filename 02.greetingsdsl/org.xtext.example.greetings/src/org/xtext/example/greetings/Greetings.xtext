@@ -1,0 +1,22 @@
+grammar org.xtext.example.greetings.Greetings with org.eclipse.xtext.common.Terminals
+
+generate greetings "http://www.xtext.org/example/greetings/Greetings"
+
+Model:
+	elems+=Element*;
+	
+Element: Repetition | Greeting;
+
+Repetition:
+	'for' times=INT 'do' elems+=Element+ 'endfor';
+	
+Greeting:
+	form=GreetingForm subjects+=Subject+ '!';
+
+Subject:
+	name=ID;
+
+enum GreetingForm:
+	Hello='Hello' | GutenTag = 'Guten Tag' | Salut = 'Salut'
+;
+
