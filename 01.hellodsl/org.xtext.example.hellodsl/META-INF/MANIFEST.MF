@@ -1,0 +1,28 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.hellodsl
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.hellodsl
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.hellodsl; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.42.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.xtext.example.hellodsl.generator,
+ org.xtext.example.hellodsl,
+ org.xtext.example.hellodsl.validation,
+ org.xtext.example.hellodsl.serializer,
+ org.xtext.example.hellodsl.parser.antlr.internal,
+ org.xtext.example.hellodsl.helloDsl.impl,
+ org.xtext.example.hellodsl.scoping,
+ org.xtext.example.hellodsl.services,
+ org.xtext.example.hellodsl.helloDsl,
+ org.xtext.example.hellodsl.helloDsl.util,
+ org.xtext.example.hellodsl.parser.antlr
+Import-Package: org.apache.log4j

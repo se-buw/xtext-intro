@@ -1,0 +1,9 @@
+grammar org.xtext.example.hellodsl.HelloDsl with org.eclipse.xtext.common.Terminals
+
+generate helloDsl "http://www.xtext.org/example/hellodsl/HelloDsl"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' subject=ID '!';
