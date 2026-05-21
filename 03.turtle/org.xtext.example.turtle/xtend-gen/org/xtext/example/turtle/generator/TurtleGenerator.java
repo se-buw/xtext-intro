@@ -3,10 +3,25 @@
  */
 package org.xtext.example.turtle.generator;
 
+import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function0;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.XbaseGenerated;
+import org.xtext.example.turtle.turtle.Call;
+import org.xtext.example.turtle.turtle.Direction;
+import org.xtext.example.turtle.turtle.Model;
+import org.xtext.example.turtle.turtle.Move;
+import org.xtext.example.turtle.turtle.Routine;
+import org.xtext.example.turtle.turtle.Side;
+import org.xtext.example.turtle.turtle.Statement;
+import org.xtext.example.turtle.turtle.Turn;
 
 /**
  * Generates code from your model files on save.
@@ -15,7 +30,129 @@ import org.eclipse.xtext.generator.IGeneratorContext;
  */
 @SuppressWarnings("all")
 public class TurtleGenerator extends AbstractGenerator {
+  private String head = new Function0<String>() {
+    @Override
+    public String apply() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("// Execute this code at  https://se-buw.de/teaching/gse/tutorials/xtext/03.turtle/simulation/");
+      _builder.newLine();
+      return _builder.toString();
+    }
+  }.apply();
+
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    String _lastSegment = resource.getURI().lastSegment();
+    String _plus = (_lastSegment + ".txt");
+    String _generateJS = this.generateJS(IterableExtensions.<EObject>head(resource.getContents()));
+    String _plus_1 = (this.head + _generateJS);
+    fsa.generateFile(_plus, _plus_1);
+  }
+
+  protected String _generateJS(final Model m) {
+    StringConcatenation _builder = new StringConcatenation();
+    {
+      EList<Routine> _routines = m.getRoutines();
+      for(final Routine r : _routines) {
+        String _generateJS = this.generateJS(r);
+        _builder.append(_generateJS);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    {
+      EList<Statement> _statements = m.getStatements();
+      for(final Statement s : _statements) {
+        String _generateJS_1 = this.generateJS(s);
+        _builder.append(_generateJS_1);
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  protected String _generateJS(final Call c) {
+    StringConcatenation _builder = new StringConcatenation();
+    String _name = c.getRoutine().getName();
+    _builder.append(_name);
+    _builder.append("();");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  protected String _generateJS(final Move m) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("turtle.move(");
+    String _xifexpression = null;
+    Direction _dir = m.getDir();
+    boolean _tripleEquals = (_dir == Direction.BACKWARD);
+    if (_tripleEquals) {
+      _xifexpression = "-";
+    } else {
+      _xifexpression = "";
+    }
+    _builder.append(_xifexpression);
+    int _dist = m.getDist();
+    _builder.append(_dist);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  protected String _generateJS(final Turn t) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("turtle.move(");
+    String _xifexpression = null;
+    Side _side = t.getSide();
+    boolean _tripleEquals = (_side == Side.LEFT);
+    if (_tripleEquals) {
+      _xifexpression = "-";
+    } else {
+      _xifexpression = "";
+    }
+    _builder.append(_xifexpression);
+    int _deg = t.getDeg();
+    _builder.append(_deg);
+    _builder.append(");");
+    _builder.newLineIfNotEmpty();
+    return _builder.toString();
+  }
+
+  protected String _generateJS(final Routine r) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("function ");
+    String _name = r.getName();
+    _builder.append(_name);
+    _builder.append("() {");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    {
+      EList<Statement> _body = r.getBody();
+      for(final Statement s : _body) {
+        String _generateJS = this.generateJS(s);
+        _builder.append(_generateJS, "\t");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("}");
+    _builder.newLine();
+    return _builder.toString();
+  }
+
+  @XbaseGenerated
+  public String generateJS(final EObject c) {
+    if (c instanceof Call) {
+      return _generateJS((Call)c);
+    } else if (c instanceof Move) {
+      return _generateJS((Move)c);
+    } else if (c instanceof Turn) {
+      return _generateJS((Turn)c);
+    } else if (c instanceof Model) {
+      return _generateJS((Model)c);
+    } else if (c instanceof Routine) {
+      return _generateJS((Routine)c);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(c).toString());
+    }
   }
 }

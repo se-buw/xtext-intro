@@ -7,6 +7,13 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.turtle.turtle.Call
+import org.xtext.example.turtle.turtle.Move
+import org.xtext.example.turtle.turtle.Direction
+import org.xtext.example.turtle.turtle.Side
+import org.xtext.example.turtle.turtle.Turn
+import org.xtext.example.turtle.turtle.Routine
+import org.xtext.example.turtle.turtle.Model
 
 /**
  * Generates code from your model files on save.
@@ -14,12 +21,29 @@ import org.eclipse.xtext.generator.IGeneratorContext
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
 class TurtleGenerator extends AbstractGenerator {
+	String head = '''
+	// Execute this code at  https://se-buw.de/teaching/gse/tutorials/xtext/03.turtle/simulation/
+	'''
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		fsa.generateFile(resource.URI.lastSegment + '.txt', head + generateJS(resource.contents.head))	
 	}
+	dispatch def String generateJS(Model m) '''
+	«FOR r : m.routines»«generateJS(r)»«ENDFOR»
+	«FOR s : m.statements»«generateJS(s)»«ENDFOR»
+	'''	
+	dispatch def String generateJS(Call c) '''
+	«c.routine.name»();
+	'''
+	dispatch def String generateJS(Move m) '''
+	turtle.move(«m.dir===Direction.BACKWARD?"-":""»«m.dist»);
+	'''
+	dispatch def String generateJS(Turn t) '''
+	turtle.move(«t.side===Side.LEFT?"-":""»«t.deg»);
+	'''
+	dispatch def String generateJS(Routine r) '''
+	function «r.name»() {
+		«FOR s : r.body»«generateJS(s)»«ENDFOR»
+	}
+	'''
 }
