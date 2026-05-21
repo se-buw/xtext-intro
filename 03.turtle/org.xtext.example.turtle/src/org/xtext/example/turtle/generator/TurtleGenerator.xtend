@@ -28,22 +28,28 @@ class TurtleGenerator extends AbstractGenerator {
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		fsa.generateFile(resource.URI.lastSegment + '.txt', head + generateJS(resource.contents.head))	
 	}
+
+	// structure of generated JavaScript code starts with function declarations for routines, then stateements
 	dispatch def String generateJS(Model m) '''
 	«FOR r : m.routines»«generateJS(r)»«ENDFOR»
 	«FOR s : m.statements»«generateJS(s)»«ENDFOR»
 	'''	
-	dispatch def String generateJS(Call c) '''
-	«c.routine.name»();
-	'''
+	
+	// Basic move and turn statements
 	dispatch def String generateJS(Move m) '''
 	turtle.move(«m.dir===Direction.BACKWARD?"-":""»«m.dist»);
 	'''
 	dispatch def String generateJS(Turn t) '''
 	turtle.move(«t.side===Side.LEFT?"-":""»«t.deg»);
 	'''
+	
+	// Routines and calls
 	dispatch def String generateJS(Routine r) '''
 	function «r.name»() {
 		«FOR s : r.body»«generateJS(s)»«ENDFOR»
 	}
+	'''
+	dispatch def String generateJS(Call c) '''
+	«c.routine.name»();
 	'''
 }
