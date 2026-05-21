@@ -8,5 +8,21 @@ Bundle-SymbolicName: org.xtext.example.turtle; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext,
  org.eclipse.xtext.xbase,
- org.eclipse.equinox.common;bundle-version="3.19.0"
+ org.eclipse.equinox.common;bundle-version="3.19.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.42.0",
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
 Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: org.xtext.example.turtle.scoping,
+ org.xtext.example.turtle.parser.antlr.internal,
+ org.xtext.example.turtle.services,
+ org.xtext.example.turtle.validation,
+ org.xtext.example.turtle.parser.antlr,
+ org.xtext.example.turtle.turtle.util,
+ org.xtext.example.turtle.serializer,
+ org.xtext.example.turtle,
+ org.xtext.example.turtle.generator,
+ org.xtext.example.turtle.turtle,
+ org.xtext.example.turtle.turtle.impl
+Import-Package: org.apache.log4j

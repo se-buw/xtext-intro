@@ -3,7 +3,26 @@ grammar org.xtext.example.turtle.Turtle with org.eclipse.xtext.common.Terminals
 generate turtle "http://www.xtext.org/example/turtle/Turtle"
 
 Model:
-	greetings+=Greeting*;
+	routines+=Routine* statements+=Statement*;
 	
-Greeting:
-	'Hello' name=ID '!';
+Routine: 
+  'routine' name=ID '{'
+  	body+=Statement*
+  '}';
+  
+Statement:
+  Move | Turn | Call;
+
+	
+Move: 'move' dir=Direction dist=INT 'px';
+
+enum Direction:
+  FORWARD='forward' | BACKWARD='backward';
+
+Turn: 'turn' side=Side deg=INT 'degrees';
+
+enum Side:
+  LEFT='left' | RIGHT='right';
+  
+Call:
+  'run' routine=[Routine];
