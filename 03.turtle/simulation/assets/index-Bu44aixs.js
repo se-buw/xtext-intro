@@ -54,13 +54,13 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
 //#endregion
 //#region ../node_modules/blockly/blockly_compressed.js
 var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function(root, factory) {
+	(function (root, factory) {
 		if (typeof define === "function" && define.amd) define([], factory);
 		else if (typeof exports === "object") module.exports = factory();
 		else root.Blockly = factory();
-	})(exports, function() {
+	})(exports, function () {
 		var $ = {};
-		var register$$module$build$src$core$registry = function(a, b, c, d) {
+		var register$$module$build$src$core$registry = function (a, b, c, d) {
 			if (!(a instanceof Type$$module$build$src$core$registry) && typeof a !== "string" || `${a}`.trim() === "") throw Error("Invalid type \"" + a + "\". The type must be a non-empty string or a Blockly.registry.Type.");
 			a = `${a}`.toLowerCase();
 			if (typeof b !== "string" || b.trim() === "") throw Error("Invalid name \"" + b + "\". The name must be a non-empty string.");
@@ -72,16 +72,16 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			if (!d && f[e] && f[e] !== c) throw Error("Name \"" + e + "\" with type \"" + a + "\" already registered.");
 			f[e] = c;
 			g[e] = b;
-		}, validate$$module$build$src$core$registry = function(a, b) {
+		}, validate$$module$build$src$core$registry = function (a, b) {
 			switch (a) {
 				case String(Type$$module$build$src$core$registry.FIELD): if (typeof b.fromJson !== "function") throw Error("Type \"" + a + "\" must have a fromJson function");
 			}
-		}, unregister$$module$build$src$core$registry = function(a, b) {
+		}, unregister$$module$build$src$core$registry = function (a, b) {
 			a = `${a}`.toLowerCase();
 			b = b.toLowerCase();
 			const c = typeMap$$module$build$src$core$registry[a];
 			c && c[b] ? (delete typeMap$$module$build$src$core$registry[a][b], delete nameMap$$module$build$src$core$registry[a][b]) : console.warn("Unable to unregister [" + b + "][" + a + "] from the registry.");
-		}, getItem$$module$build$src$core$registry = function(a, b, c) {
+		}, getItem$$module$build$src$core$registry = function (a, b, c) {
 			a = `${a}`.toLowerCase();
 			b = b.toLowerCase();
 			const d = typeMap$$module$build$src$core$registry[a];
@@ -92,15 +92,15 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				return null;
 			}
 			return d[b];
-		}, hasItem$$module$build$src$core$registry = function(a, b) {
+		}, hasItem$$module$build$src$core$registry = function (a, b) {
 			a = `${a}`.toLowerCase();
 			b = b.toLowerCase();
 			return (a = typeMap$$module$build$src$core$registry[a]) ? !!a[b] : !1;
-		}, getClass$$module$build$src$core$registry = function(a, b, c) {
+		}, getClass$$module$build$src$core$registry = function (a, b, c) {
 			return getItem$$module$build$src$core$registry(a, b, c);
-		}, getObject$$module$build$src$core$registry = function(a, b, c) {
+		}, getObject$$module$build$src$core$registry = function (a, b, c) {
 			return getItem$$module$build$src$core$registry(a, b, c);
-		}, getAllItems$$module$build$src$core$registry = function(a, b, c) {
+		}, getAllItems$$module$build$src$core$registry = function (a, b, c) {
 			a = `${a}`.toLowerCase();
 			var d = typeMap$$module$build$src$core$registry[a];
 			if (!d) {
@@ -114,26 +114,26 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c = Object.create(null);
 			for (const e of Object.keys(d)) c[a[e]] = d[e];
 			return c;
-		}, getClassFromOptions$$module$build$src$core$registry = function(a, b, c) {
+		}, getClassFromOptions$$module$build$src$core$registry = function (a, b, c) {
 			b = b.plugins[String(a)] || DEFAULT$$module$build$src$core$registry;
 			return typeof b === "function" ? b : getClass$$module$build$src$core$registry(a, b, c);
-		}, longStart$$module$build$src$core$touch = function(a, b) {
+		}, longStart$$module$build$src$core$touch = function (a, b) {
 			longStop$$module$build$src$core$touch();
-			longPid_$$module$build$src$core$touch = setTimeout(function() {
+			longPid_$$module$build$src$core$touch = setTimeout(function () {
 				b && b.handleRightClick(a);
 			}, LONGPRESS$$module$build$src$core$touch);
-		}, longStop$$module$build$src$core$touch = function() {
+		}, longStop$$module$build$src$core$touch = function () {
 			longPid_$$module$build$src$core$touch && (clearTimeout(longPid_$$module$build$src$core$touch), longPid_$$module$build$src$core$touch = 0);
-		}, clearTouchIdentifier$$module$build$src$core$touch = function() {
+		}, clearTouchIdentifier$$module$build$src$core$touch = function () {
 			touchIdentifier_$$module$build$src$core$touch = null;
-		}, shouldHandleEvent$$module$build$src$core$touch = function(a) {
+		}, shouldHandleEvent$$module$build$src$core$touch = function (a) {
 			return !a.type.startsWith("pointer") || a instanceof PointerEvent && checkTouchIdentifier$$module$build$src$core$touch(a);
-		}, getTouchIdentifierFromEvent$$module$build$src$core$touch = function(a) {
+		}, getTouchIdentifierFromEvent$$module$build$src$core$touch = function (a) {
 			return `${a.pointerId}`;
-		}, checkTouchIdentifier$$module$build$src$core$touch = function(a) {
+		}, checkTouchIdentifier$$module$build$src$core$touch = function (a) {
 			const b = getTouchIdentifierFromEvent$$module$build$src$core$touch(a);
 			return touchIdentifier_$$module$build$src$core$touch ? touchIdentifier_$$module$build$src$core$touch === b : a.type === "pointerdown" ? (touchIdentifier_$$module$build$src$core$touch = b, !0) : !1;
-		}, conditionalBind$$module$build$src$core$browser_events = function(a, b, c, d, e, f) {
+		}, conditionalBind$$module$build$src$core$browser_events = function (a, b, c, d, e, f) {
 			function g(k) {
 				if (e || shouldHandleEvent$$module$build$src$core$touch(k)) c ? d.call(c, k) : d(k);
 			}
@@ -153,7 +153,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				g
 			]);
 			return h;
-		}, bind$$module$build$src$core$browser_events = function(a, b, c, d, e) {
+		}, bind$$module$build$src$core$browser_events = function (a, b, c, d, e) {
 			function f(h) {
 				c ? d.call(c, h) : d(h);
 			}
@@ -173,29 +173,29 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				f
 			]);
 			return g;
-		}, unbind$$module$build$src$core$browser_events = function(a) {
+		}, unbind$$module$build$src$core$browser_events = function (a) {
 			const b = a[a.length - 1][2];
 			for (; a.length;) {
 				const [c, d, e] = a.pop();
 				c.removeEventListener(d, e, !1);
 			}
 			return b;
-		}, isTargetInput$$module$build$src$core$browser_events = function(a) {
+		}, isTargetInput$$module$build$src$core$browser_events = function (a) {
 			if (a.target instanceof HTMLElement) {
 				if (a.target.isContentEditable || a.target.getAttribute("data-is-text-input") === "true") return !0;
 				if (a.target instanceof HTMLInputElement) return a = a.target, a.type === "text" || a.type === "number" || a.type === "email" || a.type === "password" || a.type === "search" || a.type === "tel" || a.type === "url";
 				if (a.target instanceof HTMLTextAreaElement) return !0;
 			}
 			return !1;
-		}, isRightButton$$module$build$src$core$browser_events = function(a) {
+		}, isRightButton$$module$build$src$core$browser_events = function (a) {
 			return a.ctrlKey && MAC$$module$build$src$core$utils$useragent ? !0 : a.button === 2;
-		}, mouseToSvg$$module$build$src$core$browser_events = function(a, b, c) {
+		}, mouseToSvg$$module$build$src$core$browser_events = function (a, b, c) {
 			const d = b.createSVGPoint();
 			d.x = a.clientX;
 			d.y = a.clientY;
 			c || (c = b.getScreenCTM().inverse());
 			return d.matrixTransform(c);
-		}, getScrollDeltaPixels$$module$build$src$core$browser_events = function(a) {
+		}, getScrollDeltaPixels$$module$build$src$core$browser_events = function (a) {
 			switch (a.deltaMode) {
 				default: return {
 					x: a.deltaX,
@@ -210,69 +210,69 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 					y: a.deltaY * PAGE_MODE_MULTIPLIER$$module$build$src$core$browser_events
 				};
 			}
-		}, getNextUniqueId$$module$build$src$core$utils$idgenerator = function() {
+		}, getNextUniqueId$$module$build$src$core$utils$idgenerator = function () {
 			return "blockly-" + (nextId$$module$build$src$core$utils$idgenerator++).toString(36);
-		}, genUid$$module$build$src$core$utils$idgenerator = function() {
+		}, genUid$$module$build$src$core$utils$idgenerator = function () {
 			return internal$$module$build$src$core$utils$idgenerator.genUid();
-		}, isBlockCreate$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockCreate$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_CREATE;
-		}, isBlockDelete$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockDelete$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_DELETE;
-		}, isBlockChange$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockChange$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_CHANGE;
-		}, isBlockFieldIntermediateChange$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockFieldIntermediateChange$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_FIELD_INTERMEDIATE_CHANGE;
-		}, isBlockMove$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockMove$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_MOVE;
-		}, isVarCreate$$module$build$src$core$events$predicates = function(a) {
+		}, isVarCreate$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.VAR_CREATE;
-		}, isVarDelete$$module$build$src$core$events$predicates = function(a) {
+		}, isVarDelete$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.VAR_DELETE;
-		}, isVarRename$$module$build$src$core$events$predicates = function(a) {
+		}, isVarRename$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.VAR_RENAME;
-		}, isBlockDrag$$module$build$src$core$events$predicates = function(a) {
+		}, isBlockDrag$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BLOCK_DRAG;
-		}, isSelected$$module$build$src$core$events$predicates = function(a) {
+		}, isSelected$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.SELECTED;
-		}, isClick$$module$build$src$core$events$predicates = function(a) {
+		}, isClick$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.CLICK;
-		}, isBubbleOpen$$module$build$src$core$events$predicates = function(a) {
+		}, isBubbleOpen$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.BUBBLE_OPEN;
-		}, isTrashcanOpen$$module$build$src$core$events$predicates = function(a) {
+		}, isTrashcanOpen$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.TRASHCAN_OPEN;
-		}, isToolboxItemSelect$$module$build$src$core$events$predicates = function(a) {
+		}, isToolboxItemSelect$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.TOOLBOX_ITEM_SELECT;
-		}, isThemeChange$$module$build$src$core$events$predicates = function(a) {
+		}, isThemeChange$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.THEME_CHANGE;
-		}, isViewportChange$$module$build$src$core$events$predicates = function(a) {
+		}, isViewportChange$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.VIEWPORT_CHANGE;
-		}, isCommentCreate$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentCreate$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_CREATE;
-		}, isCommentDelete$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentDelete$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_DELETE;
-		}, isCommentChange$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentChange$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_CHANGE;
-		}, isCommentMove$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentMove$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_MOVE;
-		}, isCommentResize$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentResize$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_RESIZE;
-		}, isCommentDrag$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentDrag$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_DRAG;
-		}, isCommentCollapse$$module$build$src$core$events$predicates = function(a) {
+		}, isCommentCollapse$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.COMMENT_COLLAPSE;
-		}, isFinishedLoading$$module$build$src$core$events$predicates = function(a) {
+		}, isFinishedLoading$$module$build$src$core$events$predicates = function (a) {
 			return a.type === EventType$$module$build$src$core$events$type.FINISHED_LOADING;
 		}, getRecordUndo$$module$build$src$core$events$utils, fire$$module$build$src$core$events$utils, fireInternal$$module$build$src$core$events$utils, fireNow$$module$build$src$core$events$utils, enqueueEvent$$module$build$src$core$events$utils, filter$$module$build$src$core$events$utils, clearPendingUndo$$module$build$src$core$events$utils, isEnabled$$module$build$src$core$events$utils, setGroupInternal$$module$build$src$core$events$utils, getDescendantIds$$module$build$src$core$events$utils, fromJson$$module$build$src$core$events$utils, get$$module$build$src$core$events$utils, disableOrphans$$module$build$src$core$events$utils, createSvgElement$$module$build$src$core$utils$dom, addClass$$module$build$src$core$utils$dom, removeClasses$$module$build$src$core$utils$dom, removeClass$$module$build$src$core$utils$dom, hasClass$$module$build$src$core$utils$dom, removeNode$$module$build$src$core$utils$dom, insertAfter$$module$build$src$core$utils$dom, setCssTransform$$module$build$src$core$utils$dom, startTextWidthCache$$module$build$src$core$utils$dom, stopTextWidthCache$$module$build$src$core$utils$dom, getTextWidth$$module$build$src$core$utils$dom, getFastTextWidth$$module$build$src$core$utils$dom, getFastTextWidthWithSizeString$$module$build$src$core$utils$dom, measureFontMetrics$$module$build$src$core$utils$dom, isFocusableNode$$module$build$src$core$interfaces$i_focusable_node, isSelectable$$module$build$src$core$interfaces$i_selectable, deepMerge$$module$build$src$core$utils$object, getWorkspaceById$$module$build$src$core$common, getAllWorkspaces$$module$build$src$core$common, registerWorkspace$$module$build$src$core$common, unregisterWorkpace$$module$build$src$core$common, getMainWorkspace$$module$build$src$core$common, setMainWorkspace$$module$build$src$core$common, getSelected$$module$build$src$core$common, setSelected$$module$build$src$core$common, fireSelectedEvent$$module$build$src$core$common, getParentContainer$$module$build$src$core$common, setParentContainer$$module$build$src$core$common, svgResize$$module$build$src$core$common, getBlockTypeCounts$$module$build$src$core$common, jsonInitFactory$$module$build$src$core$common, defineBlocksWithJsonArray$$module$build$src$core$common, defineBlocksWithJsonArrayInternal$$module$build$src$core$common, globalShortcutHandler$$module$build$src$core$common, removeElem$$module$build$src$core$utils$array, register$$module$build$src$core$css, inject$$module$build$src$core$css, getSize$$module$build$src$core$utils$style, getSizeInternal$$module$build$src$core$utils$style, getSizeWithDisplay$$module$build$src$core$utils$style, getComputedStyle$$module$build$src$core$utils$style, getPageOffset$$module$build$src$core$utils$style, getViewportPageOffset$$module$build$src$core$utils$style, getBorderBox$$module$build$src$core$utils$style, scrollIntoContainerView$$module$build$src$core$utils$style, getContainerOffsetToScrollInto$$module$build$src$core$utils$style, getRelativeXY$$module$build$src$core$utils$svg_math, getInjectionDivXY$$module$build$src$core$utils$svg_math, getViewportBBox$$module$build$src$core$utils$svg_math, getDocumentScroll$$module$build$src$core$utils$svg_math, screenToWsCoordinates$$module$build$src$core$utils$svg_math, wsToScreenCoordinates$$module$build$src$core$utils$svg_math, injectDependencies$$module$build$src$core$utils$xml, domToText$$module$build$src$core$utils$xml, sanitizeText$$module$build$src$core$utils$xml, convertToolboxDefToJson$$module$build$src$core$utils$toolbox, validateToolbox$$module$build$src$core$utils$toolbox, convertFlyoutDefToJsonArray$$module$build$src$core$utils$toolbox, hasCategories$$module$build$src$core$utils$toolbox, hasCategoriesInternal$$module$build$src$core$utils$toolbox, isCategoryCollapsible$$module$build$src$core$utils$toolbox, convertToToolboxJson$$module$build$src$core$utils$toolbox, xmlToJsonArray$$module$build$src$core$utils$toolbox, addAttributes$$module$build$src$core$utils$toolbox, parseToolboxTree$$module$build$src$core$utils$toolbox, getStartPositionRect$$module$build$src$core$positionable_helpers, getCornerOppositeToolbox$$module$build$src$core$positionable_helpers, bumpPositionRect$$module$build$src$core$positionable_helpers, register$$module$build$src$core$serialization$registry, unregister$$module$build$src$core$serialization$registry, save$$module$build$src$core$serialization$workspace_comments, append$$module$build$src$core$serialization$workspace_comments, register$$module$build$src$core$clipboard$registry, unregister$$module$build$src$core$clipboard$registry, moveCommentToNotConflict$$module$build$src$core$clipboard$workspace_comment_paster, commentOverlapsOtherExactly$$module$build$src$core$clipboard$workspace_comment_paster, setRole$$module$build$src$core$utils$aria, setState$$module$build$src$core$utils$aria, isSerializable$$module$build$src$core$interfaces$i_serializable, queueRender$$module$build$src$core$render_management, finishQueuedRenders$$module$build$src$core$render_management, triggerQueuedRenders$$module$build$src$core$render_management, alwaysImmediatelyRender$$module$build$src$core$render_management, queueBlock$$module$build$src$core$render_management, doRenders$$module$build$src$core$render_management, dequeueBlock$$module$build$src$core$render_management, shouldRenderRootBlock$$module$build$src$core$render_management, renderBlock$$module$build$src$core$render_management, alert$$module$build$src$core$dialog, setAlert$$module$build$src$core$dialog, confirm$$module$build$src$core$dialog, setConfirm$$module$build$src$core$dialog, prompt$$module$build$src$core$dialog, setPrompt$$module$build$src$core$dialog, toast$$module$build$src$core$dialog, setToast$$module$build$src$core$dialog, isLegacyProcedureDefBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks, isLegacyProcedureCallBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks, isVariableBackedParameterModel$$module$build$src$core$interfaces$i_variable_backed_parameter_model, warn$$module$build$src$core$utils$deprecation, internalFlyoutCategory$$module$build$src$core$variables, flyoutCategory$$module$build$src$core$variables, generateVariableFieldJson$$module$build$src$core$variables, jsonFlyoutCategoryBlocks$$module$build$src$core$variables, xmlFlyoutCategory$$module$build$src$core$variables, flyoutCategoryBlocks$$module$build$src$core$variables, generateUniqueName$$module$build$src$core$variables, generateUniqueNameInternal$$module$build$src$core$variables, generateUniqueNameFromOptions$$module$build$src$core$variables, createVariableButtonHandler$$module$build$src$core$variables, promptName$$module$build$src$core$variables, nameUsedWithOtherType$$module$build$src$core$variables, nameUsedWithAnyType$$module$build$src$core$variables, nameUsedWithConflictingParam$$module$build$src$core$variables, checkForConflictingParamWithProcedureModels$$module$build$src$core$variables, checkForConflictingParamWithLegacyProcedures$$module$build$src$core$variables, generateVariableFieldDom$$module$build$src$core$variables, createVariable$$module$build$src$core$variables, getAddedVariables$$module$build$src$core$variables, compareByName$$module$build$src$core$variables, getVariableUsesById$$module$build$src$core$variables, save$$module$build$src$core$serialization$blocks, saveAttributes$$module$build$src$core$serialization$blocks, saveCoords$$module$build$src$core$serialization$blocks, saveExtraState$$module$build$src$core$serialization$blocks, saveIcons$$module$build$src$core$serialization$blocks, saveFields$$module$build$src$core$serialization$blocks, saveInputBlocks$$module$build$src$core$serialization$blocks, saveNextBlocks$$module$build$src$core$serialization$blocks, saveConnection$$module$build$src$core$serialization$blocks, append$$module$build$src$core$serialization$blocks, appendInternal$$module$build$src$core$serialization$blocks, appendPrivate$$module$build$src$core$serialization$blocks, checkNewVariables$$module$build$src$core$serialization$blocks, loadCoords$$module$build$src$core$serialization$blocks, loadAttributes$$module$build$src$core$serialization$blocks, loadExtraState$$module$build$src$core$serialization$blocks, tryToConnectParent$$module$build$src$core$serialization$blocks, loadIcons$$module$build$src$core$serialization$blocks, loadFields$$module$build$src$core$serialization$blocks, loadInputBlocks$$module$build$src$core$serialization$blocks, loadNextBlocks$$module$build$src$core$serialization$blocks, loadConnection$$module$build$src$core$serialization$blocks, initBlock$$module$build$src$core$serialization$blocks, hasBubble$$module$build$src$core$interfaces$i_has_bubble, toRadians$$module$build$src$core$utils$math, toDegrees$$module$build$src$core$utils$math, clamp$$module$build$src$core$utils$math, createDom$$module$build$src$core$dropdowndiv, setBoundsElement$$module$build$src$core$dropdowndiv, getOwner$$module$build$src$core$dropdowndiv, getContentDiv$$module$build$src$core$dropdowndiv, clearContent$$module$build$src$core$dropdowndiv, setColour$$module$build$src$core$dropdowndiv, showPositionedByBlock$$module$build$src$core$dropdowndiv, showPositionedByField$$module$build$src$core$dropdowndiv, getScaledBboxOfBlock$$module$build$src$core$dropdowndiv, getScaledBboxOfField$$module$build$src$core$dropdowndiv, showPositionedByRect$$module$build$src$core$dropdowndiv, show$$module$build$src$core$dropdowndiv, getPositionBelowMetrics$$module$build$src$core$dropdowndiv, getPositionAboveMetrics$$module$build$src$core$dropdowndiv, getPositionTopOfPageMetrics$$module$build$src$core$dropdowndiv, getPositionX$$module$build$src$core$dropdowndiv, isVisible$$module$build$src$core$dropdowndiv, hideIfOwner$$module$build$src$core$dropdowndiv, hide$$module$build$src$core$dropdowndiv, hideWithoutAnimation$$module$build$src$core$dropdowndiv, positionInternal$$module$build$src$core$dropdowndiv, repositionForWindowResize$$module$build$src$core$dropdowndiv, shortestStringLength$$module$build$src$core$utils$string, commonWordPrefix$$module$build$src$core$utils$string, commonWordSuffix$$module$build$src$core$utils$string, wrapLine$$module$build$src$core$utils$string, wrapScore$$module$build$src$core$utils$string, wrapMutate$$module$build$src$core$utils$string, wrapToText$$module$build$src$core$utils$string, setCustomTooltip$$module$build$src$core$tooltip, getCustomTooltip$$module$build$src$core$tooltip, isVisible$$module$build$src$core$tooltip, getDiv$$module$build$src$core$tooltip, getTooltipOfObject$$module$build$src$core$tooltip, getTargetObject$$module$build$src$core$tooltip, createDom$$module$build$src$core$tooltip, bindMouseEvents$$module$build$src$core$tooltip, unbindMouseEvents$$module$build$src$core$tooltip, onMouseOver$$module$build$src$core$tooltip, onMouseOut$$module$build$src$core$tooltip, onMouseMove$$module$build$src$core$tooltip, dispose$$module$build$src$core$tooltip, hide$$module$build$src$core$tooltip, block$$module$build$src$core$tooltip, unblock$$module$build$src$core$tooltip, renderContent$$module$build$src$core$tooltip, renderDefaultContent$$module$build$src$core$tooltip, getPosition$$module$build$src$core$tooltip, show$$module$build$src$core$tooltip, getHsvSaturation$$module$build$src$core$utils$colour, setHsvSaturation$$module$build$src$core$utils$colour, getHsvValue$$module$build$src$core$utils$colour, setHsvValue$$module$build$src$core$utils$colour, parse$$module$build$src$core$utils$colour, rgbToHex$$module$build$src$core$utils$colour, hexToRgb$$module$build$src$core$utils$colour, hsvToHex$$module$build$src$core$utils$colour, blend$$module$build$src$core$utils$colour, hueToHex$$module$build$src$core$utils$colour, tokenizeInterpolationInternal$$module$build$src$core$utils$parsing, tokenizeInterpolation$$module$build$src$core$utils$parsing, replaceMessageReferences$$module$build$src$core$utils$parsing, checkMessageReferences$$module$build$src$core$utils$parsing, parseBlockColour$$module$build$src$core$utils$parsing, getDiv$$module$build$src$core$widgetdiv, testOnly_setDiv$$module$build$src$core$widgetdiv, createDom$$module$build$src$core$widgetdiv, show$$module$build$src$core$widgetdiv, hide$$module$build$src$core$widgetdiv, isVisible$$module$build$src$core$widgetdiv, hideIfOwner$$module$build$src$core$widgetdiv, hideIfOwnerIsInWorkspace$$module$build$src$core$widgetdiv, positionInternal$$module$build$src$core$widgetdiv, positionWithAnchor$$module$build$src$core$widgetdiv, calculateX$$module$build$src$core$widgetdiv, calculateY$$module$build$src$core$widgetdiv, isRepositionable$$module$build$src$core$widgetdiv, repositionForWindowResize$$module$build$src$core$widgetdiv, getCurrentBlock$$module$build$src$core$contextmenu, setCurrentBlock$$module$build$src$core$contextmenu, show$$module$build$src$core$contextmenu, populate_$$module$build$src$core$contextmenu, position_$$module$build$src$core$contextmenu, createWidget_$$module$build$src$core$contextmenu, haltPropagation$$module$build$src$core$contextmenu, hide$$module$build$src$core$contextmenu, dispose$$module$build$src$core$contextmenu, getMenu$$module$build$src$core$contextmenu, mouseToWorkspacePoint$$module$build$src$core$utils$drag, start$$module$build$src$core$utils$drag, move$$module$build$src$core$utils$drag, workspaceToDom$$module$build$src$core$xml, saveWorkspaceComment$$module$build$src$core$xml, variablesToDom$$module$build$src$core$xml, blockToDomWithXY$$module$build$src$core$xml, fieldToDom$$module$build$src$core$xml, allFieldsToDom$$module$build$src$core$xml, blockToDom$$module$build$src$core$xml, cloneShadow$$module$build$src$core$xml, domToText$$module$build$src$core$xml, domToPrettyText$$module$build$src$core$xml, clearWorkspaceAndLoadFromXml$$module$build$src$core$xml, loadWorkspaceComment$$module$build$src$core$xml, appendDomToWorkspace$$module$build$src$core$xml, domToBlockInternal$$module$build$src$core$xml, domToVariables$$module$build$src$core$xml, mapSupportedXmlTags$$module$build$src$core$xml, applyMutationTagNodes$$module$build$src$core$xml, applyCommentTagNodes$$module$build$src$core$xml, applyDataTagNodes$$module$build$src$core$xml, applyFieldTagNodes$$module$build$src$core$xml, findChildBlocks$$module$build$src$core$xml, applyInputTagNodes$$module$build$src$core$xml, applyNextTagNodes$$module$build$src$core$xml, domToBlockHeadless$$module$build$src$core$xml, domToField$$module$build$src$core$xml, deleteNext$$module$build$src$core$xml, isElement$$module$build$src$core$xml, register$$module$build$src$core$field_registry, unregister$$module$build$src$core$field_registry, fromJsonInternal$$module$build$src$core$field_registry, isImageProperties$$module$build$src$core$field_dropdown, unregister$$module$build$src$core$extensions, isRegistered$$module$build$src$core$extensions, apply$$module$build$src$core$extensions, checkNoMutatorProperties$$module$build$src$core$extensions, checkXmlHooks$$module$build$src$core$extensions, checkJsonHooks$$module$build$src$core$extensions, checkMutatorDialog$$module$build$src$core$extensions, checkHasFunctionPair$$module$build$src$core$extensions, checkHasMutatorProperties$$module$build$src$core$extensions, getMutatorProperties$$module$build$src$core$extensions, mutatorPropertiesMatch$$module$build$src$core$extensions, runAfterPageLoad$$module$build$src$core$extensions, checkDropdownOptionsInTable$$module$build$src$core$extensions, extensionParentTooltip$$module$build$src$core$extensions, point$$module$build$src$core$utils$svg_paths, curve$$module$build$src$core$utils$svg_paths, moveTo$$module$build$src$core$utils$svg_paths, moveBy$$module$build$src$core$utils$svg_paths, lineTo$$module$build$src$core$utils$svg_paths, line$$module$build$src$core$utils$svg_paths, lineOnAxis$$module$build$src$core$utils$svg_paths, arc$$module$build$src$core$utils$svg_paths, connectReciprocally$$module$build$src$core$connection, getSingleConnection$$module$build$src$core$connection, getConnectionForOrphanedOutput$$module$build$src$core$connection, isIcon$$module$build$src$core$interfaces$i_icon, isCommentIcon$$module$build$src$core$interfaces$i_comment_icon, disposeUiEffect$$module$build$src$core$block_animations, disposeUiStep$$module$build$src$core$block_animations, connectionUiEffect$$module$build$src$core$block_animations, disconnectUiEffect$$module$build$src$core$block_animations, disconnectUiStep$$module$build$src$core$block_animations, disconnectUiStop$$module$build$src$core$block_animations, moveBlockToNotConflict$$module$build$src$core$clipboard$block_paster, blockOverlapsOtherExactly$$module$build$src$core$clipboard$block_paster, blockIsInSnapRadius$$module$build$src$core$clipboard$block_paster, bumpObjectIntoBounds$$module$build$src$core$bump_objects, bumpIntoBoundsHandler$$module$build$src$core$bump_objects, extractObjectFromEvent$$module$build$src$core$bump_objects, bumpTopObjectsIntoBounds$$module$build$src$core$bump_objects, isDeletable$$module$build$src$core$interfaces$i_deletable, getBlockNavigationCandidates$$module$build$src$core$keyboard_nav$block_navigation_policy, navigateStacks$$module$build$src$core$keyboard_nav$block_navigation_policy, navigateBlock$$module$build$src$core$keyboard_nav$block_navigation_policy, register$$module$build$src$core$icons$registry, unregister$$module$build$src$core$icons$registry, hasContextMenu$$module$build$src$core$interfaces$i_contextmenu, isDraggable$$module$build$src$core$interfaces$i_draggable, isAutoHideable$$module$build$src$core$interfaces$i_autohideable, isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block, isObservable$$module$build$src$core$interfaces$i_observable, allProcedures$$module$build$src$core$procedures, procTupleComparator$$module$build$src$core$procedures, isLegalName$$module$build$src$core$procedures, isNameUsed$$module$build$src$core$procedures, xmlFlyoutCategory$$module$build$src$core$procedures, internalFlyoutCategory$$module$build$src$core$procedures, flyoutCategory$$module$build$src$core$procedures, updateMutatorFlyout$$module$build$src$core$procedures, mutatorOpenListener$$module$build$src$core$procedures, mutatorChangeListener$$module$build$src$core$procedures, getCallers$$module$build$src$core$procedures, blockIsModernCallerFor$$module$build$src$core$procedures, isDynamicShape$$module$build$src$core$renderers$common$constants, isPuzzleTab$$module$build$src$core$renderers$common$constants, isNotch$$module$build$src$core$renderers$common$constants, register$$module$build$src$core$renderers$common$block_rendering, unregister$$module$build$src$core$renderers$common$block_rendering, init$$module$build$src$core$renderers$common$block_rendering, stringButtonClickHandler$$module$build$src$core$variables_dynamic, numberButtonClickHandler$$module$build$src$core$variables_dynamic, colourButtonClickHandler$$module$build$src$core$variables_dynamic, internalFlyoutCategory$$module$build$src$core$variables_dynamic, flyoutCategory$$module$build$src$core$variables_dynamic, xmlFlyoutCategory$$module$build$src$core$variables_dynamic, flyoutCategoryBlocks$$module$build$src$core$variables_dynamic, resizeSvgContents$$module$build$src$core$workspace_svg, copy$$module$build$src$core$clipboard, getLastCopiedData$$module$build$src$core$clipboard, setLastCopiedData$$module$build$src$core$clipboard, getLastCopiedWorkspace$$module$build$src$core$clipboard, setLastCopiedWorkspace$$module$build$src$core$clipboard, getLastCopiedLocation$$module$build$src$core$clipboard, setLastCopiedLocation$$module$build$src$core$clipboard, paste$$module$build$src$core$clipboard, pasteFromData$$module$build$src$core$clipboard, isCopyable$$module$build$src$core$interfaces$i_copyable, registerEscape$$module$build$src$core$shortcut_items, registerDelete$$module$build$src$core$shortcut_items, isCopyable$$module$build$src$core$shortcut_items, isCuttable$$module$build$src$core$shortcut_items, registerCopy$$module$build$src$core$shortcut_items, registerCut$$module$build$src$core$shortcut_items, registerPaste$$module$build$src$core$shortcut_items, registerUndo$$module$build$src$core$shortcut_items, registerRedo$$module$build$src$core$shortcut_items, registerShowContextMenu$$module$build$src$core$shortcut_items, registerDefaultShortcuts$$module$build$src$core$shortcut_items, saveProcedure$$module$build$src$core$serialization$procedures, loadProcedure$$module$build$src$core$serialization$procedures, save$$module$build$src$core$serialization$workspaces, load$$module$build$src$core$serialization$workspaces, inject$$module$build$src$core$inject, createDom$$module$build$src$core$inject, createMainWorkspace$$module$build$src$core$inject, init$$module$build$src$core$inject, bindDocumentEvents$$module$build$src$core$inject, loadSounds$$module$build$src$core$inject, isFullBlockField$$module$build$src$core$contextmenu_items, registerUndo$$module$build$src$core$contextmenu_items, registerRedo$$module$build$src$core$contextmenu_items, registerCleanup$$module$build$src$core$contextmenu_items, toggleOption_$$module$build$src$core$contextmenu_items, registerCollapse$$module$build$src$core$contextmenu_items, registerExpand$$module$build$src$core$contextmenu_items, addDeletableBlocks_$$module$build$src$core$contextmenu_items, getDeletableBlocks_$$module$build$src$core$contextmenu_items, deleteNext_$$module$build$src$core$contextmenu_items, registerDeleteAll$$module$build$src$core$contextmenu_items, registerWorkspaceOptions_$$module$build$src$core$contextmenu_items, registerDuplicate$$module$build$src$core$contextmenu_items, registerComment$$module$build$src$core$contextmenu_items, registerInline$$module$build$src$core$contextmenu_items, registerCollapseExpandBlock$$module$build$src$core$contextmenu_items, registerDisable$$module$build$src$core$contextmenu_items, registerDelete$$module$build$src$core$contextmenu_items, registerHelp$$module$build$src$core$contextmenu_items, registerCommentDelete$$module$build$src$core$contextmenu_items, registerCommentDuplicate$$module$build$src$core$contextmenu_items, registerCommentCreate$$module$build$src$core$contextmenu_items, registerBlockOptions_$$module$build$src$core$contextmenu_items, registerCommentOptions$$module$build$src$core$contextmenu_items, registerDefaultOptions$$module$build$src$core$contextmenu_items, isPaster$$module$build$src$core$interfaces$i_paster, isRenderedElement$$module$build$src$core$interfaces$i_rendered_element, isSelectableToolboxItem$$module$build$src$core$interfaces$i_selectable_toolbox_item, hideChaff$$module$build$src$core$blockly, isFocusableTree$$module$build$src$core$interfaces$i_focusable_tree, $jscomp;
-		$.setRecordUndo$$module$build$src$core$events$utils = function(a) {
+		$.setRecordUndo$$module$build$src$core$events$utils = function (a) {
 			recordUndo$$module$build$src$core$events$utils = a;
 		};
-		getRecordUndo$$module$build$src$core$events$utils = function() {
+		getRecordUndo$$module$build$src$core$events$utils = function () {
 			return recordUndo$$module$build$src$core$events$utils;
 		};
-		fire$$module$build$src$core$events$utils = function(a) {
+		fire$$module$build$src$core$events$utils = function (a) {
 			TEST_ONLY$$module$build$src$core$events$utils.fireInternal(a);
 		};
-		fireInternal$$module$build$src$core$events$utils = function(a) {
+		fireInternal$$module$build$src$core$events$utils = function (a) {
 			if (isEnabled$$module$build$src$core$events$utils()) {
 				if (!FIRE_QUEUE$$module$build$src$core$events$utils.length) try {
 					requestAnimationFrame(() => {
@@ -284,7 +284,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				enqueueEvent$$module$build$src$core$events$utils(a);
 			}
 		};
-		fireNow$$module$build$src$core$events$utils = function() {
+		fireNow$$module$build$src$core$events$utils = function () {
 			const a = filter$$module$build$src$core$events$utils(FIRE_QUEUE$$module$build$src$core$events$utils);
 			FIRE_QUEUE$$module$build$src$core$events$utils.length = 0;
 			for (const b of a) {
@@ -293,7 +293,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				(c = getWorkspaceById$$module$build$src$core$common(b.workspaceId)) == null || c.fireChangeListener(b);
 			}
 		};
-		enqueueEvent$$module$build$src$core$events$utils = function(a) {
+		enqueueEvent$$module$build$src$core$events$utils = function (a) {
 			if (isBlockChange$$module$build$src$core$events$predicates(a) && a.element === "mutation") {
 				let b;
 				for (b = FIRE_QUEUE$$module$build$src$core$events$utils.length; b > 0; b--) {
@@ -303,7 +303,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				FIRE_QUEUE$$module$build$src$core$events$utils.splice(b, 0, a);
 			} else FIRE_QUEUE$$module$build$src$core$events$utils.push(a);
 		};
-		filter$$module$build$src$core$events$utils = function(a) {
+		filter$$module$build$src$core$events$utils = function (a) {
 			const b = [];
 			for (const c of a) if (a = b[b.length - 1], !c.isNull()) if (a && a.workspaceId === c.workspaceId && a.group === c.group) if (isBlockMove$$module$build$src$core$events$predicates(c) && isBlockMove$$module$build$src$core$events$predicates(a) && c.blockId === a.blockId) {
 				if (a.newParentId = c.newParentId, a.newInputName = c.newInputName, a.newCoordinate = c.newCoordinate, a.reason || c.reason) {
@@ -314,44 +314,44 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			else b.push(c);
 			return a = b.filter((c) => !c.isNull());
 		};
-		clearPendingUndo$$module$build$src$core$events$utils = function() {
+		clearPendingUndo$$module$build$src$core$events$utils = function () {
 			for (let a = 0, b; b = FIRE_QUEUE$$module$build$src$core$events$utils[a]; a++) b.recordUndo = !1;
 		};
-		$.disable$$module$build$src$core$events$utils = function() {
+		$.disable$$module$build$src$core$events$utils = function () {
 			disabled$$module$build$src$core$events$utils++;
 		};
-		$.enable$$module$build$src$core$events$utils = function() {
+		$.enable$$module$build$src$core$events$utils = function () {
 			disabled$$module$build$src$core$events$utils--;
 		};
-		isEnabled$$module$build$src$core$events$utils = function() {
+		isEnabled$$module$build$src$core$events$utils = function () {
 			return disabled$$module$build$src$core$events$utils === 0;
 		};
-		$.getGroup$$module$build$src$core$events$utils = function() {
+		$.getGroup$$module$build$src$core$events$utils = function () {
 			return group$$module$build$src$core$events$utils;
 		};
-		$.setGroup$$module$build$src$core$events$utils = function(a) {
+		$.setGroup$$module$build$src$core$events$utils = function (a) {
 			TEST_ONLY$$module$build$src$core$events$utils.setGroupInternal(a);
 		};
-		setGroupInternal$$module$build$src$core$events$utils = function(a) {
+		setGroupInternal$$module$build$src$core$events$utils = function (a) {
 			group$$module$build$src$core$events$utils = typeof a === "boolean" ? a ? genUid$$module$build$src$core$utils$idgenerator() : "" : a;
 		};
-		getDescendantIds$$module$build$src$core$events$utils = function(a) {
+		getDescendantIds$$module$build$src$core$events$utils = function (a) {
 			const b = [];
 			a = a.getDescendants(!1);
 			for (let c = 0, d; d = a[c]; c++) b[c] = d.id;
 			return b;
 		};
-		fromJson$$module$build$src$core$events$utils = function(a, b) {
+		fromJson$$module$build$src$core$events$utils = function (a, b) {
 			const c = get$$module$build$src$core$events$utils(a.type);
 			if (!c) throw Error("Unknown event type.");
 			return c.fromJson(a, b);
 		};
-		get$$module$build$src$core$events$utils = function(a) {
+		get$$module$build$src$core$events$utils = function (a) {
 			const b = getClass$$module$build$src$core$registry(Type$$module$build$src$core$registry.EVENT, a);
 			if (!b) throw Error(`Event type ${a} not found in registry.`);
 			return b;
 		};
-		disableOrphans$$module$build$src$core$events$utils = function(a) {
+		disableOrphans$$module$build$src$core$events$utils = function (a) {
 			if ((isBlockMove$$module$build$src$core$events$predicates(a) || isBlockCreate$$module$build$src$core$events$predicates(a)) && a.workspaceId) {
 				var b = getWorkspaceById$$module$build$src$core$common(a.workspaceId);
 				if (!a.blockId) throw Error("Encountered a blockEvent without a proper blockId");
@@ -372,52 +372,52 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		createSvgElement$$module$build$src$core$utils$dom = function(a, b, c) {
+		createSvgElement$$module$build$src$core$utils$dom = function (a, b, c) {
 			a = document.createElementNS(SVG_NS$$module$build$src$core$utils$dom, `${a}`);
 			for (const d in b) a.setAttribute(d, `${b[d]}`);
 			c && c.appendChild(a);
 			return a;
 		};
-		addClass$$module$build$src$core$utils$dom = function(a, b) {
+		addClass$$module$build$src$core$utils$dom = function (a, b) {
 			b = b.split(" ");
 			if (b.every((c) => a.classList.contains(c))) return !1;
 			a.classList.add(...b);
 			return !0;
 		};
-		removeClasses$$module$build$src$core$utils$dom = function(a, b) {
+		removeClasses$$module$build$src$core$utils$dom = function (a, b) {
 			a.classList.remove(...b.split(" "));
 		};
-		removeClass$$module$build$src$core$utils$dom = function(a, b) {
+		removeClass$$module$build$src$core$utils$dom = function (a, b) {
 			b = b.split(" ");
 			if (b.every((c) => !a.classList.contains(c))) return !1;
 			a.classList.remove(...b);
 			return !0;
 		};
-		hasClass$$module$build$src$core$utils$dom = function(a, b) {
+		hasClass$$module$build$src$core$utils$dom = function (a, b) {
 			return a.classList.contains(b);
 		};
-		removeNode$$module$build$src$core$utils$dom = function(a) {
+		removeNode$$module$build$src$core$utils$dom = function (a) {
 			return a && a.parentNode ? a.parentNode.removeChild(a) : null;
 		};
-		insertAfter$$module$build$src$core$utils$dom = function(a, b) {
+		insertAfter$$module$build$src$core$utils$dom = function (a, b) {
 			const c = b.nextSibling;
 			b = b.parentNode;
 			if (!b) throw Error("Reference node has no parent.");
 			c ? b.insertBefore(a, c) : b.appendChild(a);
 		};
-		setCssTransform$$module$build$src$core$utils$dom = function(a, b) {
+		setCssTransform$$module$build$src$core$utils$dom = function (a, b) {
 			a.style.transform = b;
 			a.style["-webkit-transform"] = b;
 		};
-		startTextWidthCache$$module$build$src$core$utils$dom = function() {
+		startTextWidthCache$$module$build$src$core$utils$dom = function () {
 			cacheReference$$module$build$src$core$utils$dom++;
 			cacheWidths$$module$build$src$core$utils$dom || (cacheWidths$$module$build$src$core$utils$dom = Object.create(null));
 		};
-		stopTextWidthCache$$module$build$src$core$utils$dom = function() {
+		stopTextWidthCache$$module$build$src$core$utils$dom = function () {
 			cacheReference$$module$build$src$core$utils$dom--;
 			cacheReference$$module$build$src$core$utils$dom || (cacheWidths$$module$build$src$core$utils$dom = null);
 		};
-		getTextWidth$$module$build$src$core$utils$dom = function(a) {
+		getTextWidth$$module$build$src$core$utils$dom = function (a) {
 			const b = a.textContent + "\n" + a.className.baseVal;
 			var c;
 			if (cacheWidths$$module$build$src$core$utils$dom && (c = cacheWidths$$module$build$src$core$utils$dom[b])) return c;
@@ -426,10 +426,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			cacheWidths$$module$build$src$core$utils$dom && (cacheWidths$$module$build$src$core$utils$dom[b] = c);
 			return c;
 		};
-		getFastTextWidth$$module$build$src$core$utils$dom = function(a, b, c, d) {
+		getFastTextWidth$$module$build$src$core$utils$dom = function (a, b, c, d) {
 			return getFastTextWidthWithSizeString$$module$build$src$core$utils$dom(a, b + "pt", c, d);
 		};
-		getFastTextWidthWithSizeString$$module$build$src$core$utils$dom = function(a, b, c, d) {
+		getFastTextWidthWithSizeString$$module$build$src$core$utils$dom = function (a, b, c, d) {
 			const e = a.textContent;
 			a = e + "\n" + a.className.baseVal;
 			var f;
@@ -439,7 +439,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			cacheWidths$$module$build$src$core$utils$dom && (cacheWidths$$module$build$src$core$utils$dom[a] = f);
 			return f;
 		};
-		measureFontMetrics$$module$build$src$core$utils$dom = function(a, b, c, d) {
+		measureFontMetrics$$module$build$src$core$utils$dom = function (a, b, c, d) {
 			const e = document.createElement("span");
 			e.style.font = c + " " + b + " " + d;
 			e.textContent = a;
@@ -465,59 +465,59 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		$.getFocusManager$$module$build$src$core$focus_manager = function() {
+		$.getFocusManager$$module$build$src$core$focus_manager = function () {
 			return FocusManager$$module$build$src$core$focus_manager.getFocusManager();
 		};
-		isFocusableNode$$module$build$src$core$interfaces$i_focusable_node = function(a) {
+		isFocusableNode$$module$build$src$core$interfaces$i_focusable_node = function (a) {
 			return a && typeof a.getFocusableElement === "function" && typeof a.getFocusableTree === "function" && typeof a.onNodeFocus === "function" && typeof a.onNodeBlur === "function" && typeof a.canBeFocused === "function";
 		};
-		isSelectable$$module$build$src$core$interfaces$i_selectable = function(a) {
+		isSelectable$$module$build$src$core$interfaces$i_selectable = function (a) {
 			return isFocusableNode$$module$build$src$core$interfaces$i_focusable_node(a) && typeof a.id === "string" && typeof a.workspace === "object" && typeof a.select === "function" && typeof a.unselect === "function";
 		};
-		deepMerge$$module$build$src$core$utils$object = function(a, b) {
+		deepMerge$$module$build$src$core$utils$object = function (a, b) {
 			for (const c in b) b[c] !== null && Array.isArray(b[c]) ? a[c] = deepMerge$$module$build$src$core$utils$object(a[c] || [], b[c]) : a[c] = b[c] !== null && typeof b[c] === "object" ? deepMerge$$module$build$src$core$utils$object(a[c] || Object.create(null), b[c]) : b[c];
 			return a;
 		};
-		getWorkspaceById$$module$build$src$core$common = function(a) {
+		getWorkspaceById$$module$build$src$core$common = function (a) {
 			return WorkspaceDB_$$module$build$src$core$common[a] || null;
 		};
-		getAllWorkspaces$$module$build$src$core$common = function() {
+		getAllWorkspaces$$module$build$src$core$common = function () {
 			const a = [];
 			for (const b in WorkspaceDB_$$module$build$src$core$common) a.push(WorkspaceDB_$$module$build$src$core$common[b]);
 			return a;
 		};
-		registerWorkspace$$module$build$src$core$common = function(a) {
+		registerWorkspace$$module$build$src$core$common = function (a) {
 			WorkspaceDB_$$module$build$src$core$common[a.id] = a;
 		};
-		unregisterWorkpace$$module$build$src$core$common = function(a) {
+		unregisterWorkpace$$module$build$src$core$common = function (a) {
 			delete WorkspaceDB_$$module$build$src$core$common[a.id];
 		};
-		getMainWorkspace$$module$build$src$core$common = function() {
+		getMainWorkspace$$module$build$src$core$common = function () {
 			return mainWorkspace$$module$build$src$core$common;
 		};
-		setMainWorkspace$$module$build$src$core$common = function(a) {
+		setMainWorkspace$$module$build$src$core$common = function (a) {
 			mainWorkspace$$module$build$src$core$common = a;
 		};
-		getSelected$$module$build$src$core$common = function() {
+		getSelected$$module$build$src$core$common = function () {
 			const a = $.getFocusManager$$module$build$src$core$focus_manager().getFocusedNode();
 			return a && isSelectable$$module$build$src$core$interfaces$i_selectable(a) ? a : null;
 		};
-		setSelected$$module$build$src$core$common = function(a) {
+		setSelected$$module$build$src$core$common = function (a) {
 			$.getFocusManager$$module$build$src$core$focus_manager().focusNode(a);
 		};
-		fireSelectedEvent$$module$build$src$core$common = function(a) {
+		fireSelectedEvent$$module$build$src$core$common = function (a) {
 			const b = getSelected$$module$build$src$core$common();
 			let c, d, e, f;
 			const g = new (get$$module$build$src$core$events$utils(EventType$$module$build$src$core$events$type.SELECTED))((c = b == null ? void 0 : b.id) != null ? c : null, (d = a == null ? void 0 : a.id) != null ? d : null, (f = (e = a == null ? void 0 : a.workspace.id) != null ? e : b == null ? void 0 : b.workspace.id) != null ? f : "");
 			fire$$module$build$src$core$events$utils(g);
 		};
-		getParentContainer$$module$build$src$core$common = function() {
+		getParentContainer$$module$build$src$core$common = function () {
 			return parentContainer$$module$build$src$core$common;
 		};
-		setParentContainer$$module$build$src$core$common = function(a) {
+		setParentContainer$$module$build$src$core$common = function (a) {
 			parentContainer$$module$build$src$core$common = a;
 		};
-		svgResize$$module$build$src$core$common = function(a) {
+		svgResize$$module$build$src$core$common = function (a) {
 			for (; a.options.parentWorkspace;) a = a.options.parentWorkspace;
 			const b = a.getParentSvg(), c = a.getCachedParentSvgSize();
 			var d = b.parentElement;
@@ -529,24 +529,24 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				a.resize();
 			}
 		};
-		getBlockTypeCounts$$module$build$src$core$common = function(a, b) {
+		getBlockTypeCounts$$module$build$src$core$common = function (a, b) {
 			const c = Object.create(null), d = a.getDescendants(!0);
 			b && (a = a.getNextBlock()) && (a = d.indexOf(a), d.splice(a, d.length - a));
 			for (let e = 0, f; f = d[e]; e++) c[f.type] ? c[f.type]++ : c[f.type] = 1;
 			return c;
 		};
-		jsonInitFactory$$module$build$src$core$common = function(a) {
-			return function() {
+		jsonInitFactory$$module$build$src$core$common = function (a) {
+			return function () {
 				this.jsonInit(a);
 			};
 		};
-		defineBlocksWithJsonArray$$module$build$src$core$common = function(a) {
+		defineBlocksWithJsonArray$$module$build$src$core$common = function (a) {
 			TEST_ONLY$$module$build$src$core$common.defineBlocksWithJsonArrayInternal(a);
 		};
-		defineBlocksWithJsonArrayInternal$$module$build$src$core$common = function(a) {
+		defineBlocksWithJsonArrayInternal$$module$build$src$core$common = function (a) {
 			$.defineBlocks$$module$build$src$core$common($.createBlockDefinitionsFromJsonArray$$module$build$src$core$common(a));
 		};
-		$.createBlockDefinitionsFromJsonArray$$module$build$src$core$common = function(a) {
+		$.createBlockDefinitionsFromJsonArray$$module$build$src$core$common = function (a) {
 			const b = {};
 			for (let c = 0; c < a.length; c++) {
 				const d = a[c];
@@ -559,14 +559,14 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		$.defineBlocks$$module$build$src$core$common = function(a) {
+		$.defineBlocks$$module$build$src$core$common = function (a) {
 			for (const b of Object.keys(a)) {
 				const c = a[b];
 				b in Blocks$$module$build$src$core$blocks && console.warn(`Block definition "${b}" overwrites previous definition.`);
 				Blocks$$module$build$src$core$blocks[b] = c;
 			}
 		};
-		globalShortcutHandler$$module$build$src$core$common = function(a) {
+		globalShortcutHandler$$module$build$src$core$common = function (a) {
 			let b = getMainWorkspace$$module$build$src$core$common();
 			const c = $.getFocusManager$$module$build$src$core$focus_manager().getFocusedTree();
 			for (const d of getAllWorkspaces$$module$build$src$core$common()) if (c === d) {
@@ -575,23 +575,23 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			if (!isTargetInput$$module$build$src$core$browser_events(a) && b && (!b.rendered || b.isFlyout || b.isVisible())) ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.onKeyDown(b, a);
 		};
-		removeElem$$module$build$src$core$utils$array = function(a, b) {
+		removeElem$$module$build$src$core$utils$array = function (a, b) {
 			b = a.indexOf(b);
 			if (b === -1) return !1;
 			a.splice(b, 1);
 			return !0;
 		};
-		register$$module$build$src$core$css = function(a) {
+		register$$module$build$src$core$css = function (a) {
 			if (injected$$module$build$src$core$css) throw Error("CSS already injected");
 			content$$module$build$src$core$css += "\n" + a;
 		};
-		inject$$module$build$src$core$css = function(a, b) {
+		inject$$module$build$src$core$css = function (a, b) {
 			injected$$module$build$src$core$css || (injected$$module$build$src$core$css = !0, a && (a = b.replace(/[\\/]$/, ""), b = content$$module$build$src$core$css.replace(/<<<PATH>>>/g, a), content$$module$build$src$core$css = "", a = document.createElement("style"), a.id = "blockly-common-style", b = document.createTextNode(b), a.appendChild(b), document.head.insertBefore(a, document.head.firstChild)));
 		};
-		getSize$$module$build$src$core$utils$style = function(a) {
+		getSize$$module$build$src$core$utils$style = function (a) {
 			return TEST_ONLY$$module$build$src$core$utils$style.getSizeInternal(a);
 		};
-		getSizeInternal$$module$build$src$core$utils$style = function(a) {
+		getSizeInternal$$module$build$src$core$utils$style = function (a) {
 			if (getComputedStyle$$module$build$src$core$utils$style(a, "display") !== "none") return getSizeWithDisplay$$module$build$src$core$utils$style(a);
 			const b = a.style, c = b.display, d = b.visibility, e = b.position;
 			b.visibility = "hidden";
@@ -604,14 +604,14 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b.visibility = d;
 			return new Size$$module$build$src$core$utils$size(f, a);
 		};
-		getSizeWithDisplay$$module$build$src$core$utils$style = function(a) {
+		getSizeWithDisplay$$module$build$src$core$utils$style = function (a) {
 			return new Size$$module$build$src$core$utils$size(a.offsetWidth, a.offsetHeight);
 		};
-		getComputedStyle$$module$build$src$core$utils$style = function(a, b) {
+		getComputedStyle$$module$build$src$core$utils$style = function (a, b) {
 			a = window.getComputedStyle(a);
 			return a[b] || a.getPropertyValue(b);
 		};
-		getPageOffset$$module$build$src$core$utils$style = function(a) {
+		getPageOffset$$module$build$src$core$utils$style = function (a) {
 			const b = new Coordinate$$module$build$src$core$utils$coordinate(0, 0);
 			a = a.getBoundingClientRect();
 			var c = document.documentElement;
@@ -620,21 +620,21 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b.y = a.top + c.y;
 			return b;
 		};
-		getViewportPageOffset$$module$build$src$core$utils$style = function() {
+		getViewportPageOffset$$module$build$src$core$utils$style = function () {
 			const a = document.body, b = document.documentElement;
 			return new Coordinate$$module$build$src$core$utils$coordinate(a.scrollLeft || b.scrollLeft, a.scrollTop || b.scrollTop);
 		};
-		getBorderBox$$module$build$src$core$utils$style = function(a) {
+		getBorderBox$$module$build$src$core$utils$style = function (a) {
 			const b = parseFloat(getComputedStyle$$module$build$src$core$utils$style(a, "borderLeftWidth")), c = parseFloat(getComputedStyle$$module$build$src$core$utils$style(a, "borderRightWidth")), d = parseFloat(getComputedStyle$$module$build$src$core$utils$style(a, "borderTopWidth"));
 			a = parseFloat(getComputedStyle$$module$build$src$core$utils$style(a, "borderBottomWidth"));
 			return new Rect$$module$build$src$core$utils$rect(d, a, b, c);
 		};
-		scrollIntoContainerView$$module$build$src$core$utils$style = function(a, b, c) {
+		scrollIntoContainerView$$module$build$src$core$utils$style = function (a, b, c) {
 			a = getContainerOffsetToScrollInto$$module$build$src$core$utils$style(a, b, c);
 			b.scrollLeft = a.x;
 			b.scrollTop = a.y;
 		};
-		getContainerOffsetToScrollInto$$module$build$src$core$utils$style = function(a, b, c) {
+		getContainerOffsetToScrollInto$$module$build$src$core$utils$style = function (a, b, c) {
 			var d = getPageOffset$$module$build$src$core$utils$style(a), e = getPageOffset$$module$build$src$core$utils$style(b), f = getBorderBox$$module$build$src$core$utils$style(b);
 			const g = d.x - e.x - f.left;
 			d = d.y - e.y - f.top;
@@ -646,7 +646,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c ? (f += g - a / 2, b += d - e / 2) : (f += Math.min(g, Math.max(g - a, 0)), b += Math.min(d, Math.max(d - e, 0)));
 			return new Coordinate$$module$build$src$core$utils$coordinate(f, b);
 		};
-		getRelativeXY$$module$build$src$core$utils$svg_math = function(a) {
+		getRelativeXY$$module$build$src$core$utils$svg_math = function (a) {
 			const b = new Coordinate$$module$build$src$core$utils$coordinate(0, 0);
 			var c = a.x && a.getAttribute("x");
 			const d = a.y && a.getAttribute("y");
@@ -656,7 +656,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			(a = a.getAttribute("style")) && a.includes("translate") && (a = a.match(XY_STYLE_REGEX$$module$build$src$core$utils$svg_math)) && (b.x += Number(a[1]), a[3] && (b.y += Number(a[3])));
 			return b;
 		};
-		getInjectionDivXY$$module$build$src$core$utils$svg_math = function(a) {
+		getInjectionDivXY$$module$build$src$core$utils$svg_math = function (a) {
 			let b = 0, c = 0;
 			for (; a;) {
 				const d = getRelativeXY$$module$build$src$core$utils$svg_math(a);
@@ -667,15 +667,15 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return new Coordinate$$module$build$src$core$utils$coordinate(b, c);
 		};
-		getViewportBBox$$module$build$src$core$utils$svg_math = function() {
+		getViewportBBox$$module$build$src$core$utils$svg_math = function () {
 			const a = getViewportPageOffset$$module$build$src$core$utils$style();
 			return new Rect$$module$build$src$core$utils$rect(a.y, document.documentElement.clientHeight + a.y, a.x, document.documentElement.clientWidth + a.x);
 		};
-		getDocumentScroll$$module$build$src$core$utils$svg_math = function() {
+		getDocumentScroll$$module$build$src$core$utils$svg_math = function () {
 			const a = document.documentElement, b = window;
 			return new Coordinate$$module$build$src$core$utils$coordinate(b.pageXOffset || a.scrollLeft, b.pageYOffset || a.scrollTop);
 		};
-		screenToWsCoordinates$$module$build$src$core$utils$svg_math = function(a, b) {
+		screenToWsCoordinates$$module$build$src$core$utils$svg_math = function (a, b) {
 			var c = b.x;
 			b = b.y;
 			const d = a.getInjectionDiv().getBoundingClientRect();
@@ -683,7 +683,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b = a.getOriginOffsetInPixels();
 			return Coordinate$$module$build$src$core$utils$coordinate.difference(c, b).scale(1 / a.scale);
 		};
-		wsToScreenCoordinates$$module$build$src$core$utils$svg_math = function(a, b) {
+		wsToScreenCoordinates$$module$build$src$core$utils$svg_math = function (a, b) {
 			var c = b.scale(a.scale);
 			b = c.x;
 			c = c.y;
@@ -691,63 +691,63 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a = a.getOriginOffsetInPixels();
 			return new Coordinate$$module$build$src$core$utils$coordinate(b + d.left + a.x, c + d.top + a.y);
 		};
-		injectDependencies$$module$build$src$core$utils$xml = function(a) {
-			({document: document$$module$build$src$core$utils$xml = document$$module$build$src$core$utils$xml, DOMParser: DOMParser$$module$build$src$core$utils$xml = DOMParser$$module$build$src$core$utils$xml, XMLSerializer: XMLSerializer$$module$build$src$core$utils$xml = XMLSerializer$$module$build$src$core$utils$xml} = a);
+		injectDependencies$$module$build$src$core$utils$xml = function (a) {
+			({ document: document$$module$build$src$core$utils$xml = document$$module$build$src$core$utils$xml, DOMParser: DOMParser$$module$build$src$core$utils$xml = DOMParser$$module$build$src$core$utils$xml, XMLSerializer: XMLSerializer$$module$build$src$core$utils$xml = XMLSerializer$$module$build$src$core$utils$xml } = a);
 			domParser$$module$build$src$core$utils$xml = new DOMParser$$module$build$src$core$utils$xml();
 			xmlSerializer$$module$build$src$core$utils$xml = new XMLSerializer$$module$build$src$core$utils$xml();
 		};
-		$.createElement$$module$build$src$core$utils$xml = function(a) {
+		$.createElement$$module$build$src$core$utils$xml = function (a) {
 			return document$$module$build$src$core$utils$xml.createElementNS(NAME_SPACE$$module$build$src$core$utils$xml, a);
 		};
-		$.createTextNode$$module$build$src$core$utils$xml = function(a) {
+		$.createTextNode$$module$build$src$core$utils$xml = function (a) {
 			return document$$module$build$src$core$utils$xml.createTextNode(a);
 		};
-		$.textToDom$$module$build$src$core$utils$xml = function(a) {
+		$.textToDom$$module$build$src$core$utils$xml = function (a) {
 			let b = domParser$$module$build$src$core$utils$xml.parseFromString(a, "text/xml");
 			if (b && b.documentElement && !b.getElementsByTagName("parsererror").length) return b.documentElement;
 			if ((b = domParser$$module$build$src$core$utils$xml.parseFromString(a, "text/html")) && b.body.firstChild && b.body.firstChild.nodeName.toLowerCase() === "xml") return b.body.firstChild;
 			throw Error(`DOMParser was unable to parse: ${a}`);
 		};
-		domToText$$module$build$src$core$utils$xml = function(a) {
+		domToText$$module$build$src$core$utils$xml = function (a) {
 			return sanitizeText$$module$build$src$core$utils$xml(xmlSerializer$$module$build$src$core$utils$xml.serializeToString(a));
 		};
-		sanitizeText$$module$build$src$core$utils$xml = function(a) {
+		sanitizeText$$module$build$src$core$utils$xml = function (a) {
 			return a.replace(INVALID_CONTROL_CHARS$$module$build$src$core$utils$xml, (b) => `&#${b.charCodeAt(0)};`);
 		};
-		convertToolboxDefToJson$$module$build$src$core$utils$toolbox = function(a) {
+		convertToolboxDefToJson$$module$build$src$core$utils$toolbox = function (a) {
 			if (!a) return null;
 			if (a instanceof Element || typeof a === "string") a = parseToolboxTree$$module$build$src$core$utils$toolbox(a), a = convertToToolboxJson$$module$build$src$core$utils$toolbox(a);
 			validateToolbox$$module$build$src$core$utils$toolbox(a);
 			return a;
 		};
-		validateToolbox$$module$build$src$core$utils$toolbox = function(a) {
+		validateToolbox$$module$build$src$core$utils$toolbox = function (a) {
 			const b = a.kind;
 			a = a.contents;
 			if (b && b !== FLYOUT_TOOLBOX_KIND$$module$build$src$core$utils$toolbox && b !== CATEGORY_TOOLBOX_KIND$$module$build$src$core$utils$toolbox) throw Error("Invalid toolbox kind " + b + ". Please supply either " + FLYOUT_TOOLBOX_KIND$$module$build$src$core$utils$toolbox + " or " + CATEGORY_TOOLBOX_KIND$$module$build$src$core$utils$toolbox);
 			if (!a) throw Error("Toolbox must have a contents attribute.");
 		};
-		convertFlyoutDefToJsonArray$$module$build$src$core$utils$toolbox = function(a) {
+		convertFlyoutDefToJsonArray$$module$build$src$core$utils$toolbox = function (a) {
 			return a ? a.contents ? a.contents : Array.isArray(a) && a.length > 0 && !a[0].nodeType ? a : xmlToJsonArray$$module$build$src$core$utils$toolbox(a) : [];
 		};
-		hasCategories$$module$build$src$core$utils$toolbox = function(a) {
+		hasCategories$$module$build$src$core$utils$toolbox = function (a) {
 			return TEST_ONLY$$module$build$src$core$utils$toolbox.hasCategoriesInternal(a);
 		};
-		hasCategoriesInternal$$module$build$src$core$utils$toolbox = function(a) {
+		hasCategoriesInternal$$module$build$src$core$utils$toolbox = function (a) {
 			if (!a) return !1;
 			const b = a.kind;
 			return b ? b === CATEGORY_TOOLBOX_KIND$$module$build$src$core$utils$toolbox : !!a.contents.filter((c) => c.kind.toUpperCase() === "CATEGORY").length;
 		};
-		isCategoryCollapsible$$module$build$src$core$utils$toolbox = function(a) {
-			return a && a.contents ? !!a.contents.filter(function(b) {
+		isCategoryCollapsible$$module$build$src$core$utils$toolbox = function (a) {
+			return a && a.contents ? !!a.contents.filter(function (b) {
 				return b.kind.toUpperCase() === "CATEGORY";
 			}).length : !1;
 		};
-		convertToToolboxJson$$module$build$src$core$utils$toolbox = function(a) {
+		convertToToolboxJson$$module$build$src$core$utils$toolbox = function (a) {
 			const b = { contents: xmlToJsonArray$$module$build$src$core$utils$toolbox(a) };
 			a instanceof Node && addAttributes$$module$build$src$core$utils$toolbox(a, b);
 			return b;
 		};
-		xmlToJsonArray$$module$build$src$core$utils$toolbox = function(a) {
+		xmlToJsonArray$$module$build$src$core$utils$toolbox = function (a) {
 			const b = [];
 			let c = a.childNodes;
 			c || (c = a);
@@ -762,32 +762,32 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		addAttributes$$module$build$src$core$utils$toolbox = function(a, b) {
+		addAttributes$$module$build$src$core$utils$toolbox = function (a, b) {
 			for (let c = 0; c < a.attributes.length; c++) {
 				const d = a.attributes[c];
 				d.nodeName.includes("css-") ? (b.cssconfig = b.cssconfig || {}, b.cssconfig[d.nodeName.replace("css-", "")] = d.value) : b[d.nodeName] = d.value;
 			}
 		};
-		parseToolboxTree$$module$build$src$core$utils$toolbox = function(a) {
+		parseToolboxTree$$module$build$src$core$utils$toolbox = function (a) {
 			let b = null;
 			if (a) if (typeof a === "string") {
 				if (b = $.textToDom$$module$build$src$core$utils$xml(a), b.nodeName.toLowerCase() !== "xml") throw TypeError("Toolbox should be an <xml> document.");
 			} else a instanceof Element && (b = a);
 			return b;
 		};
-		getStartPositionRect$$module$build$src$core$positionable_helpers = function(a, b, c, d, e, f) {
+		getStartPositionRect$$module$build$src$core$positionable_helpers = function (a, b, c, d, e, f) {
 			const g = f.scrollbar && f.scrollbar.canScrollVertically();
 			a.horizontal === horizontalPosition$$module$build$src$core$positionable_helpers.LEFT ? (c = e.absoluteMetrics.left + c, g && f.RTL && (c += Scrollbar$$module$build$src$core$scrollbar.scrollbarThickness)) : (c = e.absoluteMetrics.left + e.viewMetrics.width - b.width - c, g && !f.RTL && (c -= Scrollbar$$module$build$src$core$scrollbar.scrollbarThickness));
 			a.vertical === verticalPosition$$module$build$src$core$positionable_helpers.TOP ? a = e.absoluteMetrics.top + d : (a = e.absoluteMetrics.top + e.viewMetrics.height - b.height - d, f.scrollbar && f.scrollbar.canScrollHorizontally() && (a -= Scrollbar$$module$build$src$core$scrollbar.scrollbarThickness));
 			return new Rect$$module$build$src$core$utils$rect(a, a + b.height, c, c + b.width);
 		};
-		getCornerOppositeToolbox$$module$build$src$core$positionable_helpers = function(a, b) {
+		getCornerOppositeToolbox$$module$build$src$core$positionable_helpers = function (a, b) {
 			return {
 				horizontal: b.toolboxMetrics.position === Position$$module$build$src$core$utils$toolbox.LEFT || a.horizontalLayout && !a.RTL ? horizontalPosition$$module$build$src$core$positionable_helpers.RIGHT : horizontalPosition$$module$build$src$core$positionable_helpers.LEFT,
 				vertical: b.toolboxMetrics.position === Position$$module$build$src$core$utils$toolbox.BOTTOM ? verticalPosition$$module$build$src$core$positionable_helpers.TOP : verticalPosition$$module$build$src$core$positionable_helpers.BOTTOM
 			};
 		};
-		bumpPositionRect$$module$build$src$core$positionable_helpers = function(a, b, c, d) {
+		bumpPositionRect$$module$build$src$core$positionable_helpers = function (a, b, c, d) {
 			const e = a.left, f = a.right - a.left, g = a.bottom - a.top;
 			for (let h = 0; h < d.length; h++) {
 				const k = d[h];
@@ -795,13 +795,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return a;
 		};
-		register$$module$build$src$core$serialization$registry = function(a, b) {
+		register$$module$build$src$core$serialization$registry = function (a, b) {
 			register$$module$build$src$core$registry(Type$$module$build$src$core$registry.SERIALIZER, a, b);
 		};
-		unregister$$module$build$src$core$serialization$registry = function(a) {
+		unregister$$module$build$src$core$serialization$registry = function (a) {
 			unregister$$module$build$src$core$registry(Type$$module$build$src$core$registry.SERIALIZER, a);
 		};
-		save$$module$build$src$core$serialization$workspace_comments = function(a, { addCoordinates: b = !1, saveIds: c = !0 } = {}) {
+		save$$module$build$src$core$serialization$workspace_comments = function (a, { addCoordinates: b = !1, saveIds: c = !0 } = {}) {
 			const d = a.workspace, e = Object.create(null);
 			e.height = a.getSize().height;
 			e.width = a.getSize().width;
@@ -814,7 +814,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.isOwnDeletable() || (e.deletable = !1);
 			return e;
 		};
-		append$$module$build$src$core$serialization$workspace_comments = function(a, b, { recordUndo: c = !1 } = {}) {
+		append$$module$build$src$core$serialization$workspace_comments = function (a, b, { recordUndo: c = !1 } = {}) {
 			const d = getRecordUndo$$module$build$src$core$events$utils();
 			$.setRecordUndo$$module$build$src$core$events$utils(c);
 			c = b.newComment(a.id);
@@ -839,31 +839,31 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			$.setRecordUndo$$module$build$src$core$events$utils(d);
 			return c;
 		};
-		register$$module$build$src$core$clipboard$registry = function(a, b) {
+		register$$module$build$src$core$clipboard$registry = function (a, b) {
 			register$$module$build$src$core$registry(Type$$module$build$src$core$registry.PASTER, a, b);
 		};
-		unregister$$module$build$src$core$clipboard$registry = function(a) {
+		unregister$$module$build$src$core$clipboard$registry = function (a) {
 			unregister$$module$build$src$core$registry(Type$$module$build$src$core$registry.PASTER, a);
 		};
-		moveCommentToNotConflict$$module$build$src$core$clipboard$workspace_comment_paster = function(a) {
+		moveCommentToNotConflict$$module$build$src$core$clipboard$workspace_comment_paster = function (a) {
 			const b = a.workspace, c = a.getRelativeToSurfaceXY(), d = new Coordinate$$module$build$src$core$utils$coordinate(0, 0), e = b.getTopComments(!1).filter((f) => f.id !== a.id).map((f) => f.getRelativeToSurfaceXY());
 			for (; commentOverlapsOtherExactly$$module$build$src$core$clipboard$workspace_comment_paster(Coordinate$$module$build$src$core$utils$coordinate.sum(c, d), e);) d.translate(b.RTL ? -30 : 30, 30);
 			a.moveTo(Coordinate$$module$build$src$core$utils$coordinate.sum(c, d));
 		};
-		commentOverlapsOtherExactly$$module$build$src$core$clipboard$workspace_comment_paster = function(a, b) {
+		commentOverlapsOtherExactly$$module$build$src$core$clipboard$workspace_comment_paster = function (a, b) {
 			return b.some((c) => Math.abs(c.x - a.x) <= 1 && Math.abs(c.y - a.y) <= 1);
 		};
-		setRole$$module$build$src$core$utils$aria = function(a, b) {
+		setRole$$module$build$src$core$utils$aria = function (a, b) {
 			a.setAttribute(ROLE_ATTRIBUTE$$module$build$src$core$utils$aria, b);
 		};
-		setState$$module$build$src$core$utils$aria = function(a, b, c) {
+		setState$$module$build$src$core$utils$aria = function (a, b, c) {
 			Array.isArray(c) && (c = c.join(" "));
 			a.setAttribute(ARIA_PREFIX$$module$build$src$core$utils$aria + b, `${c}`);
 		};
-		isSerializable$$module$build$src$core$interfaces$i_serializable = function(a) {
+		isSerializable$$module$build$src$core$interfaces$i_serializable = function (a) {
 			return a && typeof a.saveState === "function" && typeof a.loadState === "function";
 		};
-		queueRender$$module$build$src$core$render_management = function(a) {
+		queueRender$$module$build$src$core$render_management = function (a) {
 			queueBlock$$module$build$src$core$render_management(a);
 			if (alwaysImmediatelyRender$$module$build$src$core$render_management()) return doRenders$$module$build$src$core$render_management(), Promise.resolve();
 			afterRendersPromise$$module$build$src$core$render_management || (afterRendersPromise$$module$build$src$core$render_management = new Promise((b) => {
@@ -875,24 +875,24 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}));
 			return afterRendersPromise$$module$build$src$core$render_management;
 		};
-		finishQueuedRenders$$module$build$src$core$render_management = function() {
+		finishQueuedRenders$$module$build$src$core$render_management = function () {
 			return afterRendersPromise$$module$build$src$core$render_management ? afterRendersPromise$$module$build$src$core$render_management : Promise.resolve();
 		};
-		triggerQueuedRenders$$module$build$src$core$render_management = function(a) {
+		triggerQueuedRenders$$module$build$src$core$render_management = function (a) {
 			a || window.cancelAnimationFrame(animationRequestId$$module$build$src$core$render_management);
 			doRenders$$module$build$src$core$render_management(a);
 			!a && afterRendersResolver$$module$build$src$core$render_management && afterRendersResolver$$module$build$src$core$render_management();
 		};
-		alwaysImmediatelyRender$$module$build$src$core$render_management = function() {
+		alwaysImmediatelyRender$$module$build$src$core$render_management = function () {
 			return JavaFx$$module$build$src$core$utils$useragent;
 		};
-		queueBlock$$module$build$src$core$render_management = function(a) {
+		queueBlock$$module$build$src$core$render_management = function (a) {
 			dirtyBlocks$$module$build$src$core$render_management.add(a);
 			eventGroups$$module$build$src$core$render_management.set(a, $.getGroup$$module$build$src$core$events$utils());
 			const b = a.getParent();
 			b ? queueBlock$$module$build$src$core$render_management(b) : rootBlocks$$module$build$src$core$render_management.add(a);
 		};
-		doRenders$$module$build$src$core$render_management = function(a) {
+		doRenders$$module$build$src$core$render_management = function (a) {
 			const b = a ? new Set([a]) : new Set([...rootBlocks$$module$build$src$core$render_management].map((f) => f.workspace)), c = [...rootBlocks$$module$build$src$core$render_management].filter(shouldRenderRootBlock$$module$build$src$core$render_management).filter((f) => b.has(f.workspace));
 			for (var d of c) renderBlock$$module$build$src$core$render_management(d);
 			for (const f of b) f.resizeContents();
@@ -901,60 +901,60 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			for (const f of c) dequeueBlock$$module$build$src$core$render_management(f);
 			a || (afterRendersPromise$$module$build$src$core$render_management = null);
 		};
-		dequeueBlock$$module$build$src$core$render_management = function(a) {
+		dequeueBlock$$module$build$src$core$render_management = function (a) {
 			rootBlocks$$module$build$src$core$render_management.delete(a);
 			dirtyBlocks$$module$build$src$core$render_management.delete(a);
 			eventGroups$$module$build$src$core$render_management.delete(a);
 			for (const b of a.getChildren(!1)) dequeueBlock$$module$build$src$core$render_management(b);
 		};
-		shouldRenderRootBlock$$module$build$src$core$render_management = function(a) {
+		shouldRenderRootBlock$$module$build$src$core$render_management = function (a) {
 			return !a.isDisposed() && !a.getParent();
 		};
-		renderBlock$$module$build$src$core$render_management = function(a) {
+		renderBlock$$module$build$src$core$render_management = function (a) {
 			if (dirtyBlocks$$module$build$src$core$render_management.has(a) && a.initialized) {
 				for (const b of a.getChildren(!1)) renderBlock$$module$build$src$core$render_management(b);
 				a.renderEfficiently();
 			}
 		};
-		alert$$module$build$src$core$dialog = function(a, b) {
+		alert$$module$build$src$core$dialog = function (a, b) {
 			alertImplementation$$module$build$src$core$dialog(a, b);
 		};
-		setAlert$$module$build$src$core$dialog = function(a = defaultAlert$$module$build$src$core$dialog) {
+		setAlert$$module$build$src$core$dialog = function (a = defaultAlert$$module$build$src$core$dialog) {
 			alertImplementation$$module$build$src$core$dialog = a;
 		};
-		confirm$$module$build$src$core$dialog = function(a, b) {
+		confirm$$module$build$src$core$dialog = function (a, b) {
 			confirmImplementation$$module$build$src$core$dialog(a, b);
 		};
-		setConfirm$$module$build$src$core$dialog = function(a = defaultConfirm$$module$build$src$core$dialog) {
+		setConfirm$$module$build$src$core$dialog = function (a = defaultConfirm$$module$build$src$core$dialog) {
 			confirmImplementation$$module$build$src$core$dialog = a;
 		};
-		prompt$$module$build$src$core$dialog = function(a, b, c) {
+		prompt$$module$build$src$core$dialog = function (a, b, c) {
 			promptImplementation$$module$build$src$core$dialog(a, b, c);
 		};
-		setPrompt$$module$build$src$core$dialog = function(a = defaultPrompt$$module$build$src$core$dialog) {
+		setPrompt$$module$build$src$core$dialog = function (a = defaultPrompt$$module$build$src$core$dialog) {
 			promptImplementation$$module$build$src$core$dialog = a;
 		};
-		toast$$module$build$src$core$dialog = function(a, b) {
+		toast$$module$build$src$core$dialog = function (a, b) {
 			toastImplementation$$module$build$src$core$dialog(a, b);
 		};
-		setToast$$module$build$src$core$dialog = function(a = defaultToast$$module$build$src$core$dialog) {
+		setToast$$module$build$src$core$dialog = function (a = defaultToast$$module$build$src$core$dialog) {
 			toastImplementation$$module$build$src$core$dialog = a;
 		};
-		isLegacyProcedureDefBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks = function(a) {
+		isLegacyProcedureDefBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks = function (a) {
 			return a && typeof a.getProcedureDef === "function";
 		};
-		isLegacyProcedureCallBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks = function(a) {
+		isLegacyProcedureCallBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks = function (a) {
 			return a && typeof a.getProcedureCall === "function" && typeof a.renameProcedure === "function";
 		};
-		isVariableBackedParameterModel$$module$build$src$core$interfaces$i_variable_backed_parameter_model = function(a) {
+		isVariableBackedParameterModel$$module$build$src$core$interfaces$i_variable_backed_parameter_model = function (a) {
 			return a.getVariableModel !== void 0;
 		};
-		warn$$module$build$src$core$utils$deprecation = function(a, b, c, d) {
+		warn$$module$build$src$core$utils$deprecation = function (a, b, c, d) {
 			a = a + " was deprecated in " + b + " and will be deleted in " + c + ".";
 			d && (a += "\nUse " + d + " instead.");
 			previousWarnings$$module$build$src$core$utils$deprecation.has(a) || (previousWarnings$$module$build$src$core$utils$deprecation.add(a), console.warn(a));
 		};
-		$.allUsedVarModels$$module$build$src$core$variables = function(a) {
+		$.allUsedVarModels$$module$build$src$core$variables = function (a) {
 			a = a.getAllBlocks(!1);
 			const b = /* @__PURE__ */ new Set();
 			for (let c = 0; c < a.length; c++) {
@@ -966,7 +966,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return Array.from(b.values());
 		};
-		$.allDeveloperVariables$$module$build$src$core$variables = function(a) {
+		$.allDeveloperVariables$$module$build$src$core$variables = function (a) {
 			a = a.getAllBlocks(!1);
 			const b = /* @__PURE__ */ new Set();
 			for (let d = 0, e; e = a[d]; d++) {
@@ -978,13 +978,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return Array.from(b.values());
 		};
-		internalFlyoutCategory$$module$build$src$core$variables = function(a) {
+		internalFlyoutCategory$$module$build$src$core$variables = function (a) {
 			return flyoutCategory$$module$build$src$core$variables(a, !1);
 		};
-		flyoutCategory$$module$build$src$core$variables = function(a, b = !0) {
+		flyoutCategory$$module$build$src$core$variables = function (a, b = !0) {
 			Blocks$$module$build$src$core$blocks.variables_set || Blocks$$module$build$src$core$blocks.variables_get || console.warn("There are no variable blocks, but there is a variable category.");
 			if (b) return warn$$module$build$src$core$utils$deprecation("The XML return value of Blockly.Variables.flyoutCategory()", "v12", "v13", "the same method, but handle a return type of FlyoutItemInfo[] (JSON) instead."), xmlFlyoutCategory$$module$build$src$core$variables(a);
-			a.registerButtonCallback("CREATE_VARIABLE", function(c) {
+			a.registerButtonCallback("CREATE_VARIABLE", function (c) {
 				createVariableButtonHandler$$module$build$src$core$variables(c.getTargetWorkspace());
 			});
 			return [{
@@ -993,13 +993,15 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				callbackkey: "CREATE_VARIABLE"
 			}, ...jsonFlyoutCategoryBlocks$$module$build$src$core$variables(a, a.getVariableMap().getVariablesOfType(""), !0)];
 		};
-		generateVariableFieldJson$$module$build$src$core$variables = function(a) {
-			return { VAR: {
-				name: a.getName(),
-				type: a.getType()
-			} };
+		generateVariableFieldJson$$module$build$src$core$variables = function (a) {
+			return {
+				VAR: {
+					name: a.getName(),
+					type: a.getType()
+				}
+			};
 		};
-		jsonFlyoutCategoryBlocks$$module$build$src$core$variables = function(a, b, c, d = "variables_get", e = "variables_set") {
+		jsonFlyoutCategoryBlocks$$module$build$src$core$variables = function (a, b, c, d = "variables_get", e = "variables_set") {
 			c && (c = Blocks$$module$build$src$core$blocks.math_change);
 			a = [];
 			const f = b.slice(-1)[0];
@@ -1013,10 +1015,14 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				type: "math_change",
 				gap: Blocks$$module$build$src$core$blocks[d] ? 20 : 8,
 				fields: generateVariableFieldJson$$module$build$src$core$variables(f),
-				inputs: { DELTA: { shadow: {
-					type: "math_number",
-					fields: { NUM: 1 }
-				} } }
+				inputs: {
+					DELTA: {
+						shadow: {
+							type: "math_number",
+							fields: { NUM: 1 }
+						}
+					}
+				}
 			}));
 			Blocks$$module$build$src$core$blocks[d] && a.push(...b.sort(compareByName$$module$build$src$core$variables).map((g) => ({
 				kind: "block",
@@ -1026,19 +1032,19 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			})));
 			return a;
 		};
-		xmlFlyoutCategory$$module$build$src$core$variables = function(a) {
+		xmlFlyoutCategory$$module$build$src$core$variables = function (a) {
 			let b = [];
 			const c = document.createElement("button");
 			c.setAttribute("text", "%{BKY_NEW_VARIABLE}");
 			c.setAttribute("callbackKey", "CREATE_VARIABLE");
-			a.registerButtonCallback("CREATE_VARIABLE", function(d) {
+			a.registerButtonCallback("CREATE_VARIABLE", function (d) {
 				createVariableButtonHandler$$module$build$src$core$variables(d.getTargetWorkspace());
 			});
 			b.push(c);
 			a = flyoutCategoryBlocks$$module$build$src$core$variables(a);
 			return b = b.concat(a);
 		};
-		flyoutCategoryBlocks$$module$build$src$core$variables = function(a) {
+		flyoutCategoryBlocks$$module$build$src$core$variables = function (a) {
 			a = a.getVariableMap().getVariablesOfType("");
 			const b = [];
 			if (a.length > 0) {
@@ -1058,17 +1064,17 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		generateUniqueName$$module$build$src$core$variables = function(a) {
+		generateUniqueName$$module$build$src$core$variables = function (a) {
 			return TEST_ONLY$$module$build$src$core$variables.generateUniqueNameInternal(a);
 		};
-		generateUniqueNameInternal$$module$build$src$core$variables = function(a) {
+		generateUniqueNameInternal$$module$build$src$core$variables = function (a) {
 			return generateUniqueNameFromOptions$$module$build$src$core$variables(VAR_LETTER_OPTIONS$$module$build$src$core$variables.charAt(0), a.getVariableMap().getAllVariables().map((b) => b.getName()));
 		};
-		generateUniqueNameFromOptions$$module$build$src$core$variables = function(a, b) {
+		generateUniqueNameFromOptions$$module$build$src$core$variables = function (a, b) {
 			if (!b.length) return a;
 			const c = VAR_LETTER_OPTIONS$$module$build$src$core$variables;
 			let d = "", e = c.indexOf(a);
-			for (;;) {
+			for (; ;) {
 				let f = !1;
 				for (let g = 0; g < b.length; g++) if (b[g].toLowerCase() === a) {
 					f = !0;
@@ -1081,15 +1087,15 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return a;
 		};
-		createVariableButtonHandler$$module$build$src$core$variables = function(a, b, c) {
+		createVariableButtonHandler$$module$build$src$core$variables = function (a, b, c) {
 			function d(f) {
-				promptName$$module$build$src$core$variables($.Msg$$module$build$src$core$msg.NEW_VARIABLE_TITLE, f, function(g) {
+				promptName$$module$build$src$core$variables($.Msg$$module$build$src$core$msg.NEW_VARIABLE_TITLE, f, function (g) {
 					if (g) {
 						var h = nameUsedWithAnyType$$module$build$src$core$variables(g, a);
 						if (h) {
 							if (h.getType() === e) var k = $.Msg$$module$build$src$core$msg.VARIABLE_ALREADY_EXISTS.replace("%1", h.getName());
 							else k = $.Msg$$module$build$src$core$msg.VARIABLE_ALREADY_EXISTS_FOR_ANOTHER_TYPE, k = k.replace("%1", h.getName()).replace("%2", h.getType());
-							alert$$module$build$src$core$dialog(k, function() {
+							alert$$module$build$src$core$dialog(k, function () {
 								d(g);
 							});
 						} else a.getVariableMap().createVariable(g, e), b && b(g);
@@ -1099,16 +1105,16 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			const e = c || "";
 			d("");
 		};
-		$.renameVariable$$module$build$src$core$variables = function(a, b, c) {
+		$.renameVariable$$module$build$src$core$variables = function (a, b, c) {
 			function d(e) {
 				const f = $.Msg$$module$build$src$core$msg.RENAME_VARIABLE_TITLE.replace("%1", b.getName());
-				promptName$$module$build$src$core$variables(f, e, function(g) {
+				promptName$$module$build$src$core$variables(f, e, function (g) {
 					if (g) {
 						var h = nameUsedWithOtherType$$module$build$src$core$variables(g, b.getType(), a), k = nameUsedWithConflictingParam$$module$build$src$core$variables(b.getName(), g, a);
 						if (h || k) {
 							var l = "";
 							h ? l = $.Msg$$module$build$src$core$msg.VARIABLE_ALREADY_EXISTS_FOR_ANOTHER_TYPE.replace("%1", h.getName()).replace("%2", h.getType()) : k && (l = $.Msg$$module$build$src$core$msg.VARIABLE_ALREADY_EXISTS_FOR_A_PARAMETER.replace("%1", g).replace("%2", k));
-							alert$$module$build$src$core$dialog(l, function() {
+							alert$$module$build$src$core$dialog(l, function () {
 								d(g);
 							});
 						} else a.getVariableMap().renameVariable(b, g), c && c(g);
@@ -1117,28 +1123,28 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			d("");
 		};
-		promptName$$module$build$src$core$variables = function(a, b, c) {
-			prompt$$module$build$src$core$dialog(a, b, function(d) {
+		promptName$$module$build$src$core$variables = function (a, b, c) {
+			prompt$$module$build$src$core$dialog(a, b, function (d) {
 				d && (d = d.replace(/[\s\xa0]+/g, " ").trim(), d === $.Msg$$module$build$src$core$msg.RENAME_VARIABLE || d === $.Msg$$module$build$src$core$msg.NEW_VARIABLE) && (d = null);
 				c(d);
 			});
 		};
-		nameUsedWithOtherType$$module$build$src$core$variables = function(a, b, c) {
+		nameUsedWithOtherType$$module$build$src$core$variables = function (a, b, c) {
 			c = c.getVariableMap().getAllVariables();
 			a = a.toLowerCase();
 			for (let d = 0, e; e = c[d]; d++) if (e.getName().toLowerCase() === a && e.getType() !== b) return e;
 			return null;
 		};
-		nameUsedWithAnyType$$module$build$src$core$variables = function(a, b) {
+		nameUsedWithAnyType$$module$build$src$core$variables = function (a, b) {
 			b = b.getVariableMap().getAllVariables();
 			a = a.toLowerCase();
 			for (let c = 0, d; d = b[c]; c++) if (d.getName().toLowerCase() === a) return d;
 			return null;
 		};
-		nameUsedWithConflictingParam$$module$build$src$core$variables = function(a, b, c) {
+		nameUsedWithConflictingParam$$module$build$src$core$variables = function (a, b, c) {
 			return c.getProcedureMap().getProcedures().length ? checkForConflictingParamWithProcedureModels$$module$build$src$core$variables(a, b, c) : checkForConflictingParamWithLegacyProcedures$$module$build$src$core$variables(a, b, c);
 		};
-		checkForConflictingParamWithProcedureModels$$module$build$src$core$variables = function(a, b, c) {
+		checkForConflictingParamWithProcedureModels$$module$build$src$core$variables = function (a, b, c) {
 			a = a.toLowerCase();
 			b = b.toLowerCase();
 			c = c.getProcedureMap().getProcedures();
@@ -1148,7 +1154,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return null;
 		};
-		checkForConflictingParamWithLegacyProcedures$$module$build$src$core$variables = function(a, b, c) {
+		checkForConflictingParamWithLegacyProcedures$$module$build$src$core$variables = function (a, b, c) {
 			a = a.toLowerCase();
 			b = b.toLowerCase();
 			c = c.getAllBlocks(!1);
@@ -1162,7 +1168,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return null;
 		};
-		generateVariableFieldDom$$module$build$src$core$variables = function(a) {
+		generateVariableFieldDom$$module$build$src$core$variables = function (a) {
 			const b = $.createElement$$module$build$src$core$utils$xml("field");
 			b.setAttribute("name", "VAR");
 			b.setAttribute("id", a.getId());
@@ -1171,12 +1177,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b.appendChild(a);
 			return b;
 		};
-		$.getOrCreateVariablePackage$$module$build$src$core$variables = function(a, b, c, d) {
+		$.getOrCreateVariablePackage$$module$build$src$core$variables = function (a, b, c, d) {
 			let e = $.getVariable$$module$build$src$core$variables(a, b, c, d);
 			e || (e = createVariable$$module$build$src$core$variables(a, b, c, d));
 			return e;
 		};
-		$.getVariable$$module$build$src$core$variables = function(a, b, c, d) {
+		$.getVariable$$module$build$src$core$variables = function (a, b, c, d) {
 			const e = a.getPotentialVariableMap();
 			let f = null;
 			if (b && (f = a.getVariableMap().getVariableById(b), !f && e && (f = e.getVariableById(b)), f)) return f;
@@ -1187,12 +1193,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return f;
 		};
-		createVariable$$module$build$src$core$variables = function(a, b, c, d) {
+		createVariable$$module$build$src$core$variables = function (a, b, c, d) {
 			const e = a.getVariableMap(), f = a.getPotentialVariableMap();
 			c || (c = generateUniqueName$$module$build$src$core$variables(a.isFlyout ? a.targetWorkspace : a));
 			return f ? f.createVariable(c, d, b != null ? b : void 0) : e.createVariable(c, d, b);
 		};
-		getAddedVariables$$module$build$src$core$variables = function(a, b) {
+		getAddedVariables$$module$build$src$core$variables = function (a, b) {
 			a = a.getVariableMap().getAllVariables();
 			const c = [];
 			if (b.length !== a.length) for (let d = 0; d < a.length; d++) {
@@ -1201,10 +1207,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		compareByName$$module$build$src$core$variables = function(a, b) {
+		compareByName$$module$build$src$core$variables = function (a, b) {
 			return a.getName().localeCompare(b.getName(), void 0, { sensitivity: "base" });
 		};
-		getVariableUsesById$$module$build$src$core$variables = function(a, b) {
+		getVariableUsesById$$module$build$src$core$variables = function (a, b) {
 			const c = [];
 			a = a.getAllBlocks(!1);
 			for (let d = 0; d < a.length; d++) {
@@ -1213,7 +1219,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		$.deleteVariable$$module$build$src$core$variables = function(a, b, c) {
+		$.deleteVariable$$module$build$src$core$variables = function (a, b, c) {
 			var d = b.getName();
 			const e = getVariableUsesById$$module$build$src$core$variables(a, b.getId());
 			for (let f = e.length - 1; f >= 0; f--) {
@@ -1230,7 +1236,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				f && b && a.getVariableMap().deleteVariable(b);
 			})) : a.getVariableMap().deleteVariable(b);
 		};
-		save$$module$build$src$core$serialization$blocks = function(a, { addCoordinates: b = !1, addInputBlocks: c = !0, addNextBlocks: d = !0, doFullSerialization: e = !0, saveIds: f = !0 } = {}) {
+		save$$module$build$src$core$serialization$blocks = function (a, { addCoordinates: b = !1, addInputBlocks: c = !0, addNextBlocks: d = !0, doFullSerialization: e = !0, saveIds: f = !0 } = {}) {
 			if (a.isInsertionMarker()) return null;
 			const g = {
 				type: a.type,
@@ -1245,7 +1251,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			d && saveNextBlocks$$module$build$src$core$serialization$blocks(a, g, e, f);
 			return g;
 		};
-		saveAttributes$$module$build$src$core$serialization$blocks = function(a, b) {
+		saveAttributes$$module$build$src$core$serialization$blocks = function (a, b) {
 			a.isCollapsed() && (b.collapsed = !0);
 			a.isEnabled() || (b.disabledReasons = Array.from(a.getDisabledReasons()));
 			a.isOwnDeletable() || (b.deletable = !1);
@@ -1254,26 +1260,26 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.inputsInline !== void 0 && a.inputsInline !== a.inputsInlineDefault && (b.inline = a.inputsInline);
 			a.data && (b.data = a.data);
 		};
-		saveCoords$$module$build$src$core$serialization$blocks = function(a, b) {
+		saveCoords$$module$build$src$core$serialization$blocks = function (a, b) {
 			const c = a.workspace;
 			a = a.getRelativeToSurfaceXY();
 			b.x = Math.round(c.RTL ? c.getWidth() - a.x : a.x);
 			b.y = Math.round(a.y);
 		};
-		saveExtraState$$module$build$src$core$serialization$blocks = function(a, b, c) {
+		saveExtraState$$module$build$src$core$serialization$blocks = function (a, b, c) {
 			a.saveExtraState ? (a = a.saveExtraState(c), a !== null && (b.extraState = a)) : a.mutationToDom && (a = a.mutationToDom(), a !== null && (b.extraState = domToText$$module$build$src$core$xml(a).replace(" xmlns=\"https://developers.google.com/blockly/xml\"", "")));
 		};
-		saveIcons$$module$build$src$core$serialization$blocks = function(a, b, c) {
+		saveIcons$$module$build$src$core$serialization$blocks = function (a, b, c) {
 			const d = Object.create(null);
 			for (const e of a.getIcons()) isSerializable$$module$build$src$core$interfaces$i_serializable(e) && (a = e.saveState(c)) && (d[e.getType().toString()] = a);
 			Object.keys(d).length && (b.icons = d);
 		};
-		saveFields$$module$build$src$core$serialization$blocks = function(a, b, c) {
+		saveFields$$module$build$src$core$serialization$blocks = function (a, b, c) {
 			const d = Object.create(null);
 			for (const e of a.getFields()) e.isSerializable() && (d[e.name] = e.saveState(c));
 			Object.keys(d).length && (b.fields = d);
 		};
-		saveInputBlocks$$module$build$src$core$serialization$blocks = function(a, b, c, d) {
+		saveInputBlocks$$module$build$src$core$serialization$blocks = function (a, b, c, d) {
 			const e = Object.create(null);
 			for (let f = 0; f < a.inputList.length; f++) {
 				const g = a.inputList[f];
@@ -1283,10 +1289,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			Object.keys(e).length && (b.inputs = e);
 		};
-		saveNextBlocks$$module$build$src$core$serialization$blocks = function(a, b, c, d) {
+		saveNextBlocks$$module$build$src$core$serialization$blocks = function (a, b, c, d) {
 			a.nextConnection && (a = saveConnection$$module$build$src$core$serialization$blocks(a.nextConnection, c, d)) && (b.next = a);
 		};
-		saveConnection$$module$build$src$core$serialization$blocks = function(a, b, c) {
+		saveConnection$$module$build$src$core$serialization$blocks = function (a, b, c) {
 			const d = a.getShadowState(!0);
 			a = a.targetBlock();
 			if (!d && !a) return null;
@@ -1298,12 +1304,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}));
 			return e;
 		};
-		append$$module$build$src$core$serialization$blocks = function(a, b, { recordUndo: c = !1 } = {}) {
+		append$$module$build$src$core$serialization$blocks = function (a, b, { recordUndo: c = !1 } = {}) {
 			a = appendInternal$$module$build$src$core$serialization$blocks(a, b, { recordUndo: c });
 			b.rendered && triggerQueuedRenders$$module$build$src$core$render_management();
 			return a;
 		};
-		appendInternal$$module$build$src$core$serialization$blocks = function(a, b, { parentConnection: c, isShadow: d = !1, recordUndo: e = !1 } = {}) {
+		appendInternal$$module$build$src$core$serialization$blocks = function (a, b, { parentConnection: c, isShadow: d = !1, recordUndo: e = !1 } = {}) {
 			const f = getRecordUndo$$module$build$src$core$events$utils();
 			$.setRecordUndo$$module$build$src$core$events$utils(e);
 			(e = $.getGroup$$module$build$src$core$events$utils()) || $.setGroup$$module$build$src$core$events$utils(!0);
@@ -1330,7 +1336,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return h;
 		};
-		appendPrivate$$module$build$src$core$serialization$blocks = function(a, b, { parentConnection: c, isShadow: d = !1 } = {}) {
+		appendPrivate$$module$build$src$core$serialization$blocks = function (a, b, { parentConnection: c, isShadow: d = !1 } = {}) {
 			if (!a.type) throw new MissingBlockType$$module$build$src$core$serialization$exceptions(a);
 			const e = b.newBlock(a.type, a.id);
 			e.setShadow(d);
@@ -1345,20 +1351,20 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			initBlock$$module$build$src$core$serialization$blocks(e, b.rendered);
 			return e;
 		};
-		checkNewVariables$$module$build$src$core$serialization$blocks = function(a, b) {
+		checkNewVariables$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (isEnabled$$module$build$src$core$events$utils()) for (a = getAddedVariables$$module$build$src$core$variables(a, b), b = 0; b < a.length; b++) {
 				const c = a[b];
 				fire$$module$build$src$core$events$utils(new (get$$module$build$src$core$events$utils(EventType$$module$build$src$core$events$type.VAR_CREATE))(c));
 			}
 		};
-		loadCoords$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadCoords$$module$build$src$core$serialization$blocks = function (a, b) {
 			let c = b.x === void 0 ? 0 : b.x;
 			b = b.y === void 0 ? 0 : b.y;
 			const d = a.workspace;
 			c = d.RTL ? d.getWidth() - c : c;
 			a.moveBy(c, b);
 		};
-		loadAttributes$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadAttributes$$module$build$src$core$serialization$blocks = function (a, b) {
 			b.collapsed && a.setCollapsed(!0);
 			b.deletable === !1 && a.setDeletable(!1);
 			b.movable === !1 && a.setMovable(!1);
@@ -1368,10 +1374,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b.inline !== void 0 && a.setInputsInline(b.inline);
 			b.data !== void 0 && (a.data = b.data);
 		};
-		loadExtraState$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadExtraState$$module$build$src$core$serialization$blocks = function (a, b) {
 			b.extraState && (a.loadExtraState ? a.loadExtraState(b.extraState) : a.domToMutation && a.domToMutation($.textToDom$$module$build$src$core$utils$xml(b.extraState)));
 		};
-		tryToConnectParent$$module$build$src$core$serialization$blocks = function(a, b, c) {
+		tryToConnectParent$$module$build$src$core$serialization$blocks = function (a, b, c) {
 			if (a) {
 				if (a.getSourceBlock().isShadow() && !b.isShadow()) throw new RealChildOfShadow$$module$build$src$core$serialization$exceptions(c);
 				if (a.type === $.inputTypes$$module$build$src$core$inputs$input_types.VALUE) {
@@ -1384,7 +1390,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		loadIcons$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadIcons$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (b.icons) {
 				var c = Object.keys(b.icons);
 				for (const e of c) {
@@ -1400,7 +1406,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		loadFields$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadFields$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (b.fields) {
 				var c = Object.keys(b.fields);
 				for (let d = 0; d < c.length; d++) {
@@ -1409,7 +1415,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		loadInputBlocks$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadInputBlocks$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (b.inputs) {
 				var c = Object.keys(b.inputs);
 				for (let d = 0; d < c.length; d++) {
@@ -1419,17 +1425,17 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		loadNextBlocks$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadNextBlocks$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (b.next) {
 				if (!a.nextConnection) throw new MissingConnection$$module$build$src$core$serialization$exceptions("next", a, b);
 				loadConnection$$module$build$src$core$serialization$blocks(a.nextConnection, b.next);
 			}
 		};
-		loadConnection$$module$build$src$core$serialization$blocks = function(a, b) {
+		loadConnection$$module$build$src$core$serialization$blocks = function (a, b) {
 			b.shadow && a.setShadowState(b.shadow);
 			b.block && appendPrivate$$module$build$src$core$serialization$blocks(b.block, a.getSourceBlock().workspace, { parentConnection: a });
 		};
-		initBlock$$module$build$src$core$serialization$blocks = function(a, b) {
+		initBlock$$module$build$src$core$serialization$blocks = function (a, b) {
 			if (b) {
 				a.setConnectionTracking(!1);
 				a.initSvg();
@@ -1437,16 +1443,16 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				for (const c of a.getIcons()) c.onLocationChange(a.getRelativeToSurfaceXY());
 			} else a.initModel();
 		};
-		hasBubble$$module$build$src$core$interfaces$i_has_bubble = function(a) {
+		hasBubble$$module$build$src$core$interfaces$i_has_bubble = function (a) {
 			return typeof a.bubbleIsVisible === "function" && typeof a.setBubbleVisible === "function" && typeof a.getBubble === "function";
 		};
-		toRadians$$module$build$src$core$utils$math = function(a) {
+		toRadians$$module$build$src$core$utils$math = function (a) {
 			return a * Math.PI / 180;
 		};
-		toDegrees$$module$build$src$core$utils$math = function(a) {
+		toDegrees$$module$build$src$core$utils$math = function (a) {
 			return a * 180 / Math.PI;
 		};
-		clamp$$module$build$src$core$utils$math = function(a, b, c) {
+		clamp$$module$build$src$core$utils$math = function (a, b, c) {
 			if (c < a) {
 				const d = c;
 				c = a;
@@ -1454,46 +1460,46 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return Math.max(a, Math.min(b, c));
 		};
-		createDom$$module$build$src$core$dropdowndiv = function() {
+		createDom$$module$build$src$core$dropdowndiv = function () {
 			document.querySelector(".blocklyDropDownDiv") || (div$$module$build$src$core$dropdowndiv = document.createElement("div"), div$$module$build$src$core$dropdowndiv.className = "blocklyDropDownDiv", div$$module$build$src$core$dropdowndiv.tabIndex = -1, (getParentContainer$$module$build$src$core$common() || document.body).appendChild(div$$module$build$src$core$dropdowndiv), content$$module$build$src$core$dropdowndiv = document.createElement("div"), content$$module$build$src$core$dropdowndiv.className = "blocklyDropDownContent", div$$module$build$src$core$dropdowndiv.appendChild(content$$module$build$src$core$dropdowndiv), keydownListener$$module$build$src$core$dropdowndiv = conditionalBind$$module$build$src$core$browser_events(content$$module$build$src$core$dropdowndiv, "keydown", null, globalShortcutHandler$$module$build$src$core$common), arrow$$module$build$src$core$dropdowndiv = document.createElement("div"), arrow$$module$build$src$core$dropdowndiv.className = "blocklyDropDownArrow", div$$module$build$src$core$dropdowndiv.appendChild(arrow$$module$build$src$core$dropdowndiv), div$$module$build$src$core$dropdowndiv.style.opacity = "0", div$$module$build$src$core$dropdowndiv.style.transition = "transform " + ANIMATION_TIME$$module$build$src$core$dropdowndiv + "s, opacity " + ANIMATION_TIME$$module$build$src$core$dropdowndiv + "s");
 		};
-		setBoundsElement$$module$build$src$core$dropdowndiv = function(a) {
+		setBoundsElement$$module$build$src$core$dropdowndiv = function (a) {
 			boundsElement$$module$build$src$core$dropdowndiv = a;
 		};
-		getOwner$$module$build$src$core$dropdowndiv = function() {
+		getOwner$$module$build$src$core$dropdowndiv = function () {
 			return owner$$module$build$src$core$dropdowndiv;
 		};
-		getContentDiv$$module$build$src$core$dropdowndiv = function() {
+		getContentDiv$$module$build$src$core$dropdowndiv = function () {
 			return content$$module$build$src$core$dropdowndiv;
 		};
-		clearContent$$module$build$src$core$dropdowndiv = function() {
+		clearContent$$module$build$src$core$dropdowndiv = function () {
 			keydownListener$$module$build$src$core$dropdowndiv && (unbind$$module$build$src$core$browser_events(keydownListener$$module$build$src$core$dropdowndiv), keydownListener$$module$build$src$core$dropdowndiv = null);
 			div$$module$build$src$core$dropdowndiv.remove();
 			createDom$$module$build$src$core$dropdowndiv();
 		};
-		setColour$$module$build$src$core$dropdowndiv = function(a, b) {
+		setColour$$module$build$src$core$dropdowndiv = function (a, b) {
 			div$$module$build$src$core$dropdowndiv.style.backgroundColor = a;
 			div$$module$build$src$core$dropdowndiv.style.borderColor = b;
 		};
-		showPositionedByBlock$$module$build$src$core$dropdowndiv = function(a, b, c, d, e = !0) {
+		showPositionedByBlock$$module$build$src$core$dropdowndiv = function (a, b, c, d, e = !0) {
 			return showPositionedByRect$$module$build$src$core$dropdowndiv(getScaledBboxOfBlock$$module$build$src$core$dropdowndiv(b), a, e, c, d);
 		};
-		showPositionedByField$$module$build$src$core$dropdowndiv = function(a, b, c, d = !0) {
+		showPositionedByField$$module$build$src$core$dropdowndiv = function (a, b, c, d = !0) {
 			positionToField$$module$build$src$core$dropdowndiv = !0;
 			return showPositionedByRect$$module$build$src$core$dropdowndiv(getScaledBboxOfField$$module$build$src$core$dropdowndiv(a), a, d, b, c);
 		};
-		getScaledBboxOfBlock$$module$build$src$core$dropdowndiv = function(a) {
+		getScaledBboxOfBlock$$module$build$src$core$dropdowndiv = function (a) {
 			var b = a.getSvgRoot();
 			const c = a.workspace.scale, d = a.height * c;
 			a = a.width * c;
 			b = getPageOffset$$module$build$src$core$utils$style(b);
 			return new Rect$$module$build$src$core$utils$rect(b.y, b.y + d, b.x, b.x + a);
 		};
-		getScaledBboxOfField$$module$build$src$core$dropdowndiv = function(a) {
+		getScaledBboxOfField$$module$build$src$core$dropdowndiv = function (a) {
 			a = a.getScaledBBox();
 			return new Rect$$module$build$src$core$utils$rect(a.top, a.bottom, a.left, a.right);
 		};
-		showPositionedByRect$$module$build$src$core$dropdowndiv = function(a, b, c, d, e) {
+		showPositionedByRect$$module$build$src$core$dropdowndiv = function (a, b, c, d, e) {
 			const f = a.left + (a.right - a.left) / 2, g = a.bottom;
 			a = a.top;
 			e && (a += e);
@@ -1503,7 +1509,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			setBoundsElement$$module$build$src$core$dropdowndiv(h.getParentSvg().parentNode);
 			return show$$module$build$src$core$dropdowndiv(b, e.RTL, f, g, f, a, c, d);
 		};
-		show$$module$build$src$core$dropdowndiv = function(a, b, c, d, e, f, g, h) {
+		show$$module$build$src$core$dropdowndiv = function (a, b, c, d, e, f, g, h) {
 			owner$$module$build$src$core$dropdowndiv = a;
 			onHide$$module$build$src$core$dropdowndiv = h || null;
 			div$$module$build$src$core$dropdowndiv.style.direction = b ? "rtl" : "ltr";
@@ -1516,7 +1522,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			g && (returnEphemeralFocus$$module$build$src$core$dropdowndiv = $.getFocusManager$$module$build$src$core$focus_manager().takeEphemeralFocus(div$$module$build$src$core$dropdowndiv));
 			return c;
 		};
-		getPositionBelowMetrics$$module$build$src$core$dropdowndiv = function(a, b, c, d) {
+		getPositionBelowMetrics$$module$build$src$core$dropdowndiv = function (a, b, c, d) {
 			a = getPositionX$$module$build$src$core$dropdowndiv(a, c.left, c.right, d.width);
 			return {
 				initialX: a.divX,
@@ -1529,7 +1535,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				arrowVisible: !0
 			};
 		};
-		getPositionAboveMetrics$$module$build$src$core$dropdowndiv = function(a, b, c, d) {
+		getPositionAboveMetrics$$module$build$src$core$dropdowndiv = function (a, b, c, d) {
 			a = getPositionX$$module$build$src$core$dropdowndiv(a, c.left, c.right, d.width);
 			return {
 				initialX: a.divX,
@@ -1542,7 +1548,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				arrowVisible: !0
 			};
 		};
-		getPositionTopOfPageMetrics$$module$build$src$core$dropdowndiv = function(a, b, c) {
+		getPositionTopOfPageMetrics$$module$build$src$core$dropdowndiv = function (a, b, c) {
 			a = getPositionX$$module$build$src$core$dropdowndiv(a, b.left, b.right, c.width);
 			return {
 				initialX: a.divX,
@@ -1555,7 +1561,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				arrowVisible: !1
 			};
 		};
-		getPositionX$$module$build$src$core$dropdowndiv = function(a, b, c, d) {
+		getPositionX$$module$build$src$core$dropdowndiv = function (a, b, c, d) {
 			b = clamp$$module$build$src$core$utils$math(b, a - d / 2, c - d);
 			a = a - ARROW_SIZE$$module$build$src$core$dropdowndiv / 2 - b;
 			c = ARROW_HORIZONTAL_PADDING$$module$build$src$core$dropdowndiv;
@@ -1565,24 +1571,24 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				divX: b
 			};
 		};
-		isVisible$$module$build$src$core$dropdowndiv = function() {
+		isVisible$$module$build$src$core$dropdowndiv = function () {
 			return !!owner$$module$build$src$core$dropdowndiv;
 		};
-		hideIfOwner$$module$build$src$core$dropdowndiv = function(a, b) {
+		hideIfOwner$$module$build$src$core$dropdowndiv = function (a, b) {
 			return owner$$module$build$src$core$dropdowndiv === a ? (b ? hideWithoutAnimation$$module$build$src$core$dropdowndiv() : hide$$module$build$src$core$dropdowndiv(), !0) : !1;
 		};
-		hide$$module$build$src$core$dropdowndiv = function() {
+		hide$$module$build$src$core$dropdowndiv = function () {
 			div$$module$build$src$core$dropdowndiv.style.transform = "translate(0, 0)";
 			div$$module$build$src$core$dropdowndiv.style.opacity = "0";
-			animateOutTimer$$module$build$src$core$dropdowndiv = setTimeout(function() {
+			animateOutTimer$$module$build$src$core$dropdowndiv = setTimeout(function () {
 				hideWithoutAnimation$$module$build$src$core$dropdowndiv();
 			}, ANIMATION_TIME$$module$build$src$core$dropdowndiv * 1e3);
 			onHide$$module$build$src$core$dropdowndiv && (onHide$$module$build$src$core$dropdowndiv(), onHide$$module$build$src$core$dropdowndiv = null);
 		};
-		hideWithoutAnimation$$module$build$src$core$dropdowndiv = function() {
+		hideWithoutAnimation$$module$build$src$core$dropdowndiv = function () {
 			isVisible$$module$build$src$core$dropdowndiv() && (animateOutTimer$$module$build$src$core$dropdowndiv && clearTimeout(animateOutTimer$$module$build$src$core$dropdowndiv), onHide$$module$build$src$core$dropdowndiv && (onHide$$module$build$src$core$dropdowndiv(), onHide$$module$build$src$core$dropdowndiv = null), clearContent$$module$build$src$core$dropdowndiv(), owner$$module$build$src$core$dropdowndiv = null, getMainWorkspace$$module$build$src$core$common().markFocused(), returnEphemeralFocus$$module$build$src$core$dropdowndiv && (returnEphemeralFocus$$module$build$src$core$dropdowndiv(), returnEphemeralFocus$$module$build$src$core$dropdowndiv = null));
 		};
-		positionInternal$$module$build$src$core$dropdowndiv = function(a, b, c, d) {
+		positionInternal$$module$build$src$core$dropdowndiv = function (a, b, c, d) {
 			a = internal$$module$build$src$core$dropdowndiv.getPositionMetrics(a, b, c, d);
 			a.arrowVisible ? (b = a.arrowX, c = a.arrowY, d = a.arrowAtTop ? 45 : 225, arrow$$module$build$src$core$dropdowndiv.style.display = "", arrow$$module$build$src$core$dropdowndiv.style.transform = `translate(${b}px, ${c}px) rotate(${d}deg)`, arrow$$module$build$src$core$dropdowndiv.setAttribute("class", "blocklyDropDownArrow")) : arrow$$module$build$src$core$dropdowndiv.style.display = "none";
 			b = Math.floor(a.initialX);
@@ -1596,7 +1602,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			div$$module$build$src$core$dropdowndiv.style.transform = "translate(" + (d - b) + "px," + (e - c) + "px)";
 			return !!a.arrowAtTop;
 		};
-		repositionForWindowResize$$module$build$src$core$dropdowndiv = function() {
+		repositionForWindowResize$$module$build$src$core$dropdowndiv = function () {
 			if (owner$$module$build$src$core$dropdowndiv) {
 				var a = owner$$module$build$src$core$dropdowndiv.getSourceBlock();
 				a = positionToField$$module$build$src$core$dropdowndiv ? getScaledBboxOfField$$module$build$src$core$dropdowndiv(owner$$module$build$src$core$dropdowndiv) : getScaledBboxOfBlock$$module$build$src$core$dropdowndiv(a);
@@ -1604,12 +1610,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				positionInternal$$module$build$src$core$dropdowndiv(b, a.bottom, b, a.top);
 			} else hide$$module$build$src$core$dropdowndiv();
 		};
-		shortestStringLength$$module$build$src$core$utils$string = function(a) {
-			return a.length ? a.reduce(function(b, c) {
+		shortestStringLength$$module$build$src$core$utils$string = function (a) {
+			return a.length ? a.reduce(function (b, c) {
 				return b.length < c.length ? b : c;
 			}).length : 0;
 		};
-		commonWordPrefix$$module$build$src$core$utils$string = function(a, b) {
+		commonWordPrefix$$module$build$src$core$utils$string = function (a, b) {
 			if (!a.length) return 0;
 			if (a.length === 1) return a[0].length;
 			let c = 0;
@@ -1623,7 +1629,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			for (e = 1; e < a.length; e++) if ((f = a[e][d]) && f !== " ") return c;
 			return b;
 		};
-		commonWordSuffix$$module$build$src$core$utils$string = function(a, b) {
+		commonWordSuffix$$module$build$src$core$utils$string = function (a, b) {
 			if (!a.length) return 0;
 			if (a.length === 1) return a[0].length;
 			let c = 0;
@@ -1637,12 +1643,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			for (e = 1; e < a.length; e++) if ((f = a[e].charAt(a[e].length - d - 1)) && f !== " ") return c;
 			return b;
 		};
-		$.wrap$$module$build$src$core$utils$string = function(a, b) {
+		$.wrap$$module$build$src$core$utils$string = function (a, b) {
 			a = a.split("\n");
 			for (let c = 0; c < a.length; c++) a[c] = wrapLine$$module$build$src$core$utils$string(a[c], b);
 			return a.join("\n");
 		};
-		wrapLine$$module$build$src$core$utils$string = function(a, b) {
+		wrapLine$$module$build$src$core$utils$string = function (a, b) {
 			if (a.length <= b) return a;
 			const c = a.trim().split(/\s+/);
 			for (var d = 0; d < c.length; d++) c[d].length > b && (b = c[d].length);
@@ -1662,7 +1668,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			} while (e > d);
 			return f;
 		};
-		wrapScore$$module$build$src$core$utils$string = function(a, b, c) {
+		wrapScore$$module$build$src$core$utils$string = function (a, b, c) {
 			const d = [0], e = [];
 			for (var f = 0; f < a.length; f++) d[d.length - 1] += a[f].length, b[f] === !0 ? (d.push(0), e.push(a[f].charAt(a[f].length - 1))) : b[f] === !1 && d[d.length - 1]++;
 			a = Math.max(...d);
@@ -1671,7 +1677,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			d.length > 1 && d[d.length - 1] <= d[d.length - 2] && (b += .5);
 			return b;
 		};
-		wrapMutate$$module$build$src$core$utils$string = function(a, b, c) {
+		wrapMutate$$module$build$src$core$utils$string = function (a, b, c) {
 			let d = wrapScore$$module$build$src$core$utils$string(a, b, c), e;
 			for (let f = 0; f < b.length - 1; f++) {
 				if (b[f] === b[f + 1]) continue;
@@ -1683,27 +1689,27 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return e ? wrapMutate$$module$build$src$core$utils$string(a, e, c) : b;
 		};
-		wrapToText$$module$build$src$core$utils$string = function(a, b) {
+		wrapToText$$module$build$src$core$utils$string = function (a, b) {
 			const c = [];
 			for (let d = 0; d < a.length; d++) c.push(a[d]), b[d] !== void 0 && c.push(b[d] ? "\n" : " ");
 			return c.join("");
 		};
-		$.isNumber$$module$build$src$core$utils$string = function(a) {
+		$.isNumber$$module$build$src$core$utils$string = function (a) {
 			return /^\s*-?\d+(\.\d+)?\s*$/.test(a);
 		};
-		setCustomTooltip$$module$build$src$core$tooltip = function(a) {
+		setCustomTooltip$$module$build$src$core$tooltip = function (a) {
 			customTooltip$$module$build$src$core$tooltip = a;
 		};
-		getCustomTooltip$$module$build$src$core$tooltip = function() {
+		getCustomTooltip$$module$build$src$core$tooltip = function () {
 			return customTooltip$$module$build$src$core$tooltip;
 		};
-		isVisible$$module$build$src$core$tooltip = function() {
+		isVisible$$module$build$src$core$tooltip = function () {
 			return visible$$module$build$src$core$tooltip;
 		};
-		getDiv$$module$build$src$core$tooltip = function() {
+		getDiv$$module$build$src$core$tooltip = function () {
 			return containerDiv$$module$build$src$core$tooltip;
 		};
-		getTooltipOfObject$$module$build$src$core$tooltip = function(a) {
+		getTooltipOfObject$$module$build$src$core$tooltip = function (a) {
 			if (a = getTargetObject$$module$build$src$core$tooltip(a)) {
 				for (a = a.tooltip; typeof a === "function";) a = a();
 				if (typeof a !== "string") throw Error("Tooltip function must return a string.");
@@ -1711,59 +1717,59 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return "";
 		};
-		getTargetObject$$module$build$src$core$tooltip = function(a) {
+		getTargetObject$$module$build$src$core$tooltip = function (a) {
 			for (; a && a.tooltip;) {
 				if (typeof a.tooltip === "string" || typeof a.tooltip === "function") return a;
 				a = a.tooltip;
 			}
 			return null;
 		};
-		createDom$$module$build$src$core$tooltip = function() {
+		createDom$$module$build$src$core$tooltip = function () {
 			document.querySelector(".blocklyTooltipDiv") || (containerDiv$$module$build$src$core$tooltip = document.createElement("div"), containerDiv$$module$build$src$core$tooltip.className = "blocklyTooltipDiv", (getParentContainer$$module$build$src$core$common() || document.body).appendChild(containerDiv$$module$build$src$core$tooltip));
 		};
-		bindMouseEvents$$module$build$src$core$tooltip = function(a) {
+		bindMouseEvents$$module$build$src$core$tooltip = function (a) {
 			a.mouseOverWrapper_ = bind$$module$build$src$core$browser_events(a, "pointerover", null, onMouseOver$$module$build$src$core$tooltip);
 			a.mouseOutWrapper_ = bind$$module$build$src$core$browser_events(a, "pointerout", null, onMouseOut$$module$build$src$core$tooltip);
 			a.addEventListener("pointermove", onMouseMove$$module$build$src$core$tooltip, !1);
 		};
-		unbindMouseEvents$$module$build$src$core$tooltip = function(a) {
+		unbindMouseEvents$$module$build$src$core$tooltip = function (a) {
 			a && (unbind$$module$build$src$core$browser_events(a.mouseOverWrapper_), unbind$$module$build$src$core$browser_events(a.mouseOutWrapper_), a.removeEventListener("pointermove", onMouseMove$$module$build$src$core$tooltip));
 		};
-		onMouseOver$$module$build$src$core$tooltip = function(a) {
+		onMouseOver$$module$build$src$core$tooltip = function (a) {
 			blocked$$module$build$src$core$tooltip || (a = getTargetObject$$module$build$src$core$tooltip(a.currentTarget), element$$module$build$src$core$tooltip !== a && (hide$$module$build$src$core$tooltip(), poisonedElement$$module$build$src$core$tooltip = null, element$$module$build$src$core$tooltip = a), clearTimeout(mouseOutPid$$module$build$src$core$tooltip));
 		};
-		onMouseOut$$module$build$src$core$tooltip = function(a) {
-			blocked$$module$build$src$core$tooltip || (mouseOutPid$$module$build$src$core$tooltip = setTimeout(function() {
+		onMouseOut$$module$build$src$core$tooltip = function (a) {
+			blocked$$module$build$src$core$tooltip || (mouseOutPid$$module$build$src$core$tooltip = setTimeout(function () {
 				poisonedElement$$module$build$src$core$tooltip = element$$module$build$src$core$tooltip = null;
 				hide$$module$build$src$core$tooltip();
 			}, 1), clearTimeout(showPid$$module$build$src$core$tooltip), showPid$$module$build$src$core$tooltip = 0);
 		};
-		onMouseMove$$module$build$src$core$tooltip = function(a) {
+		onMouseMove$$module$build$src$core$tooltip = function (a) {
 			if (element$$module$build$src$core$tooltip && element$$module$build$src$core$tooltip.tooltip && !blocked$$module$build$src$core$tooltip) if (visible$$module$build$src$core$tooltip) {
 				const b = lastX$$module$build$src$core$tooltip - a.pageX;
 				a = lastY$$module$build$src$core$tooltip - a.pageY;
 				Math.sqrt(b * b + a * a) > RADIUS_OK$$module$build$src$core$tooltip && hide$$module$build$src$core$tooltip();
 			} else poisonedElement$$module$build$src$core$tooltip !== element$$module$build$src$core$tooltip && (clearTimeout(showPid$$module$build$src$core$tooltip), lastX$$module$build$src$core$tooltip = a.pageX, lastY$$module$build$src$core$tooltip = a.pageY, showPid$$module$build$src$core$tooltip = setTimeout(show$$module$build$src$core$tooltip, HOVER_MS$$module$build$src$core$tooltip));
 		};
-		dispose$$module$build$src$core$tooltip = function() {
+		dispose$$module$build$src$core$tooltip = function () {
 			poisonedElement$$module$build$src$core$tooltip = element$$module$build$src$core$tooltip = null;
 			hide$$module$build$src$core$tooltip();
 		};
-		hide$$module$build$src$core$tooltip = function() {
+		hide$$module$build$src$core$tooltip = function () {
 			visible$$module$build$src$core$tooltip && (visible$$module$build$src$core$tooltip = !1, containerDiv$$module$build$src$core$tooltip && (containerDiv$$module$build$src$core$tooltip.style.display = "none"));
 			showPid$$module$build$src$core$tooltip && (clearTimeout(showPid$$module$build$src$core$tooltip), showPid$$module$build$src$core$tooltip = 0);
 		};
-		block$$module$build$src$core$tooltip = function() {
+		block$$module$build$src$core$tooltip = function () {
 			hide$$module$build$src$core$tooltip();
 			blocked$$module$build$src$core$tooltip = !0;
 		};
-		unblock$$module$build$src$core$tooltip = function() {
+		unblock$$module$build$src$core$tooltip = function () {
 			blocked$$module$build$src$core$tooltip = !1;
 		};
-		renderContent$$module$build$src$core$tooltip = function() {
+		renderContent$$module$build$src$core$tooltip = function () {
 			containerDiv$$module$build$src$core$tooltip && element$$module$build$src$core$tooltip && (typeof customTooltip$$module$build$src$core$tooltip === "function" ? customTooltip$$module$build$src$core$tooltip(containerDiv$$module$build$src$core$tooltip, element$$module$build$src$core$tooltip) : renderDefaultContent$$module$build$src$core$tooltip());
 		};
-		renderDefaultContent$$module$build$src$core$tooltip = function() {
+		renderDefaultContent$$module$build$src$core$tooltip = function () {
 			var a = getTooltipOfObject$$module$build$src$core$tooltip(element$$module$build$src$core$tooltip);
 			a = $.wrap$$module$build$src$core$utils$string(a, LIMIT$$module$build$src$core$tooltip);
 			a = a.split("\n");
@@ -1773,7 +1779,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				containerDiv$$module$build$src$core$tooltip.appendChild(c);
 			}
 		};
-		getPosition$$module$build$src$core$tooltip = function(a) {
+		getPosition$$module$build$src$core$tooltip = function (a) {
 			const b = document.documentElement.clientWidth, c = document.documentElement.clientHeight;
 			let d = lastX$$module$build$src$core$tooltip;
 			d = a ? d - (OFFSET_X$$module$build$src$core$tooltip + containerDiv$$module$build$src$core$tooltip.offsetWidth) : d + OFFSET_X$$module$build$src$core$tooltip;
@@ -1785,7 +1791,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				y: e
 			};
 		};
-		show$$module$build$src$core$tooltip = function() {
+		show$$module$build$src$core$tooltip = function () {
 			if (!blocked$$module$build$src$core$tooltip && (poisonedElement$$module$build$src$core$tooltip = element$$module$build$src$core$tooltip, containerDiv$$module$build$src$core$tooltip)) {
 				containerDiv$$module$build$src$core$tooltip.textContent = "";
 				renderContent$$module$build$src$core$tooltip();
@@ -1798,19 +1804,19 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				containerDiv$$module$build$src$core$tooltip.style.top = c + "px";
 			}
 		};
-		getHsvSaturation$$module$build$src$core$utils$colour = function() {
+		getHsvSaturation$$module$build$src$core$utils$colour = function () {
 			return hsvSaturation$$module$build$src$core$utils$colour;
 		};
-		setHsvSaturation$$module$build$src$core$utils$colour = function(a) {
+		setHsvSaturation$$module$build$src$core$utils$colour = function (a) {
 			hsvSaturation$$module$build$src$core$utils$colour = a;
 		};
-		getHsvValue$$module$build$src$core$utils$colour = function() {
+		getHsvValue$$module$build$src$core$utils$colour = function () {
 			return hsvValue$$module$build$src$core$utils$colour;
 		};
-		setHsvValue$$module$build$src$core$utils$colour = function(a) {
+		setHsvValue$$module$build$src$core$utils$colour = function (a) {
 			hsvValue$$module$build$src$core$utils$colour = a;
 		};
-		parse$$module$build$src$core$utils$colour = function(a) {
+		parse$$module$build$src$core$utils$colour = function (a) {
 			a = `${a}`.toLowerCase().trim();
 			var b = names$$module$build$src$core$utils$colour[a];
 			if (b) return b;
@@ -1829,11 +1835,11 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			var c = a.match(/^(?:rgb)?\s*\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/);
 			return c && (a = Number(c[1]), b = Number(c[2]), c = Number(c[3]), a >= 0 && a < 256 && b >= 0 && b < 256 && c >= 0 && c < 256) ? rgbToHex$$module$build$src$core$utils$colour(a, b, c) : null;
 		};
-		rgbToHex$$module$build$src$core$utils$colour = function(a, b, c) {
+		rgbToHex$$module$build$src$core$utils$colour = function (a, b, c) {
 			b = a << 16 | b << 8 | c;
 			return a < 16 ? "#" + (16777216 | b).toString(16).substr(1) : "#" + b.toString(16);
 		};
-		hexToRgb$$module$build$src$core$utils$colour = function(a) {
+		hexToRgb$$module$build$src$core$utils$colour = function (a) {
 			a = parse$$module$build$src$core$utils$colour(a);
 			if (!a) return [
 				0,
@@ -1847,7 +1853,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				a & 255
 			];
 		};
-		hsvToHex$$module$build$src$core$utils$colour = function(a, b, c) {
+		hsvToHex$$module$build$src$core$utils$colour = function (a, b, c) {
 			let d = 0, e = 0, f = 0;
 			if (b === 0) f = e = d = c;
 			else {
@@ -1887,7 +1893,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return rgbToHex$$module$build$src$core$utils$colour(Math.floor(d), Math.floor(e), Math.floor(f));
 		};
-		blend$$module$build$src$core$utils$colour = function(a, b, c) {
+		blend$$module$build$src$core$utils$colour = function (a, b, c) {
 			a = parse$$module$build$src$core$utils$colour(a);
 			if (!a) return null;
 			b = parse$$module$build$src$core$utils$colour(b);
@@ -1896,10 +1902,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b = hexToRgb$$module$build$src$core$utils$colour(b);
 			return rgbToHex$$module$build$src$core$utils$colour(Math.round(b[0] + c * (a[0] - b[0])), Math.round(b[1] + c * (a[1] - b[1])), Math.round(b[2] + c * (a[2] - b[2])));
 		};
-		hueToHex$$module$build$src$core$utils$colour = function(a) {
+		hueToHex$$module$build$src$core$utils$colour = function (a) {
 			return hsvToHex$$module$build$src$core$utils$colour(a, hsvSaturation$$module$build$src$core$utils$colour, hsvValue$$module$build$src$core$utils$colour * 255);
 		};
-		tokenizeInterpolationInternal$$module$build$src$core$utils$parsing = function(a, b, c) {
+		tokenizeInterpolationInternal$$module$build$src$core$utils$parsing = function (a, b, c) {
 			const d = [];
 			var e = a.split("");
 			e.push("");
@@ -1933,21 +1939,21 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.length = 0;
 			return k;
 		};
-		tokenizeInterpolation$$module$build$src$core$utils$parsing = function(a) {
+		tokenizeInterpolation$$module$build$src$core$utils$parsing = function (a) {
 			return tokenizeInterpolationInternal$$module$build$src$core$utils$parsing(a, !0, !0);
 		};
-		replaceMessageReferences$$module$build$src$core$utils$parsing = function(a) {
+		replaceMessageReferences$$module$build$src$core$utils$parsing = function (a) {
 			if (typeof a !== "string") return a;
 			a = tokenizeInterpolationInternal$$module$build$src$core$utils$parsing(a, !1, !1);
 			return a.length ? String(a[0]) : "";
 		};
-		checkMessageReferences$$module$build$src$core$utils$parsing = function(a) {
+		checkMessageReferences$$module$build$src$core$utils$parsing = function (a) {
 			let b = !0;
 			const c = $.Msg$$module$build$src$core$msg, d = a.match(/%{BKY_[A-Z]\w*}/gi);
 			if (d) for (let e = 0; e < d.length; e++) c[d[e].toUpperCase().slice(6, -1)] === void 0 && (console.warn("No message string for " + d[e] + " in " + a), b = !1);
 			return b;
 		};
-		parseBlockColour$$module$build$src$core$utils$parsing = function(a) {
+		parseBlockColour$$module$build$src$core$utils$parsing = function (a) {
 			const b = typeof a === "string" ? replaceMessageReferences$$module$build$src$core$utils$parsing(a) : a;
 			var c = Number(b);
 			if (!isNaN(c) && 0 <= c && c <= 360) return {
@@ -1962,23 +1968,23 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a !== b && (c += " (from \"" + a + "\")");
 			throw Error(c);
 		};
-		getDiv$$module$build$src$core$widgetdiv = function() {
+		getDiv$$module$build$src$core$widgetdiv = function () {
 			return containerDiv$$module$build$src$core$widgetdiv;
 		};
-		testOnly_setDiv$$module$build$src$core$widgetdiv = function(a) {
+		testOnly_setDiv$$module$build$src$core$widgetdiv = function (a) {
 			containerDiv$$module$build$src$core$widgetdiv = a;
 			if (a === null) {
 				let b;
 				(b = document.querySelector("." + containerClassName$$module$build$src$core$widgetdiv)) == null || b.remove();
 			}
 		};
-		createDom$$module$build$src$core$widgetdiv = function() {
+		createDom$$module$build$src$core$widgetdiv = function () {
 			const a = getParentContainer$$module$build$src$core$common() || document.body, b = document.querySelector("div." + containerClassName$$module$build$src$core$widgetdiv);
 			b ? containerDiv$$module$build$src$core$widgetdiv = b : (containerDiv$$module$build$src$core$widgetdiv = document.createElement("div"), containerDiv$$module$build$src$core$widgetdiv.className = containerClassName$$module$build$src$core$widgetdiv, containerDiv$$module$build$src$core$widgetdiv.tabIndex = -1);
 			conditionalBind$$module$build$src$core$browser_events(containerDiv$$module$build$src$core$widgetdiv, "keydown", null, globalShortcutHandler$$module$build$src$core$common);
 			a.appendChild(containerDiv$$module$build$src$core$widgetdiv);
 		};
-		show$$module$build$src$core$widgetdiv = function(a, b, c, d, e = !0) {
+		show$$module$build$src$core$widgetdiv = function (a, b, c, d, e = !0) {
 			hide$$module$build$src$core$widgetdiv();
 			owner$$module$build$src$core$widgetdiv = a;
 			dispose$$module$build$src$core$widgetdiv = c;
@@ -2000,20 +2006,20 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				e && (returnEphemeralFocus$$module$build$src$core$widgetdiv = $.getFocusManager$$module$build$src$core$focus_manager().takeEphemeralFocus(c));
 			}
 		};
-		hide$$module$build$src$core$widgetdiv = function() {
+		hide$$module$build$src$core$widgetdiv = function () {
 			if (isVisible$$module$build$src$core$widgetdiv()) {
 				owner$$module$build$src$core$widgetdiv = null;
 				var a = containerDiv$$module$build$src$core$widgetdiv;
 				a && (a.style.display = "none", a.style.left = "", a.style.top = "", dispose$$module$build$src$core$widgetdiv && (dispose$$module$build$src$core$widgetdiv(), dispose$$module$build$src$core$widgetdiv = null), a.textContent = "", rendererClassName$$module$build$src$core$widgetdiv && (removeClass$$module$build$src$core$utils$dom(a, rendererClassName$$module$build$src$core$widgetdiv), rendererClassName$$module$build$src$core$widgetdiv = ""), themeClassName$$module$build$src$core$widgetdiv && (removeClass$$module$build$src$core$utils$dom(a, themeClassName$$module$build$src$core$widgetdiv), themeClassName$$module$build$src$core$widgetdiv = ""), getMainWorkspace$$module$build$src$core$common().markFocused(), returnEphemeralFocus$$module$build$src$core$widgetdiv && (returnEphemeralFocus$$module$build$src$core$widgetdiv(), returnEphemeralFocus$$module$build$src$core$widgetdiv = null));
 			}
 		};
-		isVisible$$module$build$src$core$widgetdiv = function() {
+		isVisible$$module$build$src$core$widgetdiv = function () {
 			return !!owner$$module$build$src$core$widgetdiv;
 		};
-		hideIfOwner$$module$build$src$core$widgetdiv = function(a) {
+		hideIfOwner$$module$build$src$core$widgetdiv = function (a) {
 			owner$$module$build$src$core$widgetdiv === a && hide$$module$build$src$core$widgetdiv();
 		};
-		hideIfOwnerIsInWorkspace$$module$build$src$core$widgetdiv = function(a) {
+		hideIfOwnerIsInWorkspace$$module$build$src$core$widgetdiv = function (a) {
 			let b = ownerWorkspace$$module$build$src$core$widgetdiv === null, c = a;
 			for (; !b && c;) {
 				if (c === a) {
@@ -2024,48 +2030,48 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			b && hide$$module$build$src$core$widgetdiv();
 		};
-		positionInternal$$module$build$src$core$widgetdiv = function(a, b, c) {
+		positionInternal$$module$build$src$core$widgetdiv = function (a, b, c) {
 			containerDiv$$module$build$src$core$widgetdiv.style.left = a + "px";
 			containerDiv$$module$build$src$core$widgetdiv.style.top = b + "px";
 			containerDiv$$module$build$src$core$widgetdiv.style.height = c + "px";
 		};
-		positionWithAnchor$$module$build$src$core$widgetdiv = function(a, b, c, d) {
+		positionWithAnchor$$module$build$src$core$widgetdiv = function (a, b, c, d) {
 			const e = calculateY$$module$build$src$core$widgetdiv(a, b, c);
 			a = calculateX$$module$build$src$core$widgetdiv(a, b, c, d);
 			e < 0 ? positionInternal$$module$build$src$core$widgetdiv(a, 0, c.height + e) : positionInternal$$module$build$src$core$widgetdiv(a, e, c.height);
 		};
-		calculateX$$module$build$src$core$widgetdiv = function(a, b, c, d) {
+		calculateX$$module$build$src$core$widgetdiv = function (a, b, c, d) {
 			return d ? Math.min(Math.max(b.right - c.width, a.left), a.right - c.width) : Math.max(Math.min(b.left, a.right - c.width), a.left);
 		};
-		calculateY$$module$build$src$core$widgetdiv = function(a, b, c) {
+		calculateY$$module$build$src$core$widgetdiv = function (a, b, c) {
 			return b.bottom + c.height >= a.bottom ? b.top - c.height : b.bottom;
 		};
-		isRepositionable$$module$build$src$core$widgetdiv = function(a) {
+		isRepositionable$$module$build$src$core$widgetdiv = function (a) {
 			return !(a == null || !a.repositionForWindowResize);
 		};
-		repositionForWindowResize$$module$build$src$core$widgetdiv = function() {
+		repositionForWindowResize$$module$build$src$core$widgetdiv = function () {
 			isRepositionable$$module$build$src$core$widgetdiv(owner$$module$build$src$core$widgetdiv) && owner$$module$build$src$core$widgetdiv.repositionForWindowResize() || hide$$module$build$src$core$widgetdiv();
 		};
-		getCurrentBlock$$module$build$src$core$contextmenu = function() {
+		getCurrentBlock$$module$build$src$core$contextmenu = function () {
 			return currentBlock$$module$build$src$core$contextmenu;
 		};
-		setCurrentBlock$$module$build$src$core$contextmenu = function(a) {
+		setCurrentBlock$$module$build$src$core$contextmenu = function (a) {
 			currentBlock$$module$build$src$core$contextmenu = a;
 		};
-		show$$module$build$src$core$contextmenu = function(a, b, c, d, e) {
+		show$$module$build$src$core$contextmenu = function (a, b, c, d, e) {
 			show$$module$build$src$core$widgetdiv(dummyOwner$$module$build$src$core$contextmenu, c, dispose$$module$build$src$core$contextmenu, d);
 			if (b.length) {
 				e || (a instanceof PointerEvent ? e = new Coordinate$$module$build$src$core$utils$coordinate(a.clientX, a.clientY) : (console.warn("Context menu opened with keyboard but no location given"), e = new Coordinate$$module$build$src$core$utils$coordinate(0, 0)));
 				var f = populate_$$module$build$src$core$contextmenu(b, c, a, e);
 				menu_$$module$build$src$core$contextmenu = f;
 				position_$$module$build$src$core$contextmenu(f, c, e);
-				setTimeout(function() {
+				setTimeout(function () {
 					f.focus();
 				}, 1);
 				currentBlock$$module$build$src$core$contextmenu = null;
 			} else hide$$module$build$src$core$contextmenu();
 		};
-		populate_$$module$build$src$core$contextmenu = function(a, b, c, d) {
+		populate_$$module$build$src$core$contextmenu = function (a, b, c, d) {
 			const e = new Menu$$module$build$src$core$menu();
 			e.setRole(Role$$module$build$src$core$utils$aria.MENU);
 			for (let f = 0; f < a.length; f++) {
@@ -2079,7 +2085,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				h.setRole(Role$$module$build$src$core$utils$aria.MENUITEM);
 				e.addChild(h);
 				h.setEnabled(g.enabled);
-				if (g.enabled) h.onAction(function(k, l) {
+				if (g.enabled) h.onAction(function (k, l) {
 					hide$$module$build$src$core$contextmenu();
 					requestAnimationFrame(() => {
 						setTimeout(() => {
@@ -2090,7 +2096,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return e;
 		};
-		position_$$module$build$src$core$contextmenu = function(a, b, c) {
+		position_$$module$build$src$core$contextmenu = function (a, b, c) {
 			const d = getViewportBBox$$module$build$src$core$utils$svg_math();
 			c = new Rect$$module$build$src$core$utils$rect(c.y + d.top, c.y + d.top, c.x + d.left, c.x + d.left);
 			createWidget_$$module$build$src$core$contextmenu(a);
@@ -2099,7 +2105,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			positionWithAnchor$$module$build$src$core$widgetdiv(d, c, e, b);
 			a.focus();
 		};
-		createWidget_$$module$build$src$core$contextmenu = function(a) {
+		createWidget_$$module$build$src$core$contextmenu = function (a) {
 			var b = getDiv$$module$build$src$core$widgetdiv();
 			if (!b) throw Error("Attempting to create a context menu when widget div is null");
 			b = a.render(b);
@@ -2107,21 +2113,21 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			conditionalBind$$module$build$src$core$browser_events(b, "contextmenu", null, haltPropagation$$module$build$src$core$contextmenu);
 			a.focus();
 		};
-		haltPropagation$$module$build$src$core$contextmenu = function(a) {
+		haltPropagation$$module$build$src$core$contextmenu = function (a) {
 			a.preventDefault();
 			a.stopPropagation();
 		};
-		hide$$module$build$src$core$contextmenu = function() {
+		hide$$module$build$src$core$contextmenu = function () {
 			hideIfOwner$$module$build$src$core$widgetdiv(dummyOwner$$module$build$src$core$contextmenu);
 			currentBlock$$module$build$src$core$contextmenu = null;
 			let a;
 			(a = menu_$$module$build$src$core$contextmenu) == null || a.dispose();
 			menu_$$module$build$src$core$contextmenu = null;
 		};
-		dispose$$module$build$src$core$contextmenu = function() {
+		dispose$$module$build$src$core$contextmenu = function () {
 			menu_$$module$build$src$core$contextmenu && (menu_$$module$build$src$core$contextmenu.dispose(), menu_$$module$build$src$core$contextmenu = null);
 		};
-		$.callbackFactory$$module$build$src$core$contextmenu = function(a, b) {
+		$.callbackFactory$$module$build$src$core$contextmenu = function (a, b) {
 			return () => {
 				$.disable$$module$build$src$core$events$utils();
 				let c;
@@ -2139,26 +2145,26 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				return c;
 			};
 		};
-		getMenu$$module$build$src$core$contextmenu = function() {
+		getMenu$$module$build$src$core$contextmenu = function () {
 			return menu_$$module$build$src$core$contextmenu;
 		};
-		mouseToWorkspacePoint$$module$build$src$core$utils$drag = function(a, b) {
+		mouseToWorkspacePoint$$module$build$src$core$utils$drag = function (a, b) {
 			b = mouseToSvg$$module$build$src$core$browser_events(b, a.getParentSvg(), a.getInverseScreenCTM());
 			b.x /= a.scale;
 			b.y /= a.scale;
 			return b;
 		};
-		start$$module$build$src$core$utils$drag = function(a, b, c) {
+		start$$module$build$src$core$utils$drag = function (a, b, c) {
 			b = mouseToWorkspacePoint$$module$build$src$core$utils$drag(a, b);
 			workspaceToDragDelta$$module$build$src$core$utils$drag.set(a, Coordinate$$module$build$src$core$utils$coordinate.difference(c, b));
 		};
-		move$$module$build$src$core$utils$drag = function(a, b) {
+		move$$module$build$src$core$utils$drag = function (a, b) {
 			b = mouseToWorkspacePoint$$module$build$src$core$utils$drag(a, b);
 			a = workspaceToDragDelta$$module$build$src$core$utils$drag.get(a);
 			if (!a) throw Error("Drag not initialized");
 			return Coordinate$$module$build$src$core$utils$coordinate.sum(a, b);
 		};
-		workspaceToDom$$module$build$src$core$xml = function(a, b = !1) {
+		workspaceToDom$$module$build$src$core$xml = function (a, b = !1) {
 			const c = $.createElement$$module$build$src$core$utils$xml("xml");
 			var d = variablesToDom$$module$build$src$core$xml($.allUsedVarModels$$module$build$src$core$variables(a));
 			d.hasChildNodes() && c.appendChild(d);
@@ -2167,7 +2173,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			for (d = 0; d < a.length; d++) c.appendChild(blockToDomWithXY$$module$build$src$core$xml(a[d], b));
 			return c;
 		};
-		saveWorkspaceComment$$module$build$src$core$xml = function(a, b = !1) {
+		saveWorkspaceComment$$module$build$src$core$xml = function (a, b = !1) {
 			const c = $.createElement$$module$build$src$core$utils$xml("comment");
 			b || c.setAttribute("id", a.id);
 			b = a.workspace;
@@ -2184,7 +2190,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.isOwnDeletable() || c.setAttribute("deletable", "false");
 			return c;
 		};
-		variablesToDom$$module$build$src$core$xml = function(a) {
+		variablesToDom$$module$build$src$core$xml = function (a) {
 			const b = $.createElement$$module$build$src$core$utils$xml("variables");
 			for (let c = 0; c < a.length; c++) {
 				const d = a[c], e = $.createElement$$module$build$src$core$utils$xml("variable");
@@ -2195,7 +2201,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		blockToDomWithXY$$module$build$src$core$xml = function(a, b) {
+		blockToDomWithXY$$module$build$src$core$xml = function (a, b) {
 			if (a.isInsertionMarker() && (a = a.getChildren(!1)[0], !a)) return new DocumentFragment();
 			let c = 0;
 			a.workspace.RTL && (c = a.workspace.getWidth());
@@ -2207,7 +2213,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		fieldToDom$$module$build$src$core$xml = function(a) {
+		fieldToDom$$module$build$src$core$xml = function (a) {
 			if (a.isSerializable()) {
 				const b = $.createElement$$module$build$src$core$utils$xml("field");
 				b.setAttribute("name", a.name || "");
@@ -2215,10 +2221,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return null;
 		};
-		allFieldsToDom$$module$build$src$core$xml = function(a, b) {
+		allFieldsToDom$$module$build$src$core$xml = function (a, b) {
 			for (const c of a.getFields()) (a = fieldToDom$$module$build$src$core$xml(c)) && b.appendChild(a);
 		};
-		blockToDom$$module$build$src$core$xml = function(a, b) {
+		blockToDom$$module$build$src$core$xml = function (a, b) {
 			if (a.isInsertionMarker()) return (b = a.getChildren(!1)[0]) ? blockToDom$$module$build$src$core$xml(b) : new DocumentFragment();
 			const c = $.createElement$$module$build$src$core$utils$xml(a.isShadow() ? "shadow" : "block");
 			c.setAttribute("type", a.type);
@@ -2259,7 +2265,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			!a || k && k.isShadow() || l.appendChild(cloneShadow$$module$build$src$core$xml(a, b));
 			return c;
 		};
-		cloneShadow$$module$build$src$core$xml = function(a, b) {
+		cloneShadow$$module$build$src$core$xml = function (a, b) {
 			let c = a = a.cloneNode(!0), d;
 			for (; c;) if (b && c.nodeName === "shadow" && c.removeAttribute("id"), c.firstChild) c = c.firstChild;
 			else {
@@ -2273,10 +2279,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return a;
 		};
-		domToText$$module$build$src$core$xml = function(a) {
+		domToText$$module$build$src$core$xml = function (a) {
 			return domToText$$module$build$src$core$utils$xml(a).replace(/<(\w+)([^<]*)\/>/g, "<$1$2></$1>");
 		};
-		domToPrettyText$$module$build$src$core$xml = function(a) {
+		domToPrettyText$$module$build$src$core$xml = function (a) {
 			a = domToText$$module$build$src$core$xml(a).split("<");
 			let b = "";
 			for (let c = 1; c < a.length; c++) {
@@ -2289,14 +2295,14 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a = a.replace(/(<(\w+)\b[^>]*>[^\n]*)\n *<\/\2>/g, "$1</$2>");
 			return a.replace(/^\n/, "");
 		};
-		clearWorkspaceAndLoadFromXml$$module$build$src$core$xml = function(a, b) {
+		clearWorkspaceAndLoadFromXml$$module$build$src$core$xml = function (a, b) {
 			b.setResizesEnabled(!1);
 			b.clear();
 			a = $.domToWorkspace$$module$build$src$core$xml(a, b);
 			b.setResizesEnabled(!0);
 			return a;
 		};
-		$.domToWorkspace$$module$build$src$core$xml = function(a, b) {
+		$.domToWorkspace$$module$build$src$core$xml = function (a, b) {
 			let c = 0;
 			b.RTL && (c = b.getWidth());
 			const d = [];
@@ -2333,7 +2339,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			fire$$module$build$src$core$events$utils(new (get$$module$build$src$core$events$utils(EventType$$module$build$src$core$events$type.FINISHED_LOADING))(b));
 			return d;
 		};
-		loadWorkspaceComment$$module$build$src$core$xml = function(a, b) {
+		loadWorkspaceComment$$module$build$src$core$xml = function (a, b) {
 			var c;
 			const d = (c = a.getAttribute("id")) != null ? c : void 0;
 			c = b.rendered ? new RenderedWorkspaceComment$$module$build$src$core$comments$rendered_workspace_comment(b, d) : new WorkspaceComment$$module$build$src$core$comments$workspace_comment(b, d);
@@ -2355,7 +2361,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.getAttribute("deletable") === "false" && c.setDeletable(!1);
 			return c;
 		};
-		appendDomToWorkspace$$module$build$src$core$xml = function(a, b) {
+		appendDomToWorkspace$$module$build$src$core$xml = function (a, b) {
 			if (!b.getBlocksBoundingBox) return $.domToWorkspace$$module$build$src$core$xml(a, b);
 			var c = b.getBlocksBoundingBox();
 			a = $.domToWorkspace$$module$build$src$core$xml(a, b);
@@ -2376,12 +2382,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return a;
 		};
-		$.domToBlock$$module$build$src$core$xml = function(a, b) {
+		$.domToBlock$$module$build$src$core$xml = function (a, b) {
 			a = domToBlockInternal$$module$build$src$core$xml(a, b);
 			b.rendered && triggerQueuedRenders$$module$build$src$core$render_management();
 			return a;
 		};
-		domToBlockInternal$$module$build$src$core$xml = function(a, b) {
+		domToBlockInternal$$module$build$src$core$xml = function (a, b) {
 			$.disable$$module$build$src$core$events$utils();
 			var c = b.getVariableMap().getAllVariables();
 			let d;
@@ -2391,7 +2397,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 					e.setConnectionTracking(!1);
 					for (let g = f.length - 1; g >= 0; g--) f[g].initSvg();
 					for (let g = f.length - 1; g >= 0; g--) f[g].queueRender();
-					setTimeout(function() {
+					setTimeout(function () {
 						e.disposed || e.setConnectionTracking(!0);
 					}, 1);
 					b.resizeContents();
@@ -2409,7 +2415,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return d;
 		};
-		domToVariables$$module$build$src$core$xml = function(a, b) {
+		domToVariables$$module$build$src$core$xml = function (a, b) {
 			for (let d = 0; d < a.children.length; d++) {
 				var c = a.children[d];
 				const e = c.getAttribute("type"), f = c.getAttribute("id");
@@ -2419,7 +2425,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				b.getVariableMap().createVariable(c, (g = e) != null ? g : void 0, f);
 			}
 		};
-		mapSupportedXmlTags$$module$build$src$core$xml = function(a) {
+		mapSupportedXmlTags$$module$build$src$core$xml = function (a) {
 			const b = {
 				mutation: [],
 				comment: [],
@@ -2456,7 +2462,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		applyMutationTagNodes$$module$build$src$core$xml = function(a, b) {
+		applyMutationTagNodes$$module$build$src$core$xml = function (a, b) {
 			let c = !1;
 			for (let d = 0; d < a.length; d++) {
 				const e = a[d];
@@ -2464,7 +2470,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		applyCommentTagNodes$$module$build$src$core$xml = function(a, b) {
+		applyCommentTagNodes$$module$build$src$core$xml = function (a, b) {
 			for (let c = 0; c < a.length; c++) {
 				const d = a[c], e = d.textContent, f = d.getAttribute("pinned") === "true";
 				let g;
@@ -2483,16 +2489,16 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}, 1);
 			}
 		};
-		applyDataTagNodes$$module$build$src$core$xml = function(a, b) {
+		applyDataTagNodes$$module$build$src$core$xml = function (a, b) {
 			for (let c = 0; c < a.length; c++) b.data = a[c].textContent;
 		};
-		applyFieldTagNodes$$module$build$src$core$xml = function(a, b) {
+		applyFieldTagNodes$$module$build$src$core$xml = function (a, b) {
 			for (let c = 0; c < a.length; c++) {
 				const d = a[c], e = d.getAttribute("name");
 				e ? domToField$$module$build$src$core$xml(b, e, d) : console.warn(`Ignoring unnamed field in block ${b.type}`);
 			}
 		};
-		findChildBlocks$$module$build$src$core$xml = function(a) {
+		findChildBlocks$$module$build$src$core$xml = function (a) {
 			let b = null, c = null;
 			for (let d = 0; d < a.childNodes.length; d++) {
 				const e = a.childNodes[d];
@@ -2503,7 +2509,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				childShadowElement: c
 			};
 		};
-		applyInputTagNodes$$module$build$src$core$xml = function(a, b, c, d) {
+		applyInputTagNodes$$module$build$src$core$xml = function (a, b, c, d) {
 			for (let f = 0; f < a.length; f++) {
 				var e = a[f];
 				const g = e.getAttribute("name"), h = g ? c.getInput(g) : null;
@@ -2522,7 +2528,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		applyNextTagNodes$$module$build$src$core$xml = function(a, b, c) {
+		applyNextTagNodes$$module$build$src$core$xml = function (a, b, c) {
 			for (let d = 0; d < a.length; d++) {
 				const e = findChildBlocks$$module$build$src$core$xml(a[d]);
 				if (e.childBlockElement) {
@@ -2533,7 +2539,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				e.childShadowElement && c.nextConnection && c.nextConnection.setShadowDom(e.childShadowElement);
 			}
 		};
-		domToBlockHeadless$$module$build$src$core$xml = function(a, b, c, d) {
+		domToBlockHeadless$$module$build$src$core$xml = function (a, b, c, d) {
 			var e;
 			const f = a.getAttribute("type");
 			if (!f) throw TypeError("Block type unspecified: " + a.outerHTML);
@@ -2567,11 +2573,11 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return e;
 		};
-		domToField$$module$build$src$core$xml = function(a, b, c) {
+		domToField$$module$build$src$core$xml = function (a, b, c) {
 			const d = a.getField(b);
 			d ? d.fromXml(c) : console.warn("Ignoring non-existent field " + b + " in block " + a.type);
 		};
-		deleteNext$$module$build$src$core$xml = function(a) {
+		deleteNext$$module$build$src$core$xml = function (a) {
 			for (let b = 0; b < a.childNodes.length; b++) {
 				const c = a.childNodes[b];
 				if (c.nodeName.toLowerCase() === "next") {
@@ -2580,55 +2586,55 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			}
 		};
-		isElement$$module$build$src$core$xml = function(a) {
+		isElement$$module$build$src$core$xml = function (a) {
 			return a.nodeType === NodeType$$module$build$src$core$utils$dom.ELEMENT_NODE;
 		};
-		register$$module$build$src$core$field_registry = function(a, b) {
+		register$$module$build$src$core$field_registry = function (a, b) {
 			register$$module$build$src$core$registry(Type$$module$build$src$core$registry.FIELD, a, b, !0);
 		};
-		unregister$$module$build$src$core$field_registry = function(a) {
+		unregister$$module$build$src$core$field_registry = function (a) {
 			unregister$$module$build$src$core$registry(Type$$module$build$src$core$registry.FIELD, a);
 		};
-		$.fromJson$$module$build$src$core$field_registry = function(a) {
+		$.fromJson$$module$build$src$core$field_registry = function (a) {
 			return TEST_ONLY$$module$build$src$core$field_registry.fromJsonInternal(a);
 		};
-		fromJsonInternal$$module$build$src$core$field_registry = function(a) {
+		fromJsonInternal$$module$build$src$core$field_registry = function (a) {
 			const b = getObject$$module$build$src$core$registry(Type$$module$build$src$core$registry.FIELD, a.type);
 			return b ? b.fromJson(a) : (console.warn("Blockly could not create a field of type " + a.type + ". The field is probably not being registered. This could be because the file is not loaded, the field does not register itself (Issue #1584), or the registration is not being reached."), null);
 		};
-		isImageProperties$$module$build$src$core$field_dropdown = function(a) {
+		isImageProperties$$module$build$src$core$field_dropdown = function (a) {
 			return a && typeof a === "object" && "src" in a && typeof a.src === "string" && "alt" in a && typeof a.alt === "string" && "width" in a && typeof a.width === "number" && "height" in a && typeof a.height === "number";
 		};
-		$.register$$module$build$src$core$extensions = function(a, b) {
+		$.register$$module$build$src$core$extensions = function (a, b) {
 			if (typeof a !== "string" || a.trim() === "") throw Error("Error: Invalid extension name \"" + a + "\"");
 			if (allExtensions$$module$build$src$core$extensions[a]) throw Error("Error: Extension \"" + a + "\" is already registered.");
 			if (typeof b !== "function") throw Error("Error: Extension \"" + a + "\" must be a function");
 			allExtensions$$module$build$src$core$extensions[a] = b;
 		};
-		$.registerMixin$$module$build$src$core$extensions = function(a, b) {
+		$.registerMixin$$module$build$src$core$extensions = function (a, b) {
 			if (!b || typeof b !== "object") throw Error("Error: Mixin \"" + a + "\" must be a object");
-			$.register$$module$build$src$core$extensions(a, function() {
+			$.register$$module$build$src$core$extensions(a, function () {
 				this.mixin(b);
 			});
 		};
-		$.registerMutator$$module$build$src$core$extensions = function(a, b, c, d) {
+		$.registerMutator$$module$build$src$core$extensions = function (a, b, c, d) {
 			const e = "Error when registering mutator \"" + a + "\": ";
 			checkHasMutatorProperties$$module$build$src$core$extensions(e, b);
 			const f = checkMutatorDialog$$module$build$src$core$extensions(b, e);
 			if (c && typeof c !== "function") throw Error(e + "Extension \"" + a + "\" is not a function");
-			$.register$$module$build$src$core$extensions(a, function() {
+			$.register$$module$build$src$core$extensions(a, function () {
 				f && this.setMutator(new $.MutatorIcon$$module$build$src$core$icons$mutator_icon(d || [], this));
 				this.mixin(b);
 				c && c.apply(this);
 			});
 		};
-		unregister$$module$build$src$core$extensions = function(a) {
+		unregister$$module$build$src$core$extensions = function (a) {
 			isRegistered$$module$build$src$core$extensions(a) ? delete allExtensions$$module$build$src$core$extensions[a] : console.warn("No extension mapping for name \"" + a + "\" found to unregister");
 		};
-		isRegistered$$module$build$src$core$extensions = function(a) {
+		isRegistered$$module$build$src$core$extensions = function (a) {
 			return !!allExtensions$$module$build$src$core$extensions[a];
 		};
-		apply$$module$build$src$core$extensions = function(a, b, c) {
+		apply$$module$build$src$core$extensions = function (a, b, c) {
 			const d = allExtensions$$module$build$src$core$extensions[a];
 			if (typeof d !== "function") throw Error("Error: Extension \"" + a + "\" not found.");
 			let e;
@@ -2637,19 +2643,19 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			if (c) checkHasMutatorProperties$$module$build$src$core$extensions("Error after applying mutator \"" + a + "\": ", b);
 			else if (!mutatorPropertiesMatch$$module$build$src$core$extensions(e, b)) throw Error("Error when applying extension \"" + a + "\": mutation properties changed when applying a non-mutator extension.");
 		};
-		checkNoMutatorProperties$$module$build$src$core$extensions = function(a, b) {
+		checkNoMutatorProperties$$module$build$src$core$extensions = function (a, b) {
 			if (getMutatorProperties$$module$build$src$core$extensions(b).length) throw Error("Error: tried to apply mutation \"" + a + "\" to a block that already has mutator functions.  Block id: " + b.id);
 		};
-		checkXmlHooks$$module$build$src$core$extensions = function(a, b) {
+		checkXmlHooks$$module$build$src$core$extensions = function (a, b) {
 			return checkHasFunctionPair$$module$build$src$core$extensions(a.mutationToDom, a.domToMutation, b + " mutationToDom/domToMutation");
 		};
-		checkJsonHooks$$module$build$src$core$extensions = function(a, b) {
+		checkJsonHooks$$module$build$src$core$extensions = function (a, b) {
 			return checkHasFunctionPair$$module$build$src$core$extensions(a.saveExtraState, a.loadExtraState, b + " saveExtraState/loadExtraState");
 		};
-		checkMutatorDialog$$module$build$src$core$extensions = function(a, b) {
+		checkMutatorDialog$$module$build$src$core$extensions = function (a, b) {
 			return checkHasFunctionPair$$module$build$src$core$extensions(a.compose, a.decompose, b + " compose/decompose");
 		};
-		checkHasFunctionPair$$module$build$src$core$extensions = function(a, b, c) {
+		checkHasFunctionPair$$module$build$src$core$extensions = function (a, b, c) {
 			if (a && b) {
 				if (typeof a !== "function" || typeof b !== "function") throw Error(c + " must be a function");
 				return !0;
@@ -2657,12 +2663,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			if (!a && !b) return !1;
 			throw Error(c + "Must have both or neither functions");
 		};
-		checkHasMutatorProperties$$module$build$src$core$extensions = function(a, b) {
+		checkHasMutatorProperties$$module$build$src$core$extensions = function (a, b) {
 			const c = checkXmlHooks$$module$build$src$core$extensions(b, a), d = checkJsonHooks$$module$build$src$core$extensions(b, a);
 			if (!c && !d) throw Error(a + "Mutations must contain either XML hooks, or JSON hooks, or both");
 			checkMutatorDialog$$module$build$src$core$extensions(b, a);
 		};
-		getMutatorProperties$$module$build$src$core$extensions = function(a) {
+		getMutatorProperties$$module$build$src$core$extensions = function (a) {
 			const b = [];
 			a.domToMutation !== void 0 && b.push(a.domToMutation);
 			a.mutationToDom !== void 0 && b.push(a.mutationToDom);
@@ -2672,83 +2678,83 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.decompose !== void 0 && b.push(a.decompose);
 			return b;
 		};
-		mutatorPropertiesMatch$$module$build$src$core$extensions = function(a, b) {
+		mutatorPropertiesMatch$$module$build$src$core$extensions = function (a, b) {
 			b = getMutatorProperties$$module$build$src$core$extensions(b);
 			if (b.length !== a.length) return !1;
 			for (let c = 0; c < b.length; c++) if (a[c] !== b[c]) return !1;
 			return !0;
 		};
-		runAfterPageLoad$$module$build$src$core$extensions = function(a) {
+		runAfterPageLoad$$module$build$src$core$extensions = function (a) {
 			if (typeof document !== "object") throw Error("runAfterPageLoad() requires browser document.");
 			if (document.readyState === "complete") a();
 			else {
-				const b = setInterval(function() {
+				const b = setInterval(function () {
 					document.readyState === "complete" && (clearInterval(b), a());
 				}, 10);
 			}
 		};
-		$.buildTooltipForDropdown$$module$build$src$core$extensions = function(a, b) {
+		$.buildTooltipForDropdown$$module$build$src$core$extensions = function (a, b) {
 			const c = [];
-			return function() {
+			return function () {
 				c.includes(this.type) || (checkDropdownOptionsInTable$$module$build$src$core$extensions(this, a, b), c.push(this.type));
-				this.setTooltip(function() {
+				this.setTooltip(function () {
 					const d = String(this.getFieldValue(a));
 					return replaceMessageReferences$$module$build$src$core$utils$parsing(b[d]);
 				}.bind(this));
 			};
 		};
-		checkDropdownOptionsInTable$$module$build$src$core$extensions = function(a, b, c) {
+		checkDropdownOptionsInTable$$module$build$src$core$extensions = function (a, b, c) {
 			var d = a.getField(b);
 			if (d instanceof FieldDropdown$$module$build$src$core$field_dropdown && !d.isOptionListDynamic()) {
 				d = d.getOptions();
 				for (const e of d) e !== FieldDropdown$$module$build$src$core$field_dropdown.SEPARATOR && ([, d] = e, c[d] === void 0 && console.warn(`No tooltip mapping for value ${d} of field ${b} of block type ${a.type}.`));
 			}
 		};
-		$.buildTooltipWithFieldText$$module$build$src$core$extensions = function(a, b) {
-			return function() {
-				this.setTooltip(function() {
+		$.buildTooltipWithFieldText$$module$build$src$core$extensions = function (a, b) {
+			return function () {
+				this.setTooltip(function () {
 					const c = this.getField(b);
 					return replaceMessageReferences$$module$build$src$core$utils$parsing(a).replace("%1", c ? c.getText() : "");
 				}.bind(this));
 			};
 		};
-		extensionParentTooltip$$module$build$src$core$extensions = function() {
+		extensionParentTooltip$$module$build$src$core$extensions = function () {
 			const a = this.tooltip;
-			this.setTooltip(function() {
+			this.setTooltip(function () {
 				const b = this.getParent();
 				return b && b.getInputsInline() && b.tooltip || a;
 			}.bind(this));
 		};
-		point$$module$build$src$core$utils$svg_paths = function(a, b) {
+		point$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " " + a + "," + b + " ";
 		};
-		curve$$module$build$src$core$utils$svg_paths = function(a, b) {
+		curve$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " " + a + b.join("");
 		};
-		moveTo$$module$build$src$core$utils$svg_paths = function(a, b) {
+		moveTo$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " M " + a + "," + b + " ";
 		};
-		moveBy$$module$build$src$core$utils$svg_paths = function(a, b) {
+		moveBy$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " m " + a + "," + b + " ";
 		};
-		lineTo$$module$build$src$core$utils$svg_paths = function(a, b) {
+		lineTo$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " l " + a + "," + b + " ";
 		};
-		line$$module$build$src$core$utils$svg_paths = function(a) {
+		line$$module$build$src$core$utils$svg_paths = function (a) {
 			return " l" + a.join("");
 		};
-		lineOnAxis$$module$build$src$core$utils$svg_paths = function(a, b) {
+		lineOnAxis$$module$build$src$core$utils$svg_paths = function (a, b) {
 			return " " + a + " " + b + " ";
 		};
-		arc$$module$build$src$core$utils$svg_paths = function(a, b, c, d) {
+		arc$$module$build$src$core$utils$svg_paths = function (a, b, c, d) {
 			return a + " " + c + " " + c + " " + b + d;
 		};
-		connectReciprocally$$module$build$src$core$connection = function(a, b) {
+		connectReciprocally$$module$build$src$core$connection = function (a, b) {
 			if (!a || !b) throw Error("Cannot connect null connections.");
 			a.targetConnection = b;
 			b.targetConnection = a;
 		};
-		getSingleConnection$$module$build$src$core$connection = function(a, b) {
+		getSingleConnection$$module$build$src$core$connection = function (a, b) {
 			let c = null;
 			b = b.outputConnection;
 			const d = b == null ? void 0 : b.getConnectionChecker();
@@ -2762,18 +2768,18 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		getConnectionForOrphanedOutput$$module$build$src$core$connection = function(a, b) {
+		getConnectionForOrphanedOutput$$module$build$src$core$connection = function (a, b) {
 			let c;
 			for (; c = getSingleConnection$$module$build$src$core$connection(a, b);) if (a = c.targetBlock(), !a || a.isShadow()) return c;
 			return null;
 		};
-		isIcon$$module$build$src$core$interfaces$i_icon = function(a) {
+		isIcon$$module$build$src$core$interfaces$i_icon = function (a) {
 			return isFocusableNode$$module$build$src$core$interfaces$i_focusable_node(a) && typeof a.getType === "function" && typeof a.initView === "function" && typeof a.dispose === "function" && typeof a.getWeight === "function" && typeof a.getSize === "function" && typeof a.applyColour === "function" && typeof a.hideForInsertionMarker === "function" && typeof a.updateEditable === "function" && typeof a.updateCollapsed === "function" && typeof a.isShownWhenCollapsed === "function" && typeof a.setOffsetInBlock === "function" && typeof a.onLocationChange === "function" && typeof a.onClick === "function";
 		};
-		isCommentIcon$$module$build$src$core$interfaces$i_comment_icon = function(a) {
+		isCommentIcon$$module$build$src$core$interfaces$i_comment_icon = function (a) {
 			return isIcon$$module$build$src$core$interfaces$i_icon(a) && hasBubble$$module$build$src$core$interfaces$i_has_bubble(a) && isSerializable$$module$build$src$core$interfaces$i_serializable(a) && typeof a.setText === "function" && typeof a.getText === "function" && typeof a.setBubbleSize === "function" && typeof a.getBubbleSize === "function" && typeof a.setBubbleLocation === "function" && typeof a.getBubbleLocation === "function" && a.getType() === IconType$$module$build$src$core$icons$icon_types.COMMENT;
 		};
-		disposeUiEffect$$module$build$src$core$block_animations = function(a) {
+		disposeUiEffect$$module$build$src$core$block_animations = function (a) {
 			if (!(a.getDescendants(!1).length > 100)) {
 				var b = a.workspace, c = a.getSvgRoot();
 				b.getAudioManager().play("delete");
@@ -2789,11 +2795,11 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}, b.RTL, /* @__PURE__ */ new Date());
 			}
 		};
-		disposeUiStep$$module$build$src$core$block_animations = function(a, b, c, d) {
+		disposeUiStep$$module$build$src$core$block_animations = function (a, b, c, d) {
 			const e = ((/* @__PURE__ */ new Date()).getTime() - d.getTime()) / 150;
 			e > 1 ? removeNode$$module$build$src$core$utils$dom(a) : (a.setAttribute("transform", "translate(" + (b.x + (c ? -1 : 1) * b.width / 2 * e) + "," + (b.y + b.height / 2 * e) + ") scale(" + (1 - e) + ")"), setTimeout(disposeUiStep$$module$build$src$core$block_animations, 10, a, b, c, d));
 		};
-		connectionUiEffect$$module$build$src$core$block_animations = function(a) {
+		connectionUiEffect$$module$build$src$core$block_animations = function (a) {
 			var b = a.workspace;
 			const c = b.scale;
 			b.getAudioManager().play("click");
@@ -2829,7 +2835,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				setTimeout(() => void removeNode$$module$build$src$core$utils$dom(e), 150);
 			}
 		};
-		disconnectUiEffect$$module$build$src$core$block_animations = function(a) {
+		disconnectUiEffect$$module$build$src$core$block_animations = function (a) {
 			disconnectUiStop$$module$build$src$core$block_animations();
 			a.workspace.getAudioManager().play("disconnect");
 			if (!(a.workspace.scale < 1)) {
@@ -2840,7 +2846,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				disconnectUiStep$$module$build$src$core$block_animations(a, b, /* @__PURE__ */ new Date(), 0);
 			}
 		};
-		disconnectUiStep$$module$build$src$core$block_animations = function(a, b, c, d) {
+		disconnectUiStep$$module$build$src$core$block_animations = function (a, b, c, d) {
 			const e = [
 				.66,
 				1,
@@ -2855,29 +2861,29 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c.getTime() + 200 > (/* @__PURE__ */ new Date()).getTime() && (f = `skewX(${Math.round(e[d % e.length] * b)})`, disconnectPid$$module$build$src$core$block_animations = setTimeout(disconnectUiStep$$module$build$src$core$block_animations, 15, a, b, c, d + 1));
 			a.getSvgRoot().setAttribute("transform", `${a.getTranslation()} ${f}`);
 		};
-		disconnectUiStop$$module$build$src$core$block_animations = function() {
+		disconnectUiStop$$module$build$src$core$block_animations = function () {
 			wobblingBlock$$module$build$src$core$block_animations && (disconnectPid$$module$build$src$core$block_animations && (clearTimeout(disconnectPid$$module$build$src$core$block_animations), disconnectPid$$module$build$src$core$block_animations = null), wobblingBlock$$module$build$src$core$block_animations.getSvgRoot().setAttribute("transform", wobblingBlock$$module$build$src$core$block_animations.getTranslation()), wobblingBlock$$module$build$src$core$block_animations = null);
 		};
-		moveBlockToNotConflict$$module$build$src$core$clipboard$block_paster = function(a, b) {
+		moveBlockToNotConflict$$module$build$src$core$clipboard$block_paster = function (a, b) {
 			a.workspace.RTL && (b.x = a.workspace.getWidth() - b.x);
 			const c = a.workspace, d = $.config$$module$build$src$core$config.snapRadius, e = Coordinate$$module$build$src$core$utils$coordinate.difference(b, a.getRelativeToSurfaceXY()), f = new Coordinate$$module$build$src$core$utils$coordinate(0, 0), g = c.getAllBlocks(!1).filter((h) => h.id != a.id).map((h) => h.getRelativeToSurfaceXY());
 			for (; blockOverlapsOtherExactly$$module$build$src$core$clipboard$block_paster(Coordinate$$module$build$src$core$utils$coordinate.sum(b, f), g) || blockIsInSnapRadius$$module$build$src$core$clipboard$block_paster(a, Coordinate$$module$build$src$core$utils$coordinate.sum(e, f), d);) c.RTL ? f.translate(-d, d * 2) : f.translate(d, d * 2);
 			a.moveTo(Coordinate$$module$build$src$core$utils$coordinate.sum(b, f));
 		};
-		blockOverlapsOtherExactly$$module$build$src$core$clipboard$block_paster = function(a, b) {
+		blockOverlapsOtherExactly$$module$build$src$core$clipboard$block_paster = function (a, b) {
 			return b.some((c) => Math.abs(c.x - a.x) <= 1 && Math.abs(c.y - a.y) <= 1);
 		};
-		blockIsInSnapRadius$$module$build$src$core$clipboard$block_paster = function(a, b, c) {
+		blockIsInSnapRadius$$module$build$src$core$clipboard$block_paster = function (a, b, c) {
 			return a.getConnections_(!1).some((d) => !!d.closest(c, b).connection);
 		};
-		bumpObjectIntoBounds$$module$build$src$core$bump_objects = function(a, b, c) {
+		bumpObjectIntoBounds$$module$build$src$core$bump_objects = function (a, b, c) {
 			const d = c.getBoundingRectangle(), e = d.right - d.left, f = clamp$$module$build$src$core$utils$math(b.top, d.top, b.top + b.height - (d.bottom - d.top)) - d.top;
 			let g = b.left;
 			b = b.left + b.width - e;
 			a.RTL ? g = Math.min(b, g) : b = Math.max(g, b);
 			return (a = clamp$$module$build$src$core$utils$math(g, d.left, b) - d.left) || f ? (c.moveBy(a, f, ["inbounds"]), !0) : !1;
 		};
-		bumpIntoBoundsHandler$$module$build$src$core$bump_objects = function(a) {
+		bumpIntoBoundsHandler$$module$build$src$core$bump_objects = function (a) {
 			return (b) => {
 				var c = a.getMetricsManager();
 				if (c.hasFixedEdges() && !a.isDragging()) {
@@ -2890,7 +2896,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				}
 			};
 		};
-		extractObjectFromEvent$$module$build$src$core$bump_objects = function(a, b) {
+		extractObjectFromEvent$$module$build$src$core$bump_objects = function (a, b) {
 			let c = null;
 			switch (b.type) {
 				case EventType$$module$build$src$core$events$type.BLOCK_CREATE:
@@ -2903,7 +2909,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		bumpTopObjectsIntoBounds$$module$build$src$core$bump_objects = function(a) {
+		bumpTopObjectsIntoBounds$$module$build$src$core$bump_objects = function (a) {
 			var b = a.getMetricsManager();
 			if (b.hasFixedEdges() && !a.isDragging()) {
 				b = b.getScrollMetrics(!0);
@@ -2911,10 +2917,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				for (let d = 0, e; e = c[d]; d++) bumpObjectIntoBounds$$module$build$src$core$bump_objects(a, b, e);
 			}
 		};
-		isDeletable$$module$build$src$core$interfaces$i_deletable = function(a) {
+		isDeletable$$module$build$src$core$interfaces$i_deletable = function (a) {
 			return a && typeof a.isDeletable === "function" && typeof a.dispose === "function" && typeof a.setDeleteStyle === "function";
 		};
-		getBlockNavigationCandidates$$module$build$src$core$keyboard_nav$block_navigation_policy = function(a, b) {
+		getBlockNavigationCandidates$$module$build$src$core$keyboard_nav$block_navigation_policy = function (a, b) {
 			const c = a.getIcons();
 			for (const d of a.inputList) {
 				if (!d.isVisible()) continue;
@@ -2932,7 +2938,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		navigateStacks$$module$build$src$core$keyboard_nav$block_navigation_policy = function(a, b) {
+		navigateStacks$$module$build$src$core$keyboard_nav$block_navigation_policy = function (a, b) {
 			const c = a.workspace.getTopBoundedElements(!0).filter((e) => isFocusableNode$$module$build$src$core$interfaces$i_focusable_node(e));
 			a = c.indexOf(a instanceof BlockSvg$$module$build$src$core$block_svg ? a.getRootBlock() : a) + b;
 			let d = null;
@@ -2943,7 +2949,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return d;
 		};
-		navigateBlock$$module$build$src$core$keyboard_nav$block_navigation_policy = function(a, b) {
+		navigateBlock$$module$build$src$core$keyboard_nav$block_navigation_policy = function (a, b) {
 			var c;
 			let d;
 			const e = a instanceof BlockSvg$$module$build$src$core$block_svg ? (d = (c = a.outputConnection) == null ? void 0 : c.targetBlock()) != null ? d : a.getSurroundParent() : a.getSourceBlock();
@@ -2954,28 +2960,28 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b = a + b;
 			return b >= 0 && b < c.length ? c[b] : null;
 		};
-		register$$module$build$src$core$icons$registry = function(a, b) {
+		register$$module$build$src$core$icons$registry = function (a, b) {
 			register$$module$build$src$core$registry(Type$$module$build$src$core$registry.ICON, a.toString(), b);
 		};
-		unregister$$module$build$src$core$icons$registry = function(a) {
+		unregister$$module$build$src$core$icons$registry = function (a) {
 			unregister$$module$build$src$core$registry(Type$$module$build$src$core$registry.ICON, a);
 		};
-		hasContextMenu$$module$build$src$core$interfaces$i_contextmenu = function(a) {
+		hasContextMenu$$module$build$src$core$interfaces$i_contextmenu = function (a) {
 			return a && typeof a.showContextMenu === "function";
 		};
-		isDraggable$$module$build$src$core$interfaces$i_draggable = function(a) {
+		isDraggable$$module$build$src$core$interfaces$i_draggable = function (a) {
 			return a && typeof a.getRelativeToSurfaceXY === "function" && typeof a.isMovable === "function" && typeof a.startDrag === "function" && typeof a.drag === "function" && typeof a.endDrag === "function" && typeof a.revertDrag === "function";
 		};
-		isAutoHideable$$module$build$src$core$interfaces$i_autohideable = function(a) {
+		isAutoHideable$$module$build$src$core$interfaces$i_autohideable = function (a) {
 			return a && typeof a.autoHide === "function";
 		};
-		isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block = function(a) {
+		isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block = function (a) {
 			return typeof a.getProcedureModel === "function" && typeof a.doProcedureUpdate === "function" && typeof a.isProcedureDef === "function";
 		};
-		isObservable$$module$build$src$core$interfaces$i_observable = function(a) {
+		isObservable$$module$build$src$core$interfaces$i_observable = function (a) {
 			return a && typeof a.startPublishing === "function" && typeof a.stopPublishing === "function";
 		};
-		allProcedures$$module$build$src$core$procedures = function(a) {
+		allProcedures$$module$build$src$core$procedures = function (a) {
 			const b = a.getProcedureMap().getProcedures().filter((d) => !d.getReturnTypes()).map((d) => [
 				d.getName(),
 				d.getParameters().map((e) => e.getName()),
@@ -2996,10 +3002,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c.sort(procTupleComparator$$module$build$src$core$procedures);
 			return [b, c];
 		};
-		procTupleComparator$$module$build$src$core$procedures = function(a, b) {
+		procTupleComparator$$module$build$src$core$procedures = function (a, b) {
 			return a[0].localeCompare(b[0], void 0, { sensitivity: "base" });
 		};
-		$.findLegalName$$module$build$src$core$procedures = function(a, b) {
+		$.findLegalName$$module$build$src$core$procedures = function (a, b) {
 			if (b.isInFlyout) return a;
 			for (a = a || $.Msg$$module$build$src$core$msg.UNNAMED_KEY || "unnamed"; !isLegalName$$module$build$src$core$procedures(a, b.workspace, b);) {
 				const c = a.match(/^(.*?)(\d+)$/);
@@ -3007,16 +3013,16 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return a;
 		};
-		isLegalName$$module$build$src$core$procedures = function(a, b, c) {
+		isLegalName$$module$build$src$core$procedures = function (a, b, c) {
 			return !isNameUsed$$module$build$src$core$procedures(a, b, c);
 		};
-		isNameUsed$$module$build$src$core$procedures = function(a, b, c) {
+		isNameUsed$$module$build$src$core$procedures = function (a, b, c) {
 			for (const d of b.getAllBlocks(!1)) if (d !== c && isLegacyProcedureDefBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks(d) && $.Names$$module$build$src$core$names.equals(d.getProcedureDef()[0], a)) return !0;
 			c = c && isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block(c) ? c == null ? void 0 : c.getProcedureModel() : void 0;
 			for (const d of b.getProcedureMap().getProcedures()) if (d !== c && $.Names$$module$build$src$core$names.equals(d.getName(), a)) return !0;
 			return !1;
 		};
-		$.rename$$module$build$src$core$procedures = function(a) {
+		$.rename$$module$build$src$core$procedures = function (a) {
 			var b = this.getSourceBlock();
 			if (!b) throw new UnattachedFieldError$$module$build$src$core$field();
 			a = a.trim();
@@ -3029,7 +3035,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return c;
 		};
-		xmlFlyoutCategory$$module$build$src$core$procedures = function(a) {
+		xmlFlyoutCategory$$module$build$src$core$procedures = function (a) {
 			function b(f, g) {
 				for (let k = 0; k < f.length; k++) {
 					var h = f[k][0];
@@ -3066,10 +3072,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b(a[1], "procedures_callreturn");
 			return c;
 		};
-		internalFlyoutCategory$$module$build$src$core$procedures = function(a) {
+		internalFlyoutCategory$$module$build$src$core$procedures = function (a) {
 			return flyoutCategory$$module$build$src$core$procedures(a, !1);
 		};
-		flyoutCategory$$module$build$src$core$procedures = function(a, b = !0) {
+		flyoutCategory$$module$build$src$core$procedures = function (a, b = !0) {
 			function c(e, f) {
 				for (const [g, h] of e) d.push({
 					kind: "block",
@@ -3106,7 +3112,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c(a[1], "procedures_callreturn");
 			return d;
 		};
-		updateMutatorFlyout$$module$build$src$core$procedures = function(a) {
+		updateMutatorFlyout$$module$build$src$core$procedures = function (a) {
 			var b = [], c = a.getBlocksByType("procedures_mutatorarg", !1);
 			for (let f = 0, g; g = c[f]; f++) b.push(g.getFieldValue("NAME"));
 			c = $.createElement$$module$build$src$core$utils$xml("xml");
@@ -3121,23 +3127,23 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c.appendChild(d);
 			a.updateToolbox(c);
 		};
-		mutatorOpenListener$$module$build$src$core$procedures = function(a) {
+		mutatorOpenListener$$module$build$src$core$procedures = function (a) {
 			if (isBubbleOpen$$module$build$src$core$events$predicates(a) && a.bubbleType === "mutator" && a.isOpen && a.blockId) {
 				a = getWorkspaceById$$module$build$src$core$common(a.workspaceId).getBlockById(a.blockId);
 				var b = a.type;
 				if (b === "procedures_defnoreturn" || b === "procedures_defreturn") a = a.getIcon($.MutatorIcon$$module$build$src$core$icons$mutator_icon.TYPE).getWorkspace(), updateMutatorFlyout$$module$build$src$core$procedures(a), a.addChangeListener(mutatorChangeListener$$module$build$src$core$procedures);
 			}
 		};
-		mutatorChangeListener$$module$build$src$core$procedures = function(a) {
+		mutatorChangeListener$$module$build$src$core$procedures = function (a) {
 			if (isBlockCreate$$module$build$src$core$events$predicates(a) || isBlockDelete$$module$build$src$core$events$predicates(a) || isBlockChange$$module$build$src$core$events$predicates(a) || isBlockFieldIntermediateChange$$module$build$src$core$events$predicates(a)) a = getWorkspaceById$$module$build$src$core$common(a.workspaceId), updateMutatorFlyout$$module$build$src$core$procedures(a);
 		};
-		getCallers$$module$build$src$core$procedures = function(a, b) {
+		getCallers$$module$build$src$core$procedures = function (a, b) {
 			return b.getAllBlocks(!1).filter((c) => blockIsModernCallerFor$$module$build$src$core$procedures(c, a) || isLegacyProcedureCallBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks(c) && $.Names$$module$build$src$core$names.equals(c.getProcedureCall(), a));
 		};
-		blockIsModernCallerFor$$module$build$src$core$procedures = function(a, b) {
+		blockIsModernCallerFor$$module$build$src$core$procedures = function (a, b) {
 			return isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block(a) && !a.isProcedureDef() && a.getProcedureModel() && $.Names$$module$build$src$core$names.equals(a.getProcedureModel().getName(), b);
 		};
-		$.mutateCallers$$module$build$src$core$procedures = function(a) {
+		$.mutateCallers$$module$build$src$core$procedures = function (a) {
 			const b = getRecordUndo$$module$build$src$core$events$utils();
 			var c = a.getProcedureDef()[0];
 			const d = a.mutationToDom(!0);
@@ -3150,43 +3156,43 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				c !== e && ($.setRecordUndo$$module$build$src$core$events$utils(!1), fire$$module$build$src$core$events$utils(new (get$$module$build$src$core$events$utils(EventType$$module$build$src$core$events$type.BLOCK_CHANGE))(g, "mutation", null, c, e)), $.setRecordUndo$$module$build$src$core$events$utils(b));
 			}
 		};
-		$.getDefinition$$module$build$src$core$procedures = function(a, b) {
+		$.getDefinition$$module$build$src$core$procedures = function (a, b) {
 			for (const c of b.getAllBlocks(!1)) if (isProcedureBlock$$module$build$src$core$interfaces$i_procedure_block(c) && c.isProcedureDef() && $.Names$$module$build$src$core$names.equals(c.getProcedureModel().getName(), a) || isLegacyProcedureDefBlock$$module$build$src$core$interfaces$i_legacy_procedure_blocks(c) && $.Names$$module$build$src$core$names.equals(c.getProcedureDef()[0], a)) return c;
 			return null;
 		};
-		isDynamicShape$$module$build$src$core$renderers$common$constants = function(a) {
+		isDynamicShape$$module$build$src$core$renderers$common$constants = function (a) {
 			return a.isDynamic;
 		};
-		isPuzzleTab$$module$build$src$core$renderers$common$constants = function(a) {
+		isPuzzleTab$$module$build$src$core$renderers$common$constants = function (a) {
 			return a.pathDown !== void 0 && a.pathUp !== void 0;
 		};
-		isNotch$$module$build$src$core$renderers$common$constants = function(a) {
+		isNotch$$module$build$src$core$renderers$common$constants = function (a) {
 			return a.pathLeft !== void 0 && a.pathRight !== void 0;
 		};
-		register$$module$build$src$core$renderers$common$block_rendering = function(a, b) {
+		register$$module$build$src$core$renderers$common$block_rendering = function (a, b) {
 			register$$module$build$src$core$registry(Type$$module$build$src$core$registry.RENDERER, a, b);
 		};
-		unregister$$module$build$src$core$renderers$common$block_rendering = function(a) {
+		unregister$$module$build$src$core$renderers$common$block_rendering = function (a) {
 			unregister$$module$build$src$core$registry(Type$$module$build$src$core$registry.RENDERER, a);
 		};
-		init$$module$build$src$core$renderers$common$block_rendering = function(a, b, c) {
+		init$$module$build$src$core$renderers$common$block_rendering = function (a, b, c) {
 			a = new (getClass$$module$build$src$core$registry(Type$$module$build$src$core$registry.RENDERER, a))(a);
 			a.init(b, c);
 			return a;
 		};
-		stringButtonClickHandler$$module$build$src$core$variables_dynamic = function(a) {
+		stringButtonClickHandler$$module$build$src$core$variables_dynamic = function (a) {
 			createVariableButtonHandler$$module$build$src$core$variables(a.getTargetWorkspace(), void 0, "String");
 		};
-		numberButtonClickHandler$$module$build$src$core$variables_dynamic = function(a) {
+		numberButtonClickHandler$$module$build$src$core$variables_dynamic = function (a) {
 			createVariableButtonHandler$$module$build$src$core$variables(a.getTargetWorkspace(), void 0, "Number");
 		};
-		colourButtonClickHandler$$module$build$src$core$variables_dynamic = function(a) {
+		colourButtonClickHandler$$module$build$src$core$variables_dynamic = function (a) {
 			createVariableButtonHandler$$module$build$src$core$variables(a.getTargetWorkspace(), void 0, "Colour");
 		};
-		internalFlyoutCategory$$module$build$src$core$variables_dynamic = function(a) {
+		internalFlyoutCategory$$module$build$src$core$variables_dynamic = function (a) {
 			return flyoutCategory$$module$build$src$core$variables_dynamic(a, !1);
 		};
-		flyoutCategory$$module$build$src$core$variables_dynamic = function(a, b = !0) {
+		flyoutCategory$$module$build$src$core$variables_dynamic = function (a, b = !0) {
 			Blocks$$module$build$src$core$blocks.variables_set_dynamic || Blocks$$module$build$src$core$blocks.variables_get_dynamic || console.warn("There are no dynamic variable blocks, but there is a dynamic variable category.");
 			if (b) return warn$$module$build$src$core$utils$deprecation("The XML return value of Blockly.VariablesDynamic.flyoutCategory()", "v12", "v13", "the same method, but handle a return type of FlyoutItemInfo[] (JSON) instead."), xmlFlyoutCategory$$module$build$src$core$variables_dynamic(a);
 			a.registerButtonCallback("CREATE_VARIABLE_STRING", stringButtonClickHandler$$module$build$src$core$variables_dynamic);
@@ -3211,7 +3217,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				...jsonFlyoutCategoryBlocks$$module$build$src$core$variables(a, a.getVariableMap().getAllVariables(), !1, "variables_get_dynamic", "variables_set_dynamic")
 			];
 		};
-		xmlFlyoutCategory$$module$build$src$core$variables_dynamic = function(a) {
+		xmlFlyoutCategory$$module$build$src$core$variables_dynamic = function (a) {
 			let b = [], c = document.createElement("button");
 			c.setAttribute("text", $.Msg$$module$build$src$core$msg.NEW_STRING_VARIABLE);
 			c.setAttribute("callbackKey", "CREATE_VARIABLE_STRING");
@@ -3230,7 +3236,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a = flyoutCategoryBlocks$$module$build$src$core$variables_dynamic(a);
 			return b = b.concat(a);
 		};
-		flyoutCategoryBlocks$$module$build$src$core$variables_dynamic = function(a) {
+		flyoutCategoryBlocks$$module$build$src$core$variables_dynamic = function (a) {
 			a = a.getVariableMap().getAllVariables();
 			const b = [];
 			if (a.length > 0) {
@@ -3249,47 +3255,47 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		resizeSvgContents$$module$build$src$core$workspace_svg = function(a) {
+		resizeSvgContents$$module$build$src$core$workspace_svg = function (a) {
 			a.resizeContents();
 		};
-		copy$$module$build$src$core$clipboard = function(a, b) {
+		copy$$module$build$src$core$clipboard = function (a, b) {
 			const c = a.toCopyData();
 			stashedCopyData$$module$build$src$core$clipboard = c;
 			stashedWorkspace$$module$build$src$core$clipboard = isSelectable$$module$build$src$core$interfaces$i_selectable(a) && a.workspace instanceof WorkspaceSvg$$module$build$src$core$workspace_svg ? a.workspace : null;
 			stashedCoordinates$$module$build$src$core$clipboard = b;
 			return c;
 		};
-		getLastCopiedData$$module$build$src$core$clipboard = function() {
+		getLastCopiedData$$module$build$src$core$clipboard = function () {
 			return stashedCopyData$$module$build$src$core$clipboard;
 		};
-		setLastCopiedData$$module$build$src$core$clipboard = function(a) {
+		setLastCopiedData$$module$build$src$core$clipboard = function (a) {
 			stashedCopyData$$module$build$src$core$clipboard = a;
 		};
-		getLastCopiedWorkspace$$module$build$src$core$clipboard = function() {
+		getLastCopiedWorkspace$$module$build$src$core$clipboard = function () {
 			return stashedWorkspace$$module$build$src$core$clipboard;
 		};
-		setLastCopiedWorkspace$$module$build$src$core$clipboard = function(a) {
+		setLastCopiedWorkspace$$module$build$src$core$clipboard = function (a) {
 			stashedWorkspace$$module$build$src$core$clipboard = a;
 		};
-		getLastCopiedLocation$$module$build$src$core$clipboard = function() {
+		getLastCopiedLocation$$module$build$src$core$clipboard = function () {
 			return stashedCoordinates$$module$build$src$core$clipboard;
 		};
-		setLastCopiedLocation$$module$build$src$core$clipboard = function(a) {
+		setLastCopiedLocation$$module$build$src$core$clipboard = function (a) {
 			stashedCoordinates$$module$build$src$core$clipboard = a;
 		};
-		paste$$module$build$src$core$clipboard = function(a, b, c) {
+		paste$$module$build$src$core$clipboard = function (a, b, c) {
 			return a && b ? pasteFromData$$module$build$src$core$clipboard(a, b, c) : stashedCopyData$$module$build$src$core$clipboard && stashedWorkspace$$module$build$src$core$clipboard ? pasteFromData$$module$build$src$core$clipboard(stashedCopyData$$module$build$src$core$clipboard, stashedWorkspace$$module$build$src$core$clipboard, stashedCoordinates$$module$build$src$core$clipboard) : null;
 		};
-		pasteFromData$$module$build$src$core$clipboard = function(a, b, c) {
+		pasteFromData$$module$build$src$core$clipboard = function (a, b, c) {
 			let d;
 			b = b.isMutator ? b : (d = b.options.parentWorkspace) != null ? d : b;
 			let e, f;
 			return (f = (e = getObject$$module$build$src$core$registry(Type$$module$build$src$core$registry.PASTER, a.paster, !1)) == null ? void 0 : e.paste(a, b, c)) != null ? f : null;
 		};
-		isCopyable$$module$build$src$core$interfaces$i_copyable = function(a) {
+		isCopyable$$module$build$src$core$interfaces$i_copyable = function (a) {
 			return a && typeof a.toCopyData === "function";
 		};
-		registerEscape$$module$build$src$core$shortcut_items = function() {
+		registerEscape$$module$build$src$core$shortcut_items = function () {
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.ESCAPE,
 				preconditionFn(a) {
@@ -3302,7 +3308,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [KeyCodes$$module$build$src$core$utils$keycodes.ESC]
 			});
 		};
-		registerDelete$$module$build$src$core$shortcut_items = function() {
+		registerDelete$$module$build$src$core$shortcut_items = function () {
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.DELETE,
 				preconditionFn(a, b) {
@@ -3318,13 +3324,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [KeyCodes$$module$build$src$core$utils$keycodes.DELETE, KeyCodes$$module$build$src$core$utils$keycodes.BACKSPACE]
 			});
 		};
-		isCopyable$$module$build$src$core$shortcut_items = function(a) {
+		isCopyable$$module$build$src$core$shortcut_items = function (a) {
 			return isCopyable$$module$build$src$core$interfaces$i_copyable(a) && isDeletable$$module$build$src$core$interfaces$i_deletable(a) && isDraggable$$module$build$src$core$interfaces$i_draggable(a) ? a.isCopyable ? a.isCopyable() : a instanceof BlockSvg$$module$build$src$core$block_svg || a instanceof RenderedWorkspaceComment$$module$build$src$core$comments$rendered_workspace_comment ? a.isOwnDeletable() && a.isOwnMovable() : a.isDeletable() && a.isMovable() : !1;
 		};
-		isCuttable$$module$build$src$core$shortcut_items = function(a) {
+		isCuttable$$module$build$src$core$shortcut_items = function (a) {
 			return isCopyable$$module$build$src$core$shortcut_items(a) && isDeletable$$module$build$src$core$interfaces$i_deletable(a) && a.isDeletable();
 		};
-		registerCopy$$module$build$src$core$shortcut_items = function() {
+		registerCopy$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.C, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.COPY,
@@ -3346,7 +3352,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a]
 			});
 		};
-		registerCut$$module$build$src$core$shortcut_items = function() {
+		registerCut$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.X, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.CUT,
@@ -3365,7 +3371,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a]
 			});
 		};
-		registerPaste$$module$build$src$core$shortcut_items = function() {
+		registerPaste$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.V, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.PASTE,
@@ -3393,7 +3399,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a]
 			});
 		};
-		registerUndo$$module$build$src$core$shortcut_items = function() {
+		registerUndo$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.Z, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.UNDO,
@@ -3409,7 +3415,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a]
 			});
 		};
-		registerRedo$$module$build$src$core$shortcut_items = function() {
+		registerRedo$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.Z, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD, KeyCodes$$module$build$src$core$utils$keycodes.SHIFT]), b = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.Y, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.REDO,
@@ -3425,7 +3431,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a, b]
 			});
 		};
-		registerShowContextMenu$$module$build$src$core$shortcut_items = function() {
+		registerShowContextMenu$$module$build$src$core$shortcut_items = function () {
 			const a = ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.createSerializedKey(KeyCodes$$module$build$src$core$utils$keycodes.ENTER, [KeyCodes$$module$build$src$core$utils$keycodes.CTRL_CMD]);
 			ShortcutRegistry$$module$build$src$core$shortcut_registry.registry.register({
 				name: names$$module$build$src$core$shortcut_items.MENU,
@@ -3443,7 +3449,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				keyCodes: [a]
 			});
 		};
-		registerDefaultShortcuts$$module$build$src$core$shortcut_items = function() {
+		registerDefaultShortcuts$$module$build$src$core$shortcut_items = function () {
 			registerEscape$$module$build$src$core$shortcut_items();
 			registerDelete$$module$build$src$core$shortcut_items();
 			registerCopy$$module$build$src$core$shortcut_items();
@@ -3453,19 +3459,19 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			registerRedo$$module$build$src$core$shortcut_items();
 			registerShowContextMenu$$module$build$src$core$shortcut_items();
 		};
-		saveProcedure$$module$build$src$core$serialization$procedures = function(a) {
+		saveProcedure$$module$build$src$core$serialization$procedures = function (a) {
 			const b = a.saveState();
 			if (!a.getParameters().length) return b;
 			b.parameters = a.getParameters().map((c) => c.saveState());
 			return b;
 		};
-		loadProcedure$$module$build$src$core$serialization$procedures = function(a, b, c, d) {
+		loadProcedure$$module$build$src$core$serialization$procedures = function (a, b, c, d) {
 			a = a.loadState(c, d);
 			if (!c.parameters) return a;
 			for (const [e, f] of c.parameters.entries()) a.insertParameter(b.loadState(f, d), e);
 			return a;
 		};
-		save$$module$build$src$core$serialization$workspaces = function(a) {
+		save$$module$build$src$core$serialization$workspaces = function (a) {
 			const b = Object.create(null), c = getAllItems$$module$build$src$core$registry(Type$$module$build$src$core$registry.SERIALIZER, !0);
 			for (const d in c) {
 				let e;
@@ -3474,7 +3480,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 			return b;
 		};
-		load$$module$build$src$core$serialization$workspaces = function(a, b, { recordUndo: c = !1 } = {}) {
+		load$$module$build$src$core$serialization$workspaces = function (a, b, { recordUndo: c = !1 } = {}) {
 			var d = getAllItems$$module$build$src$core$registry(Type$$module$build$src$core$registry.SERIALIZER, !0);
 			if (d) {
 				d = Object.entries(d).sort((f, g) => g[1].priority - f[1].priority);
@@ -3498,7 +3504,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				$.setRecordUndo$$module$build$src$core$events$utils(e);
 			}
 		};
-		inject$$module$build$src$core$inject = function(a, b) {
+		inject$$module$build$src$core$inject = function (a, b) {
 			let c = null;
 			c = typeof a === "string" ? document.getElementById(a) || document.querySelector(a) : a;
 			var d;
@@ -3513,13 +3519,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			init$$module$build$src$core$inject(e);
 			setMainWorkspace$$module$build$src$core$common(e);
 			svgResize$$module$build$src$core$common(e);
-			d.addEventListener("focusin", function() {
+			d.addEventListener("focusin", function () {
 				setMainWorkspace$$module$build$src$core$common(e);
 			});
 			conditionalBind$$module$build$src$core$browser_events(d, "keydown", null, globalShortcutHandler$$module$build$src$core$common);
 			return e;
 		};
-		createDom$$module$build$src$core$inject = function(a, b) {
+		createDom$$module$build$src$core$inject = function (a, b) {
 			a.setAttribute("dir", "LTR");
 			inject$$module$build$src$core$css(b.hasCss, b.pathToMedia);
 			const c = createSvgElement$$module$build$src$core$utils$dom(Svg$$module$build$src$core$utils$svg.SVG, {
@@ -3532,7 +3538,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			b.gridPattern = Grid$$module$build$src$core$grid.createDom(e, b.gridOptions, d, a);
 			return c;
 		};
-		createMainWorkspace$$module$build$src$core$inject = function(a, b, c) {
+		createMainWorkspace$$module$build$src$core$inject = function (a, b, c) {
 			c.parentWorkspace = null;
 			c = new WorkspaceSvg$$module$build$src$core$workspace_svg(c);
 			const d = c.options;
@@ -3553,13 +3559,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			createDom$$module$build$src$core$tooltip();
 			return c;
 		};
-		init$$module$build$src$core$inject = function(a) {
+		init$$module$build$src$core$inject = function (a) {
 			const b = a.options;
 			var c = a.getParentSvg();
-			conditionalBind$$module$build$src$core$browser_events(c.parentNode, "contextmenu", null, function(d) {
+			conditionalBind$$module$build$src$core$browser_events(c.parentNode, "contextmenu", null, function (d) {
 				isTargetInput$$module$build$src$core$browser_events(d) || d.preventDefault();
 			});
-			c = conditionalBind$$module$build$src$core$browser_events(window, "resize", null, function() {
+			c = conditionalBind$$module$build$src$core$browser_events(window, "resize", null, function () {
 				hide$$module$build$src$core$tooltip();
 				a.hideComponents(!0);
 				repositionForWindowResize$$module$build$src$core$dropdowndiv();
@@ -3582,25 +3588,25 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			});
 			b.hasSounds && loadSounds$$module$build$src$core$inject(b.pathToMedia, a);
 		};
-		bindDocumentEvents$$module$build$src$core$inject = function() {
-			documentEventsBound$$module$build$src$core$inject || (conditionalBind$$module$build$src$core$browser_events(document, "scroll", null, function() {
+		bindDocumentEvents$$module$build$src$core$inject = function () {
+			documentEventsBound$$module$build$src$core$inject || (conditionalBind$$module$build$src$core$browser_events(document, "scroll", null, function () {
 				const a = getAllWorkspaces$$module$build$src$core$common();
 				for (let b = 0, c; c = a[b]; b++) c instanceof WorkspaceSvg$$module$build$src$core$workspace_svg && c.updateInverseScreenCTM();
 			}), bind$$module$build$src$core$browser_events(document, "touchend", null, longStop$$module$build$src$core$touch), bind$$module$build$src$core$browser_events(document, "touchcancel", null, longStop$$module$build$src$core$touch));
 			documentEventsBound$$module$build$src$core$inject = !0;
 		};
-		loadSounds$$module$build$src$core$inject = function(a, b) {
+		loadSounds$$module$build$src$core$inject = function (a, b) {
 			b = b.getAudioManager();
 			b.load([`${a}click.mp3`], "click");
 			b.load([`${a}disconnect.mp3`], "disconnect");
 			b.load([`${a}delete.mp3`], "delete");
 		};
-		isFullBlockField$$module$build$src$core$contextmenu_items = function(a) {
+		isFullBlockField$$module$build$src$core$contextmenu_items = function (a) {
 			if (!a || !a.isSimpleReporter()) return !1;
 			let b;
 			return (b = a.getFields().next().value) == null ? void 0 : b.isFullBlockField();
 		};
-		registerUndo$$module$build$src$core$contextmenu_items = function() {
+		registerUndo$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.UNDO;
@@ -3616,7 +3622,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 1
 			});
 		};
-		registerRedo$$module$build$src$core$contextmenu_items = function() {
+		registerRedo$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.REDO;
@@ -3632,7 +3638,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 2
 			});
 		};
-		registerCleanup$$module$build$src$core$contextmenu_items = function() {
+		registerCleanup$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.CLEAN_UP;
@@ -3648,7 +3654,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 3
 			});
 		};
-		toggleOption_$$module$build$src$core$contextmenu_items = function(a, b) {
+		toggleOption_$$module$build$src$core$contextmenu_items = function (a, b) {
 			function c(f) {
 				e--;
 				f.setCollapsed(a);
@@ -3661,7 +3667,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				for (; g;) e++, setTimeout(c.bind(null, g), d), g = g.getNextBlock(), d += 10;
 			}
 		};
-		registerCollapse$$module$build$src$core$contextmenu_items = function() {
+		registerCollapse$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.COLLAPSE_ALL;
@@ -3688,7 +3694,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 4
 			});
 		};
-		registerExpand$$module$build$src$core$contextmenu_items = function() {
+		registerExpand$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.EXPAND_ALL;
@@ -3715,26 +3721,26 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 5
 			});
 		};
-		addDeletableBlocks_$$module$build$src$core$contextmenu_items = function(a, b) {
+		addDeletableBlocks_$$module$build$src$core$contextmenu_items = function (a, b) {
 			if (a.isDeletable()) Array.prototype.push.apply(b, a.getDescendants(!1));
 			else {
 				a = a.getChildren(!1);
 				for (let c = 0; c < a.length; c++) addDeletableBlocks_$$module$build$src$core$contextmenu_items(a[c], b);
 			}
 		};
-		getDeletableBlocks_$$module$build$src$core$contextmenu_items = function(a) {
+		getDeletableBlocks_$$module$build$src$core$contextmenu_items = function (a) {
 			const b = [];
 			a = a.getTopBlocks(!0);
 			for (let c = 0; c < a.length; c++) addDeletableBlocks_$$module$build$src$core$contextmenu_items(a[c], b);
 			return b;
 		};
-		deleteNext_$$module$build$src$core$contextmenu_items = function(a, b) {
+		deleteNext_$$module$build$src$core$contextmenu_items = function (a, b) {
 			b ? $.setGroup$$module$build$src$core$events$utils(b) : ($.setGroup$$module$build$src$core$events$utils(!0), b = $.getGroup$$module$build$src$core$events$utils());
 			const c = a.shift();
 			c && (c.isDeadOrDying() ? deleteNext_$$module$build$src$core$contextmenu_items(a, b) : (c.dispose(!1, !0), setTimeout(deleteNext_$$module$build$src$core$contextmenu_items, 10, a, b)));
 			$.setGroup$$module$build$src$core$events$utils(!1);
 		};
-		registerDeleteAll$$module$build$src$core$contextmenu_items = function() {
+		registerDeleteAll$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					if (!a.workspace) return "";
@@ -3748,7 +3754,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 					if (a.workspace) {
 						a.workspace.cancelCurrentGesture();
 						var b = getDeletableBlocks_$$module$build$src$core$contextmenu_items(a.workspace);
-						b.length < 2 ? deleteNext_$$module$build$src$core$contextmenu_items(b) : confirm$$module$build$src$core$dialog($.Msg$$module$build$src$core$msg.DELETE_ALL_BLOCKS.replace("%1", String(b.length)), function(c) {
+						b.length < 2 ? deleteNext_$$module$build$src$core$contextmenu_items(b) : confirm$$module$build$src$core$dialog($.Msg$$module$build$src$core$msg.DELETE_ALL_BLOCKS.replace("%1", String(b.length)), function (c) {
 							c && deleteNext_$$module$build$src$core$contextmenu_items(b);
 						});
 					}
@@ -3758,7 +3764,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 6
 			});
 		};
-		registerWorkspaceOptions_$$module$build$src$core$contextmenu_items = function() {
+		registerWorkspaceOptions_$$module$build$src$core$contextmenu_items = function () {
 			registerUndo$$module$build$src$core$contextmenu_items();
 			registerRedo$$module$build$src$core$contextmenu_items();
 			registerCleanup$$module$build$src$core$contextmenu_items();
@@ -3766,7 +3772,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			registerExpand$$module$build$src$core$contextmenu_items();
 			registerDeleteAll$$module$build$src$core$contextmenu_items();
 		};
-		registerDuplicate$$module$build$src$core$contextmenu_items = function() {
+		registerDuplicate$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.DUPLICATE_BLOCK;
@@ -3786,7 +3792,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 1
 			});
 		};
-		registerComment$$module$build$src$core$contextmenu_items = function() {
+		registerComment$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					return a.block.hasIcon(CommentIcon$$module$build$src$core$icons$comment_icon.TYPE) ? $.Msg$$module$build$src$core$msg.REMOVE_COMMENT : $.Msg$$module$build$src$core$msg.ADD_COMMENT;
@@ -3803,7 +3809,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 2
 			});
 		};
-		registerInline$$module$build$src$core$contextmenu_items = function() {
+		registerInline$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					return a.block.getInputsInline() ? $.Msg$$module$build$src$core$msg.EXTERNAL_INPUTS : $.Msg$$module$build$src$core$msg.INLINE_INPUTS;
@@ -3823,7 +3829,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 3
 			});
 		};
-		registerCollapseExpandBlock$$module$build$src$core$contextmenu_items = function() {
+		registerCollapseExpandBlock$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					return a.block.isCollapsed() ? $.Msg$$module$build$src$core$msg.EXPAND_BLOCK : $.Msg$$module$build$src$core$msg.COLLAPSE_BLOCK;
@@ -3840,7 +3846,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 4
 			});
 		};
-		registerDisable$$module$build$src$core$contextmenu_items = function() {
+		registerDisable$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					return a.block.hasDisabledReason(MANUALLY_DISABLED$$module$build$src$core$constants) ? $.Msg$$module$build$src$core$msg.ENABLE_BLOCK : $.Msg$$module$build$src$core$msg.DISABLE_BLOCK;
@@ -3866,7 +3872,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 5
 			});
 		};
-		registerDelete$$module$build$src$core$contextmenu_items = function() {
+		registerDelete$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText(a) {
 					var b = a.block;
@@ -3885,7 +3891,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 6
 			});
 		};
-		registerHelp$$module$build$src$core$contextmenu_items = function() {
+		registerHelp$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText() {
 					return $.Msg$$module$build$src$core$msg.HELP;
@@ -3902,7 +3908,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 7
 			});
 		};
-		registerCommentDelete$$module$build$src$core$contextmenu_items = function() {
+		registerCommentDelete$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText: () => $.Msg$$module$build$src$core$msg.REMOVE_COMMENT,
 				preconditionFn(a) {
@@ -3920,7 +3926,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 6
 			});
 		};
-		registerCommentDuplicate$$module$build$src$core$contextmenu_items = function() {
+		registerCommentDuplicate$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText: () => $.Msg$$module$build$src$core$msg.DUPLICATE_COMMENT,
 				preconditionFn(a) {
@@ -3938,7 +3944,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 1
 			});
 		};
-		registerCommentCreate$$module$build$src$core$contextmenu_items = function() {
+		registerCommentCreate$$module$build$src$core$contextmenu_items = function () {
 			ContextMenuRegistry$$module$build$src$core$contextmenu_registry.registry.register({
 				displayText: () => $.Msg$$module$build$src$core$msg.ADD_COMMENT,
 				preconditionFn: (a) => {
@@ -3953,7 +3959,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				weight: 8
 			});
 		};
-		registerBlockOptions_$$module$build$src$core$contextmenu_items = function() {
+		registerBlockOptions_$$module$build$src$core$contextmenu_items = function () {
 			registerDuplicate$$module$build$src$core$contextmenu_items();
 			registerComment$$module$build$src$core$contextmenu_items();
 			registerInline$$module$build$src$core$contextmenu_items();
@@ -3962,28 +3968,28 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			registerDelete$$module$build$src$core$contextmenu_items();
 			registerHelp$$module$build$src$core$contextmenu_items();
 		};
-		registerCommentOptions$$module$build$src$core$contextmenu_items = function() {
+		registerCommentOptions$$module$build$src$core$contextmenu_items = function () {
 			registerCommentDuplicate$$module$build$src$core$contextmenu_items();
 			registerCommentDelete$$module$build$src$core$contextmenu_items();
 			registerCommentCreate$$module$build$src$core$contextmenu_items();
 		};
-		registerDefaultOptions$$module$build$src$core$contextmenu_items = function() {
+		registerDefaultOptions$$module$build$src$core$contextmenu_items = function () {
 			registerWorkspaceOptions_$$module$build$src$core$contextmenu_items();
 			registerBlockOptions_$$module$build$src$core$contextmenu_items();
 		};
-		isPaster$$module$build$src$core$interfaces$i_paster = function(a) {
+		isPaster$$module$build$src$core$interfaces$i_paster = function (a) {
 			return a && typeof a.paste === "function";
 		};
-		isRenderedElement$$module$build$src$core$interfaces$i_rendered_element = function(a) {
+		isRenderedElement$$module$build$src$core$interfaces$i_rendered_element = function (a) {
 			return a && typeof a.getSvgRoot === "function";
 		};
-		isSelectableToolboxItem$$module$build$src$core$interfaces$i_selectable_toolbox_item = function(a) {
+		isSelectableToolboxItem$$module$build$src$core$interfaces$i_selectable_toolbox_item = function (a) {
 			return a.isSelectable();
 		};
-		hideChaff$$module$build$src$core$blockly = function(a) {
+		hideChaff$$module$build$src$core$blockly = function (a) {
 			getMainWorkspace$$module$build$src$core$common().hideChaff(a);
 		};
-		isFocusableTree$$module$build$src$core$interfaces$i_focusable_tree = function(a) {
+		isFocusableTree$$module$build$src$core$interfaces$i_focusable_tree = function (a) {
 			return a && typeof a.getRootFocusableNode === "function" && typeof a.getRestoredFocusableNode === "function" && typeof a.getNestedTrees === "function" && typeof a.lookUpFocusableNode === "function" && typeof a.onTreeFocus === "function" && typeof a.onTreeBlur === "function";
 		};
 		$jscomp = $jscomp || {};
@@ -3997,17 +4003,17 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		$jscomp.FORCE_POLYFILL_PROMISE = !1;
 		$jscomp.FORCE_POLYFILL_PROMISE_WHEN_NO_UNHANDLED_REJECTION = !1;
 		$jscomp.INSTRUMENT_ASYNC_CONTEXT = !0;
-		$jscomp.objectCreate = $jscomp.ASSUME_ES5 || typeof Object.create == "function" ? Object.create : function(a) {
-			var b = function() {};
+		$jscomp.objectCreate = $jscomp.ASSUME_ES5 || typeof Object.create == "function" ? Object.create : function (a) {
+			var b = function () { };
 			b.prototype = a;
 			return new b();
 		};
-		$jscomp.defineProperty = $jscomp.ASSUME_ES5 || typeof Object.defineProperties == "function" ? Object.defineProperty : function(a, b, c) {
+		$jscomp.defineProperty = $jscomp.ASSUME_ES5 || typeof Object.defineProperties == "function" ? Object.defineProperty : function (a, b, c) {
 			if (a == Array.prototype || a == Object.prototype) return a;
 			a[b] = c.value;
 			return a;
 		};
-		$jscomp.getGlobal = function(a) {
+		$jscomp.getGlobal = function (a) {
 			a = [
 				"object" == typeof globalThis && globalThis,
 				a,
@@ -4027,21 +4033,21 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		$jscomp.polyfills = {};
 		$jscomp.propertyToPolyfillSymbol = {};
 		$jscomp.POLYFILL_PREFIX = "$jscp$";
-		$jscomp.TYPED_ARRAY_CLASSES = function() {
+		$jscomp.TYPED_ARRAY_CLASSES = function () {
 			var a = "Int8 Uint8 Uint8Clamped Int16 Uint16 Int32 Uint32 Float32 Float64".split(" ");
 			$jscomp.global.BigInt64Array && (a.push("BigInt64"), a.push("BigUint64"));
 			return a;
 		}();
-		$jscomp.polyfillTypedArrayMethod = function(a, b, c, d) {
+		$jscomp.polyfillTypedArrayMethod = function (a, b, c, d) {
 			if (b) for (var e = 0; e < $jscomp.TYPED_ARRAY_CLASSES.length; e++) {
 				var f = $jscomp.TYPED_ARRAY_CLASSES[e] + "Array.prototype." + a;
 				$jscomp.ISOLATE_POLYFILLS ? $jscomp.polyfillIsolated(f, b, c, d) : $jscomp.polyfillUnisolated(f, b, c, d);
 			}
 		};
-		$jscomp.polyfill = function(a, b, c, d) {
+		$jscomp.polyfill = function (a, b, c, d) {
 			b && ($jscomp.ISOLATE_POLYFILLS ? $jscomp.polyfillIsolated(a, b, c, d) : $jscomp.polyfillUnisolated(a, b, c, d));
 		};
-		$jscomp.polyfillUnisolated = function(a, b, c, d) {
+		$jscomp.polyfillUnisolated = function (a, b, c, d) {
 			c = $jscomp.global;
 			a = a.split(".");
 			for (d = 0; d < a.length - 1; d++) {
@@ -4058,7 +4064,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				value: b
 			});
 		};
-		$jscomp.polyfillIsolated = function(a, b, c, d) {
+		$jscomp.polyfillIsolated = function (a, b, c, d) {
 			var e = a.split(".");
 			a = e.length === 1;
 			d = e[0];
@@ -4081,42 +4087,42 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				value: b
 			})));
 		};
-		$jscomp.getConstructImplementation = function() {
+		$jscomp.getConstructImplementation = function () {
 			function a() {
-				function c() {}
+				function c() { }
 				new c();
-				Reflect.construct(c, [], function() {});
+				Reflect.construct(c, [], function () { });
 				return new c() instanceof c;
 			}
 			if ($jscomp.TRUST_ES6_POLYFILLS && typeof Reflect != "undefined" && Reflect.construct) {
 				if (a()) return Reflect.construct;
 				var b = Reflect.construct;
-				return function(c, d, e) {
+				return function (c, d, e) {
 					c = b(c, d);
 					e && Reflect.setPrototypeOf(c, e.prototype);
 					return c;
 				};
 			}
-			return function(c, d, e) {
+			return function (c, d, e) {
 				e === void 0 && (e = c);
 				e = $jscomp.objectCreate(e.prototype || Object.prototype);
 				return Function.prototype.apply.call(c, e, d) || e;
 			};
 		};
 		$jscomp.construct = { valueOf: $jscomp.getConstructImplementation }.valueOf();
-		$jscomp.underscoreProtoCanBeSet = function() {
+		$jscomp.underscoreProtoCanBeSet = function () {
 			var a = { a: !0 }, b = {};
 			try {
 				return b.__proto__ = a, b.a;
-			} catch (c) {}
+			} catch (c) { }
 			return !1;
 		};
-		$jscomp.setPrototypeOf = $jscomp.ASSUME_ES6 || $jscomp.TRUST_ES6_POLYFILLS && typeof Object.setPrototypeOf == "function" ? Object.setPrototypeOf : $jscomp.underscoreProtoCanBeSet() ? function(a, b) {
+		$jscomp.setPrototypeOf = $jscomp.ASSUME_ES6 || $jscomp.TRUST_ES6_POLYFILLS && typeof Object.setPrototypeOf == "function" ? Object.setPrototypeOf : $jscomp.underscoreProtoCanBeSet() ? function (a, b) {
 			a.__proto__ = b;
 			if (a.__proto__ !== b) throw new TypeError(a + " is not extensible");
 			return a;
 		} : null;
-		$jscomp.inherits = function(a, b) {
+		$jscomp.inherits = function (a, b) {
 			a.prototype = $jscomp.objectCreate(b.prototype);
 			a.prototype.constructor = a;
 			if ($jscomp.ASSUME_ES6 || $jscomp.setPrototypeOf) {
@@ -4128,36 +4134,36 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			} else a[c] = b[c];
 			a.superClass_ = b.prototype;
 		};
-		$jscomp.arrayIteratorImpl = function(a) {
+		$jscomp.arrayIteratorImpl = function (a) {
 			var b = 0;
-			return function() {
+			return function () {
 				return b < a.length ? {
 					done: !1,
 					value: a[b++]
 				} : { done: !0 };
 			};
 		};
-		$jscomp.arrayIterator = function(a) {
+		$jscomp.arrayIterator = function (a) {
 			return { next: $jscomp.arrayIteratorImpl(a) };
 		};
-		$jscomp.makeIterator = function(a) {
+		$jscomp.makeIterator = function (a) {
 			var b = typeof Symbol != "undefined" && Symbol.iterator && a[Symbol.iterator];
 			if (b) return b.call(a);
 			if (typeof a.length == "number") return $jscomp.arrayIterator(a);
 			throw Error(String(a) + " is not an iterable or ArrayLike");
 		};
-		$jscomp.arrayFromIterator = function(a) {
+		$jscomp.arrayFromIterator = function (a) {
 			for (var b, c = []; !(b = a.next()).done;) c.push(b.value);
 			return c;
 		};
-		$jscomp.arrayFromIterable = function(a) {
+		$jscomp.arrayFromIterable = function (a) {
 			return a instanceof Array ? a : $jscomp.arrayFromIterator($jscomp.makeIterator(a));
 		};
 		$jscomp.generator = {};
-		$jscomp.generator.ensureIteratorResultIsObject_ = function(a) {
+		$jscomp.generator.ensureIteratorResultIsObject_ = function (a) {
 			if (!(a instanceof Object)) throw new TypeError("Iterator result " + a + " is not an object");
 		};
-		$jscomp.generator.Context = function() {
+		$jscomp.generator.Context = function () {
 			this.isRunning_ = !1;
 			this.yieldAllIterator_ = null;
 			this.yieldResult = void 0;
@@ -4165,50 +4171,50 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			this.finallyAddress_ = this.catchAddress_ = 0;
 			this.finallyContexts_ = this.abruptCompletion_ = null;
 		};
-		$jscomp.generator.Context.prototype.start_ = function() {
+		$jscomp.generator.Context.prototype.start_ = function () {
 			if (this.isRunning_) throw new TypeError("Generator is already running");
 			this.isRunning_ = !0;
 		};
-		$jscomp.generator.Context.prototype.stop_ = function() {
+		$jscomp.generator.Context.prototype.stop_ = function () {
 			this.isRunning_ = !1;
 		};
-		$jscomp.generator.Context.prototype.jumpToErrorHandler_ = function() {
+		$jscomp.generator.Context.prototype.jumpToErrorHandler_ = function () {
 			this.nextAddress = this.catchAddress_ || this.finallyAddress_;
 		};
-		$jscomp.generator.Context.prototype.next_ = function(a) {
+		$jscomp.generator.Context.prototype.next_ = function (a) {
 			this.yieldResult = a;
 		};
-		$jscomp.generator.Context.prototype.throw_ = function(a) {
+		$jscomp.generator.Context.prototype.throw_ = function (a) {
 			this.abruptCompletion_ = {
 				exception: a,
 				isException: !0
 			};
 			this.jumpToErrorHandler_();
 		};
-		$jscomp.generator.Context.prototype.getNextAddress = function() {
+		$jscomp.generator.Context.prototype.getNextAddress = function () {
 			return this.nextAddress;
 		};
 		$jscomp.generator.Context.prototype.getNextAddress = $jscomp.generator.Context.prototype.getNextAddress;
-		$jscomp.generator.Context.prototype.getYieldResult = function() {
+		$jscomp.generator.Context.prototype.getYieldResult = function () {
 			return this.yieldResult;
 		};
 		$jscomp.generator.Context.prototype.getYieldResult = $jscomp.generator.Context.prototype.getYieldResult;
-		$jscomp.generator.Context.prototype.return = function(a) {
+		$jscomp.generator.Context.prototype.return = function (a) {
 			this.abruptCompletion_ = { return: a };
 			this.nextAddress = this.finallyAddress_;
 		};
 		$jscomp.generator.Context.prototype["return"] = $jscomp.generator.Context.prototype.return;
-		$jscomp.generator.Context.prototype.jumpThroughFinallyBlocks = function(a) {
+		$jscomp.generator.Context.prototype.jumpThroughFinallyBlocks = function (a) {
 			this.abruptCompletion_ = { jumpTo: a };
 			this.nextAddress = this.finallyAddress_;
 		};
 		$jscomp.generator.Context.prototype.jumpThroughFinallyBlocks = $jscomp.generator.Context.prototype.jumpThroughFinallyBlocks;
-		$jscomp.generator.Context.prototype.yield = function(a, b) {
+		$jscomp.generator.Context.prototype.yield = function (a, b) {
 			this.nextAddress = b;
 			return { value: a };
 		};
 		$jscomp.generator.Context.prototype.yield = $jscomp.generator.Context.prototype.yield;
-		$jscomp.generator.Context.prototype.yieldAll = function(a, b) {
+		$jscomp.generator.Context.prototype.yieldAll = function (a, b) {
 			a = $jscomp.makeIterator(a);
 			var c = a.next();
 			$jscomp.generator.ensureIteratorResultIsObject_(c);
@@ -4216,43 +4222,43 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			else return this.yieldAllIterator_ = a, this.yield(c.value, b);
 		};
 		$jscomp.generator.Context.prototype.yieldAll = $jscomp.generator.Context.prototype.yieldAll;
-		$jscomp.generator.Context.prototype.jumpTo = function(a) {
+		$jscomp.generator.Context.prototype.jumpTo = function (a) {
 			this.nextAddress = a;
 		};
 		$jscomp.generator.Context.prototype.jumpTo = $jscomp.generator.Context.prototype.jumpTo;
-		$jscomp.generator.Context.prototype.jumpToEnd = function() {
+		$jscomp.generator.Context.prototype.jumpToEnd = function () {
 			this.nextAddress = 0;
 		};
 		$jscomp.generator.Context.prototype.jumpToEnd = $jscomp.generator.Context.prototype.jumpToEnd;
-		$jscomp.generator.Context.prototype.setCatchFinallyBlocks = function(a, b) {
+		$jscomp.generator.Context.prototype.setCatchFinallyBlocks = function (a, b) {
 			this.catchAddress_ = a;
 			b != void 0 && (this.finallyAddress_ = b);
 		};
 		$jscomp.generator.Context.prototype.setCatchFinallyBlocks = $jscomp.generator.Context.prototype.setCatchFinallyBlocks;
-		$jscomp.generator.Context.prototype.setFinallyBlock = function(a) {
+		$jscomp.generator.Context.prototype.setFinallyBlock = function (a) {
 			this.catchAddress_ = 0;
 			this.finallyAddress_ = a || 0;
 		};
 		$jscomp.generator.Context.prototype.setFinallyBlock = $jscomp.generator.Context.prototype.setFinallyBlock;
-		$jscomp.generator.Context.prototype.leaveTryBlock = function(a, b) {
+		$jscomp.generator.Context.prototype.leaveTryBlock = function (a, b) {
 			this.nextAddress = a;
 			this.catchAddress_ = b || 0;
 		};
 		$jscomp.generator.Context.prototype.leaveTryBlock = $jscomp.generator.Context.prototype.leaveTryBlock;
-		$jscomp.generator.Context.prototype.enterCatchBlock = function(a) {
+		$jscomp.generator.Context.prototype.enterCatchBlock = function (a) {
 			this.catchAddress_ = a || 0;
 			a = this.abruptCompletion_.exception;
 			this.abruptCompletion_ = null;
 			return a;
 		};
 		$jscomp.generator.Context.prototype.enterCatchBlock = $jscomp.generator.Context.prototype.enterCatchBlock;
-		$jscomp.generator.Context.prototype.enterFinallyBlock = function(a, b, c) {
+		$jscomp.generator.Context.prototype.enterFinallyBlock = function (a, b, c) {
 			c ? this.finallyContexts_[c] = this.abruptCompletion_ : this.finallyContexts_ = [this.abruptCompletion_];
 			this.catchAddress_ = a || 0;
 			this.finallyAddress_ = b || 0;
 		};
 		$jscomp.generator.Context.prototype.enterFinallyBlock = $jscomp.generator.Context.prototype.enterFinallyBlock;
-		$jscomp.generator.Context.prototype.leaveFinallyBlock = function(a, b) {
+		$jscomp.generator.Context.prototype.leaveFinallyBlock = function (a, b) {
 			b = this.finallyContexts_.splice(b || 0)[0];
 			if (b = this.abruptCompletion_ = this.abruptCompletion_ || b) {
 				if (b.isException) return this.jumpToErrorHandler_();
@@ -4260,17 +4266,17 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			} else this.nextAddress = a;
 		};
 		$jscomp.generator.Context.prototype.leaveFinallyBlock = $jscomp.generator.Context.prototype.leaveFinallyBlock;
-		$jscomp.generator.Context.prototype.forIn = function(a) {
+		$jscomp.generator.Context.prototype.forIn = function (a) {
 			return new $jscomp.generator.Context.PropertyIterator(a);
 		};
 		$jscomp.generator.Context.prototype.forIn = $jscomp.generator.Context.prototype.forIn;
-		$jscomp.generator.Context.PropertyIterator = function(a) {
+		$jscomp.generator.Context.PropertyIterator = function (a) {
 			this.object_ = a;
 			this.properties_ = [];
 			for (var b in a) this.properties_.push(b);
 			this.properties_.reverse();
 		};
-		$jscomp.generator.Context.PropertyIterator.prototype.getNext = function() {
+		$jscomp.generator.Context.PropertyIterator.prototype.getNext = function () {
 			for (; this.properties_.length > 0;) {
 				var a = this.properties_.pop();
 				if (a in this.object_) return a;
@@ -4278,20 +4284,20 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			return null;
 		};
 		$jscomp.generator.Context.PropertyIterator.prototype.getNext = $jscomp.generator.Context.PropertyIterator.prototype.getNext;
-		$jscomp.generator.Engine_ = function(a) {
+		$jscomp.generator.Engine_ = function (a) {
 			this.context_ = new $jscomp.generator.Context();
 			this.program_ = a;
 		};
-		$jscomp.generator.Engine_.prototype.next_ = function(a) {
+		$jscomp.generator.Engine_.prototype.next_ = function (a) {
 			this.context_.start_();
 			if (this.context_.yieldAllIterator_) return this.yieldAllStep_(this.context_.yieldAllIterator_.next, a, this.context_.next_);
 			this.context_.next_(a);
 			return this.nextStep_();
 		};
-		$jscomp.generator.Engine_.prototype.return_ = function(a) {
+		$jscomp.generator.Engine_.prototype.return_ = function (a) {
 			this.context_.start_();
 			var b = this.context_.yieldAllIterator_;
-			if (b) return this.yieldAllStep_("return" in b ? b["return"] : function(c) {
+			if (b) return this.yieldAllStep_("return" in b ? b["return"] : function (c) {
 				return {
 					value: c,
 					done: !0
@@ -4300,13 +4306,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			this.context_.return(a);
 			return this.nextStep_();
 		};
-		$jscomp.generator.Engine_.prototype.throw_ = function(a) {
+		$jscomp.generator.Engine_.prototype.throw_ = function (a) {
 			this.context_.start_();
 			if (this.context_.yieldAllIterator_) return this.yieldAllStep_(this.context_.yieldAllIterator_["throw"], a, this.context_.next_);
 			this.context_.throw_(a);
 			return this.nextStep_();
 		};
-		$jscomp.generator.Engine_.prototype.yieldAllStep_ = function(a, b, c) {
+		$jscomp.generator.Engine_.prototype.yieldAllStep_ = function (a, b, c) {
 			try {
 				var d = a.call(this.context_.yieldAllIterator_, b);
 				$jscomp.generator.ensureIteratorResultIsObject_(d);
@@ -4319,7 +4325,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			c.call(this.context_, e);
 			return this.nextStep_();
 		};
-		$jscomp.generator.Engine_.prototype.nextStep_ = function() {
+		$jscomp.generator.Engine_.prototype.nextStep_ = function () {
 			for (; this.context_.nextAddress;) try {
 				var a = this.program_(this.context_);
 				if (a) return this.context_.stop_(), {
@@ -4344,50 +4350,50 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				done: !0
 			};
 		};
-		$jscomp.generator.Generator_ = function(a) {
-			this.next = function(b) {
+		$jscomp.generator.Generator_ = function (a) {
+			this.next = function (b) {
 				return a.next_(b);
 			};
-			this.throw = function(b) {
+			this.throw = function (b) {
 				return a.throw_(b);
 			};
-			this.return = function(b) {
+			this.return = function (b) {
 				return a.return_(b);
 			};
-			this[Symbol.iterator] = function() {
+			this[Symbol.iterator] = function () {
 				return this;
 			};
 		};
-		$jscomp.generator.createGenerator = function(a, b) {
+		$jscomp.generator.createGenerator = function (a, b) {
 			b = new $jscomp.generator.Generator_(new $jscomp.generator.Engine_(b));
 			$jscomp.setPrototypeOf && a.prototype && $jscomp.setPrototypeOf(b, a.prototype);
 			return b;
 		};
-		$jscomp.asyncExecutePromiseGenerator = function(a) {
+		$jscomp.asyncExecutePromiseGenerator = function (a) {
 			function b(d) {
 				return a.next(d);
 			}
 			function c(d) {
 				return a.throw(d);
 			}
-			return new Promise(function(d, e) {
+			return new Promise(function (d, e) {
 				function f(g) {
 					g.done ? d(g.value) : Promise.resolve(g.value).then(b, c).then(f, e);
 				}
 				f(a.next());
 			});
 		};
-		$jscomp.asyncExecutePromiseGeneratorFunction = function(a) {
+		$jscomp.asyncExecutePromiseGeneratorFunction = function (a) {
 			return $jscomp.asyncExecutePromiseGenerator(a());
 		};
-		$jscomp.asyncExecutePromiseGeneratorProgram = function(a) {
+		$jscomp.asyncExecutePromiseGeneratorProgram = function (a) {
 			return $jscomp.asyncExecutePromiseGenerator(new $jscomp.generator.Generator_(new $jscomp.generator.Engine_(a)));
 		};
-		$jscomp.polyfill("globalThis", function(a) {
+		$jscomp.polyfill("globalThis", function (a) {
 			return a || $jscomp.global;
 		}, "es_2020", "es3");
-		$jscomp.polyfill("Array.prototype.includes", function(a) {
-			return a ? a : function(b, c) {
+		$jscomp.polyfill("Array.prototype.includes", function (a) {
+			return a ? a : function (b, c) {
 				var d = this;
 				d instanceof String && (d = String(d));
 				var e = d.length;
@@ -4399,11 +4405,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				return !1;
 			};
 		}, "es7", "es3");
-		$jscomp.checkEs6ConformanceViaProxy = function() {
+		$jscomp.checkEs6ConformanceViaProxy = function () {
 			try {
-				var a = {}, b = Object.create(new $jscomp.global.Proxy(a, { get: function(c, d, e) {
-					return c == a && d == "q" && e == b;
-				} }));
+				var a = {}, b = Object.create(new $jscomp.global.Proxy(a, {
+					get: function (c, d, e) {
+						return c == a && d == "q" && e == b;
+					}
+				}));
 				return b.q === !0;
 			} catch (c) {
 				return !1;
@@ -4411,20 +4419,20 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		};
 		$jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS = !1;
 		$jscomp.ES6_CONFORMANCE = $jscomp.USE_PROXY_FOR_ES6_CONFORMANCE_CHECKS && $jscomp.checkEs6ConformanceViaProxy();
-		$jscomp.initSymbol = function() {};
-		$jscomp.iteratorPrototype = function(a) {
+		$jscomp.initSymbol = function () { };
+		$jscomp.iteratorPrototype = function (a) {
 			a = { next: a };
-			a[Symbol.iterator] = function() {
+			a[Symbol.iterator] = function () {
 				return this;
 			};
 			return a;
 		};
-		$jscomp.owns = function(a, b) {
+		$jscomp.owns = function (a, b) {
 			return Object.prototype.hasOwnProperty.call(a, b);
 		};
-		$jscomp.MapEntry = function() {};
-		$jscomp.polyfill("Set.prototype.difference", function(a) {
-			return a ? a : function(b) {
+		$jscomp.MapEntry = function () { };
+		$jscomp.polyfill("Set.prototype.difference", function (a) {
+			return a ? a : function (b) {
 				$jscomp.checkIsSetInstance(this);
 				$jscomp.checkIsSetLike(b);
 				var c = $jscomp.getSmallerAndLargerSets(this, b);
@@ -4435,14 +4443,14 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				return b;
 			};
 		}, "es_next", "es6");
-		$jscomp.checkIsSetLike = function(a) {
+		$jscomp.checkIsSetLike = function (a) {
 			if (typeof a !== "object" || a === null || typeof a.size !== "number" || a.size < 0 || typeof a.keys !== "function" || typeof a.has !== "function") throw new TypeError("Argument must be set-like");
 		};
-		$jscomp.checkIsValidIterator = function(a) {
+		$jscomp.checkIsValidIterator = function (a) {
 			if (typeof a !== "object" || a === null || typeof a.next !== "function") throw new TypeError("Invalid iterator.");
 			return a;
 		};
-		$jscomp.getSmallerAndLargerSets = function(a, b) {
+		$jscomp.getSmallerAndLargerSets = function (a, b) {
 			return a.size <= b.size ? {
 				smallerSetIterator: a.keys(),
 				largerSet: b
@@ -4451,67 +4459,69 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				largerSet: a
 			};
 		};
-		$jscomp.checkIsSetInstance = function(a) {
+		$jscomp.checkIsSetInstance = function (a) {
 			if (!(a instanceof Set)) throw new TypeError("Method must be called on an instance of Set.");
 		};
-		$jscomp.iteratorFromArray = function(a, b) {
+		$jscomp.iteratorFromArray = function (a, b) {
 			if ($jscomp.ASSUME_ES6) return a[Symbol.iterator]();
 			a instanceof String && (a += "");
-			var c = 0, d = !1, e = { next: function() {
-				if (!d && c < a.length) {
-					var f = c++;
+			var c = 0, d = !1, e = {
+				next: function () {
+					if (!d && c < a.length) {
+						var f = c++;
+						return {
+							value: b(f, a[f]),
+							done: !1
+						};
+					}
+					d = !0;
 					return {
-						value: b(f, a[f]),
-						done: !1
+						done: !0,
+						value: void 0
 					};
 				}
-				d = !0;
-				return {
-					done: !0,
-					value: void 0
-				};
-			} };
-			e[Symbol.iterator] = function() {
+			};
+			e[Symbol.iterator] = function () {
 				return e;
 			};
 			return e;
 		};
-		$jscomp.polyfill("Array.prototype.values", function(a) {
-			return a ? a : function() {
-				return $jscomp.iteratorFromArray(this, function(b, c) {
+		$jscomp.polyfill("Array.prototype.values", function (a) {
+			return a ? a : function () {
+				return $jscomp.iteratorFromArray(this, function (b, c) {
 					return c;
 				});
 			};
 		}, "es8", "es3");
-		$jscomp.polyfill("Array.prototype.flatMap", function(a) {
-			return a ? a : function(b, c) {
+		$jscomp.polyfill("Array.prototype.flatMap", function (a) {
+			return a ? a : function (b, c) {
 				var d = [];
-				Array.prototype.forEach.call(this, function(e, f) {
+				Array.prototype.forEach.call(this, function (e, f) {
 					e = b.call(c, e, f, this);
 					Array.isArray(e) ? d.push.apply(d, e) : d.push(e);
 				});
 				return d;
 			};
 		}, "es9", "es5");
-		$jscomp.polyfill("Array.prototype.flat", function(a) {
-			return a ? a : function(b) {
+		$jscomp.polyfill("Array.prototype.flat", function (a) {
+			return a ? a : function (b) {
 				b = b === void 0 ? 1 : b;
 				var c = [];
-				Array.prototype.forEach.call(this, function(d) {
+				Array.prototype.forEach.call(this, function (d) {
 					Array.isArray(d) && b > 0 ? (d = Array.prototype.flat.call(d, b - 1), c.push.apply(c, d)) : c.push(d);
 				});
 				return c;
 			};
 		}, "es9", "es5");
-		$jscomp.polyfill("Object.entries", function(a) {
-			return a ? a : function(b) {
+		$jscomp.polyfill("Object.entries", function (a) {
+			return a ? a : function (b) {
 				var c = [], d;
 				for (d in b) $jscomp.owns(b, d) && c.push([d, b[d]]);
 				return c;
 			};
 		}, "es8", "es3");
-		$jscomp.polyfill("Object.values", function(a) {
-			return a ? a : function(b) {
+		$jscomp.polyfill("Object.values", function (a) {
+			return a ? a : function (b) {
 				var c = [], d;
 				for (d in b) $jscomp.owns(b, d) && c.push(b[d]);
 				return c;
@@ -4579,7 +4589,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$touch.longStop = longStop$$module$build$src$core$touch;
 		module$build$src$core$touch.shouldHandleEvent = shouldHandleEvent$$module$build$src$core$touch;
 		var rawUserAgent$$module$build$src$core$utils$useragent, isJavaFx$$module$build$src$core$utils$useragent, isWebKit$$module$build$src$core$utils$useragent, isGecko$$module$build$src$core$utils$useragent, isAndroid$$module$build$src$core$utils$useragent, isIPad$$module$build$src$core$utils$useragent, isIPhone$$module$build$src$core$utils$useragent, isMac$$module$build$src$core$utils$useragent, isTablet$$module$build$src$core$utils$useragent, isMobile$$module$build$src$core$utils$useragent;
-		(function(a) {
+		(function (a) {
 			function b(d) {
 				return c.includes(d.toUpperCase());
 			}
@@ -4615,7 +4625,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$browser_events.mouseToSvg = mouseToSvg$$module$build$src$core$browser_events;
 		module$build$src$core$browser_events.unbind = unbind$$module$build$src$core$browser_events;
 		var EventType$$module$build$src$core$events$type;
-		(function(a) {
+		(function (a) {
 			a.BLOCK_CREATE = "create";
 			a.BLOCK_DELETE = "delete";
 			a.BLOCK_CHANGE = "change";
@@ -4651,11 +4661,13 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			EventType$$module$build$src$core$events$type.COMMENT_MOVE
 		], module$build$src$core$events$type = { BUMP_EVENTS: BUMP_EVENTS$$module$build$src$core$events$type };
 		module$build$src$core$events$type.EventType = EventType$$module$build$src$core$events$type;
-		var soup$$module$build$src$core$utils$idgenerator = "!#$%()*+,-./:;=?@[]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", internal$$module$build$src$core$utils$idgenerator = { genUid: () => {
-			const a = soup$$module$build$src$core$utils$idgenerator.length, b = [];
-			for (let c = 0; c < 20; c++) b[c] = soup$$module$build$src$core$utils$idgenerator.charAt(Math.random() * a);
-			return b.join("");
-		} }, nextId$$module$build$src$core$utils$idgenerator = 0, module$build$src$core$utils$idgenerator = { TEST_ONLY: internal$$module$build$src$core$utils$idgenerator };
+		var soup$$module$build$src$core$utils$idgenerator = "!#$%()*+,-./:;=?@[]^_`{|}~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789", internal$$module$build$src$core$utils$idgenerator = {
+			genUid: () => {
+				const a = soup$$module$build$src$core$utils$idgenerator.length, b = [];
+				for (let c = 0; c < 20; c++) b[c] = soup$$module$build$src$core$utils$idgenerator.charAt(Math.random() * a);
+				return b.join("");
+			}
+		}, nextId$$module$build$src$core$utils$idgenerator = 0, module$build$src$core$utils$idgenerator = { TEST_ONLY: internal$$module$build$src$core$utils$idgenerator };
 		module$build$src$core$utils$idgenerator.genUid = genUid$$module$build$src$core$utils$idgenerator;
 		module$build$src$core$utils$idgenerator.getNextUniqueId = getNextUniqueId$$module$build$src$core$utils$idgenerator;
 		var module$build$src$core$events$predicates = {};
@@ -4705,7 +4717,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$events$utils.setGroup = $.setGroup$$module$build$src$core$events$utils;
 		module$build$src$core$events$utils.setRecordUndo = $.setRecordUndo$$module$build$src$core$events$utils;
 		var SVG_NS$$module$build$src$core$utils$dom = "http://www.w3.org/2000/svg", HTML_NS$$module$build$src$core$utils$dom = "http://www.w3.org/1999/xhtml", XLINK_NS$$module$build$src$core$utils$dom = "http://www.w3.org/1999/xlink", NodeType$$module$build$src$core$utils$dom;
-		(function(a) {
+		(function (a) {
 			a[a.ELEMENT_NODE = 1] = "ELEMENT_NODE";
 			a[a.TEXT_NODE = 3] = "TEXT_NODE";
 			a[a.COMMENT_NODE = 8] = "COMMENT_NODE";
@@ -5049,7 +5061,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 		};
 		ShortcutRegistry$$module$build$src$core$shortcut_registry.registry = new ShortcutRegistry$$module$build$src$core$shortcut_registry();
-		(function(a) {
+		(function (a) {
 			a = a.modifierKeys || (a.modifierKeys = {});
 			a[a.Shift = 16] = "Shift";
 			a[a.Control = 17] = "Control";
@@ -5100,7 +5112,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			isNull() {
 				return !1;
 			}
-			run(a) {}
+			run(a) { }
 			getEventWorkspace_() {
 				let a;
 				this.workspaceId && (a = getWorkspaceById$$module$build$src$core$common(this.workspaceId));
@@ -5143,7 +5155,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 				return b;
 			}
 		}, ClickTarget$$module$build$src$core$events$events_click;
-		(function(a) {
+		(function (a) {
 			a.BLOCK = "block";
 			a.WORKSPACE = "workspace";
 			a.ZOOM_CONTROLS = "zoom_controls";
@@ -5232,10 +5244,10 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 					a.forEach((e) => {
 						d.push(this.componentData.get(e));
 					});
-					d.sort(function(e, f) {
+					d.sort(function (e, f) {
 						return e.weight - f.weight;
 					});
-					d.forEach(function(e) {
+					d.forEach(function (e) {
 						c.push(e.component);
 					});
 				} else a.forEach((d) => {
@@ -5245,7 +5257,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 		};
 		ComponentManager$$module$build$src$core$component_manager.Capability = Capability$$module$build$src$core$component_manager;
-		(function(a) {
+		(function (a) {
 			a = a.ComponentWeight || (a.ComponentWeight = {});
 			a[a.TOOLBOX_WEIGHT = 0] = "TOOLBOX_WEIGHT";
 			a[a.FLYOUT_WEIGHT = 1] = "FLYOUT_WEIGHT";
@@ -5390,10 +5402,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$utils$style.getSize = getSize$$module$build$src$core$utils$style;
 		module$build$src$core$utils$style.getViewportPageOffset = getViewportPageOffset$$module$build$src$core$utils$style;
 		module$build$src$core$utils$style.scrollIntoContainerView = scrollIntoContainerView$$module$build$src$core$utils$style;
-		var XY_REGEX$$module$build$src$core$utils$svg_math = /translate\(\s*([-+\d.e]+)([ ,]\s*([-+\d.e]+)\s*)?/, XY_STYLE_REGEX$$module$build$src$core$utils$svg_math = /transform:\s*translate(?:3d)?\(\s*([-+\d.e]+)\s*px([ ,]\s*([-+\d.e]+)\s*px)?/, module$build$src$core$utils$svg_math = { TEST_ONLY: {
-			XY_REGEX: XY_REGEX$$module$build$src$core$utils$svg_math,
-			XY_STYLE_REGEX: XY_STYLE_REGEX$$module$build$src$core$utils$svg_math
-		} };
+		var XY_REGEX$$module$build$src$core$utils$svg_math = /translate\(\s*([-+\d.e]+)([ ,]\s*([-+\d.e]+)\s*)?/, XY_STYLE_REGEX$$module$build$src$core$utils$svg_math = /transform:\s*translate(?:3d)?\(\s*([-+\d.e]+)\s*px([ ,]\s*([-+\d.e]+)\s*px)?/, module$build$src$core$utils$svg_math = {
+			TEST_ONLY: {
+				XY_REGEX: XY_REGEX$$module$build$src$core$utils$svg_math,
+				XY_STYLE_REGEX: XY_STYLE_REGEX$$module$build$src$core$utils$svg_math
+			}
+		};
 		module$build$src$core$utils$svg_math.getDocumentScroll = getDocumentScroll$$module$build$src$core$utils$svg_math;
 		module$build$src$core$utils$svg_math.getInjectionDivXY = getInjectionDivXY$$module$build$src$core$utils$svg_math;
 		module$build$src$core$utils$svg_math.getRelativeXY = getRelativeXY$$module$build$src$core$utils$svg_math;
@@ -5606,11 +5620,15 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		Scrollbar$$module$build$src$core$scrollbar.DEFAULT_SCROLLBAR_MARGIN = .5;
 		var module$build$src$core$scrollbar = {};
 		module$build$src$core$scrollbar.Scrollbar = Scrollbar$$module$build$src$core$scrollbar;
-		var domParser$$module$build$src$core$utils$xml = { parseFromString: function() {
-			throw Error("DOMParser was not found in the global scope and was not properly injected using injectDependencies");
-		} }, xmlSerializer$$module$build$src$core$utils$xml = { serializeToString: function() {
-			throw Error("XMLSerializer was not foundin the global scope and was not properly injected using injectDependencies");
-		} }, { document: document$$module$build$src$core$utils$xml, DOMParser: DOMParser$$module$build$src$core$utils$xml, XMLSerializer: XMLSerializer$$module$build$src$core$utils$xml } = globalThis;
+		var domParser$$module$build$src$core$utils$xml = {
+			parseFromString: function () {
+				throw Error("DOMParser was not found in the global scope and was not properly injected using injectDependencies");
+			}
+		}, xmlSerializer$$module$build$src$core$utils$xml = {
+			serializeToString: function () {
+				throw Error("XMLSerializer was not foundin the global scope and was not properly injected using injectDependencies");
+			}
+		}, { document: document$$module$build$src$core$utils$xml, DOMParser: DOMParser$$module$build$src$core$utils$xml, XMLSerializer: XMLSerializer$$module$build$src$core$utils$xml } = globalThis;
 		DOMParser$$module$build$src$core$utils$xml && (domParser$$module$build$src$core$utils$xml = new DOMParser$$module$build$src$core$utils$xml());
 		XMLSerializer$$module$build$src$core$utils$xml && (xmlSerializer$$module$build$src$core$utils$xml = new XMLSerializer$$module$build$src$core$utils$xml());
 		var NAME_SPACE$$module$build$src$core$utils$xml = "https://developers.google.com/blockly/xml", INVALID_CONTROL_CHARS$$module$build$src$core$utils$xml = /[\x00-\x09\x0B\x0C\x0E-\x1F]/g, module$build$src$core$utils$xml = { NAME_SPACE: NAME_SPACE$$module$build$src$core$utils$xml };
@@ -5620,7 +5638,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$utils$xml.injectDependencies = injectDependencies$$module$build$src$core$utils$xml;
 		module$build$src$core$utils$xml.textToDom = $.textToDom$$module$build$src$core$utils$xml;
 		var CATEGORY_TOOLBOX_KIND$$module$build$src$core$utils$toolbox = "categoryToolbox", FLYOUT_TOOLBOX_KIND$$module$build$src$core$utils$toolbox = "flyoutToolbox", Position$$module$build$src$core$utils$toolbox;
-		(function(a) {
+		(function (a) {
 			a[a.TOP = 0] = "TOP";
 			a[a.BOTTOM = 1] = "BOTTOM";
 			a[a.LEFT = 2] = "LEFT";
@@ -5635,17 +5653,17 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$utils$toolbox.isCategoryCollapsible = isCategoryCollapsible$$module$build$src$core$utils$toolbox;
 		module$build$src$core$utils$toolbox.parseToolboxTree = parseToolboxTree$$module$build$src$core$utils$toolbox;
 		var verticalPosition$$module$build$src$core$positionable_helpers;
-		(function(a) {
+		(function (a) {
 			a[a.TOP = 0] = "TOP";
 			a[a.BOTTOM = 1] = "BOTTOM";
 		})(verticalPosition$$module$build$src$core$positionable_helpers || (verticalPosition$$module$build$src$core$positionable_helpers = {}));
 		var horizontalPosition$$module$build$src$core$positionable_helpers;
-		(function(a) {
+		(function (a) {
 			a[a.LEFT = 0] = "LEFT";
 			a[a.RIGHT = 1] = "RIGHT";
 		})(horizontalPosition$$module$build$src$core$positionable_helpers || (horizontalPosition$$module$build$src$core$positionable_helpers = {}));
 		var bumpDirection$$module$build$src$core$positionable_helpers;
-		(function(a) {
+		(function (a) {
 			a[a.UP = 0] = "UP";
 			a[a.DOWN = 1] = "DOWN";
 		})(bumpDirection$$module$build$src$core$positionable_helpers || (bumpDirection$$module$build$src$core$positionable_helpers = {}));
@@ -5869,7 +5887,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		};
 		$.config$$module$build$src$core$config;
 		var ARIA_PREFIX$$module$build$src$core$utils$aria = "aria-", ROLE_ATTRIBUTE$$module$build$src$core$utils$aria = "role", Role$$module$build$src$core$utils$aria;
-		(function(a) {
+		(function (a) {
 			a.GRID = "grid";
 			a.GRIDCELL = "gridcell";
 			a.GROUP = "group";
@@ -5886,7 +5904,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			a.STATUS = "status";
 		})(Role$$module$build$src$core$utils$aria || (Role$$module$build$src$core$utils$aria = {}));
 		var State$$module$build$src$core$utils$aria;
-		(function(a) {
+		(function (a) {
 			a.ACTIVEDESCENDANT = "activedescendant";
 			a.COLCOUNT = "colcount";
 			a.DISABLED = "disabled";
@@ -6176,7 +6194,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			COLLAPSED_INPUT_NAME: COLLAPSED_INPUT_NAME$$module$build$src$core$constants,
 			MANUALLY_DISABLED: MANUALLY_DISABLED$$module$build$src$core$constants
 		};
-		(function(a) {
+		(function (a) {
 			a[a.VALUE = 1] = "VALUE";
 			a[a.STATEMENT = 3] = "STATEMENT";
 			a[a.DUMMY = 5] = "DUMMY";
@@ -6193,8 +6211,8 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$render_management.triggerQueuedRenders = triggerQueuedRenders$$module$build$src$core$render_management;
 		var setLocale$$module$build$src$core$msg, module$build$src$core$msg;
 		$.Msg$$module$build$src$core$msg = Object.create(null);
-		setLocale$$module$build$src$core$msg = function(a) {
-			Object.keys(a).forEach(function(b) {
+		setLocale$$module$build$src$core$msg = function (a) {
+			Object.keys(a).forEach(function (b) {
 				$.Msg$$module$build$src$core$msg[b] = a[b];
 			});
 		};
@@ -6273,7 +6291,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 			}
 		};
 		Toast$$module$build$src$core$toast.shownIds = /* @__PURE__ */ new Set();
-		(function(a) {
+		(function (a) {
 			a = a.Assertiveness || (a.Assertiveness = {});
 			a.ASSERTIVE = "assertive";
 			a.POLITE = "polite";
@@ -6312,12 +6330,12 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 `);
 		var module$build$src$core$toast = {};
 		module$build$src$core$toast.Toast = Toast$$module$build$src$core$toast;
-		var defaultAlert$$module$build$src$core$dialog = function(a, b) {
+		var defaultAlert$$module$build$src$core$dialog = function (a, b) {
 			window.alert(a);
 			b && b();
-		}, alertImplementation$$module$build$src$core$dialog = defaultAlert$$module$build$src$core$dialog, defaultConfirm$$module$build$src$core$dialog = function(a, b) {
+		}, alertImplementation$$module$build$src$core$dialog = defaultAlert$$module$build$src$core$dialog, defaultConfirm$$module$build$src$core$dialog = function (a, b) {
 			b(window.confirm(a));
-		}, confirmImplementation$$module$build$src$core$dialog = defaultConfirm$$module$build$src$core$dialog, defaultPrompt$$module$build$src$core$dialog = function(a, b, c) {
+		}, confirmImplementation$$module$build$src$core$dialog = defaultConfirm$$module$build$src$core$dialog, defaultPrompt$$module$build$src$core$dialog = function (a, b, c) {
 			c(window.prompt(a, b));
 		}, promptImplementation$$module$build$src$core$dialog = defaultPrompt$$module$build$src$core$dialog, defaultToast$$module$build$src$core$dialog = Toast$$module$build$src$core$toast.show.bind(Toast$$module$build$src$core$toast), toastImplementation$$module$build$src$core$dialog = defaultToast$$module$build$src$core$dialog, module$build$src$core$dialog = {};
 		module$build$src$core$dialog.alert = alert$$module$build$src$core$dialog;
@@ -6360,7 +6378,7 @@ var require_blockly_compressed = /* @__PURE__ */ __commonJSMin(((exports, module
 		module$build$src$core$variables.nameUsedWithConflictingParam = nameUsedWithConflictingParam$$module$build$src$core$variables;
 		module$build$src$core$variables.promptName = promptName$$module$build$src$core$variables;
 		module$build$src$core$variables.renameVariable = $.renameVariable$$module$build$src$core$variables;
-		var DeserializationError$$module$build$src$core$serialization$exceptions = class extends Error {}, MissingBlockType$$module$build$src$core$serialization$exceptions = class extends DeserializationError$$module$build$src$core$serialization$exceptions {
+		var DeserializationError$$module$build$src$core$serialization$exceptions = class extends Error { }, MissingBlockType$$module$build$src$core$serialization$exceptions = class extends DeserializationError$$module$build$src$core$serialization$exceptions {
 			constructor(a) {
 				super("Expected to find a 'type' property, defining the block type");
 				this.state = a;
@@ -6541,7 +6559,7 @@ ${b} to its parent, because: ${a}`);
 		module$build$src$core$utils$math.toDegrees = toDegrees$$module$build$src$core$utils$math;
 		module$build$src$core$utils$math.toRadians = toRadians$$module$build$src$core$utils$math;
 		var ARROW_SIZE$$module$build$src$core$dropdowndiv = 16, BORDER_SIZE$$module$build$src$core$dropdowndiv = 1, ARROW_HORIZONTAL_PADDING$$module$build$src$core$dropdowndiv = 12, PADDING_Y$$module$build$src$core$dropdowndiv = 16, ANIMATION_TIME$$module$build$src$core$dropdowndiv = .25, animateOutTimer$$module$build$src$core$dropdowndiv = null, onHide$$module$build$src$core$dropdowndiv = null, renderedClassName$$module$build$src$core$dropdowndiv = "", themeClassName$$module$build$src$core$dropdowndiv = "", div$$module$build$src$core$dropdowndiv, content$$module$build$src$core$dropdowndiv, arrow$$module$build$src$core$dropdowndiv, boundsElement$$module$build$src$core$dropdowndiv = null, owner$$module$build$src$core$dropdowndiv = null, positionToField$$module$build$src$core$dropdowndiv = null, returnEphemeralFocus$$module$build$src$core$dropdowndiv = null, keydownListener$$module$build$src$core$dropdowndiv = null, internal$$module$build$src$core$dropdowndiv = {
-			getBoundsInfo: function() {
+			getBoundsInfo: function () {
 				const a = getPageOffset$$module$build$src$core$utils$style(boundsElement$$module$build$src$core$dropdowndiv), b = getSize$$module$build$src$core$utils$style(boundsElement$$module$build$src$core$dropdowndiv);
 				return {
 					left: a.x,
@@ -6552,7 +6570,7 @@ ${b} to its parent, because: ${a}`);
 					height: b.height
 				};
 			},
-			getPositionMetrics: function(a, b, c, d) {
+			getPositionMetrics: function (a, b, c, d) {
 				const e = internal$$module$build$src$core$dropdowndiv.getBoundsInfo(), f = getSize$$module$build$src$core$utils$style(div$$module$build$src$core$dropdowndiv);
 				return b + f.height < e.bottom ? getPositionBelowMetrics$$module$build$src$core$dropdowndiv(a, b, e, f) : d - f.height > e.top ? getPositionAboveMetrics$$module$build$src$core$dropdowndiv(c, d, e, f) : b + f.height < document.documentElement.clientHeight ? getPositionBelowMetrics$$module$build$src$core$dropdowndiv(a, b, e, f) : d - f.height > document.documentElement.clientTop ? getPositionAboveMetrics$$module$build$src$core$dropdowndiv(c, d, e, f) : getPositionTopOfPageMetrics$$module$build$src$core$dropdowndiv(a, e, f);
 			}
@@ -6700,7 +6718,7 @@ ${b} to its parent, because: ${a}`);
 				this.createTextElement_();
 				this.fieldGroup_ && addClass$$module$build$src$core$utils$dom(this.fieldGroup_, "blocklyField");
 			}
-			initModel() {}
+			initModel() { }
 			isFullBlockField() {
 				return !this.borderRect_;
 			}
@@ -6810,7 +6828,7 @@ ${b} to its parent, because: ${a}`);
 				if (!this.textContent_) throw Error(`The text content is ${this.textContent_}.`);
 				return this.textContent_;
 			}
-			applyColour() {}
+			applyColour() { }
 			render_() {
 				this.textContent_ && (this.textContent_.nodeValue = this.getDisplayText_());
 				this.updateSize_();
@@ -6818,7 +6836,7 @@ ${b} to its parent, because: ${a}`);
 			showEditor(a) {
 				this.isClickable() && this.showEditor_(a);
 			}
-			showEditor_(a) {}
+			showEditor_(a) { }
 			repositionForWindowResize() {
 				return !1;
 			}
@@ -6861,7 +6879,7 @@ ${b} to its parent, because: ${a}`);
 				} else c = this.borderRect_.getBoundingClientRect(), a = getPageOffset$$module$build$src$core$utils$style(this.borderRect_), b = c.width, c = c.height;
 				return new Rect$$module$build$src$core$utils$rect(a.y, a.y + c, a.x, a.x + b);
 			}
-			onLocationChange(a) {}
+			onLocationChange(a) { }
 			getDisplayText_() {
 				let a = this.getText();
 				a.length > this.maxDisplayLength && (a = a.substring(0, this.maxDisplayLength - 2) + "…");
@@ -6918,7 +6936,7 @@ ${b} to its parent, because: ${a}`);
 				this.value_ = a;
 				this.isDirty_ = !0;
 			}
-			doValueInvalid_(a, b) {}
+			doValueInvalid_(a, b) { }
 			onMouseDown_(a) {
 				this.sourceBlock_ && !this.sourceBlock_.isDeadOrDying() && (a = this.sourceBlock_.workspace.getGesture(a)) && a.setStartField(this);
 			}
@@ -6940,7 +6958,7 @@ ${b} to its parent, because: ${a}`);
 			referencesVariables() {
 				return !1;
 			}
-			refreshVariableName() {}
+			refreshVariableName() { }
 			getParentInput() {
 				let a = null;
 				const b = this.getSourceBlock();
@@ -6974,7 +6992,7 @@ ${b} to its parent, because: ${a}`);
 				const a = this.getSourceBlock();
 				a.workspace.scrollBoundsIntoView(a.getBoundingRectangleWithoutChildren());
 			}
-			onNodeBlur() {}
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -7058,13 +7076,13 @@ ${b} to its parent, because: ${a}`);
 						c.push(e);
 					}
 				}
-				c.sort(function(d, e) {
+				c.sort(function (d, e) {
 					return d.weight - e.weight;
 				});
 				return c;
 			}
 		};
-		(function(a) {
+		(function (a) {
 			var b = a.ScopeType || (a.ScopeType = {});
 			b.BLOCK = "block";
 			b.WORKSPACE = "workspace";
@@ -7167,7 +7185,7 @@ ${b} to its parent, because: ${a}`);
 				b = new Rect$$module$build$src$core$utils$rect(b.y, b.y + c.height, b.x, b.x + c.width);
 				a.workspace.scrollBoundsIntoView(b);
 			}
-			onNodeBlur() {}
+			onNodeBlur() { }
 			canBeFocused() {
 				return this.isVisible();
 			}
@@ -7282,7 +7300,7 @@ ${b} to its parent, because: ${a}`);
 				const a = Rect$$module$build$src$core$utils$rect.from(this.foreignObject.getBoundingClientRect());
 				this.workspace.scrollBoundsIntoView(Rect$$module$build$src$core$utils$rect.createFromPoint(screenToWsCoordinates$$module$build$src$core$utils$svg_math(this.workspace, a.getOrigin()), a.getWidth(), a.getHeight()));
 			}
-			onNodeBlur() {}
+			onNodeBlur() { }
 			canBeFocused() {
 				return this.id ? !0 : !1;
 			}
@@ -7332,7 +7350,7 @@ ${b} to its parent, because: ${a}`);
 				this.disposed = this.disposing = !1;
 				this.svgRoot = createSvgElement$$module$build$src$core$utils$dom(Svg$$module$build$src$core$utils$svg.G, { "class": "blocklyComment blocklyEditable blocklyDraggable" });
 				this.highlightRect = this.createHighlightRect(this.svgRoot);
-				({topBarGroup: this.topBarGroup, topBarBackground: this.topBarBackground, deleteButton: this.deleteButton, foldoutButton: this.foldoutButton, textPreview: this.textPreview, textPreviewNode: this.textPreviewNode} = this.createTopBar(this.svgRoot));
+				({ topBarGroup: this.topBarGroup, topBarBackground: this.topBarBackground, deleteButton: this.deleteButton, foldoutButton: this.foldoutButton, textPreview: this.textPreview, textPreviewNode: this.textPreviewNode } = this.createTopBar(this.svgRoot));
 				this.commentEditor = this.createTextArea();
 				this.resizeHandle = this.createResizeHandle(this.svgRoot, a);
 				let c;
@@ -7853,7 +7871,7 @@ ${b} to its parent, because: ${a}`);
 					d ? d.dispose(!1) : c === this.blockId && console.warn("Can't uncreate non-existent block: " + c);
 				}
 			}
-		}, allShadowBlocks$$module$build$src$core$events$events_block_create = function(a, b) {
+		}, allShadowBlocks$$module$build$src$core$events$events_block_create = function (a, b) {
 			return b.map((c) => a.getBlockById(c)).filter((c) => c && c.isShadow()).length === b.length;
 		};
 		register$$module$build$src$core$registry(Type$$module$build$src$core$registry.EVENT, EventType$$module$build$src$core$events$type.BLOCK_CREATE, BlockCreate$$module$build$src$core$events$events_block_create);
@@ -8556,12 +8574,12 @@ ${b} to its parent, because: ${a}`);
 				this.relativeTop = a.y - this.anchor.y;
 				this.renderTail();
 			}
-			setDragging(a) {}
-			setDeleteStyle(a) {}
+			setDragging(a) { }
+			setDeleteStyle(a) { }
 			isDeletable() {
 				return !1;
 			}
-			showContextMenu(a) {}
+			showContextMenu(a) { }
 			isMovable() {
 				return !0;
 			}
@@ -8757,8 +8775,8 @@ ${b} to its parent, because: ${a}`);
 			getTooltip() {
 				return this.tooltip;
 			}
-			applyColour() {}
-			updateEditable() {}
+			applyColour() { }
+			updateEditable() { }
 			updateCollapsed() {
 				this.svgRoot && (this.sourceBlock.isCollapsed() ? this.svgRoot.style.display = "none" : this.svgRoot.style.display = "block", hasBubble$$module$build$src$core$interfaces$i_has_bubble(this) && this.setBubbleVisible(!1));
 			}
@@ -8779,7 +8797,7 @@ ${b} to its parent, because: ${a}`);
 			onLocationChange(a) {
 				this.workspaceLocation = Coordinate$$module$build$src$core$utils$coordinate.sum(a, this.offsetInBlock);
 			}
-			onClick() {}
+			onClick() { }
 			isClickableInFlyout(a) {
 				return !0;
 			}
@@ -8796,7 +8814,7 @@ ${b} to its parent, because: ${a}`);
 				a = new Rect$$module$build$src$core$utils$rect(a.top + this.offsetInBlock.y, a.top + this.offsetInBlock.y + this.getSize().height, a.left + this.offsetInBlock.x, a.left + this.offsetInBlock.x + this.getSize().width);
 				this.sourceBlock.workspace.scrollBoundsIntoView(a);
 			}
-			onNodeBlur() {}
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -8985,7 +9003,7 @@ ${b} to its parent, because: ${a}`);
 		module$build$src$core$extensions.runAfterPageLoad = runAfterPageLoad$$module$build$src$core$extensions;
 		module$build$src$core$extensions.unregister = unregister$$module$build$src$core$extensions;
 		var KeyCodes$$module$build$src$core$utils$keycodes;
-		(function(a) {
+		(function (a) {
 			a[a.WIN_KEY_FF_LINUX = 0] = "WIN_KEY_FF_LINUX";
 			a[a.MAC_ENTER = 3] = "MAC_ENTER";
 			a[a.BACKSPACE = 8] = "BACKSPACE";
@@ -9250,7 +9268,7 @@ ${b} to its parent, because: ${a}`);
 		var module$build$src$core$bubbles$textinput_bubble = {};
 		module$build$src$core$bubbles$textinput_bubble.TextInputBubble = TextInputBubble$$module$build$src$core$bubbles$textinput_bubble;
 		var ConnectionType$$module$build$src$core$connection_type;
-		(function(a) {
+		(function (a) {
 			a[a.INPUT_VALUE = 1] = "INPUT_VALUE";
 			a[a.OUTPUT_VALUE = 2] = "OUTPUT_VALUE";
 			a[a.NEXT_STATEMENT = 3] = "NEXT_STATEMENT";
@@ -9477,7 +9495,7 @@ ${b} to its parent, because: ${a}`);
 			getConnectionChecker() {
 				return this.sourceBlock_.workspace.connectionChecker;
 			}
-			onFailedConnect(a) {}
+			onFailedConnect(a) { }
 			connect(a) {
 				if (this.targetConnection === a) return !0;
 				if (this.getConnectionChecker().canConnect(this, a, !1)) {
@@ -9650,7 +9668,7 @@ ${b} to its parent, because: ${a}`);
 			}
 		}, module$build$src$core$icons$exceptions = {};
 		module$build$src$core$icons$exceptions.DuplicateIconType = DuplicateIconType$$module$build$src$core$icons$exceptions;
-		(function(a) {
+		(function (a) {
 			a[a.LEFT = -1] = "LEFT";
 			a[a.CENTRE = 0] = "CENTRE";
 			a[a.RIGHT = 1] = "RIGHT";
@@ -9810,7 +9828,7 @@ ${b} to its parent, because: ${a}`);
 				const b = this.getSourceBlock();
 				if (getRecordUndo$$module$build$src$core$events$utils()) {
 					const c = $.getGroup$$module$build$src$core$events$utils();
-					setTimeout(function() {
+					setTimeout(function () {
 						b.isDisposed() || b.getParent() || ($.setGroup$$module$build$src$core$events$utils(c), this.bumpAwayFrom(a), $.setGroup$$module$build$src$core$events$utils(!1));
 					}.bind(this), $.config$$module$build$src$core$config.bumpDelay);
 				}
@@ -9885,7 +9903,7 @@ ${b} to its parent, because: ${a}`);
 				return document.getElementById(this.id);
 			}
 		};
-		(function(a) {
+		(function (a) {
 			a = a.TrackedState || (a.TrackedState = {});
 			a[a.WILL_TRACK = -1] = "WILL_TRACK";
 			a[a.UNTRACKED = 0] = "UNTRACKED";
@@ -10161,7 +10179,7 @@ ${b} to its parent, because: ${a}`);
 				}
 				return null;
 			}
-			bumpNeighbours() {}
+			bumpNeighbours() { }
 			getParent() {
 				return this.parentBlock_;
 			}
@@ -10656,8 +10674,8 @@ ${b} to its parent, because: ${a}`);
 					fire$$module$build$src$core$events$utils(new (get$$module$build$src$core$events$utils(EventType$$module$build$src$core$events$type.BLOCK_CHANGE))(this, "comment", null, d, a));
 				}
 			}
-			setWarningText(a, b) {}
-			setMutator(a) {}
+			setWarningText(a, b) { }
+			setMutator(a) { }
 			addIcon(a) {
 				if (this.hasIcon(a.getType())) throw new DuplicateIconType$$module$build$src$core$icons$exceptions(a);
 				this.icons.push(a);
@@ -11061,7 +11079,7 @@ ${b} to its parent, because: ${a}`);
 				let a;
 				(a = this.textBubble) == null || a.setColour(this.sourceBlock.getColour());
 			}
-			updateCollapsed() {}
+			updateCollapsed() { }
 			isShownWhenCollapsed() {
 				return !0;
 			}
@@ -11691,7 +11709,7 @@ ${b} to its parent, because: ${a}`);
 					"width",
 					"pinned",
 					"enabled"
-				]), c = function(d) {
+				]), c = function (d) {
 					for (const e in d) b.has(e) ? delete d[e] : typeof d[e] === "object" && c(d[e]);
 				};
 				c(a);
@@ -11723,11 +11741,11 @@ ${b} to its parent, because: ${a}`);
 		var module$build$src$core$block_svg = {};
 		module$build$src$core$block_svg.BlockSvg = BlockSvg$$module$build$src$core$block_svg;
 		var DragTarget$$module$build$src$core$drag_target = class {
-			constructor() {}
-			onDragEnter(a) {}
-			onDragOver(a) {}
-			onDragExit(a) {}
-			onDrop(a) {}
+			constructor() { }
+			onDragEnter(a) { }
+			onDragOver(a) { }
+			onDragExit(a) { }
+			onDrop(a) { }
 			getClientRect() {
 				return null;
 			}
@@ -12080,7 +12098,7 @@ ${b} to its parent, because: ${a}`);
 				a = new Rect$$module$build$src$core$utils$rect(a.y, a.y + this.height, a.x, a.x + this.width);
 				this.workspace.scrollBoundsIntoView(a);
 			}
-			onNodeBlur() {}
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -12174,8 +12192,8 @@ ${b} to its parent, because: ${a}`);
 			getFocusableTree() {
 				throw Error("Cannot be focused");
 			}
-			onNodeFocus() {}
-			onNodeBlur() {}
+			onNodeFocus() { }
+			onNodeBlur() { }
 			canBeFocused() {
 				return !1;
 			}
@@ -12805,7 +12823,7 @@ ${b} to its parent, because: ${a}`);
 				let c;
 				return (c = parseInt(String(a.gap))) != null ? c : b;
 			}
-			disposeItem(a) {}
+			disposeItem(a) { }
 			getType() {
 				return SEPARATOR_TYPE$$module$build$src$core$separator_flyout_inflater;
 			}
@@ -13039,8 +13057,8 @@ ${b} to its parent, because: ${a}`);
 			getFocusableTree() {
 				throw Error("Flyouts are not directly focusable.");
 			}
-			onNodeFocus() {}
-			onNodeBlur() {}
+			onNodeFocus() { }
+			onNodeBlur() { }
 			canBeFocused() {
 				return !1;
 			}
@@ -13056,7 +13074,7 @@ ${b} to its parent, because: ${a}`);
 			lookUpFocusableNode(a) {
 				throw Error("Flyouts are not directly focusable.");
 			}
-			onTreeFocus(a, b) {}
+			onTreeFocus(a, b) { }
 			onTreeBlur(a) {
 				throw Error("Flyouts are not directly focusable.");
 			}
@@ -13091,7 +13109,7 @@ ${b} to its parent, because: ${a}`);
 				this.verticalScrollEnabled = this.workspace.isMovableVertically();
 				this.startScrollXY_ = new Coordinate$$module$build$src$core$utils$coordinate(a.scrollX, a.scrollY);
 			}
-			startDrag() {}
+			startDrag() { }
 			endDrag(a) {
 				this.drag(a);
 			}
@@ -13804,7 +13822,7 @@ ${b} to its parent, because: ${a}`);
 				return a.toLowerCase() === b.toLowerCase();
 			}
 		};
-		(function(a) {
+		(function (a) {
 			a = a.NameType || (a.NameType = {});
 			a.DEVELOPER_VARIABLE = "DEVELOPER_VARIABLE";
 			a.VARIABLE = "VARIABLE";
@@ -14237,7 +14255,7 @@ ${b} to its parent, because: ${a}`);
 				this.type |= Types$$module$build$src$core$renderers$measurables$types.SPACER | Types$$module$build$src$core$renderers$measurables$types.BETWEEN_ROW_SPACER;
 				this.elements = [new InRowSpacer$$module$build$src$core$renderers$measurables$in_row_spacer(this.constants_, c)];
 			}
-			measure() {}
+			measure() { }
 		}, module$build$src$core$renderers$measurables$spacer_row = {};
 		module$build$src$core$renderers$measurables$spacer_row.SpacerRow = SpacerRow$$module$build$src$core$renderers$measurables$spacer_row;
 		var SquareCorner$$module$build$src$core$renderers$measurables$square_corner = class extends Measurable$$module$build$src$core$renderers$measurables$base {
@@ -15104,7 +15122,7 @@ ${b} to its parent, because: ${a}`);
 			updateReplacementFade(a) {
 				this.setClass_("blocklyReplaceable", a);
 			}
-			updateShapeForInputHighlight(a, b) {}
+			updateShapeForInputHighlight(a, b) { }
 			addConnectionHighlight(a, b, c, d) {
 				c = `translate(${c.x}, ${c.y})` + (d ? " scale(-1 1)" : "");
 				if (d = this.connectionHighlights.get(a)) return d.setAttribute("d", b), d.setAttribute("transform", c), d;
@@ -15374,7 +15392,7 @@ ${b} to its parent, because: ${a}`);
 						const e = d.getRelativeToSurfaceXY();
 						return new Rect$$module$build$src$core$utils$rect(e.y, e.y, e.x, e.x);
 					},
-					moveBy: () => {}
+					moveBy: () => { }
 				});
 				return this.sortByOrigin(c(a), c(b));
 			}
@@ -15821,7 +15839,7 @@ ${b} to its parent, because: ${a}`);
 				this.layerManager = new LayerManager$$module$build$src$core$layer_manager(this);
 				this.svgBlockCanvas_ = this.layerManager.getBlockLayer();
 				this.svgBubbleCanvas_ = this.layerManager.getBubbleLayer();
-				this.isFlyout || (conditionalBind$$module$build$src$core$browser_events(this.svgGroup_, "pointerdown", this, this.onMouseDown, !1), this.dummyWheelListener = () => {}, document.body.addEventListener("wheel", this.dummyWheelListener, { passive: !0 }), conditionalBind$$module$build$src$core$browser_events(this.svgGroup_, "wheel", this, this.onMouseWheel, !1, { passive: !1 }));
+				this.isFlyout || (conditionalBind$$module$build$src$core$browser_events(this.svgGroup_, "pointerdown", this, this.onMouseDown, !1), this.dummyWheelListener = () => { }, document.body.addEventListener("wheel", this.dummyWheelListener, { passive: !0 }), conditionalBind$$module$build$src$core$browser_events(this.svgGroup_, "wheel", this, this.onMouseWheel, !1, { passive: !1 }));
 				this.options.hasCategories && (this.toolbox = new (getClassFromOptions$$module$build$src$core$registry(Type$$module$build$src$core$registry.TOOLBOX, this.options, !0))(this));
 				this.grid && this.grid.update(this.scale);
 				this.recordDragTargets();
@@ -16076,7 +16094,7 @@ ${b} to its parent, because: ${a}`);
 				a || $.setGroup$$module$build$src$core$events$utils(!0);
 				var b = this.getTopBlocks(!0), c = b.filter((g) => g.isMovable());
 				const d = b.filter((g) => !g.isMovable()).map((g) => g.getBoundingRectangle());
-				b = function(g) {
+				b = function (g) {
 					for (const h of d) if (g.intersects(h)) return h;
 					return null;
 				};
@@ -16385,8 +16403,8 @@ ${b} to its parent, because: ${a}`);
 			getFocusableTree() {
 				return this.isMutator && this.options.parentWorkspace || this;
 			}
-			onNodeFocus() {}
-			onNodeBlur() {}
+			onNodeFocus() { }
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -16457,7 +16475,7 @@ ${b} to its parent, because: ${a}`);
 				}
 				return null;
 			}
-			onTreeFocus(a, b) {}
+			onTreeFocus(a, b) { }
 			onTreeBlur(a) {
 				if (this.isFlyout && this.targetWorkspace && !$.getFocusManager$$module$build$src$core$focus_manager().ephemeralFocusTaken()) {
 					var b = this.targetWorkspace.getToolbox();
@@ -16874,7 +16892,7 @@ ${b} to its parent, because: ${a}`);
 			}
 			openFlyout() {
 				if (!this.contentsIsOpen()) {
-					var a = this.contents.map(function(c) {
+					var a = this.contents.map(function (c) {
 						return JSON.parse(c);
 					}), b = this.workspace.getParentSvg().style;
 					b.cursor = "wait";
@@ -17040,7 +17058,7 @@ ${b} to its parent, because: ${a}`);
 		var module$build$src$core$interfaces$i_copyable = {};
 		module$build$src$core$interfaces$i_copyable.isCopyable = isCopyable$$module$build$src$core$interfaces$i_copyable;
 		var names$$module$build$src$core$shortcut_items;
-		(function(a) {
+		(function (a) {
 			a.ESCAPE = "escape";
 			a.DELETE = "delete";
 			a.COPY = "copy";
@@ -17697,7 +17715,7 @@ ${b} to its parent, because: ${a}`);
 				this.fieldGroup_ && addClass$$module$build$src$core$utils$dom(this.fieldGroup_, "blocklyImageField");
 				this.clickHandler && (this.imageElement.style.cursor = "pointer");
 			}
-			updateSize_() {}
+			updateSize_() { }
 			doClassValidation_(a) {
 				return typeof a !== "string" ? null : a;
 			}
@@ -17865,7 +17883,7 @@ ${b} to its parent, because: ${a}`);
 				if (!a) throw Error("A click target has not been set.");
 				removeClass$$module$build$src$core$utils$dom(a, "blocklyEditing");
 			}
-			onFinishEditing_(a) {}
+			onFinishEditing_(a) { }
 			bindInputEvents_(a) {
 				this.onKeyDownWrapper = conditionalBind$$module$build$src$core$browser_events(a, "keydown", this, this.onHtmlInputKeyDown_);
 				this.onInputWrapper = conditionalBind$$module$build$src$core$browser_events(a, "input", this, this.onHtmlInputChange);
@@ -19300,7 +19318,7 @@ ${b} to its parent, because: ${a}`);
 				return b;
 			}
 		}, BubbleType$$module$build$src$core$events$events_bubble_open;
-		(function(a) {
+		(function (a) {
 			a.MUTATOR = "mutator";
 			a.COMMENT = "comment";
 			a.WARNING = "warning";
@@ -20123,9 +20141,11 @@ ${b} to its parent, because: ${a}`);
 					point$$module$build$src$core$utils$svg_paths(45.3, -14.9),
 					point$$module$build$src$core$utils$svg_paths(75, -8.7)
 				]) + moveTo$$module$build$src$core$utils$svg_paths(100.5, a + .5);
-				return { path(d) {
-					return d ? b : c;
-				} };
+				return {
+					path(d) {
+						return d ? b : c;
+					}
+				};
 			}
 		}, module$build$src$core$renderers$geras$highlight_constants = {};
 		module$build$src$core$renderers$geras$highlight_constants.HighlightConstantProvider = HighlightConstantProvider$$module$build$src$core$renderers$geras$highlight_constants;
@@ -20523,7 +20543,7 @@ ${b} to its parent, because: ${a}`);
 				this.parentToolbox_ = b;
 				this.workspace_ = this.parentToolbox_.getWorkspace();
 			}
-			init() {}
+			init() { }
 			getDiv() {
 				return null;
 			}
@@ -20545,8 +20565,8 @@ ${b} to its parent, because: ${a}`);
 			isCollapsible() {
 				return !1;
 			}
-			dispose() {}
-			setVisible_(a) {}
+			dispose() { }
+			setVisible_(a) { }
 			getFocusableElement() {
 				const a = this.getDiv();
 				if (!a) throw Error("Trying to access toolbox item before DOM is initialized.");
@@ -20556,8 +20576,8 @@ ${b} to its parent, because: ${a}`);
 			getFocusableTree() {
 				return this.parentToolbox_;
 			}
-			onNodeFocus() {}
-			onNodeBlur() {}
+			onNodeFocus() { }
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -20735,7 +20755,7 @@ ${b} to its parent, because: ${a}`);
 			isSelectable() {
 				return this.isVisible() && !this.isDisabled_;
 			}
-			onClick(a) {}
+			onClick(a) { }
 			setSelected(a) {
 				if (this.rowDiv_) {
 					var b = this.cssConfig_.selected;
@@ -21290,8 +21310,8 @@ ${b} to its parent, because: ${a}`);
 			getFocusableTree() {
 				return this;
 			}
-			onNodeFocus() {}
-			onNodeBlur() {}
+			onNodeFocus() { }
+			onNodeBlur() { }
 			canBeFocused() {
 				return !0;
 			}
@@ -21324,25 +21344,25 @@ ${b} to its parent, because: ${a}`);
 		var module$build$src$core$toolbox$toolbox = {};
 		module$build$src$core$toolbox$toolbox.Toolbox = Toolbox$$module$build$src$core$toolbox$toolbox;
 		var VERSION$$module$build$src$core$blockly = "12.5.1", INPUT_VALUE$$module$build$src$core$blockly = ConnectionType$$module$build$src$core$connection_type.INPUT_VALUE, OUTPUT_VALUE$$module$build$src$core$blockly = ConnectionType$$module$build$src$core$connection_type.OUTPUT_VALUE, NEXT_STATEMENT$$module$build$src$core$blockly = ConnectionType$$module$build$src$core$connection_type.NEXT_STATEMENT, PREVIOUS_STATEMENT$$module$build$src$core$blockly = ConnectionType$$module$build$src$core$connection_type.PREVIOUS_STATEMENT, TOOLBOX_AT_TOP$$module$build$src$core$blockly = Position$$module$build$src$core$utils$toolbox.TOP, TOOLBOX_AT_BOTTOM$$module$build$src$core$blockly = Position$$module$build$src$core$utils$toolbox.BOTTOM, TOOLBOX_AT_LEFT$$module$build$src$core$blockly = Position$$module$build$src$core$utils$toolbox.LEFT, TOOLBOX_AT_RIGHT$$module$build$src$core$blockly = Position$$module$build$src$core$utils$toolbox.RIGHT;
-		Workspace$$module$build$src$core$workspace.prototype.newBlock = function(a, b) {
+		Workspace$$module$build$src$core$workspace.prototype.newBlock = function (a, b) {
 			return new Block$$module$build$src$core$block(this, a, b);
 		};
-		WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newBlock = function(a, b) {
+		WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newBlock = function (a, b) {
 			return new BlockSvg$$module$build$src$core$block_svg(this, a, b);
 		};
-		Workspace$$module$build$src$core$workspace.prototype.newComment = function(a) {
+		Workspace$$module$build$src$core$workspace.prototype.newComment = function (a) {
 			return new WorkspaceComment$$module$build$src$core$comments$workspace_comment(this, a);
 		};
-		WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newComment = function(a) {
+		WorkspaceSvg$$module$build$src$core$workspace_svg.prototype.newComment = function (a) {
 			return new RenderedWorkspaceComment$$module$build$src$core$comments$rendered_workspace_comment(this, a);
 		};
-		WorkspaceSvg$$module$build$src$core$workspace_svg.newTrashcan = function(a) {
+		WorkspaceSvg$$module$build$src$core$workspace_svg.newTrashcan = function (a) {
 			return new Trashcan$$module$build$src$core$trashcan(a);
 		};
-		MiniWorkspaceBubble$$module$build$src$core$bubbles$mini_workspace_bubble.prototype.newWorkspaceSvg = function(a) {
+		MiniWorkspaceBubble$$module$build$src$core$bubbles$mini_workspace_bubble.prototype.newWorkspaceSvg = function (a) {
 			return new WorkspaceSvg$$module$build$src$core$workspace_svg(a);
 		};
-		$.Names$$module$build$src$core$names.prototype.populateProcedures = function(a) {
+		$.Names$$module$build$src$core$names.prototype.populateProcedures = function (a) {
 			a = allProcedures$$module$build$src$core$procedures(a);
 			a = a[0].concat(a[1]);
 			for (let b = 0; b < a.length; b++) this.getName(a[b][0], $.Names$$module$build$src$core$names.NameType.PROCEDURE);
@@ -21517,14 +21537,14 @@ ${b} to its parent, because: ${a}`);
 //#endregion
 //#region ../node_modules/blockly/msg/en.js
 var require_en = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function(root, factory) {
+	(function (root, factory) {
 		if (typeof define === "function" && define.amd) define([], factory);
 		else if (typeof exports === "object") module.exports = factory();
 		else {
 			var messages = factory();
 			for (var key in messages) root.Blockly.Msg[key] = messages[key];
 		}
-	})(exports, function() {
+	})(exports, function () {
 		"use strict";
 		var Blockly = Blockly || { Msg: Object.create(null) };
 		Blockly.Msg["ADD_COMMENT"] = "Add Comment";
@@ -21976,11 +21996,11 @@ var require_en = /* @__PURE__ */ __commonJSMin(((exports, module) => {
 //#endregion
 //#region ../node_modules/blockly/blocks_compressed.js
 var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function(root, factory) {
+	(function (root, factory) {
 		if (typeof define === "function" && define.amd) define(["./blockly_compressed.js"], factory);
 		else if (typeof exports === "object") module.exports = factory(require_blockly_compressed());
 		else root.Blockly.libraryBlocks = factory(root.Blockly);
-	})(exports, function(__parent__) {
+	})(exports, function (__parent__) {
 		var $ = __parent__.__namespace__;
 		var blocks$$module$build$src$blocks$variables_dynamic = $.createBlockDefinitionsFromJsonArray$$module$build$src$core$common([{
 			type: "variables_get_dynamic",
@@ -22013,7 +22033,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
 			extensions: ["contextMenu_variableDynamicSetterGetter"]
 		}]), CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN$$module$build$src$blocks$variables_dynamic = {
-			customContextMenu: function(a) {
+			customContextMenu: function (a) {
 				if (!this.isInFlyout) {
 					if (this.type === "variables_get_dynamic") {
 						var b = "variables_set_dynamic";
@@ -22039,18 +22059,18 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					callback: deleteOptionCallbackFactory$$module$build$src$blocks$variables_dynamic(this)
 				}, a.unshift(c), a.unshift(d);
 			},
-			onchange: function(a) {
+			onchange: function (a) {
 				a = this.getFieldValue("VAR");
 				a = $.getVariable$$module$build$src$core$variables(this.workspace, a);
 				this.type === "variables_get_dynamic" ? this.outputConnection.setCheck(a.getType()) : this.getInput("VALUE").connection.setCheck(a.getType());
 			}
-		}, renameOptionCallbackFactory$$module$build$src$blocks$variables_dynamic = function(a) {
-			return function() {
+		}, renameOptionCallbackFactory$$module$build$src$blocks$variables_dynamic = function (a) {
+			return function () {
 				const b = a.workspace, c = a.getField("VAR").getVariable();
 				$.renameVariable$$module$build$src$core$variables(b, c);
 			};
-		}, deleteOptionCallbackFactory$$module$build$src$blocks$variables_dynamic = function(a) {
-			return function() {
+		}, deleteOptionCallbackFactory$$module$build$src$blocks$variables_dynamic = function (a) {
+			return function () {
 				const b = a.getField("VAR").getVariable();
 				b && $.deleteVariable$$module$build$src$core$variables(b.getWorkspace(), b, a);
 			};
@@ -22088,38 +22108,40 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			tooltip: "%{BKY_VARIABLES_SET_TOOLTIP}",
 			helpUrl: "%{BKY_VARIABLES_SET_HELPURL}",
 			extensions: ["contextMenu_variableSetterGetter"]
-		}]), CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN$$module$build$src$blocks$variables = { customContextMenu: function(a) {
-			if (!this.isInFlyout) {
-				if (this.type === "variables_get") {
-					var b = "variables_set";
-					var c = $.Msg$$module$build$src$core$msg.VARIABLES_GET_CREATE_SET;
-				} else b = "variables_get", c = $.Msg$$module$build$src$core$msg.VARIABLES_SET_CREATE_GET;
-				var d = this.getField("VAR");
-				b = {
-					type: b,
-					fields: { VAR: d.saveState(!0) }
-				};
-				a.push({
-					enabled: this.workspace.remainingCapacity() > 0,
-					text: c.replace("%1", d.getText()),
-					callback: $.callbackFactory$$module$build$src$core$contextmenu(this, b)
-				});
-			} else if (this.type === "variables_get" || this.type === "variables_get_reporter") c = {
-				text: $.Msg$$module$build$src$core$msg.RENAME_VARIABLE,
-				enabled: !0,
-				callback: renameOptionCallbackFactory$$module$build$src$blocks$variables(this)
-			}, d = this.getField("VAR").getText(), d = {
-				text: $.Msg$$module$build$src$core$msg.DELETE_VARIABLE.replace("%1", d),
-				enabled: !0,
-				callback: deleteOptionCallbackFactory$$module$build$src$blocks$variables(this)
-			}, a.unshift(c), a.unshift(d);
-		} }, renameOptionCallbackFactory$$module$build$src$blocks$variables = function(a) {
-			return function() {
+		}]), CUSTOM_CONTEXT_MENU_VARIABLE_GETTER_SETTER_MIXIN$$module$build$src$blocks$variables = {
+			customContextMenu: function (a) {
+				if (!this.isInFlyout) {
+					if (this.type === "variables_get") {
+						var b = "variables_set";
+						var c = $.Msg$$module$build$src$core$msg.VARIABLES_GET_CREATE_SET;
+					} else b = "variables_get", c = $.Msg$$module$build$src$core$msg.VARIABLES_SET_CREATE_GET;
+					var d = this.getField("VAR");
+					b = {
+						type: b,
+						fields: { VAR: d.saveState(!0) }
+					};
+					a.push({
+						enabled: this.workspace.remainingCapacity() > 0,
+						text: c.replace("%1", d.getText()),
+						callback: $.callbackFactory$$module$build$src$core$contextmenu(this, b)
+					});
+				} else if (this.type === "variables_get" || this.type === "variables_get_reporter") c = {
+					text: $.Msg$$module$build$src$core$msg.RENAME_VARIABLE,
+					enabled: !0,
+					callback: renameOptionCallbackFactory$$module$build$src$blocks$variables(this)
+				}, d = this.getField("VAR").getText(), d = {
+					text: $.Msg$$module$build$src$core$msg.DELETE_VARIABLE.replace("%1", d),
+					enabled: !0,
+					callback: deleteOptionCallbackFactory$$module$build$src$blocks$variables(this)
+				}, a.unshift(c), a.unshift(d);
+			}
+		}, renameOptionCallbackFactory$$module$build$src$blocks$variables = function (a) {
+			return function () {
 				const b = a.workspace, c = a.getField("VAR").getVariable();
 				$.renameVariable$$module$build$src$core$variables(b, c);
 			};
-		}, deleteOptionCallbackFactory$$module$build$src$blocks$variables = function(a) {
-			return function() {
+		}, deleteOptionCallbackFactory$$module$build$src$blocks$variables = function (a) {
+			return function () {
 				const b = a.getField("VAR").getVariable();
 				b && $.deleteVariable$$module$build$src$core$variables(b.getWorkspace(), b, a);
 			};
@@ -22265,7 +22287,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		]);
 		blocks$$module$build$src$blocks$text.text_getSubstring = {
-			init: function() {
+			init: function () {
 				this.WHERE_OPTIONS_1 = [
 					[$.Msg$$module$build$src$core$msg.TEXT_GET_SUBSTRING_START_FROM_START, "FROM_START"],
 					[$.Msg$$module$build$src$core$msg.TEXT_GET_SUBSTRING_START_FROM_END, "FROM_END"],
@@ -22284,7 +22306,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 						type: "field_dropdown",
 						options: this["WHERE_OPTIONS_" + b]
 					});
-					c.setValidator(function(d) {
+					c.setValidator(function (d) {
 						const e = this.getValue();
 						d = d === "FROM_START" || d === "FROM_END";
 						d !== (e === "FROM_START" || e === "FROM_END") && this.getSourceBlock().updateAt_(b, d);
@@ -22302,7 +22324,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.updateAt_(2, !0);
 				this.setTooltip($.Msg$$module$build$src$core$msg.TEXT_GET_SUBSTRING_TOOLTIP);
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				var b = this.getInput("AT1") instanceof $.ValueInput$$module$build$src$core$inputs$value_input;
 				a.setAttribute("at1", `${b}`);
@@ -22310,13 +22332,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				a.setAttribute("at2", `${b}`);
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				const b = a.getAttribute("at1") === "true";
 				a = a.getAttribute("at2") === "true";
 				this.updateAt_(1, b);
 				this.updateAt_(2, a);
 			},
-			updateAt_: function(a, b) {
+			updateAt_: function (a, b) {
 				this.removeInput("AT" + a);
 				this.removeInput("ORDINAL" + a, !0);
 				b ? (this.appendValueInput("AT" + a).setCheck("Number"), $.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX && this.appendDummyInput("ORDINAL" + a).appendField($.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX)) : this.appendDummyInput("AT" + a);
@@ -22324,164 +22346,180 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				a === 1 && (this.moveInputBefore("AT1", "WHERE2_INPUT"), this.getInput("ORDINAL1") && this.moveInputBefore("ORDINAL1", "WHERE2_INPUT"));
 			}
 		};
-		blocks$$module$build$src$blocks$text.text_changeCase = { init: function() {
-			const a = [
-				[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_UPPERCASE, "UPPERCASE"],
-				[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_LOWERCASE, "LOWERCASE"],
-				[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_TITLECASE, "TITLECASE"]
-			];
-			this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_HELPURL);
-			this.setStyle("text_blocks");
-			this.appendValueInput("TEXT").setCheck("String").appendField($.fromJson$$module$build$src$core$field_registry({
-				type: "field_dropdown",
-				options: a
-			}), "CASE");
-			this.setOutput(!0, "String");
-			this.setTooltip($.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_TOOLTIP);
-		} };
-		blocks$$module$build$src$blocks$text.text_trim = { init: function() {
-			const a = [
-				[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_BOTH, "BOTH"],
-				[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_LEFT, "LEFT"],
-				[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_RIGHT, "RIGHT"]
-			];
-			this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_TRIM_HELPURL);
-			this.setStyle("text_blocks");
-			this.appendValueInput("TEXT").setCheck("String").appendField($.fromJson$$module$build$src$core$field_registry({
-				type: "field_dropdown",
-				options: a
-			}), "MODE");
-			this.setOutput(!0, "String");
-			this.setTooltip($.Msg$$module$build$src$core$msg.TEXT_TRIM_TOOLTIP);
-		} };
-		blocks$$module$build$src$blocks$text.text_print = { init: function() {
-			this.jsonInit({
-				message0: $.Msg$$module$build$src$core$msg.TEXT_PRINT_TITLE,
-				args0: [{
-					type: "input_value",
-					name: "TEXT"
-				}],
-				previousStatement: null,
-				nextStatement: null,
-				style: "text_blocks",
-				tooltip: $.Msg$$module$build$src$core$msg.TEXT_PRINT_TOOLTIP,
-				helpUrl: $.Msg$$module$build$src$core$msg.TEXT_PRINT_HELPURL
-			});
-		} };
+		blocks$$module$build$src$blocks$text.text_changeCase = {
+			init: function () {
+				const a = [
+					[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_UPPERCASE, "UPPERCASE"],
+					[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_LOWERCASE, "LOWERCASE"],
+					[$.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_OPERATOR_TITLECASE, "TITLECASE"]
+				];
+				this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_HELPURL);
+				this.setStyle("text_blocks");
+				this.appendValueInput("TEXT").setCheck("String").appendField($.fromJson$$module$build$src$core$field_registry({
+					type: "field_dropdown",
+					options: a
+				}), "CASE");
+				this.setOutput(!0, "String");
+				this.setTooltip($.Msg$$module$build$src$core$msg.TEXT_CHANGECASE_TOOLTIP);
+			}
+		};
+		blocks$$module$build$src$blocks$text.text_trim = {
+			init: function () {
+				const a = [
+					[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_BOTH, "BOTH"],
+					[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_LEFT, "LEFT"],
+					[$.Msg$$module$build$src$core$msg.TEXT_TRIM_OPERATOR_RIGHT, "RIGHT"]
+				];
+				this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_TRIM_HELPURL);
+				this.setStyle("text_blocks");
+				this.appendValueInput("TEXT").setCheck("String").appendField($.fromJson$$module$build$src$core$field_registry({
+					type: "field_dropdown",
+					options: a
+				}), "MODE");
+				this.setOutput(!0, "String");
+				this.setTooltip($.Msg$$module$build$src$core$msg.TEXT_TRIM_TOOLTIP);
+			}
+		};
+		blocks$$module$build$src$blocks$text.text_print = {
+			init: function () {
+				this.jsonInit({
+					message0: $.Msg$$module$build$src$core$msg.TEXT_PRINT_TITLE,
+					args0: [{
+						type: "input_value",
+						name: "TEXT"
+					}],
+					previousStatement: null,
+					nextStatement: null,
+					style: "text_blocks",
+					tooltip: $.Msg$$module$build$src$core$msg.TEXT_PRINT_TOOLTIP,
+					helpUrl: $.Msg$$module$build$src$core$msg.TEXT_PRINT_HELPURL
+				});
+			}
+		};
 		var PROMPT_COMMON$$module$build$src$blocks$text = {
-			updateType_: function(a) {
+			updateType_: function (a) {
 				this.outputConnection.setCheck(a === "NUMBER" ? "Number" : "String");
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("type", this.getFieldValue("TYPE"));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.updateType_(a.getAttribute("type"));
 			}
 		};
-		blocks$$module$build$src$blocks$text.text_prompt_ext = Object.assign({}, PROMPT_COMMON$$module$build$src$blocks$text, { init: function() {
-			var a = [[$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_TEXT, "TEXT"], [$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_NUMBER, "NUMBER"]];
-			this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_PROMPT_HELPURL);
-			this.setStyle("text_blocks");
-			a = $.fromJson$$module$build$src$core$field_registry({
-				type: "field_dropdown",
-				options: a
-			});
-			a.setValidator((b) => {
-				this.updateType_(b);
-			});
-			this.appendValueInput("TEXT").appendField(a, "TYPE");
-			this.setOutput(!0, "String");
-			this.setTooltip(() => this.getFieldValue("TYPE") === "TEXT" ? $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_TEXT : $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_NUMBER);
-		} });
-		blocks$$module$build$src$blocks$text.text_prompt = Object.assign({}, PROMPT_COMMON$$module$build$src$blocks$text, { init: function() {
-			this.mixin(QUOTE_IMAGE_MIXIN$$module$build$src$blocks$text);
-			var a = [[$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_TEXT, "TEXT"], [$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_NUMBER, "NUMBER"]];
-			this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_PROMPT_HELPURL);
-			this.setStyle("text_blocks");
-			a = $.fromJson$$module$build$src$core$field_registry({
-				type: "field_dropdown",
-				options: a
-			});
-			a.setValidator((b) => {
-				this.updateType_(b);
-			});
-			this.appendDummyInput().appendField(a, "TYPE").appendField(this.newQuote_(!0)).appendField($.fromJson$$module$build$src$core$field_registry({
-				type: "field_input",
-				text: ""
-			}), "TEXT").appendField(this.newQuote_(!1));
-			this.setOutput(!0, "String");
-			this.setTooltip(() => this.getFieldValue("TYPE") === "TEXT" ? $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_TEXT : $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_NUMBER);
-		} });
-		blocks$$module$build$src$blocks$text.text_count = { init: function() {
-			this.jsonInit({
-				message0: $.Msg$$module$build$src$core$msg.TEXT_COUNT_MESSAGE0,
-				args0: [{
-					type: "input_value",
-					name: "SUB",
-					check: "String"
-				}, {
-					type: "input_value",
-					name: "TEXT",
-					check: "String"
-				}],
-				output: "Number",
-				inputsInline: !0,
-				style: "text_blocks",
-				tooltip: $.Msg$$module$build$src$core$msg.TEXT_COUNT_TOOLTIP,
-				helpUrl: $.Msg$$module$build$src$core$msg.TEXT_COUNT_HELPURL
-			});
-		} };
-		blocks$$module$build$src$blocks$text.text_replace = { init: function() {
-			this.jsonInit({
-				message0: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_MESSAGE0,
-				args0: [
-					{
+		blocks$$module$build$src$blocks$text.text_prompt_ext = Object.assign({}, PROMPT_COMMON$$module$build$src$blocks$text, {
+			init: function () {
+				var a = [[$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_TEXT, "TEXT"], [$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_NUMBER, "NUMBER"]];
+				this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_PROMPT_HELPURL);
+				this.setStyle("text_blocks");
+				a = $.fromJson$$module$build$src$core$field_registry({
+					type: "field_dropdown",
+					options: a
+				});
+				a.setValidator((b) => {
+					this.updateType_(b);
+				});
+				this.appendValueInput("TEXT").appendField(a, "TYPE");
+				this.setOutput(!0, "String");
+				this.setTooltip(() => this.getFieldValue("TYPE") === "TEXT" ? $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_TEXT : $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_NUMBER);
+			}
+		});
+		blocks$$module$build$src$blocks$text.text_prompt = Object.assign({}, PROMPT_COMMON$$module$build$src$blocks$text, {
+			init: function () {
+				this.mixin(QUOTE_IMAGE_MIXIN$$module$build$src$blocks$text);
+				var a = [[$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_TEXT, "TEXT"], [$.Msg$$module$build$src$core$msg.TEXT_PROMPT_TYPE_NUMBER, "NUMBER"]];
+				this.setHelpUrl($.Msg$$module$build$src$core$msg.TEXT_PROMPT_HELPURL);
+				this.setStyle("text_blocks");
+				a = $.fromJson$$module$build$src$core$field_registry({
+					type: "field_dropdown",
+					options: a
+				});
+				a.setValidator((b) => {
+					this.updateType_(b);
+				});
+				this.appendDummyInput().appendField(a, "TYPE").appendField(this.newQuote_(!0)).appendField($.fromJson$$module$build$src$core$field_registry({
+					type: "field_input",
+					text: ""
+				}), "TEXT").appendField(this.newQuote_(!1));
+				this.setOutput(!0, "String");
+				this.setTooltip(() => this.getFieldValue("TYPE") === "TEXT" ? $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_TEXT : $.Msg$$module$build$src$core$msg.TEXT_PROMPT_TOOLTIP_NUMBER);
+			}
+		});
+		blocks$$module$build$src$blocks$text.text_count = {
+			init: function () {
+				this.jsonInit({
+					message0: $.Msg$$module$build$src$core$msg.TEXT_COUNT_MESSAGE0,
+					args0: [{
 						type: "input_value",
-						name: "FROM",
+						name: "SUB",
 						check: "String"
-					},
-					{
-						type: "input_value",
-						name: "TO",
-						check: "String"
-					},
-					{
+					}, {
 						type: "input_value",
 						name: "TEXT",
 						check: "String"
-					}
-				],
-				output: "String",
-				inputsInline: !0,
-				style: "text_blocks",
-				tooltip: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_TOOLTIP,
-				helpUrl: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_HELPURL
-			});
-		} };
-		blocks$$module$build$src$blocks$text.text_reverse = { init: function() {
-			this.jsonInit({
-				message0: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_MESSAGE0,
-				args0: [{
-					type: "input_value",
-					name: "TEXT",
-					check: "String"
-				}],
-				output: "String",
-				inputsInline: !0,
-				style: "text_blocks",
-				tooltip: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_TOOLTIP,
-				helpUrl: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_HELPURL
-			});
-		} };
+					}],
+					output: "Number",
+					inputsInline: !0,
+					style: "text_blocks",
+					tooltip: $.Msg$$module$build$src$core$msg.TEXT_COUNT_TOOLTIP,
+					helpUrl: $.Msg$$module$build$src$core$msg.TEXT_COUNT_HELPURL
+				});
+			}
+		};
+		blocks$$module$build$src$blocks$text.text_replace = {
+			init: function () {
+				this.jsonInit({
+					message0: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_MESSAGE0,
+					args0: [
+						{
+							type: "input_value",
+							name: "FROM",
+							check: "String"
+						},
+						{
+							type: "input_value",
+							name: "TO",
+							check: "String"
+						},
+						{
+							type: "input_value",
+							name: "TEXT",
+							check: "String"
+						}
+					],
+					output: "String",
+					inputsInline: !0,
+					style: "text_blocks",
+					tooltip: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_TOOLTIP,
+					helpUrl: $.Msg$$module$build$src$core$msg.TEXT_REPLACE_HELPURL
+				});
+			}
+		};
+		blocks$$module$build$src$blocks$text.text_reverse = {
+			init: function () {
+				this.jsonInit({
+					message0: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_MESSAGE0,
+					args0: [{
+						type: "input_value",
+						name: "TEXT",
+						check: "String"
+					}],
+					output: "String",
+					inputsInline: !0,
+					style: "text_blocks",
+					tooltip: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_TOOLTIP,
+					helpUrl: $.Msg$$module$build$src$core$msg.TEXT_REVERSE_HELPURL
+				});
+			}
+		};
 		var QUOTE_IMAGE_MIXIN$$module$build$src$blocks$text = {
 			QUOTE_IMAGE_LEFT_DATAURI: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAn0lEQVQI1z3OMa5BURSF4f/cQhAKjUQhuQmFNwGJEUi0RKN5rU7FHKhpjEH3TEMtkdBSCY1EIv8r7nFX9e29V7EBAOvu7RPjwmWGH/VuF8CyN9/OAdvqIXYLvtRaNjx9mMTDyo+NjAN1HNcl9ZQ5oQMM3dgDUqDo1l8DzvwmtZN7mnD+PkmLa+4mhrxVA9fRowBWmVBhFy5gYEjKMfz9AylsaRRgGzvZAAAAAElFTkSuQmCC",
 			QUOTE_IMAGE_RIGHT_DATAURI: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAKCAQAAAAqJXdxAAAAqUlEQVQI1z3KvUpCcRiA8ef9E4JNHhI0aFEacm1o0BsI0Slx8wa8gLauoDnoBhq7DcfWhggONDmJJgqCPA7neJ7p934EOOKOnM8Q7PDElo/4x4lFb2DmuUjcUzS3URnGib9qaPNbuXvBO3sGPHJDRG6fGVdMSeWDP2q99FQdFrz26Gu5Tq7dFMzUvbXy8KXeAj57cOklgA+u1B5AoslLtGIHQMaCVnwDnADZIFIrXsoXrgAAAABJRU5ErkJggg==",
 			QUOTE_IMAGE_WIDTH: 12,
 			QUOTE_IMAGE_HEIGHT: 12,
-			quoteField_: function(a) {
+			quoteField_: function (a) {
 				for (let b = 0, c; c = this.inputList[b]; b++) for (let d = 0, e; e = c.fieldRow[d]; d++) if (a === e.name) {
 					c.insertFieldAt(d, this.newQuote_(!0));
 					c.insertFieldAt(d + 2, this.newQuote_(!1));
@@ -22489,7 +22527,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				console.warn("field named \"" + a + "\" not found in " + this.toDevString());
 			},
-			newQuote_: function(a) {
+			newQuote_: function (a) {
 				a = this.RTL ? !a : a;
 				return $.fromJson$$module$build$src$core$field_registry({
 					type: "field_image",
@@ -22499,28 +22537,28 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					alt: a ? "“" : "”"
 				});
 			}
-		}, QUOTES_EXTENSION$$module$build$src$blocks$text = function() {
+		}, QUOTES_EXTENSION$$module$build$src$blocks$text = function () {
 			this.mixin(QUOTE_IMAGE_MIXIN$$module$build$src$blocks$text);
 			this.quoteField_("TEXT");
 		}, JOIN_MUTATOR_MIXIN$$module$build$src$blocks$text = {
 			itemCount_: 0,
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("items", `${this.itemCount_}`);
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.itemCount_ = parseInt(a.getAttribute("items"), 10);
 				this.updateShape_();
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return { itemCount: this.itemCount_ };
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.itemCount_ = a.itemCount;
 				this.updateShape_();
 			},
-			decompose: function(a) {
+			decompose: function (a) {
 				const b = a.newBlock("text_create_join_container");
 				b.initSvg();
 				let c = b.getInput("STACK").connection;
@@ -22532,7 +22570,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				return b;
 			},
-			compose: function(a) {
+			compose: function (a) {
 				var b = a.getInputTargetBlock("STACK");
 				for (a = []; b;) b.isInsertionMarker() || a.push(b.valueConnection_), b = b.getNextBlock();
 				for (b = 0; b < this.itemCount_; b++) {
@@ -22546,7 +22584,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					(c = a[b]) == null || c.reconnect(this, "ADD" + b);
 				}
 			},
-			saveConnections: function(a) {
+			saveConnections: function (a) {
 				a = a.getInputTargetBlock("STACK");
 				let b = 0;
 				for (; a;) {
@@ -22560,7 +22598,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					b++;
 				}
 			},
-			updateShape_: function() {
+			updateShape_: function () {
 				this.itemCount_ && this.getInput("EMPTY") ? this.removeInput("EMPTY") : this.itemCount_ || this.getInput("EMPTY") || this.appendDummyInput("EMPTY").appendField(this.newQuote_(!0)).appendField(this.newQuote_(!1));
 				for (var a = 0; a < this.itemCount_; a++) if (!this.getInput("ADD" + a)) {
 					const b = this.appendValueInput("ADD" + a).setAlign($.Align$$module$build$src$core$inputs$align.RIGHT);
@@ -22568,35 +22606,35 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				for (a = this.itemCount_; this.getInput("ADD" + a); a++) this.removeInput("ADD" + a);
 			}
-		}, JOIN_EXTENSION$$module$build$src$blocks$text = function() {
+		}, JOIN_EXTENSION$$module$build$src$blocks$text = function () {
 			this.mixin(QUOTE_IMAGE_MIXIN$$module$build$src$blocks$text);
 			this.itemCount_ = 2;
 			this.updateShape_();
 			this.setMutator(new $.MutatorIcon$$module$build$src$core$icons$mutator_icon(["text_create_join_item"], this));
 		};
 		$.register$$module$build$src$core$extensions("text_append_tooltip", $.buildTooltipWithFieldText$$module$build$src$core$extensions("%{BKY_TEXT_APPEND_TOOLTIP}", "VAR"));
-		var INDEXOF_TOOLTIP_EXTENSION$$module$build$src$blocks$text = function() {
+		var INDEXOF_TOOLTIP_EXTENSION$$module$build$src$blocks$text = function () {
 			this.setTooltip(() => $.Msg$$module$build$src$core$msg.TEXT_INDEXOF_TOOLTIP.replace("%1", this.workspace.options.oneBasedIndex ? "0" : "-1"));
 		}, CHARAT_MUTATOR_MIXIN$$module$build$src$blocks$text = {
 			isAt_: !1,
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("at", `${this.isAt_}`);
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				a = a.getAttribute("at") !== "false";
 				this.updateAt_(a);
 			},
-			updateAt_: function(a) {
+			updateAt_: function (a) {
 				this.removeInput("AT", !0);
 				this.removeInput("ORDINAL", !0);
 				a && (this.appendValueInput("AT").setCheck("Number"), $.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX && this.appendDummyInput("ORDINAL").appendField($.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX));
 				$.Msg$$module$build$src$core$msg.TEXT_CHARAT_TAIL && (this.removeInput("TAIL", !0), this.appendDummyInput("TAIL").appendField($.Msg$$module$build$src$core$msg.TEXT_CHARAT_TAIL));
 				this.isAt_ = a;
 			}
-		}, CHARAT_EXTENSION$$module$build$src$blocks$text = function() {
-			this.getField("WHERE").setValidator(function(a) {
+		}, CHARAT_EXTENSION$$module$build$src$blocks$text = function () {
+			this.getField("WHERE").setValidator(function (a) {
 				a = a === "FROM_START" || a === "FROM_END";
 				const b = this.getSourceBlock();
 				a !== b.isAt_ && b.updateAt_(a);
@@ -22617,10 +22655,10 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 		$.defineBlocks$$module$build$src$core$common(blocks$$module$build$src$blocks$text);
 		var module$build$src$blocks$text = { blocks: blocks$$module$build$src$blocks$text };
 		var blocks$$module$build$src$blocks$procedures = {}, PROCEDURE_DEF_COMMON$$module$build$src$blocks$procedures = {
-			setStatements_: function(a) {
+			setStatements_: function (a) {
 				this.hasStatements_ !== a && (a ? (this.appendStatementInput("STACK").appendField($.Msg$$module$build$src$core$msg.PROCEDURES_DEFNORETURN_DO), this.getInput("RETURN") && this.moveInputBefore("STACK", "RETURN")) : this.removeInput("STACK", !0), this.hasStatements_ = a);
 			},
-			updateParams_: function() {
+			updateParams_: function () {
 				let a = "";
 				this.arguments_.length && (a = $.Msg$$module$build$src$core$msg.PROCEDURES_BEFORE_PARAMS + " " + this.arguments_.join(", "));
 				$.disable$$module$build$src$core$events$utils();
@@ -22630,7 +22668,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					$.enable$$module$build$src$core$events$utils();
 				}
 			},
-			mutationToDom: function(a) {
+			mutationToDom: function (a) {
 				const b = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a && b.setAttribute("name", this.getFieldValue("NAME"));
 				for (let c = 0; c < this.argumentVarModels_.length; c++) {
@@ -22643,7 +22681,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.hasStatements_ || b.setAttribute("statements", "false");
 				return b;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.arguments_ = [];
 				this.argumentVarModels_ = [];
 				for (let c = 0, d; d = a.childNodes[c]; c++) if (d.nodeName.toLowerCase() === "arg") {
@@ -22658,7 +22696,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				$.mutateCallers$$module$build$src$core$procedures(this);
 				this.setStatements_(a.getAttribute("statements") !== "false");
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				if (!this.argumentVarModels_.length && this.hasStatements_) return null;
 				const a = Object.create(null);
 				if (this.argumentVarModels_.length) {
@@ -22671,7 +22709,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.hasStatements_ || (a.hasStatements = !1);
 				return a;
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.arguments_ = [];
 				this.argumentVarModels_ = [];
 				if (a.params) for (let c = 0; c < a.params.length; c++) {
@@ -22684,7 +22722,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				$.mutateCallers$$module$build$src$core$procedures(this);
 				this.setStatements_(a.hasStatements === !1 ? !1 : !0);
 			},
-			decompose: function(a) {
+			decompose: function (a) {
 				const b = $.createElement$$module$build$src$core$utils$xml("block");
 				b.setAttribute("type", "procedures_mutatorcontainer");
 				var c = $.createElement$$module$build$src$core$utils$xml("statement");
@@ -22708,7 +22746,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				$.mutateCallers$$module$build$src$core$procedures(this);
 				return a;
 			},
-			compose: function(a) {
+			compose: function (a) {
 				this.arguments_ = [];
 				this.paramIds_ = [];
 				this.argumentVarModels_ = [];
@@ -22735,13 +22773,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					this.setStatements_(!1);
 				}
 			},
-			getVars: function() {
+			getVars: function () {
 				return this.arguments_;
 			},
-			getVarModels: function() {
+			getVarModels: function () {
 				return this.argumentVarModels_;
 			},
-			renameVarById: function(a, b) {
+			renameVarById: function (a, b) {
 				var c = this.workspace.getVariableMap().getVariableById(a);
 				if (c.getType() === "") {
 					c = c.getName();
@@ -22751,13 +22789,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					d && (this.displayRenamedVar_(c, b.getName()), $.mutateCallers$$module$build$src$core$procedures(this));
 				}
 			},
-			updateVarName: function(a) {
+			updateVarName: function (a) {
 				const b = a.getName();
 				let c = !1, d;
 				for (let e = 0; e < this.argumentVarModels_.length; e++) this.argumentVarModels_[e].getId() === a.getId() && (d = this.arguments_[e], this.arguments_[e] = b, c = !0);
 				c && (this.displayRenamedVar_(d, b), $.mutateCallers$$module$build$src$core$procedures(this));
 			},
-			displayRenamedVar_: function(a, b) {
+			displayRenamedVar_: function (a, b) {
 				this.updateParams_();
 				var c = this.getIcon($.MutatorIcon$$module$build$src$core$icons$mutator_icon.TYPE);
 				if (c && c.bubbleIsVisible()) {
@@ -22765,7 +22803,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					for (let d = 0, e; e = c[d]; d++) e.type === "procedures_mutatorarg" && $.Names$$module$build$src$core$names.equals(a, e.getFieldValue("NAME")) && e.setFieldValue(b, "NAME");
 				}
 			},
-			customContextMenu: function(a) {
+			customContextMenu: function (a) {
 				if (!this.isInFlyout) {
 					var b = this.getFieldValue("NAME"), c = {
 						type: this.callType_,
@@ -22783,11 +22821,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 						c = this.argumentVarModels_[b];
 						const d = {
 							type: "variables_get",
-							fields: { VAR: {
-								name: c.getName(),
-								id: c.getId(),
-								type: c.getType()
-							} }
+							fields: {
+								VAR: {
+									name: c.getName(),
+									id: c.getId(),
+									type: c.getType()
+								}
+							}
 						};
 						a.push({
 							enabled: !0,
@@ -22799,7 +22839,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		blocks$$module$build$src$blocks$procedures.procedures_defnoreturn = Object.assign({}, PROCEDURE_DEF_COMMON$$module$build$src$blocks$procedures, {
-			init: function() {
+			init: function () {
 				var a = $.findLegalName$$module$build$src$core$procedures("", this);
 				a = $.fromJson$$module$build$src$core$field_registry({
 					type: "field_input",
@@ -22818,7 +22858,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.setStatements_(!0);
 				this.statementConnection_ = null;
 			},
-			getProcedureDef: function() {
+			getProcedureDef: function () {
 				return [
 					this.getFieldValue("NAME"),
 					this.arguments_,
@@ -22828,7 +22868,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			callType_: "procedures_callnoreturn"
 		});
 		blocks$$module$build$src$blocks$procedures.procedures_defreturn = Object.assign({}, PROCEDURE_DEF_COMMON$$module$build$src$blocks$procedures, {
-			init: function() {
+			init: function () {
 				var a = $.findLegalName$$module$build$src$core$procedures("", this);
 				a = $.fromJson$$module$build$src$core$field_registry({
 					type: "field_input",
@@ -22848,7 +22888,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.setStatements_(!0);
 				this.statementConnection_ = null;
 			},
-			getProcedureDef: function() {
+			getProcedureDef: function () {
 				return [
 					this.getFieldValue("NAME"),
 					this.arguments_,
@@ -22857,17 +22897,19 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			},
 			callType_: "procedures_callreturn"
 		});
-		blocks$$module$build$src$blocks$procedures.procedures_mutatorcontainer = { init: function() {
-			this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORCONTAINER_TITLE);
-			this.appendStatementInput("STACK");
-			this.appendDummyInput("STATEMENT_INPUT").appendField($.Msg$$module$build$src$core$msg.PROCEDURES_ALLOW_STATEMENTS).appendField($.fromJson$$module$build$src$core$field_registry({
-				type: "field_checkbox",
-				checked: !0
-			}), "STATEMENTS");
-			this.setStyle("procedure_blocks");
-			this.setTooltip($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP);
-			this.contextMenu = !1;
-		} };
+		blocks$$module$build$src$blocks$procedures.procedures_mutatorcontainer = {
+			init: function () {
+				this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORCONTAINER_TITLE);
+				this.appendStatementInput("STACK");
+				this.appendDummyInput("STATEMENT_INPUT").appendField($.Msg$$module$build$src$core$msg.PROCEDURES_ALLOW_STATEMENTS).appendField($.fromJson$$module$build$src$core$field_registry({
+					type: "field_checkbox",
+					checked: !0
+				}), "STATEMENTS");
+				this.setStyle("procedure_blocks");
+				this.setTooltip($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORCONTAINER_TOOLTIP);
+				this.contextMenu = !1;
+			}
+		};
 		var ProcedureArgumentField$$module$build$src$blocks$procedures = class extends $.FieldTextInput$$module$build$src$core$field_textinput {
 			constructor() {
 				super(...arguments);
@@ -22884,7 +22926,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		blocks$$module$build$src$blocks$procedures.procedures_mutatorarg = {
-			init: function() {
+			init: function () {
 				const a = new ProcedureArgumentField$$module$build$src$blocks$procedures($.DEFAULT_ARG$$module$build$src$core$procedures, this.validator_);
 				this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORARG_TITLE).appendField(a, "NAME");
 				this.setPreviousStatement(!0);
@@ -22893,7 +22935,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.setTooltip($.Msg$$module$build$src$core$msg.PROCEDURES_MUTATORARG_TOOLTIP);
 				this.contextMenu = !1;
 			},
-			validator_: function(a) {
+			validator_: function (a) {
 				var b = this.getSourceBlock(), c = b.workspace.getRootWorkspace();
 				a = a.replace(/[\s\xa0]+/g, " ").replace(/^ | $/g, "");
 				if (!a) return null;
@@ -22911,13 +22953,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		var DISABLED_PROCEDURE_DEFINITION_DISABLED_REASON$$module$build$src$blocks$procedures = "DISABLED_PROCEDURE_DEFINITION", PROCEDURE_CALL_COMMON$$module$build$src$blocks$procedures = {
-			getProcedureCall: function() {
+			getProcedureCall: function () {
 				return this.getFieldValue("NAME");
 			},
-			renameProcedure: function(a, b) {
+			renameProcedure: function (a, b) {
 				$.Names$$module$build$src$core$names.equals(a, this.getProcedureCall()) && (this.setFieldValue(b, "NAME"), this.setTooltip((this.outputConnection ? $.Msg$$module$build$src$core$msg.PROCEDURES_CALLRETURN_TOOLTIP : $.Msg$$module$build$src$core$msg.PROCEDURES_CALLNORETURN_TOOLTIP).replace("%1", b)));
 			},
-			setProcedureParameters_: function(a, b) {
+			setProcedureParameters_: function (a, b) {
 				var c = $.getDefinition$$module$build$src$core$procedures(this.getProcedureCall(), this.workspace);
 				(c = (c = c && c.getIcon($.MutatorIcon$$module$build$src$core$icons$mutator_icon.TYPE)) && c.bubbleIsVisible()) ? this.setCollapsed(!1) : (this.quarkConnections_ = {}, this.quarkIds_ = null);
 				if (a.join("\n") === this.arguments_.join("\n")) this.quarkIds_ = b;
@@ -22940,7 +22982,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					}
 				}
 			},
-			updateShape_: function() {
+			updateShape_: function () {
 				for (var a = 0; a < this.arguments_.length; a++) {
 					var b = this.getField("ARGNAME" + a);
 					if (b) {
@@ -22958,7 +23000,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				for (a = this.arguments_.length; this.getInput("ARG" + a); a++) this.removeInput("ARG" + a);
 				(a = this.getInput("TOPROW")) && (this.arguments_.length ? this.getField("WITH") || a.appendField($.Msg$$module$build$src$core$msg.PROCEDURES_CALL_BEFORE_PARAMS, "WITH") : this.getField("WITH") && a.removeField("WITH"));
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("name", this.getProcedureCall());
 				for (let b = 0; b < this.arguments_.length; b++) {
@@ -22968,7 +23010,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				var b = a.getAttribute("name");
 				this.renameProcedure(this.getProcedureCall(), b);
 				b = [];
@@ -22976,13 +23018,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				for (let d = 0, e; e = a.childNodes[d]; d++) e.nodeName.toLowerCase() === "arg" && (b.push(e.getAttribute("name")), c.push(e.getAttribute("paramId")));
 				this.setProcedureParameters_(b, c);
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				const a = Object.create(null);
 				a.name = this.getProcedureCall();
 				this.arguments_.length && (a.params = this.arguments_);
 				return a;
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.renameProcedure(this.getProcedureCall(), a.name);
 				if (a = a.params) {
 					const b = [];
@@ -22991,13 +23033,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					this.setProcedureParameters_(a, b);
 				}
 			},
-			getVars: function() {
+			getVars: function () {
 				return this.arguments_;
 			},
-			getVarModels: function() {
+			getVarModels: function () {
 				return this.argumentVarModels_;
 			},
-			onchange: function(a) {
+			onchange: function (a) {
 				if (this.workspace && !this.workspace.isFlyout && a.recordUndo) if (a.type === $.BLOCK_CREATE$$module$build$src$core$events$events && a.ids.includes(this.id)) {
 					var b = this.getProcedureCall(), c = $.getDefinition$$module$build$src$core$procedures(b, this.workspace);
 					!c || c.type === this.defType_ && JSON.stringify(c.getVars()) === JSON.stringify(this.arguments_) || (c = null);
@@ -23026,13 +23068,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					}
 				} else a.type === $.BLOCK_DELETE$$module$build$src$core$events$events ? (b = this.getProcedureCall(), $.getDefinition$$module$build$src$core$procedures(b, this.workspace) || ($.setGroup$$module$build$src$core$events$utils(a.group), this.dispose(!0), $.setGroup$$module$build$src$core$events$utils(!1))) : a.type === $.BLOCK_CHANGE$$module$build$src$core$events$events && a.element === "disabled" && (b = this.getProcedureCall(), (d = $.getDefinition$$module$build$src$core$procedures(b, this.workspace)) && d.id === a.blockId && ((c = $.getGroup$$module$build$src$core$events$utils()) && console.log("Saw an existing group while responding to a definition change"), $.setGroup$$module$build$src$core$events$utils(a.group), a = d.isEnabled(), this.setDisabledReason(!a, DISABLED_PROCEDURE_DEFINITION_DISABLED_REASON$$module$build$src$blocks$procedures), this.setWarningText(a ? null : $.Msg$$module$build$src$core$msg.PROCEDURES_CALL_DISABLED_DEF_WARNING.replace("%1", b)), $.setGroup$$module$build$src$core$events$utils(c)));
 			},
-			customContextMenu: function(a) {
+			customContextMenu: function (a) {
 				if (this.workspace.isMovable()) {
 					var b = this.getProcedureCall(), c = this.workspace;
 					a.push({
 						enabled: !0,
 						text: $.Msg$$module$build$src$core$msg.PROCEDURES_HIGHLIGHT_DEF,
-						callback: function() {
+						callback: function () {
 							const d = $.getDefinition$$module$build$src$core$procedures(b, c);
 							d && (c.centerOnBlock(d.id), $.getFocusManager$$module$build$src$core$focus_manager().focusNode(d));
 						}
@@ -23041,7 +23083,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		blocks$$module$build$src$blocks$procedures.procedures_callnoreturn = Object.assign({}, PROCEDURE_CALL_COMMON$$module$build$src$blocks$procedures, {
-			init: function() {
+			init: function () {
 				this.appendDummyInput("TOPROW").appendField("", "NAME");
 				this.setPreviousStatement(!0);
 				this.setNextStatement(!0);
@@ -23055,7 +23097,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			defType_: "procedures_defnoreturn"
 		});
 		blocks$$module$build$src$blocks$procedures.procedures_callreturn = Object.assign({}, PROCEDURE_CALL_COMMON$$module$build$src$blocks$procedures, {
-			init: function() {
+			init: function () {
 				this.appendDummyInput("TOPROW").appendField("", "NAME");
 				this.setOutput(!0);
 				this.setStyle("procedure_blocks");
@@ -23069,7 +23111,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 		});
 		var UNPARENTED_IFRETURN_DISABLED_REASON$$module$build$src$blocks$procedures = "UNPARENTED_IFRETURN";
 		blocks$$module$build$src$blocks$procedures.procedures_ifreturn = {
-			init: function() {
+			init: function () {
 				this.appendValueInput("CONDITION").setCheck("Boolean").appendField($.Msg$$module$build$src$core$msg.CONTROLS_IF_MSG_IF);
 				this.appendValueInput("VALUE").appendField($.Msg$$module$build$src$core$msg.PROCEDURES_DEFRETURN_RETURN);
 				this.setInputsInline(!0);
@@ -23080,16 +23122,16 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.setHelpUrl($.Msg$$module$build$src$core$msg.PROCEDURES_IFRETURN_HELPURL);
 				this.hasReturnValue_ = !0;
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("value", String(Number(this.hasReturnValue_)));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.hasReturnValue_ = a.getAttribute("value") === "1";
 				this.hasReturnValue_ || (this.removeInput("VALUE"), this.appendDummyInput("VALUE").appendField($.Msg$$module$build$src$core$msg.PROCEDURES_DEFRETURN_RETURN));
 			},
-			onchange: function(a) {
+			onchange: function (a) {
 				if (!(this.workspace.isDragging && this.workspace.isDragging() || a.type !== $.BLOCK_MOVE$$module$build$src$core$events$events && a.type !== $.BLOCK_CREATE$$module$build$src$core$events$events)) {
 					a = !1;
 					var b = this;
@@ -23438,21 +23480,21 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			RANDOM: "%{BKY_MATH_ONLIST_TOOLTIP_RANDOM}"
 		}));
 		var IS_DIVISIBLEBY_MUTATOR_MIXIN$$module$build$src$blocks$math = {
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation"), b = this.getFieldValue("PROPERTY") === "DIVISIBLE_BY";
 				a.setAttribute("divisor_input", String(b));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				a = a.getAttribute("divisor_input") === "true";
 				this.updateShape_(a);
 			},
-			updateShape_: function(a) {
+			updateShape_: function (a) {
 				const b = this.getInput("DIVISOR");
 				a ? b || this.appendValueInput("DIVISOR").setCheck("Number") : b && this.removeInput("DIVISOR");
 			}
-		}, IS_DIVISIBLE_MUTATOR_EXTENSION$$module$build$src$blocks$math = function() {
-			this.getField("PROPERTY").setValidator(function(a) {
+		}, IS_DIVISIBLE_MUTATOR_EXTENSION$$module$build$src$blocks$math = function () {
+			this.getField("PROPERTY").setValidator(function (a) {
 				a = a === "DIVISIBLE_BY";
 				this.getSourceBlock().updateShape_(a);
 			});
@@ -23460,21 +23502,21 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 		$.registerMutator$$module$build$src$core$extensions("math_is_divisibleby_mutator", IS_DIVISIBLEBY_MUTATOR_MIXIN$$module$build$src$blocks$math, IS_DIVISIBLE_MUTATOR_EXTENSION$$module$build$src$blocks$math);
 		$.register$$module$build$src$core$extensions("math_change_tooltip", $.buildTooltipWithFieldText$$module$build$src$core$extensions("%{BKY_MATH_CHANGE_TOOLTIP}", "VAR"));
 		var LIST_MODES_MUTATOR_MIXIN$$module$build$src$blocks$math = {
-			updateType_: function(a) {
+			updateType_: function (a) {
 				a === "MODE" ? this.outputConnection.setCheck("Array") : this.outputConnection.setCheck("Number");
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("op", this.getFieldValue("OP"));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				a = a.getAttribute("op");
 				if (a === null) throw new TypeError("xmlElement had no op attribute");
 				this.updateType_(a);
 			}
-		}, LIST_MODES_MUTATOR_EXTENSION$$module$build$src$blocks$math = function() {
-			this.getField("OP").setValidator(function(a) {
+		}, LIST_MODES_MUTATOR_EXTENSION$$module$build$src$blocks$math = function () {
+			this.getField("OP").setValidator(function (a) {
 				this.updateType_(a);
 			}.bind(this));
 		};
@@ -23631,19 +23673,21 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			BREAK: "%{BKY_CONTROLS_FLOW_STATEMENTS_TOOLTIP_BREAK}",
 			CONTINUE: "%{BKY_CONTROLS_FLOW_STATEMENTS_TOOLTIP_CONTINUE}"
 		}));
-		$.registerMixin$$module$build$src$core$extensions("contextMenu_newGetVariableBlock", { customContextMenu: function(a) {
-			if (!this.isInFlyout) {
-				var b = this.getField("VAR"), c = b.getVariable().getName();
-				this.isCollapsed() || c === null || (b = {
-					type: "variables_get",
-					fields: { VAR: b.saveState(!0) }
-				}, a.push({
-					enabled: !0,
-					text: $.Msg$$module$build$src$core$msg.VARIABLES_SET_CREATE_GET.replace("%1", c),
-					callback: $.callbackFactory$$module$build$src$core$contextmenu(this, b)
-				}));
+		$.registerMixin$$module$build$src$core$extensions("contextMenu_newGetVariableBlock", {
+			customContextMenu: function (a) {
+				if (!this.isInFlyout) {
+					var b = this.getField("VAR"), c = b.getVariable().getName();
+					this.isCollapsed() || c === null || (b = {
+						type: "variables_get",
+						fields: { VAR: b.saveState(!0) }
+					}, a.push({
+						enabled: !0,
+						text: $.Msg$$module$build$src$core$msg.VARIABLES_SET_CREATE_GET.replace("%1", c),
+						callback: $.callbackFactory$$module$build$src$core$contextmenu(this, b)
+					}));
+				}
 			}
-		} });
+		});
 		$.register$$module$build$src$core$extensions("controls_for_tooltip", $.buildTooltipWithFieldText$$module$build$src$core$extensions("%{BKY_CONTROLS_FOR_TOOLTIP}", "VAR"));
 		$.register$$module$build$src$core$extensions("controls_forEach_tooltip", $.buildTooltipWithFieldText$$module$build$src$core$extensions("%{BKY_CONTROLS_FOREACH_TOOLTIP}", "VAR"));
 		var loopTypes$$module$build$src$blocks$loops = new Set([
@@ -23654,7 +23698,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			"controls_whileUntil"
 		]), CONTROL_FLOW_NOT_IN_LOOP_DISABLED_REASON$$module$build$src$blocks$loops = "CONTROL_FLOW_NOT_IN_LOOP";
 		$.registerMixin$$module$build$src$core$extensions("controls_flow_in_loop_check", {
-			getSurroundLoop: function() {
+			getSurroundLoop: function () {
 				let a = this;
 				do {
 					if (loopTypes$$module$build$src$blocks$loops.has(a.type)) return a;
@@ -23662,7 +23706,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				} while (a);
 				return null;
 			},
-			onchange: function(a) {
+			onchange: function (a) {
 				const b = this.workspace;
 				if (b.isDragging && !b.isDragging() && (a.type === $.BLOCK_MOVE$$module$build$src$core$events$events || a.type === $.BLOCK_CREATE$$module$build$src$core$events$events) && (a = !!this.getSurroundLoop(), this.setWarningText(a ? null : $.Msg$$module$build$src$core$msg.CONTROLS_FLOW_STATEMENTS_WARNING), !this.isInFlyout)) try {
 					$.setRecordUndo$$module$build$src$core$events$utils(!1), this.setDisabledReason(!a, CONTROL_FLOW_NOT_IN_LOOP_DISABLED_REASON$$module$build$src$blocks$loops);
@@ -23878,31 +23922,31 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 		$.registerMutator$$module$build$src$core$extensions("controls_if_mutator", {
 			elseifCount_: 0,
 			elseCount_: 0,
-			mutationToDom: function() {
+			mutationToDom: function () {
 				if (!this.elseifCount_ && !this.elseCount_) return null;
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				this.elseifCount_ && a.setAttribute("elseif", String(this.elseifCount_));
 				this.elseCount_ && a.setAttribute("else", "1");
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.elseifCount_ = parseInt(a.getAttribute("elseif"), 10) || 0;
 				this.elseCount_ = parseInt(a.getAttribute("else"), 10) || 0;
 				this.rebuildShape_();
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				if (!this.elseifCount_ && !this.elseCount_) return null;
 				const a = Object.create(null);
 				this.elseifCount_ && (a.elseIfCount = this.elseifCount_);
 				this.elseCount_ && (a.hasElse = !0);
 				return a;
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.elseifCount_ = a.elseIfCount || 0;
 				this.elseCount_ = a.hasElse ? 1 : 0;
 				this.updateShape_();
 			},
-			decompose: function(a) {
+			decompose: function (a) {
 				const b = a.newBlock("controls_if_if");
 				b.initSvg();
 				let c = b.nextConnection;
@@ -23915,7 +23959,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.elseCount_ && (a = a.newBlock("controls_if_else"), a.initSvg(), c.connect(a.previousConnection));
 				return b;
 			},
-			compose: function(a) {
+			compose: function (a) {
 				a = a.nextConnection.targetBlock();
 				this.elseCount_ = this.elseifCount_ = 0;
 				const b = [null], c = [null];
@@ -23938,7 +23982,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.updateShape_();
 				this.reconnectChildBlocks_(b, c, d);
 			},
-			saveConnections: function(a) {
+			saveConnections: function (a) {
 				a = a.nextConnection.targetBlock();
 				let b = 1;
 				for (; a;) {
@@ -23959,7 +24003,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					a = a.getNextBlock();
 				}
 			},
-			rebuildShape_: function() {
+			rebuildShape_: function () {
 				const a = [null], b = [null];
 				let c = null;
 				this.getInput("ELSE") && (c = this.getInput("ELSE").connection.targetConnection);
@@ -23971,13 +24015,13 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.updateShape_();
 				this.reconnectChildBlocks_(a, b, c);
 			},
-			updateShape_: function() {
+			updateShape_: function () {
 				this.getInput("ELSE") && this.removeInput("ELSE");
 				for (var a = 1; this.getInput("IF" + a); a++) this.removeInput("IF" + a), this.removeInput("DO" + a);
 				for (a = 1; a <= this.elseifCount_; a++) this.appendValueInput("IF" + a).setCheck("Boolean").appendField($.Msg$$module$build$src$core$msg.CONTROLS_IF_MSG_ELSEIF), this.appendStatementInput("DO" + a).appendField($.Msg$$module$build$src$core$msg.CONTROLS_IF_MSG_THEN);
 				this.elseCount_ && this.appendStatementInput("ELSE").appendField($.Msg$$module$build$src$core$msg.CONTROLS_IF_MSG_ELSE);
 			},
-			reconnectChildBlocks_: function(a, b, c) {
+			reconnectChildBlocks_: function (a, b, c) {
 				for (let d = 1; d <= this.elseifCount_; d++) {
 					let e;
 					(e = a[d]) == null || e.reconnect(this, "IF" + d);
@@ -23987,8 +24031,8 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				c?.reconnect(this, "ELSE");
 			}
 		}, null, ["controls_if_elseif", "controls_if_else"]);
-		var CONTROLS_IF_TOOLTIP_EXTENSION$$module$build$src$blocks$logic = function() {
-			this.setTooltip(function() {
+		var CONTROLS_IF_TOOLTIP_EXTENSION$$module$build$src$blocks$logic = function () {
+			this.setTooltip(function () {
 				if (this.elseifCount_ || this.elseCount_) {
 					if (!this.elseifCount_ && this.elseCount_) return $.Msg$$module$build$src$core$msg.CONTROLS_IF_TOOLTIP_2;
 					if (this.elseifCount_ && !this.elseCount_) return $.Msg$$module$build$src$core$msg.CONTROLS_IF_TOOLTIP_3;
@@ -23998,20 +24042,22 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}.bind(this));
 		};
 		$.register$$module$build$src$core$extensions("controls_if_tooltip", CONTROLS_IF_TOOLTIP_EXTENSION$$module$build$src$blocks$logic);
-		var LOGIC_COMPARE_ONCHANGE_MIXIN$$module$build$src$blocks$logic = { onchange: function(a) {
-			this.prevBlocks_ || (this.prevBlocks_ = [null, null]);
-			var b = this.getInputTargetBlock("A");
-			const c = this.getInputTargetBlock("B");
-			b && c && !this.workspace.connectionChecker.doTypeChecks(b.outputConnection, c.outputConnection) && ($.setGroup$$module$build$src$core$events$utils(a.group), a = this.prevBlocks_[0], a !== b && (b.unplug(), !a || a.isDisposed() || a.isShadow() || this.getInput("A").connection.connect(a.outputConnection)), b = this.prevBlocks_[1], b !== c && (c.unplug(), !b || b.isDisposed() || b.isShadow() || this.getInput("B").connection.connect(b.outputConnection)), this.bumpNeighbours(), $.setGroup$$module$build$src$core$events$utils(!1));
-			this.prevBlocks_[0] = this.getInputTargetBlock("A");
-			this.prevBlocks_[1] = this.getInputTargetBlock("B");
-		} }, LOGIC_COMPARE_EXTENSION$$module$build$src$blocks$logic = function() {
+		var LOGIC_COMPARE_ONCHANGE_MIXIN$$module$build$src$blocks$logic = {
+			onchange: function (a) {
+				this.prevBlocks_ || (this.prevBlocks_ = [null, null]);
+				var b = this.getInputTargetBlock("A");
+				const c = this.getInputTargetBlock("B");
+				b && c && !this.workspace.connectionChecker.doTypeChecks(b.outputConnection, c.outputConnection) && ($.setGroup$$module$build$src$core$events$utils(a.group), a = this.prevBlocks_[0], a !== b && (b.unplug(), !a || a.isDisposed() || a.isShadow() || this.getInput("A").connection.connect(a.outputConnection)), b = this.prevBlocks_[1], b !== c && (c.unplug(), !b || b.isDisposed() || b.isShadow() || this.getInput("B").connection.connect(b.outputConnection)), this.bumpNeighbours(), $.setGroup$$module$build$src$core$events$utils(!1));
+				this.prevBlocks_[0] = this.getInputTargetBlock("A");
+				this.prevBlocks_[1] = this.getInputTargetBlock("B");
+			}
+		}, LOGIC_COMPARE_EXTENSION$$module$build$src$blocks$logic = function () {
 			this.mixin(LOGIC_COMPARE_ONCHANGE_MIXIN$$module$build$src$blocks$logic);
 		};
 		$.register$$module$build$src$core$extensions("logic_compare", LOGIC_COMPARE_EXTENSION$$module$build$src$blocks$logic);
 		$.registerMixin$$module$build$src$core$extensions("logic_ternary", {
 			prevParentConnection_: null,
-			onchange: function(a) {
+			onchange: function (a) {
 				const b = this.getInputTargetBlock("THEN"), c = this.getInputTargetBlock("ELSE"), d = this.outputConnection.targetConnection;
 				if ((b || c) && d) for (let e = 0; e < 2; e++) {
 					const f = e === 1 ? b : c;
@@ -24089,7 +24135,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		]);
 		blocks$$module$build$src$blocks$lists.lists_create_with = {
-			init: function() {
+			init: function () {
 				this.setHelpUrl($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_HELPURL);
 				this.setStyle("list_blocks");
 				this.itemCount_ = 3;
@@ -24098,25 +24144,25 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.setMutator(new $.MutatorIcon$$module$build$src$core$icons$mutator_icon(["lists_create_with_item"], this));
 				this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_TOOLTIP);
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("items", String(this.itemCount_));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				a = a.getAttribute("items");
 				if (!a) throw new TypeError("element did not have items");
 				this.itemCount_ = parseInt(a, 10);
 				this.updateShape_();
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return { itemCount: this.itemCount_ };
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.itemCount_ = a.itemCount;
 				this.updateShape_();
 			},
-			decompose: function(a) {
+			decompose: function (a) {
 				const b = a.newBlock("lists_create_with_container");
 				b.initSvg();
 				let c = b.getInput("STACK").connection;
@@ -24129,7 +24175,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				return b;
 			},
-			compose: function(a) {
+			compose: function (a) {
 				var b = a.getInputTargetBlock("STACK");
 				for (a = []; b;) b.isInsertionMarker() || a.push(b.valueConnection_), b = b.getNextBlock();
 				for (b = 0; b < this.itemCount_; b++) {
@@ -24143,7 +24189,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					(c = a[b]) == null || c.reconnect(this, "ADD" + b);
 				}
 			},
-			saveConnections: function(a) {
+			saveConnections: function (a) {
 				a = a.getInputTargetBlock("STACK");
 				let b = 0;
 				for (; a;) {
@@ -24158,7 +24204,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					b++;
 				}
 			},
-			updateShape_: function() {
+			updateShape_: function () {
 				this.itemCount_ && this.getInput("EMPTY") ? this.removeInput("EMPTY") : this.itemCount_ || this.getInput("EMPTY") || this.appendDummyInput("EMPTY").appendField($.Msg$$module$build$src$core$msg.LISTS_CREATE_EMPTY_TITLE);
 				for (var a = 0; a < this.itemCount_; a++) if (!this.getInput("ADD" + a)) {
 					const b = this.appendValueInput("ADD" + a).setAlign($.Align$$module$build$src$core$inputs$align.RIGHT);
@@ -24167,38 +24213,44 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				for (a = this.itemCount_; this.getInput("ADD" + a); a++) this.removeInput("ADD" + a);
 			}
 		};
-		blocks$$module$build$src$blocks$lists.lists_create_with_container = { init: function() {
-			this.setStyle("list_blocks");
-			this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_CONTAINER_TITLE_ADD);
-			this.appendStatementInput("STACK");
-			this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_CONTAINER_TOOLTIP);
-			this.contextMenu = !1;
-		} };
-		blocks$$module$build$src$blocks$lists.lists_create_with_item = { init: function() {
-			this.setStyle("list_blocks");
-			this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_ITEM_TITLE);
-			this.setPreviousStatement(!0);
-			this.setNextStatement(!0);
-			this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_ITEM_TOOLTIP);
-			this.contextMenu = !1;
-		} };
-		blocks$$module$build$src$blocks$lists.lists_indexOf = { init: function() {
-			var a = [[$.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_FIRST, "FIRST"], [$.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_LAST, "LAST"]];
-			this.setHelpUrl($.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_HELPURL);
-			this.setStyle("list_blocks");
-			this.setOutput(!0, "Number");
-			this.appendValueInput("VALUE").setCheck("Array").appendField($.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_INPUT_IN_LIST);
-			a = $.fromJson$$module$build$src$core$field_registry({
-				type: "field_dropdown",
-				options: a
-			});
-			if (!a) throw Error("field_dropdown not found");
-			this.appendValueInput("FIND").appendField(a, "END");
-			this.setInputsInline(!0);
-			this.setTooltip(() => $.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_TOOLTIP.replace("%1", this.workspace.options.oneBasedIndex ? "0" : "-1"));
-		} };
+		blocks$$module$build$src$blocks$lists.lists_create_with_container = {
+			init: function () {
+				this.setStyle("list_blocks");
+				this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_CONTAINER_TITLE_ADD);
+				this.appendStatementInput("STACK");
+				this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_CONTAINER_TOOLTIP);
+				this.contextMenu = !1;
+			}
+		};
+		blocks$$module$build$src$blocks$lists.lists_create_with_item = {
+			init: function () {
+				this.setStyle("list_blocks");
+				this.appendDummyInput().appendField($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_ITEM_TITLE);
+				this.setPreviousStatement(!0);
+				this.setNextStatement(!0);
+				this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_CREATE_WITH_ITEM_TOOLTIP);
+				this.contextMenu = !1;
+			}
+		};
+		blocks$$module$build$src$blocks$lists.lists_indexOf = {
+			init: function () {
+				var a = [[$.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_FIRST, "FIRST"], [$.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_LAST, "LAST"]];
+				this.setHelpUrl($.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_HELPURL);
+				this.setStyle("list_blocks");
+				this.setOutput(!0, "Number");
+				this.appendValueInput("VALUE").setCheck("Array").appendField($.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_INPUT_IN_LIST);
+				a = $.fromJson$$module$build$src$core$field_registry({
+					type: "field_dropdown",
+					options: a
+				});
+				if (!a) throw Error("field_dropdown not found");
+				this.appendValueInput("FIND").appendField(a, "END");
+				this.setInputsInline(!0);
+				this.setTooltip(() => $.Msg$$module$build$src$core$msg.LISTS_INDEX_OF_TOOLTIP.replace("%1", this.workspace.options.oneBasedIndex ? "0" : "-1"));
+			}
+		};
 		blocks$$module$build$src$blocks$lists.lists_getIndex = {
-			init: function() {
+			init: function () {
 				var a = [
 					[$.Msg$$module$build$src$core$msg.LISTS_GET_INDEX_GET, "GET"],
 					[$.Msg$$module$build$src$core$msg.LISTS_GET_INDEX_GET_REMOVE, "GET_REMOVE"],
@@ -24217,7 +24269,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					type: "field_dropdown",
 					options: a
 				});
-				a.setValidator(function(b) {
+				a.setValidator(function (b) {
 					b = b === "REMOVE";
 					this.getSourceBlock().updateStatement_(b);
 				});
@@ -24227,7 +24279,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					type: "field_dropdown",
 					options: this.WHERE_OPTIONS
 				});
-				a.setValidator(function(b) {
+				a.setValidator(function (b) {
 					const c = this.getValue();
 					b = b === "FROM_START" || b === "FROM_END";
 					b !== (c === "FROM_START" || c === "FROM_END") && this.getSourceBlock().updateAt_(b);
@@ -24284,29 +24336,29 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					return d;
 				});
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("statement", String(!this.outputConnection));
 				const b = this.getInput("AT") instanceof $.ValueInput$$module$build$src$core$inputs$value_input;
 				a.setAttribute("at", String(b));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				const b = a.getAttribute("statement") === "true";
 				this.updateStatement_(b);
 				a = a.getAttribute("at") !== "false";
 				this.updateAt_(a);
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return this.outputConnection ? null : { isStatement: !0 };
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				a.isStatement ? this.updateStatement_(!0) : typeof a === "string" && this.domToMutation($.textToDom$$module$build$src$core$utils$xml(a));
 			},
-			updateStatement_: function(a) {
+			updateStatement_: function (a) {
 				a !== !this.outputConnection && (this.unplug(!0, !0), a ? (this.setOutput(!1), this.setPreviousStatement(!0), this.setNextStatement(!0)) : (this.setPreviousStatement(!1), this.setNextStatement(!1), this.setOutput(!0)));
 			},
-			updateAt_: function(a) {
+			updateAt_: function (a) {
 				this.removeInput("AT");
 				this.removeInput("ORDINAL", !0);
 				a ? (this.appendValueInput("AT").setCheck("Number"), $.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX && this.appendDummyInput("ORDINAL").appendField($.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX)) : this.appendDummyInput("AT");
@@ -24314,7 +24366,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		blocks$$module$build$src$blocks$lists.lists_setIndex = {
-			init: function() {
+			init: function () {
 				var a = [[$.Msg$$module$build$src$core$msg.LISTS_SET_INDEX_SET, "SET"], [$.Msg$$module$build$src$core$msg.LISTS_SET_INDEX_INSERT, "INSERT"]];
 				this.WHERE_OPTIONS = [
 					[$.Msg$$module$build$src$core$msg.LISTS_GET_INDEX_FROM_START, "FROM_START"],
@@ -24335,7 +24387,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					type: "field_dropdown",
 					options: this.WHERE_OPTIONS
 				});
-				a.setValidator(function(b) {
+				a.setValidator(function (b) {
 					const c = this.getValue();
 					b = b === "FROM_START" || b === "FROM_END";
 					b !== (c === "FROM_START" || c === "FROM_END") && this.getSourceBlock().updateAt_(b);
@@ -24381,20 +24433,20 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					return d;
 				});
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation"), b = this.getInput("AT") instanceof $.ValueInput$$module$build$src$core$inputs$value_input;
 				a.setAttribute("at", String(b));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				a = a.getAttribute("at") !== "false";
 				this.updateAt_(a);
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return null;
 			},
-			loadExtraState: function() {},
-			updateAt_: function(a) {
+			loadExtraState: function () { },
+			updateAt_: function (a) {
 				this.removeInput("AT");
 				this.removeInput("ORDINAL", !0);
 				a ? (this.appendValueInput("AT").setCheck("Number"), $.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX && this.appendDummyInput("ORDINAL").appendField($.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX)) : this.appendDummyInput("AT");
@@ -24403,7 +24455,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 			}
 		};
 		blocks$$module$build$src$blocks$lists.lists_getSublist = {
-			init: function() {
+			init: function () {
 				this.WHERE_OPTIONS_1 = [
 					[$.Msg$$module$build$src$core$msg.LISTS_GET_SUBLIST_START_FROM_START, "FROM_START"],
 					[$.Msg$$module$build$src$core$msg.LISTS_GET_SUBLIST_START_FROM_END, "FROM_END"],
@@ -24422,7 +24474,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 						type: "field_dropdown",
 						options: this["WHERE_OPTIONS_" + b]
 					});
-					c.setValidator(function(d) {
+					c.setValidator(function (d) {
 						const e = this.getValue();
 						d = d === "FROM_START" || d === "FROM_END";
 						d !== (e === "FROM_START" || e === "FROM_END") && this.getSourceBlock().updateAt_(b, d);
@@ -24440,7 +24492,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				this.updateAt_(2, !0);
 				this.setTooltip($.Msg$$module$build$src$core$msg.LISTS_GET_SUBLIST_TOOLTIP);
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				var b = this.getInput("AT1") instanceof $.ValueInput$$module$build$src$core$inputs$value_input;
 				a.setAttribute("at1", String(b));
@@ -24448,17 +24500,17 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				a.setAttribute("at2", String(b));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				const b = a.getAttribute("at1") === "true";
 				a = a.getAttribute("at2") === "true";
 				this.updateAt_(1, b);
 				this.updateAt_(2, a);
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return null;
 			},
-			loadExtraState: function() {},
-			updateAt_: function(a, b) {
+			loadExtraState: function () { },
+			updateAt_: function (a, b) {
 				this.removeInput("AT" + a);
 				this.removeInput("ORDINAL" + a, !0);
 				b ? (this.appendValueInput("AT" + a).setCheck("Number"), $.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX && this.appendDummyInput("ORDINAL" + a).appendField($.Msg$$module$build$src$core$msg.ORDINAL_NUMBER_SUFFIX)) : this.appendDummyInput("AT" + a);
@@ -24466,38 +24518,40 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				$.Msg$$module$build$src$core$msg.LISTS_GET_SUBLIST_TAIL && this.moveInputBefore("TAIL", null);
 			}
 		};
-		blocks$$module$build$src$blocks$lists.lists_sort = { init: function() {
-			this.jsonInit({
-				message0: "%{BKY_LISTS_SORT_TITLE}",
-				args0: [
-					{
-						type: "field_dropdown",
-						name: "TYPE",
-						options: [
-							["%{BKY_LISTS_SORT_TYPE_NUMERIC}", "NUMERIC"],
-							["%{BKY_LISTS_SORT_TYPE_TEXT}", "TEXT"],
-							["%{BKY_LISTS_SORT_TYPE_IGNORECASE}", "IGNORE_CASE"]
-						]
-					},
-					{
-						type: "field_dropdown",
-						name: "DIRECTION",
-						options: [["%{BKY_LISTS_SORT_ORDER_ASCENDING}", "1"], ["%{BKY_LISTS_SORT_ORDER_DESCENDING}", "-1"]]
-					},
-					{
-						type: "input_value",
-						name: "LIST",
-						check: "Array"
-					}
-				],
-				output: "Array",
-				style: "list_blocks",
-				tooltip: "%{BKY_LISTS_SORT_TOOLTIP}",
-				helpUrl: "%{BKY_LISTS_SORT_HELPURL}"
-			});
-		} };
+		blocks$$module$build$src$blocks$lists.lists_sort = {
+			init: function () {
+				this.jsonInit({
+					message0: "%{BKY_LISTS_SORT_TITLE}",
+					args0: [
+						{
+							type: "field_dropdown",
+							name: "TYPE",
+							options: [
+								["%{BKY_LISTS_SORT_TYPE_NUMERIC}", "NUMERIC"],
+								["%{BKY_LISTS_SORT_TYPE_TEXT}", "TEXT"],
+								["%{BKY_LISTS_SORT_TYPE_IGNORECASE}", "IGNORE_CASE"]
+							]
+						},
+						{
+							type: "field_dropdown",
+							name: "DIRECTION",
+							options: [["%{BKY_LISTS_SORT_ORDER_ASCENDING}", "1"], ["%{BKY_LISTS_SORT_ORDER_DESCENDING}", "-1"]]
+						},
+						{
+							type: "input_value",
+							name: "LIST",
+							check: "Array"
+						}
+					],
+					output: "Array",
+					style: "list_blocks",
+					tooltip: "%{BKY_LISTS_SORT_TOOLTIP}",
+					helpUrl: "%{BKY_LISTS_SORT_HELPURL}"
+				});
+			}
+		};
 		blocks$$module$build$src$blocks$lists.lists_split = {
-			init: function() {
+			init: function () {
 				const a = $.fromJson$$module$build$src$core$field_registry({
 					type: "field_dropdown",
 					options: [[$.Msg$$module$build$src$core$msg.LISTS_SPLIT_LIST_FROM_TEXT, "SPLIT"], [$.Msg$$module$build$src$core$msg.LISTS_SPLIT_TEXT_FROM_LIST, "JOIN"]]
@@ -24519,7 +24573,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 					throw Error("Unknown mode: " + b);
 				});
 			},
-			updateType_: function(a) {
+			updateType_: function (a) {
 				if (this.getFieldValue("MODE") !== a) {
 					const b = this.getInput("INPUT").connection;
 					b.setShadowDom(null);
@@ -24528,18 +24582,18 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 				}
 				a === "SPLIT" ? (this.outputConnection.setCheck("Array"), this.getInput("INPUT").setCheck("String")) : (this.outputConnection.setCheck("String"), this.getInput("INPUT").setCheck("Array"));
 			},
-			mutationToDom: function() {
+			mutationToDom: function () {
 				const a = $.createElement$$module$build$src$core$utils$xml("mutation");
 				a.setAttribute("mode", this.getFieldValue("MODE"));
 				return a;
 			},
-			domToMutation: function(a) {
+			domToMutation: function (a) {
 				this.updateType_(a.getAttribute("mode"));
 			},
-			saveExtraState: function() {
+			saveExtraState: function () {
 				return { mode: this.getFieldValue("MODE") };
 			},
-			loadExtraState: function(a) {
+			loadExtraState: function (a) {
 				this.updateType_(a.mode);
 			}
 		};
@@ -24561,7 +24615,7 @@ var require_blocks_compressed = /* @__PURE__ */ __commonJSMin(((exports, module)
 	});
 }));
 var { Block, BlockFlyoutInflater, BlockNavigationPolicy, BlockSvg, Blocks, ButtonFlyoutInflater, COLLAPSED_FIELD_NAME, COLLAPSED_INPUT_NAME, COLLAPSE_CHARS, CodeGenerator, CollapsibleToolboxCategory, ComponentManager, Connection, ConnectionChecker, ConnectionDB, ConnectionNavigationPolicy, ConnectionType, ContextMenu, ContextMenuItems, ContextMenuRegistry, Css, DELETE_VARIABLE_ID, DeleteArea, DragTarget, DropDownDiv, Events, Extensions, Field, FieldCheckbox, FieldDropdown, FieldImage, FieldLabel, FieldLabelSerializable, FieldNavigationPolicy, FieldNumber, FieldTextInput, FieldVariable, Flyout, FlyoutButton, FlyoutButtonNavigationPolicy, FlyoutItem, FlyoutMetricsManager, FlyoutNavigationPolicy, FlyoutNavigator, FlyoutSeparator, FlyoutSeparatorNavigationPolicy, FocusManager, FocusableTreeTraverser, Generator, Gesture, Grid, HorizontalFlyout, INPUT_VALUE, Input, InsertionMarkerPreviewer, KeyboardNavigationController, LabelFlyoutInflater, LineCursor, Marker, MarkerManager, Menu, MenuItem, MetricsManager, Msg, NEXT_STATEMENT, Names, Navigator, OPPOSITE_TYPE, OUTPUT_VALUE, Options, PREVIOUS_STATEMENT, PROCEDURE_CATEGORY_NAME, Procedures, RENAME_VARIABLE_ID, RenderedConnection, Scrollbar, ScrollbarPair, SeparatorFlyoutInflater, ShortcutItems, ShortcutRegistry, TOOLBOX_AT_BOTTOM, TOOLBOX_AT_LEFT, TOOLBOX_AT_RIGHT, TOOLBOX_AT_TOP, Theme, ThemeManager, Themes, Toast, Toolbox, ToolboxCategory, ToolboxItem, ToolboxSeparator, Tooltip, Touch, Trashcan, UnattachedFieldError, VARIABLE_CATEGORY_NAME, VARIABLE_DYNAMIC_CATEGORY_NAME, VERSION, VariableMap, VariableModel, Variables, VariablesDynamic, VerticalFlyout, WidgetDiv, Workspace, WorkspaceAudio, WorkspaceDragger, WorkspaceNavigationPolicy, WorkspaceSvg, Xml, ZoomControls, blockAnimations, blockRendering, browserEvents, bubbles, bumpObjects, clipboard, comments, common, config, constants, defineBlocksWithJsonArray, dialog, dragging, fieldRegistry, geras, getFocusManager, getMainWorkspace, getSelected, hasBubble, hideChaff, icons, inject, inputs, isCopyable, isDeletable, isDraggable, isIcon, isObservable, isPaster, isRenderedElement, isSelectable, isSerializable, isVariableBackedParameterModel, keyboardNavigationController, layers, navigateBlock, navigateStacks, procedures, registry, renderManagement, serialization, setLocale, setParentContainer, svgResize, thrasos, uiPosition, utils, zelos } = (/* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function(root, factory) {
+	(function (root, factory) {
 		if (typeof define === "function" && define.amd) define([
 			"blockly/core",
 			"blockly/msg/en",
@@ -24569,7 +24623,7 @@ var { Block, BlockFlyoutInflater, BlockNavigationPolicy, BlockSvg, Blocks, Butto
 		], factory);
 		else if (typeof exports === "object") module.exports = factory(require_blockly_compressed(), require_en(), require_blocks_compressed());
 		else root.Blockly = factory(root.Blockly, root.Blockly.Msg, root.Blockly.Blocks);
-	})(exports, function(Blockly, en, blocks) {
+	})(exports, function (Blockly, en, blocks) {
 		/**
 		* @license
 		* Copyright 2019 Google LLC
@@ -24646,40 +24700,42 @@ function defineBlocks() {
 			"tooltip": "Define a block of commands"
 		}
 	]);
-	Blocks.routine_call = { init: function() {
-		const dropdownOptions = () => {
-			const workspace = getMainWorkspace();
-			if (!workspace) return [["", ""]];
-			const routineBlocks = workspace.getBlocksByType("routine_def");
-			if (routineBlocks.length === 0) return [["<No Routines Defined>", "NONE"]];
-			return routineBlocks.map((block) => {
-				const name = String(block.getFieldValue("ROUTINE_NAME") || "UnnamedRoutine");
-				return [name, name];
-			});
-		};
-		this.appendDummyInput().appendField("Run routine:").appendField(new FieldDropdown(dropdownOptions), "ROUTINE_NAME");
-		this.setPreviousStatement(true, null);
-		this.setNextStatement(true, null);
-		this.setColour(290);
-	} };
+	Blocks.routine_call = {
+		init: function () {
+			const dropdownOptions = () => {
+				const workspace = getMainWorkspace();
+				if (!workspace) return [["", ""]];
+				const routineBlocks = workspace.getBlocksByType("routine_def");
+				if (routineBlocks.length === 0) return [["<No Routines Defined>", "NONE"]];
+				return routineBlocks.map((block) => {
+					const name = String(block.getFieldValue("ROUTINE_NAME") || "UnnamedRoutine");
+					return [name, name];
+				});
+			};
+			this.appendDummyInput().appendField("Run routine:").appendField(new FieldDropdown(dropdownOptions), "ROUTINE_NAME");
+			this.setPreviousStatement(true, null);
+			this.setNextStatement(true, null);
+			this.setColour(290);
+		}
+	};
 }
 var { JavascriptGenerator, Order, javascriptGenerator } = (/* @__PURE__ */ __toESM((/* @__PURE__ */ __commonJSMin(((exports, module) => {
-	(function(root, factory) {
+	(function (root, factory) {
 		if (typeof define === "function" && define.amd) define(["./blockly_compressed.js"], factory);
 		else if (typeof exports === "object") module.exports = factory(require_blockly_compressed());
 		else {
 			root.javascript = factory(root.Blockly);
 			root.Blockly.JavaScript = root.javascript.javascriptGenerator;
 		}
-	})(exports, function(__parent__) {
+	})(exports, function (__parent__) {
 		var $ = __parent__.__namespace__;
-		var lists_create_empty$$module$build$src$generators$javascript$lists = function(a, b) {
+		var lists_create_empty$$module$build$src$generators$javascript$lists = function (a, b) {
 			return ["[]", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, lists_create_with$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_create_with$$module$build$src$generators$javascript$lists = function (a, b) {
 			const c = Array(a.itemCount_);
 			for (let d = 0; d < a.itemCount_; d++) c[d] = b.valueToCode(a, "ADD" + d, Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "null";
 			return ["[" + c.join(", ") + "]", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, lists_repeat$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_repeat$$module$build$src$generators$javascript$lists = function (a, b) {
 			const c = b.provideFunction_("listsRepeat", `
 function ${b.FUNCTION_NAME_PLACEHOLDER_}(value, n) {
   var array = [];
@@ -24691,15 +24747,15 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(value, n) {
 `), d = b.valueToCode(a, "ITEM", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "null";
 			a = b.valueToCode(a, "NUM", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0";
 			return [c + "(" + d + ", " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, lists_length$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_length$$module$build$src$generators$javascript$lists = function (a, b) {
 			return [(b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "[]") + ".length", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER];
-		}, lists_isEmpty$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_isEmpty$$module$build$src$generators$javascript$lists = function (a, b) {
 			return ["!" + (b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "[]") + ".length", Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_NOT];
-		}, lists_indexOf$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_indexOf$$module$build$src$generators$javascript$lists = function (a, b) {
 			const c = a.getFieldValue("END") === "FIRST" ? "indexOf" : "lastIndexOf", d = b.valueToCode(a, "FIND", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			b = (b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "[]") + "." + c + "(" + d + ")";
 			return a.workspace.options.oneBasedIndex ? [b + " + 1", Order$$module$build$src$generators$javascript$javascript_generator.ADDITION] : [b, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, lists_getIndex$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_getIndex$$module$build$src$generators$javascript$lists = function (a, b) {
 			const c = a.getFieldValue("MODE") || "GET", d = a.getFieldValue("WHERE") || "FROM_START";
 			var e = b.valueToCode(a, "VALUE", d === "RANDOM" ? Order$$module$build$src$generators$javascript$javascript_generator.NONE : Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "[]";
 			switch (d) {
@@ -24740,7 +24796,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(list, remove) {
 					if (c === "REMOVE") return e + ";\n";
 			}
 			throw Error("Unhandled combination (lists_getIndex).");
-		}, lists_setIndex$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_setIndex$$module$build$src$generators$javascript$lists = function (a, b) {
 			function c() {
 				if (d.match(/^\w+$/)) return "";
 				const h = b.nameDB_.getDistinctName("tmpList", $.NameType$$module$build$src$core$names.VARIABLE), k = "var " + h + " = " + d + ";\n";
@@ -24779,7 +24835,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(list, remove) {
 					if (e === "INSERT") return a + (d + ".splice(" + f + ", 0, " + g + ");\n");
 			}
 			throw Error("Unhandled combination (lists_setIndex).");
-		}, lists_getSublist$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_getSublist$$module$build$src$generators$javascript$lists = function (a, b) {
 			var c = {
 				FIRST: "First",
 				LAST: "Last",
@@ -24828,7 +24884,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(sequence${e === "FROM_END" || e === "FR
 `) + "(" + d + (e === "FROM_END" || e === "FROM_START" ? ", " + g : "") + (f === "FROM_END" || f === "FROM_START" ? ", " + a : "") + ")";
 			}
 			return [d, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, lists_sort$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_sort$$module$build$src$generators$javascript$lists = function (a, b) {
 			const c = b.valueToCode(a, "LIST", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL) || "[]", d = a.getFieldValue("DIRECTION") === "1" ? 1 : -1;
 			a = a.getFieldValue("TYPE");
 			b = b.provideFunction_("listsGetSortCompare", `
@@ -24846,7 +24902,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 }
       `);
 			return [c + ".slice().sort(" + b + "(\"" + a + "\", " + d + "))", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, lists_split$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_split$$module$build$src$generators$javascript$lists = function (a, b) {
 			let c = b.valueToCode(a, "INPUT", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER);
 			b = b.valueToCode(a, "DELIM", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			a = a.getFieldValue("MODE");
@@ -24854,9 +24910,9 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			else if (a === "JOIN") c || (c = "[]"), a = "join";
 			else throw Error("Unknown mode: " + a);
 			return [c + "." + a + "(" + b + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, lists_reverse$$module$build$src$generators$javascript$lists = function(a, b) {
+		}, lists_reverse$$module$build$src$generators$javascript$lists = function (a, b) {
 			return [(b.valueToCode(a, "LIST", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL) || "[]") + ".slice().reverse()", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, controls_if$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, controls_if$$module$build$src$generators$javascript$logic = function (a, b) {
 			var c = 0;
 			let d = "";
 			b.STATEMENT_PREFIX && (d += b.injectId(b.STATEMENT_PREFIX, a));
@@ -24869,7 +24925,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			} while (a.getInput("IF" + c));
 			if (a.getInput("ELSE") || b.STATEMENT_SUFFIX) c = a.getInput("ELSE") ? b.statementToCode(a, "ELSE") : "", b.STATEMENT_SUFFIX && (c = b.prefixLines(b.injectId(b.STATEMENT_SUFFIX, a), b.INDENT) + c), d += " else {\n" + c + "}";
 			return d + "\n";
-		}, logic_compare$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_compare$$module$build$src$generators$javascript$logic = function (a, b) {
 			const c = {
 				EQ: "==",
 				NEQ: "!=",
@@ -24880,24 +24936,24 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			}[a.getFieldValue("OP")], d = c === "==" || c === "!=" ? Order$$module$build$src$generators$javascript$javascript_generator.EQUALITY : Order$$module$build$src$generators$javascript$javascript_generator.RELATIONAL, e = b.valueToCode(a, "A", d) || "0";
 			a = b.valueToCode(a, "B", d) || "0";
 			return [e + " " + c + " " + a, d];
-		}, logic_operation$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_operation$$module$build$src$generators$javascript$logic = function (a, b) {
 			const c = a.getFieldValue("OP") === "AND" ? "&&" : "||", d = c === "&&" ? Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_AND : Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_OR;
 			let e = b.valueToCode(a, "A", d);
 			a = b.valueToCode(a, "B", d);
 			e || a ? (b = c === "&&" ? "true" : "false", e || (e = b), a || (a = b)) : a = e = "false";
 			return [e + " " + c + " " + a, d];
-		}, logic_negate$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_negate$$module$build$src$generators$javascript$logic = function (a, b) {
 			const c = Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_NOT;
 			return ["!" + (b.valueToCode(a, "BOOL", c) || "true"), c];
-		}, logic_boolean$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_boolean$$module$build$src$generators$javascript$logic = function (a, b) {
 			return [a.getFieldValue("BOOL") === "TRUE" ? "true" : "false", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, logic_null$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_null$$module$build$src$generators$javascript$logic = function (a, b) {
 			return ["null", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, logic_ternary$$module$build$src$generators$javascript$logic = function(a, b) {
+		}, logic_ternary$$module$build$src$generators$javascript$logic = function (a, b) {
 			const c = b.valueToCode(a, "IF", Order$$module$build$src$generators$javascript$javascript_generator.CONDITIONAL) || "false", d = b.valueToCode(a, "THEN", Order$$module$build$src$generators$javascript$javascript_generator.CONDITIONAL) || "null";
 			a = b.valueToCode(a, "ELSE", Order$$module$build$src$generators$javascript$javascript_generator.CONDITIONAL) || "null";
 			return [c + " ? " + d + " : " + a, Order$$module$build$src$generators$javascript$javascript_generator.CONDITIONAL];
-		}, controls_repeat_ext$$module$build$src$generators$javascript$loops = function(a, b) {
+		}, controls_repeat_ext$$module$build$src$generators$javascript$loops = function (a, b) {
 			let c;
 			c = a.getField("TIMES") ? String(Number(a.getFieldValue("TIMES"))) : b.valueToCode(a, "TIMES", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "0";
 			let d = b.statementToCode(a, "DO");
@@ -24907,13 +24963,13 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			let f = c;
 			c.match(/^\w+$/) || $.isNumber$$module$build$src$core$utils$string(c) || (f = b.nameDB_.getDistinctName("repeat_end", $.NameType$$module$build$src$core$names.VARIABLE), a += "var " + f + " = " + c + ";\n");
 			return a + ("for (var " + e + " = 0; " + e + " < " + f + "; " + e + "++) {\n" + d + "}\n");
-		}, controls_whileUntil$$module$build$src$generators$javascript$loops = function(a, b) {
+		}, controls_whileUntil$$module$build$src$generators$javascript$loops = function (a, b) {
 			const c = a.getFieldValue("MODE") === "UNTIL";
 			let d = b.valueToCode(a, "BOOL", c ? Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_NOT : Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "false", e = b.statementToCode(a, "DO");
 			e = b.addLoopTrap(e, a);
 			c && (d = "!" + d);
 			return "while (" + d + ") {\n" + e + "}\n";
-		}, controls_for$$module$build$src$generators$javascript$loops = function(a, b) {
+		}, controls_for$$module$build$src$generators$javascript$loops = function (a, b) {
 			var c = b.getVariableName(a.getFieldValue("VAR")), d = b.valueToCode(a, "FROM", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "0", e = b.valueToCode(a, "TO", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "0";
 			const f = b.valueToCode(a, "BY", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "1";
 			let g = b.statementToCode(a, "DO");
@@ -24933,7 +24989,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 				a = a + "}\nfor (" + (c + " = " + h + "; " + e + " >= 0 ? " + c + " <= " + d + " : " + c + " >= " + d + "; " + c + " += " + e + ") {\n" + g + "}\n");
 			}
 			return a;
-		}, controls_forEach$$module$build$src$generators$javascript$loops = function(a, b) {
+		}, controls_forEach$$module$build$src$generators$javascript$loops = function (a, b) {
 			const c = b.getVariableName(a.getFieldValue("VAR"));
 			var d = b.valueToCode(a, "LIST", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "[]";
 			let e = b.statementToCode(a, "DO");
@@ -24944,7 +25000,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			d = b.nameDB_.getDistinctName(c + "_index", $.NameType$$module$build$src$core$names.VARIABLE);
 			e = b.INDENT + c + " = " + f + "[" + d + "];\n" + e;
 			return a + ("for (var " + d + " in " + f + ") {\n" + e + "}\n");
-		}, controls_flow_statements$$module$build$src$generators$javascript$loops = function(a, b) {
+		}, controls_flow_statements$$module$build$src$generators$javascript$loops = function (a, b) {
 			let c = "";
 			b.STATEMENT_PREFIX && (c += b.injectId(b.STATEMENT_PREFIX, a));
 			b.STATEMENT_SUFFIX && (c += b.injectId(b.STATEMENT_SUFFIX, a));
@@ -24957,10 +25013,10 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 				case "CONTINUE": return c + "continue;\n";
 			}
 			throw Error("Unknown flow statement.");
-		}, math_number$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_number$$module$build$src$generators$javascript$math = function (a, b) {
 			a = Number(a.getFieldValue("NUM"));
 			return [String(a), a >= 0 ? Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC : Order$$module$build$src$generators$javascript$javascript_generator.UNARY_NEGATION];
-		}, math_arithmetic$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_arithmetic$$module$build$src$generators$javascript$math = function (a, b) {
 			var c = {
 				ADD: [" + ", Order$$module$build$src$generators$javascript$javascript_generator.ADDITION],
 				MINUS: [" - ", Order$$module$build$src$generators$javascript$javascript_generator.SUBTRACTION],
@@ -24973,7 +25029,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 			const e = b.valueToCode(a, "A", c) || "0";
 			a = b.valueToCode(a, "B", c) || "0";
 			return d ? [e + d + a, c] : ["Math.pow(" + e + ", " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, math_single$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_single$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = a.getFieldValue("OP");
 			let d;
 			if (c === "NEG") return a = b.valueToCode(a, "NUM", Order$$module$build$src$generators$javascript$javascript_generator.UNARY_NEGATION) || "0", a[0] === "-" && (a = " " + a), ["-" + a, Order$$module$build$src$generators$javascript$javascript_generator.UNARY_NEGATION];
@@ -25028,7 +25084,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 				default: throw Error("Unknown math operator: " + c);
 			}
 			return [d, Order$$module$build$src$generators$javascript$javascript_generator.DIVISION];
-		}, math_constant$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_constant$$module$build$src$generators$javascript$math = function (a, b) {
 			return {
 				PI: ["Math.PI", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER],
 				E: ["Math.E", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER],
@@ -25037,7 +25093,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(type, direction) {
 				SQRT1_2: ["Math.SQRT1_2", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER],
 				INFINITY: ["Infinity", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC]
 			}[a.getFieldValue("CONSTANT")];
-		}, math_number_property$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_number_property$$module$build$src$generators$javascript$math = function (a, b) {
 			var c = {
 				EVEN: [
 					" % 2 === 0",
@@ -25098,11 +25154,11 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(n) {
 }
 `) + "(" + c + ")" : d === "DIVISIBLE_BY" ? (a = b.valueToCode(a, "DIVISOR", Order$$module$build$src$generators$javascript$javascript_generator.MODULUS) || "0", a = c + " % " + a + " === 0") : a = c + e;
 			return [a, g];
-		}, math_change$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_change$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = b.valueToCode(a, "DELTA", Order$$module$build$src$generators$javascript$javascript_generator.ADDITION) || "0";
 			a = b.getVariableName(a.getFieldValue("VAR"));
 			return a + " = (typeof " + a + " === 'number' ? " + a + " : 0) + " + c + ";\n";
-		}, math_on_list$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_on_list$$module$build$src$generators$javascript$math = function (a, b) {
 			var c = a.getFieldValue("OP");
 			switch (c) {
 				case "SUM":
@@ -25206,15 +25262,15 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(list) {
 				default: throw Error("Unknown operator: " + c);
 			}
 			return [a, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, math_modulo$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_modulo$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = b.valueToCode(a, "DIVIDEND", Order$$module$build$src$generators$javascript$javascript_generator.MODULUS) || "0";
 			a = b.valueToCode(a, "DIVISOR", Order$$module$build$src$generators$javascript$javascript_generator.MODULUS) || "0";
 			return [c + " % " + a, Order$$module$build$src$generators$javascript$javascript_generator.MODULUS];
-		}, math_constrain$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_constrain$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0", d = b.valueToCode(a, "LOW", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0";
 			a = b.valueToCode(a, "HIGH", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "Infinity";
 			return ["Math.min(Math.max(" + c + ", " + d + "), " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, math_random_int$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_random_int$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = b.valueToCode(a, "FROM", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0";
 			a = b.valueToCode(a, "TO", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0";
 			return [b.provideFunction_("mathRandomInt", `
@@ -25228,12 +25284,12 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(a, b) {
   return Math.floor(Math.random() * (b - a + 1) + a);
 }
 `) + "(" + c + ", " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, math_random_float$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_random_float$$module$build$src$generators$javascript$math = function (a, b) {
 			return ["Math.random()", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, math_atan2$$module$build$src$generators$javascript$math = function(a, b) {
+		}, math_atan2$$module$build$src$generators$javascript$math = function (a, b) {
 			const c = b.valueToCode(a, "X", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0";
 			return ["Math.atan2(" + (b.valueToCode(a, "Y", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "0") + ", " + c + ") / Math.PI * 180", Order$$module$build$src$generators$javascript$javascript_generator.DIVISION];
-		}, procedures_defreturn$$module$build$src$generators$javascript$procedures = function(a, b) {
+		}, procedures_defreturn$$module$build$src$generators$javascript$procedures = function (a, b) {
 			const c = b.getProcedureName(a.getFieldValue("NAME"));
 			var d = "";
 			b.STATEMENT_PREFIX && (d += b.injectId(b.STATEMENT_PREFIX, a));
@@ -25254,20 +25310,20 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(a, b) {
 			d = b.scrub_(a, d);
 			b.definitions_["%" + c] = d;
 			return null;
-		}, procedures_callreturn$$module$build$src$generators$javascript$procedures = function(a, b) {
+		}, procedures_callreturn$$module$build$src$generators$javascript$procedures = function (a, b) {
 			const c = b.getProcedureName(a.getFieldValue("NAME")), d = [], e = a.getVars();
 			for (let f = 0; f < e.length; f++) d[f] = b.valueToCode(a, "ARG" + f, Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "null";
 			return [c + "(" + d.join(", ") + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, procedures_callnoreturn$$module$build$src$generators$javascript$procedures = function(a, b) {
+		}, procedures_callnoreturn$$module$build$src$generators$javascript$procedures = function (a, b) {
 			return b.forBlock.procedures_callreturn(a, b)[0] + ";\n";
-		}, procedures_ifreturn$$module$build$src$generators$javascript$procedures = function(a, b) {
+		}, procedures_ifreturn$$module$build$src$generators$javascript$procedures = function (a, b) {
 			let c = "if (" + (b.valueToCode(a, "CONDITION", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "false") + ") {\n";
 			b.STATEMENT_SUFFIX && (c += b.prefixLines(b.injectId(b.STATEMENT_SUFFIX, a), b.INDENT));
 			a.hasReturnValue_ ? (a = b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "null", c += b.INDENT + "return " + a + ";\n") : c += b.INDENT + "return;\n";
 			return c + "}\n";
-		}, text$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text$$module$build$src$generators$javascript$text = function (a, b) {
 			return [b.quote_(a.getFieldValue("TEXT")), Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, text_join$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_join$$module$build$src$generators$javascript$text = function (a, b) {
 			switch (a.itemCount_) {
 				case 0: return ["''", Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
 				case 1: return a = b.valueToCode(a, "ADD0", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''", forceString$$module$build$src$generators$javascript$text(a);
@@ -25280,19 +25336,19 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(a, b) {
 					for (let d = 0; d < a.itemCount_; d++) c[d] = b.valueToCode(a, "ADD" + d, Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 					return ["[" + c.join(",") + "].join('')", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
 			}
-		}, text_append$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_append$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = b.getVariableName(a.getFieldValue("VAR"));
 			a = b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			return c + " += " + forceString$$module$build$src$generators$javascript$text(a)[0] + ";\n";
-		}, text_length$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_length$$module$build$src$generators$javascript$text = function (a, b) {
 			return [(b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''") + ".length", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER];
-		}, text_isEmpty$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_isEmpty$$module$build$src$generators$javascript$text = function (a, b) {
 			return ["!" + (b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''") + ".length", Order$$module$build$src$generators$javascript$javascript_generator.LOGICAL_NOT];
-		}, text_indexOf$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_indexOf$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = a.getFieldValue("END") === "FIRST" ? "indexOf" : "lastIndexOf", d = b.valueToCode(a, "FIND", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			b = (b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''") + "." + c + "(" + d + ")";
 			return a.workspace.options.oneBasedIndex ? [b + " + 1", Order$$module$build$src$generators$javascript$javascript_generator.ADDITION] : [b, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_charAt$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_charAt$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = a.getFieldValue("WHERE") || "FROM_START", d = b.valueToCode(a, "VALUE", c === "RANDOM" ? Order$$module$build$src$generators$javascript$javascript_generator.NONE : Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''";
 			switch (c) {
 				case "FIRST": return [d + ".charAt(0)", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
@@ -25307,7 +25363,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(text) {
 `) + "(" + d + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
 			}
 			throw Error("Unhandled option (text_charAt).");
-		}, text_getSubstring$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_getSubstring$$module$build$src$generators$javascript$text = function (a, b) {
 			var c = {
 				FIRST: "First",
 				LAST: "Last",
@@ -25353,7 +25409,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(sequence${d === "FROM_END" || d === "FR
 }
 `) + "(" + g + (d === "FROM_END" || d === "FROM_START" ? ", " + f : "") + (e === "FROM_END" || e === "FROM_START" ? ", " + a : "") + ")";
 			return [g, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_changeCase$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_changeCase$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = {
 				UPPERCASE: ".toUpperCase()",
 				LOWERCASE: ".toLowerCase()",
@@ -25366,20 +25422,20 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(str) {
       function(txt) {return txt[0].toUpperCase() + txt.substring(1).toLowerCase();});
 }
 `) + "(" + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_trim$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_trim$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = {
 				LEFT: ".replace(/^[\\s\\xa0]+/, '')",
 				RIGHT: ".replace(/[\\s\\xa0]+$/, '')",
 				BOTH: ".trim()"
 			}[a.getFieldValue("MODE")];
 			return [(b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''") + c, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_print$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_print$$module$build$src$generators$javascript$text = function (a, b) {
 			return "window.alert(" + (b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''") + ");\n";
-		}, text_prompt_ext$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_prompt_ext$$module$build$src$generators$javascript$text = function (a, b) {
 			b = "window.prompt(" + (a.getField("TEXT") ? b.quote_(a.getFieldValue("TEXT")) : b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''") + ")";
 			a.getFieldValue("TYPE") === "NUMBER" && (b = "Number(" + b + ")");
 			return [b, Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_count$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_count$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			a = b.valueToCode(a, "SUB", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			return [b.provideFunction_("textCount", `
@@ -25391,7 +25447,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(haystack, needle) {
   }
 }
 `) + "(" + c + ", " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_replace$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_replace$$module$build$src$generators$javascript$text = function (a, b) {
 			const c = b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''", d = b.valueToCode(a, "FROM", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			a = b.valueToCode(a, "TO", Order$$module$build$src$generators$javascript$javascript_generator.NONE) || "''";
 			return [b.provideFunction_("textReplace", `
@@ -25401,15 +25457,15 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(haystack, needle, replacement) {
   return haystack.replace(new RegExp(needle, 'g'), replacement);
 }
 `) + "(" + c + ", " + d + ", " + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, text_reverse$$module$build$src$generators$javascript$text = function(a, b) {
+		}, text_reverse$$module$build$src$generators$javascript$text = function (a, b) {
 			return [(b.valueToCode(a, "TEXT", Order$$module$build$src$generators$javascript$javascript_generator.MEMBER) || "''") + ".split('').reverse().join('')", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, variables_get$$module$build$src$generators$javascript$variables = function(a, b) {
+		}, variables_get$$module$build$src$generators$javascript$variables = function (a, b) {
 			return [b.getVariableName(a.getFieldValue("VAR")), Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC];
-		}, variables_set$$module$build$src$generators$javascript$variables = function(a, b) {
+		}, variables_set$$module$build$src$generators$javascript$variables = function (a, b) {
 			const c = b.valueToCode(a, "VALUE", Order$$module$build$src$generators$javascript$javascript_generator.ASSIGNMENT) || "0";
 			return b.getVariableName(a.getFieldValue("VAR")) + " = " + c + ";\n";
 		}, Order$$module$build$src$generators$javascript$javascript_generator;
-		(function(a) {
+		(function (a) {
 			a[a.ATOMIC = 0] = "ATOMIC";
 			a[a.NEW = 1.1] = "NEW";
 			a[a.MEMBER = 1.2] = "MEMBER";
@@ -25522,7 +25578,7 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(haystack, needle, replacement) {
 		}, module$build$src$generators$javascript$javascript_generator = {};
 		module$build$src$generators$javascript$javascript_generator.JavascriptGenerator = JavascriptGenerator$$module$build$src$generators$javascript$javascript_generator;
 		module$build$src$generators$javascript$javascript_generator.Order = Order$$module$build$src$generators$javascript$javascript_generator;
-		var getSubstringIndex$$module$build$src$generators$javascript$lists = function(a, b, c) {
+		var getSubstringIndex$$module$build$src$generators$javascript$lists = function (a, b, c) {
 			return b === "FIRST" ? "0" : b === "FROM_END" ? a + ".length - 1 - " + c : b === "LAST" ? a + ".length - 1" : c;
 		}, module$build$src$generators$javascript$lists = {};
 		module$build$src$generators$javascript$lists.lists_create_empty = lists_create_empty$$module$build$src$generators$javascript$lists;
@@ -25574,9 +25630,9 @@ function ${b.FUNCTION_NAME_PLACEHOLDER_}(haystack, needle, replacement) {
 		module$build$src$generators$javascript$procedures.procedures_defnoreturn = procedures_defreturn$$module$build$src$generators$javascript$procedures;
 		module$build$src$generators$javascript$procedures.procedures_defreturn = procedures_defreturn$$module$build$src$generators$javascript$procedures;
 		module$build$src$generators$javascript$procedures.procedures_ifreturn = procedures_ifreturn$$module$build$src$generators$javascript$procedures;
-		var strRegExp$$module$build$src$generators$javascript$text = /^\s*'([^']|\\')*'\s*$/, forceString$$module$build$src$generators$javascript$text = function(a) {
+		var strRegExp$$module$build$src$generators$javascript$text = /^\s*'([^']|\\')*'\s*$/, forceString$$module$build$src$generators$javascript$text = function (a) {
 			return strRegExp$$module$build$src$generators$javascript$text.test(a) ? [a, Order$$module$build$src$generators$javascript$javascript_generator.ATOMIC] : ["String(" + a + ")", Order$$module$build$src$generators$javascript$javascript_generator.FUNCTION_CALL];
-		}, getSubstringIndex$$module$build$src$generators$javascript$text = function(a, b, c) {
+		}, getSubstringIndex$$module$build$src$generators$javascript$text = function (a, b, c) {
 			return b === "FIRST" ? "0" : b === "FROM_END" ? a + ".length - 1 - " + c : b === "LAST" ? a + ".length - 1" : c;
 		}, module$build$src$generators$javascript$text = {};
 		module$build$src$generators$javascript$text.text = text$$module$build$src$generators$javascript$text;
@@ -25618,24 +25674,24 @@ turtleGenerator.INDENT = "  ";
 function getNumberInput(generator, block, inputName, fallback) {
 	return generator.valueToCode(block, inputName, Order.NONE) || fallback;
 }
-turtleGenerator.forBlock["turtle_move"] = function(block, generator) {
+turtleGenerator.forBlock["turtle_move"] = function (block, generator) {
 	const direction = block.getFieldValue("DIRECTION");
 	const distance = getNumberInput(generator, block, "DISTANCE", "0");
 	return `turtle.move(${direction === "BACKWARD" ? `-(${distance})` : distance});\n`;
 };
-turtleGenerator.forBlock["turtle_turn"] = function(block, generator) {
+turtleGenerator.forBlock["turtle_turn"] = function (block, generator) {
 	const direction = block.getFieldValue("DIRECTION");
 	const angle = getNumberInput(generator, block, "ANGLE", "90");
 	return `turtle.turn(${direction === "RIGHT" ? angle : `-(${angle})`});\n`;
 };
-turtleGenerator.forBlock["routine_def"] = function(block, generator) {
+turtleGenerator.forBlock["routine_def"] = function (block, generator) {
 	const definitions = generator.definitions_;
 	const routineName = String(block.getFieldValue("ROUTINE_NAME") || "UnnamedRoutine");
 	const body = generator.statementToCode(block, "BODY");
 	definitions[`routine:${routineName}`] = `function ${routineName}() {\n${body}}\n`;
 	return "";
 };
-turtleGenerator.forBlock["routine_call"] = function(block) {
+turtleGenerator.forBlock["routine_call"] = function (block) {
 	const routineName = String(block.getFieldValue("ROUTINE_NAME") || "");
 	if (!routineName || routineName === "NONE") return "";
 	return `${routineName}();\n`;
@@ -25835,69 +25891,88 @@ async function runTurtleProgram(code, simulator) {
 	simulator.reset();
 	new Function("turtle", code)(simulator);
 	await simulator.play();
+	simulator.render();
 }
 //#endregion
 //#region src/main.ts
 defineBlocks();
-var starterWorkspaceState = { blocks: {
-	languageVersion: 0,
-	blocks: [{
-		type: "controls_repeat_ext",
-		x: 40,
-		y: 40,
-		inputs: {
-			TIMES: { block: {
-				type: "math_number",
-				fields: { NUM: 15 }
-			} },
-			DO: { block: {
-				type: "turtle_move",
-				fields: { DIRECTION: "FORWARD" },
-				inputs: { DISTANCE: { block: {
-					type: "math_number",
-					fields: { NUM: 20 }
-				} } },
-				next: { block: {
-					type: "turtle_turn",
-					fields: { DIRECTION: "RIGHT" },
-					inputs: { ANGLE: { block: {
+var starterWorkspaceState = {
+	blocks: {
+		languageVersion: 0,
+		blocks: [{
+			type: "controls_repeat_ext",
+			x: 40,
+			y: 40,
+			inputs: {
+				TIMES: {
+					block: {
 						type: "math_number",
-						fields: { NUM: 48 }
-					} } }
-				} }
-			} }
-		}
-	}]
-} };
-var workspace = inject("blocklyDiv", { toolbox: {
-	kind: "flyoutToolbox",
-	contents: [
-		{
-			kind: "block",
-			type: "turtle_move"
-		},
-		{
-			kind: "block",
-			type: "turtle_turn"
-		},
-		{
-			kind: "block",
-			type: "controls_repeat_ext"
-		},
-		{
-			kind: "block",
-			type: "math_number"
-		},
-		{
-			kind: "block",
-			type: "routine_def"
-		},
-		{
-			kind: "block",
-			type: "routine_call"
-		}
-	]
-} });
+						fields: { NUM: 15 }
+					}
+				},
+				DO: {
+					block: {
+						type: "turtle_move",
+						fields: { DIRECTION: "FORWARD" },
+						inputs: {
+							DISTANCE: {
+								block: {
+									type: "math_number",
+									fields: { NUM: 20 }
+								}
+							}
+						},
+						next: {
+							block: {
+								type: "turtle_turn",
+								fields: { DIRECTION: "RIGHT" },
+								inputs: {
+									ANGLE: {
+										block: {
+											type: "math_number",
+											fields: { NUM: 48 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}]
+	}
+};
+var workspace = inject("blocklyDiv", {
+	toolbox: {
+		kind: "flyoutToolbox",
+		contents: [
+			{
+				kind: "block",
+				type: "turtle_move"
+			},
+			{
+				kind: "block",
+				type: "turtle_turn"
+			},
+			{
+				kind: "block",
+				type: "controls_repeat_ext"
+			},
+			{
+				kind: "block",
+				type: "math_number"
+			},
+			{
+				kind: "block",
+				type: "routine_def"
+			},
+			{
+				kind: "block",
+				type: "routine_call"
+			}
+		]
+	}
+});
 serialization.workspaces.load(starterWorkspaceState, workspace);
 var runBtn = document.getElementById("runBtn");
 var codeOutput = document.getElementById("codeOutput");
@@ -25926,9 +26001,53 @@ if (runBtn instanceof HTMLButtonElement && codeOutput instanceof HTMLElement && 
 		}
 		return code;
 	};
-	runBtn.addEventListener("click", () => {
-		const runtimeCode = codeEditor.getValue().trim() || getGeneratedCode();
-		runTurtleProgram(runtimeCode, simulator);
+	const runBtn = document.getElementById("runBtn");
+	const errorBox = document.getElementById("errorBox");
+
+	// Assuming codeEditor is your CodeMirror instance
+	runBtn.addEventListener("click", async () => {
+		console.log("1. Run button clicked");
+
+		if (errorBox) {
+			errorBox.style.display = "none";
+			errorBox.textContent = "";
+		}
+
+		const userCode = codeEditor.getValue();
+		console.log("2. Code retrieved:", userCode);
+
+		try {
+			// Attempt to reset the canvas before drawing. 
+			// (Change 'reset' to 'clear' or whatever method your TurtleSimulator uses)
+			if (typeof simulator.reset === "function") {
+				simulator.reset();
+				console.log("3. Simulator reset");
+			}
+
+			// Fallback approach: expose simulator to the global scope for the duration of the run
+			window.turtle = simulator;
+
+			// Execute the code
+			const execute = new Function(userCode);
+			console.log("4. Function constructed");
+
+			execute();
+			console.log("5. Execution complete");
+
+			// Play the animation
+			await simulator.play();
+			simulator.render();
+
+		} catch (error) {
+			console.error("Execution error caught:", error);
+			if (errorBox) {
+				errorBox.textContent = error.toString();
+				errorBox.style.display = "block";
+			}
+		} finally {
+			// Clean up the global scope after execution
+			delete window.turtle;
+		}
 	});
 }
 //#endregion
