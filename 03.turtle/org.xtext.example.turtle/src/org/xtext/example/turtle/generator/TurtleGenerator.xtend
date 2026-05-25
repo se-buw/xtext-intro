@@ -40,7 +40,7 @@ class TurtleGenerator extends AbstractGenerator {
 	turtle.move(«m.dir===Direction.BACKWARD?"-":""»«m.dist»);
 	'''
 	dispatch def String generateJS(Turn t) '''
-	turtle.move(«t.side===Side.LEFT?"-":""»«t.deg»);
+	turtle.turn(«t.side===Side.LEFT?"-":""»«t.deg»);
 	'''
 	
 	// Routines and calls
