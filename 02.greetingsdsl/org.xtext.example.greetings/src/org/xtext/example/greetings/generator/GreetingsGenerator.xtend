@@ -23,21 +23,23 @@ class GreetingsGenerator extends AbstractGenerator {
 	}
 	
 	dispatch def String generatePseudoCode(Model m) 
-	'''BEGIN
-	«FOR g : m.elems»
-«generatePseudoCode(g)»
-	«ENDFOR»
-END'''
+		'''
+		BEGIN
+		«FOR g : m.elems»
+			«generatePseudoCode(g)»
+		«ENDFOR»
+		END'''
 		
 	dispatch def String generatePseudoCode(Greeting g) 
-	'''SAY "«g.form.literal» «FOR s: g.subjects»«s.name» «ENDFOR»!"'''
+		'''SAY "«g.form.literal» «FOR s: g.subjects»«s.name» «ENDFOR»!"'''
 	
-		dispatch def String generatePseudoCode(Repetition r) 
-	'''REPEAT «r.times» TIMES
-	BEGIN 
-	«FOR e : r.elems»
-		«generatePseudoCode(e)»
-	«ENDFOR»
-	END'''
+	dispatch def String generatePseudoCode(Repetition r) 
+		'''
+		REPEAT «r.times» TIMES
+			BEGIN 
+			«FOR e : r.elems»
+				«generatePseudoCode(e)»
+			«ENDFOR»
+			END'''
 	
 }
